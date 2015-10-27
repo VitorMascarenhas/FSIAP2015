@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fisiap_project_1516_g03;
+package Dominio;
 
 /**
  *
