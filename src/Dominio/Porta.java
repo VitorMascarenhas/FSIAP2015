@@ -10,5 +10,15 @@ package Dominio;
  * @author 1081320
  */
 public class Porta implements Componente {
-    
+
+    private String tipoMaterial;
+    private Double altura;
+    private Double largura;
+    private Double espessura;
+
+    @Override
+    public double calculaResistenciaTermica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

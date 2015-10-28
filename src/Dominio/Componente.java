@@ -11,4 +11,6 @@ package Dominio;
  */
 interface Componente {
     
+    public double calculaResistenciaTermica();
+    
 }

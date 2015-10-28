@@ -5,10 +5,16 @@
  */
 package Dominio;
 
+import java.util.Map;
+
 /**
  *
  * @author 1081320
  */
 public class Material {
+    
+    private Map<String, Double> tipoMaterial;
+    
+    
     
 }
