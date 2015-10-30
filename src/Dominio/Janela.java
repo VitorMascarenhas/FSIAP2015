@@ -22,8 +22,8 @@ public class Janela implements Componente {
     }
     
     @Override
-    public double calculaArea(double altura, double largura) {
-        return altura*largura;
+    public double calculaArea() {
+        return this.altura*this.largura;
     }
     
 }

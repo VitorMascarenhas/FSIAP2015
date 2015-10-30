@@ -15,6 +15,8 @@ public class Porta implements Componente {
     private Double altura;
     private Double largura;
     private Double espessura;
+    
+    
 
     @Override
     public double calculaResistenciaTermica() {
@@ -22,7 +24,7 @@ public class Porta implements Componente {
     }
     
     @Override
-    public double calculaArea(double altura, double largura) {
-        return altura*largura;
+    public double calculaArea() {
+        return this.altura*this.largura;
     }
 }

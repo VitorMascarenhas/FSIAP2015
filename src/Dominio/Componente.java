@@ -13,5 +13,5 @@ interface Componente {
     
     public double calculaResistenciaTermica();
     
-    public double calculaArea(double altura, double largura);
+    public double calculaArea();
 }
