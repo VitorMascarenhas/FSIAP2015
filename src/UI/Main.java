@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dominio;
+package UI;
 
 /**
  *
  * @author E336170
  */
-public class FISIAP_Project_1516_G03 {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Main {
+    private static Project _gui = null;
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        //teste commit NL
+       _gui = new Project();
     }
-    
 }
