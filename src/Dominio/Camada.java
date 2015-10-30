@@ -16,7 +16,7 @@ public class Camada implements Componente {
     private Double largura;
     private Double espessura;
     
-    public Camada(double altura, double largura, double espessura, double material) {
+    public Camada(double altura, double largura, double espessura, String material) {
         this.altura = altura;
         this.largura = largura;
         this.espessura = espessura;

@@ -20,10 +20,10 @@ public class Parede {
     public Parede() {
     }
     
-    public Parede(double altura, double largura) {
+    public Parede(double altura, double largura, double espessuraCamada, String tipoMaterial) {
         this.altura = altura;
         this.largura = largura;
-        this.componentes.add(new Camada(altura, largura, double valResTer));
+        this.componentes.add(new Camada(altura, largura, espessuraCamada, tipoMaterial));
     }
     
     public double calculaResistenciaTermicaTotal() {
