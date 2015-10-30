@@ -15,10 +15,21 @@ public class Camada implements Componente {
     private Double altura;
     private Double largura;
     private Double espessura;
-
+    
+    public Camada(double altura, double largura, double espessura, double material) {
+        this.altura = altura;
+        this.largura = largura;
+        this.espessura = espessura;
+        this.tipoMaterial = tipoMaterial;
+    }
+    
     @Override
     public double calculaResistenciaTermica() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public double calculaArea(double altura, double largura) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

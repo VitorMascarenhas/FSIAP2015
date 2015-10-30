@@ -20,5 +20,9 @@ public class Porta implements Componente {
     public double calculaResistenciaTermica() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    @Override
+    public double calculaArea(double altura, double largura) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
