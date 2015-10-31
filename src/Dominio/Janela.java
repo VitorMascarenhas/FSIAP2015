@@ -15,10 +15,27 @@ public class Janela implements Componente {
     private Double altura;
     private Double largura;
     private Double espessura;
-
+    private double coefRes;
+    
+    public Janela() {
+    }
+    
+    public Janela(double altura, double largura) {
+        this.altura = altura;
+        this.largura = largura;
+    }
+    
+    public Janela(double altura, double largura, double espessura, int tipo, double coefRes) {
+        this.altura = altura;
+        this.largura = largura;
+        this.espessura = espessura;
+        this.tipo = tipo;
+        this.coefRes = coefRes;
+    }
+    
     @Override
     public double calculaResistenciaTermica() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.espessura/(this.calculaArea()*this.coefRes);
     }
     
     @Override

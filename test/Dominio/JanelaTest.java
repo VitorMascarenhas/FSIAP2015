@@ -22,6 +22,15 @@ public class JanelaTest {
      */
     @Test
     public void testCalculaResistenciaTermica() {
+        System.out.println("Calcular resistencia terminca da janela:");
+        double altura = 3;
+        double largura = 2;
+        double espessura = 0.006;
+        double coefRes = 0.5;
+        double resTermica = 0.002;
+        Janela j = new Janela(altura, largura, espessura, 0, coefRes);
+        double resultadoFinal = j.calculaResistenciaTermica();
+        assertEquals(resTermica, resultadoFinal, 0);
     }
 
     /**
@@ -29,6 +38,12 @@ public class JanelaTest {
      */
     @Test
     public void testCalculaArea() {
+        System.out.println("Calcula a area da janela:");
+        double altura = 2.5;
+        double largura = 2.3;
+        Janela j = new Janela(altura, largura);
+        double resultado = 5.75;
+        double resArea = j.calculaArea();
+        assertEquals(resultado, resArea, 0);
     }
-    
 }
