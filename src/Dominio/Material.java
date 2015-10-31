@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Material {
     
-    private Map<String, Double> tipoMaterial = new Map<String, Double>();
+    private Map<String, Double> tipoMaterial;
     
     public Material() {
     }
