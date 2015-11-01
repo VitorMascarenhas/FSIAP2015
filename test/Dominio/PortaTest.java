@@ -29,9 +29,9 @@ public class PortaTest {
      */
     @Test
     public void testCalculaArea() {
-        Porta porta = new Porta();
         double altura = 2.5;
         double largura = 4.2;
+        Porta porta = new Porta(altura, largura, 1.5);
         double resultado = 10.5;
         assertEquals("CalculaAreaTest", resultado, porta.calculaArea(), 0.0);
     }
