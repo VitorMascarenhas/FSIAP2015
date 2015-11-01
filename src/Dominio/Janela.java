@@ -11,13 +11,20 @@ package Dominio;
  */
 public class Janela implements Componente {
 
-    private int tipo;
     private Double altura;
     private Double largura;
     private Double espessura;
     private double coefRes;
+    private String nomeMaterial;
     
     public Janela() {
+    }
+    
+    public Janela(double altura, double largura, double espessura, String nomeMaterial) {
+        this.altura = altura;
+        this.largura = largura;
+        this.espessura = espessura;
+        this.nomeMaterial = nomeMaterial;
     }
     
     public Janela(double altura, double largura) {
@@ -25,11 +32,10 @@ public class Janela implements Componente {
         this.largura = largura;
     }
     
-    public Janela(double altura, double largura, double espessura, int tipo, double coefRes) {
+    public Janela(double altura, double largura, double espessura, double coefRes) {
         this.altura = altura;
         this.largura = largura;
         this.espessura = espessura;
-        this.tipo = tipo;
         this.coefRes = coefRes;
     }
     

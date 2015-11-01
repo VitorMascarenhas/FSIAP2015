@@ -20,5 +20,19 @@ public class MaterialTest {
     @Test
     public void testSomeMethod() {
     }
+
+    /**
+     * Test of inserirMaterial method, of class Material.
+     */
+    @Test
+    public void testInserirMaterial() {
+    }
+
+    /**
+     * Test of obterCondutividade method, of class Material.
+     */
+    @Test
+    public void testObterCondutividade() {
+    }
     
 }

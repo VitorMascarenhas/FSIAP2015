@@ -23,5 +23,26 @@ public class ParedeTest {
     @Test
     public void testCalculaResistenciaTermicaTotal() {
     }
+
+    /**
+     * Test of adicionarCamada method, of class Parede.
+     */
+    @Test
+    public void testAdicionarCamada() {
+    }
+
+    /**
+     * Test of adicionarJanela method, of class Parede.
+     */
+    @Test
+    public void testAdicionarJanela() {
+    }
+
+    /**
+     * Test of adicionaPorta method, of class Parede.
+     */
+    @Test
+    public void testAdicionarPorta() {
+    }
     
 }

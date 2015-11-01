@@ -25,8 +25,33 @@ public class Parede {
         this.largura = largura;
         this.componentes.add(new Camada(altura, largura, espessuraCamada, tipoMaterial));
     }
+
+    public void adicionarCamada(Camada c) {
+        
+        this.componentes.add(c);
+    
+    }
+    
+    public void adicionarJanela(Janela j) {
+        
+        this.componentes.add(j);
+    
+    }
+    
+    public void adicionarPorta(Porta p) {
+        
+        this.componentes.add(p);
+        
+    }
     
     public double calculaResistenciaTermicaTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        double resistenciaTotal = 0.0;
+        
+        for(Componente comp : componentes) {
+            resistenciaTotal += comp.calculaResistenciaTermica();
+        }
+        
+        return resistenciaTotal;
     }
 }

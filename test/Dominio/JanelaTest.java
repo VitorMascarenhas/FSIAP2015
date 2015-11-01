@@ -28,7 +28,7 @@ public class JanelaTest {
         double espessura = 0.006;
         double coefRes = 0.5;
         double resTermica = 0.002;
-        Janela j = new Janela(altura, largura, espessura, 0, coefRes);
+        Janela j = new Janela(altura, largura, espessura, coefRes);
         double resultadoFinal = j.calculaResistenciaTermica();
         assertEquals(resTermica, resultadoFinal, 0);
     }
