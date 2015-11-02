@@ -11,7 +11,8 @@ package UI;
 public class Main {
     
     private static Project _gui = null;
+    
     public static void main(String[] args) {
-       _gui = new Project();
-    }    
+       _gui = new Project();       
+    }
 }
