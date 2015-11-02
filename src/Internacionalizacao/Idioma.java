@@ -11,16 +11,17 @@ import java.util.ResourceBundle;
  *
  * @author 11011_000
  */
+/* Classe para gerir BUNDLE que define idioma da aplicacao */
 public class Idioma {
-
+    
     public static ResourceBundle BUNDLE;
     
-    public static Integer LANGUAGE = 0;
+    public static Integer IDIOMA = 0; // - Idioma portugues por defeito
     
     public static void initBundle() {
-        if (LANGUAGE == 0) {
+        if (IDIOMA == 0) {  //0 - Portugues
             BUNDLE=ResourceBundle.getBundle("Internacionalizacao.Bundle_pt_PT");
-        } else if (LANGUAGE == 1) {
+        } else if (IDIOMA == 1) {   // 1 - Ingles
             BUNDLE=ResourceBundle.getBundle("Internacionalizacao.Bundle_en_US");
         }
     }    
