@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package Repositorios;
+
 /**
  *
- * @author E336170
+ * @author vitoralexandremascarenhasmascarenhas
  */
-public class Main {
+public class MateriaisRepositorio {
     
-    private static Project _gui = null;
-    
-    public static void main(String[] args) {
-       _gui = new Project();       
-    }
 }

@@ -10,7 +10,7 @@ package Dominio;
  * @author 1081320
  */
 public class Janela implements Componente {
-
+    
     private Double altura;
     private Double largura;
     private Double espessura;
@@ -47,6 +47,5 @@ public class Janela implements Componente {
     @Override
     public double calculaArea() {
         return this.altura*this.largura;
-    }
-    
+    }    
 }
