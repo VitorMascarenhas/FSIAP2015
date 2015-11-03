@@ -22,6 +22,10 @@ public class Porta implements Componente {
         this.espessura=espessura;
     }
 
+    public Porta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public double calculaResistenciaTermica() {
         return this.espessura/(this.calculaArea()); //Incompleto: A área tem de ser multiplicada pela "condutividade" 

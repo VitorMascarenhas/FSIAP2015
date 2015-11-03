@@ -9,7 +9,7 @@ package Dominio;
  *
  * @author 1081320
  */
-interface Componente {
+public interface Componente {
     
     public double calculaResistenciaTermica();
     
