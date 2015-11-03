@@ -13,9 +13,23 @@ import java.util.*;
  */
 public class Material {
     
+    private static Material instancia=new Material();
+    
     private Map<String, Double> tipoMaterial = new HashMap<>();
     
-    public Material() {
+    private Material() {
+        this.tipoMaterial=null;
+    }
+    
+    private Material(Map<String, Double> tiposMaterial) {
+        this.tipoMaterial=tiposMaterial;
+    }
+    
+    public static Material getInstance() {
+        if(instancia==null)
+            instancia=new Material();
+        
+        return instancia;
     }
     
     /**

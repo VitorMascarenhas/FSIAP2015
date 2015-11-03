@@ -26,7 +26,7 @@ public class MaterialTest {
      */
     @Test
     public void testInserirMaterial() {
-        Material material = new Material();
+        Material material = Material.getInstance();
         String nome = "Ferro";
         double condutividade = 0.5;
         material.inserirMaterial(nome, condutividade);
@@ -38,7 +38,7 @@ public class MaterialTest {
      */
     @Test
     public void testObterCondutividade() {
-        Material material = new Material();
+        Material material = Material.getInstance();
         String nome = "Ferro";
         double condutividade = 0.5;
         material.inserirMaterial(nome, condutividade);

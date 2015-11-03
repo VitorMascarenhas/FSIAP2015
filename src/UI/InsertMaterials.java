@@ -73,7 +73,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                 
                 
                 //Implementar gravação de dados
-                Material material = new Material();
+                Material material = Material.getInstance();
                 double cond = Double.parseDouble(condutividade.getText());
                 material.inserirMaterial(nome.getText(), cond);
             }
