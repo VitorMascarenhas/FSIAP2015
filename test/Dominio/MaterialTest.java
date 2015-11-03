@@ -45,4 +45,5 @@ public class MaterialTest {
         double condutividadeEsperada = 0.5;
         assertEquals(condutividadeEsperada, material.obterCondutividade(nome));
     }
+    
 }
