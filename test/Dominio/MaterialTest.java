@@ -26,6 +26,11 @@ public class MaterialTest {
      */
     @Test
     public void testInserirMaterial() {
+        Material material = Material.getInstance();
+        String nome = "Ferro";
+        double condutividade = 0.5;
+        material.inserirMaterial(nome, condutividade);
+        assertEquals(condutividade, material.obterCondutividade(nome));
     }
 
     /**
@@ -33,6 +38,11 @@ public class MaterialTest {
      */
     @Test
     public void testObterCondutividade() {
+        Material material = Material.getInstance();
+        String nome = "Ferro";
+        double condutividade = 0.5;
+        material.inserirMaterial(nome, condutividade);
+        double condutividadeEsperada = 0.5;
+        assertEquals(condutividadeEsperada, material.obterCondutividade(nome));
     }
-    
 }

@@ -22,6 +22,9 @@ public class Porta implements Componente {
         this.espessura=espessura;
     }
 
+    public Porta() {
+    }
+
     @Override
     public double calculaResistenciaTermica() {
         return this.espessura/(this.calculaArea()); //Incompleto: A área tem de ser multiplicada pela "condutividade" 

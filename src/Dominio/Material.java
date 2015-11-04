@@ -13,9 +13,23 @@ import java.util.*;
  */
 public class Material {
     
-    private Map<String, Double> tipoMaterial;
+    private static Material instancia=new Material();
     
-    public Material() {
+    private Map<String, Double> tipoMaterial = new HashMap<>();
+    
+    private Material() {
+        this.tipoMaterial=null;
+    }
+    
+    private Material(Map<String, Double> tiposMaterial) {
+        this.tipoMaterial=tiposMaterial;
+    }
+    
+    public static Material getInstance() {
+        if(instancia==null)
+            instancia=new Material();
+        
+        return instancia;
     }
     
     /**
@@ -24,7 +38,7 @@ public class Material {
      * @param condutividade 
      */
     public void inserirMaterial(String nome, double condutividade) {
-        tipoMaterial.put(nome, condutividade);
+        this.tipoMaterial.put(nome, condutividade);
     }
     
     /**
@@ -34,6 +48,9 @@ public class Material {
      * @return a condutividade do material inserido por parametro
      */
     public double obterCondutividade(String nome) {
-        return tipoMaterial.get(nome);
+        
+        double condutividade = this.tipoMaterial.get(nome);
+        
+        return condutividade;
     }    
 }

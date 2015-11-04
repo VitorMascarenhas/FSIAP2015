@@ -10,6 +10,8 @@ package UI;
  *
  * @author Nuno Lemos
  */
+import Internacionalizacao.Idioma;
+import static Internacionalizacao.Idioma.initBundle;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
@@ -48,40 +50,51 @@ public class Project extends JFrame {
 
     private void setMainMenuBar() {
 
+        initBundle();
+        
         JMenuBar rootMenu = new JMenuBar();
         rootMenu.setBorder(new BevelBorder(BevelBorder.RAISED));
 
-        JMenu menu;
+        JMenu menu, submenu;
         JMenuItem item;
-
-
-        menu = new JMenu("File");
+                
+        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.file.text"));
         rootMenu.add(menu);
-        item = new JMenuItem(new MenuItemAction("Save To HTML"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.saveToHtml.text")));
         menu.add(item);
-        item = new JMenuItem(new MenuItemAction("Open Experience"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperience.text")));
         menu.add(item);
         
         menu.add(new JSeparator());
-        item = new JMenuItem(new MenuItemAction("Exit"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.exit.text")));
         menu.add(item);
 
 
-        menu = new JMenu("Experience");
+        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.experience.text"));
         rootMenu.add(menu);
-        item = new JMenuItem(new MenuItemAction("Start Experience"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text")));
         menu.add(item);
-        item = new JMenuItem(new MenuItemAction("Insert Materials"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.insertMaterials.text")));
         menu.add(item);
-        item = new JMenuItem(new MenuItemAction("Import Materials"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importMaterials.text")));
         menu.add(item);
         
-
-        menu = new JMenu("Help");
+        
+        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.tools.text"));
         rootMenu.add(menu);
-        item = new JMenuItem(new MenuItemAction("Glossary"));
+        submenu = new JMenu(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.idioma.text")));
+        menu.add(submenu);
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.ingles.text")));
+        submenu.add(item);
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.portugues.text")));
+        submenu.add(item);
+        
+
+        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.help.text"));
+        rootMenu.add(menu);
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.glossary.text")));
         menu.add(item);
-        item = new JMenuItem(new MenuItemAction("About"));
+        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.about.text")));
         menu.add(item);
         
         
@@ -93,23 +106,23 @@ public class Project extends JFrame {
 
     private void evaluateMenuItemActionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().trim().equalsIgnoreCase("Save To HTML")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.saveToHtml.text"))) {
             SaveToHTML save = new SaveToHTML();
             save.setVisible(true);
             desktop.add(save);
             desktop.moveToFront(save);
         }
 
-        if (e.getActionCommand().trim().equalsIgnoreCase("Open Experience")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperience.text"))) {
             OpenExperience open = new OpenExperience();
             open.setVisible(true);
             desktop.add(open);
             desktop.moveToFront(open);
         }
 
-        if (e.getActionCommand().trim().equalsIgnoreCase("Exit")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.exit.text"))) {
             int resposta = JOptionPane.showConfirmDialog(this,
-                    "Tem a certeza que pretende sair?", "Exit",
+                    Internacionalizacao.Idioma.BUNDLE.getString("Project.exitQuestion.text"), Internacionalizacao.Idioma.BUNDLE.getString("Project.exit.text"),
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (resposta == JOptionPane.YES_OPTION) {
                 _quit = true;
@@ -119,21 +132,21 @@ public class Project extends JFrame {
             }
         }
 
-        if (e.getActionCommand().trim().equalsIgnoreCase("Start Experience")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text"))) {
             StartExperience start = new StartExperience();
             start.setVisible(true);
             desktop.add(start);
             desktop.moveToFront(start);
         }     
    
-        if (e.getActionCommand().trim().equalsIgnoreCase("Insert Materials")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.insertMaterials.text"))) {
             InsertMaterials insert = new InsertMaterials();
             insert.setVisible(true);
             desktop.add(insert);
             desktop.moveToFront(insert);
         }     
                
-        if (e.getActionCommand().trim().equalsIgnoreCase("Import Materials")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.importMaterials.text"))) {
             ImportMaterials importx = new ImportMaterials();
             importx.setVisible(true);
             desktop.add(importx);
@@ -141,8 +154,20 @@ public class Project extends JFrame {
         }
 
         
-                // Chama as opções de menu do separador Ajuda
-        if (e.getActionCommand().trim().equalsIgnoreCase("Glossary")) {
+        // Chama as opções de menu do separador Ferramentas
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.ingles.text"))) {
+            int idioma = 1;
+            initBundle(idioma);           
+       }
+        
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.portugues.text"))) {
+            int idioma = 0;
+            initBundle(idioma);            
+       }
+        
+        
+        // Chama as opções de menu do separador Ajuda
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.glossary.text"))) {
             Glossary glossary = new Glossary();
             glossary.setVisible(true);
             desktop.add(glossary);
@@ -150,7 +175,7 @@ public class Project extends JFrame {
        } 
 
 
-        if (e.getActionCommand().trim().equalsIgnoreCase("About")) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.about.text"))) {
             About about = new About();
             about.setVisible(true);
             desktop.add(about);
