@@ -14,7 +14,6 @@ public class Janela implements Componente {
     private Double altura;
     private Double largura;
     private Double espessura;
-    private double coefRes;
     private String nomeMaterial;
     
     public Janela() {
@@ -30,13 +29,6 @@ public class Janela implements Componente {
     public Janela(double altura, double largura) {
         this.altura = altura;
         this.largura = largura;
-    }
-    
-    public Janela(double altura, double largura, double espessura, double coefRes) {
-        this.altura = altura;
-        this.largura = largura;
-        this.espessura = espessura;
-        this.coefRes = coefRes;
     }
     
     @Override

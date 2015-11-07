@@ -16,7 +16,7 @@ public class Material {
     private static Material instancia=new Material();
     
     private Map<String, Double> tipoMaterial = new HashMap<>();
-    
+/*    
     private Material() {
         this.tipoMaterial=null;
     }
@@ -31,7 +31,7 @@ public class Material {
         
         return instancia;
     }
-    
+*/  
     /**
      * Inserir um material e respectiva condutividade
      * @param nome

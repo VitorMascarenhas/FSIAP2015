@@ -6,6 +6,7 @@
 package Dominio;
 
 import java.util.ArrayList;
+import javax.swing.JApplet;
 
 /**
  *
@@ -25,7 +26,11 @@ public class Parede {
         this.largura = largura;
         this.componentes.add(new Camada(altura, largura, espessuraCamada, tipoMaterial));
     }
-
+    
+    private double calcularAreaParede() {
+        return this.altura*this.largura;
+    }
+    
     public void adicionarCamada(Camada c) {
         
         this.componentes.add(c);
@@ -48,10 +53,58 @@ public class Parede {
         
         double resistenciaTotal = 0.0;
         
-        for(Componente comp : componentes) {
-            resistenciaTotal += comp.calculaResistenciaTermica();
+        if((this.contemJanela() || this.contemPorta()) && !this.verificaAreasParedeMaior()) {
+            //calcula resistencia em paralelo
+        } else {
+            for(Componente comp : componentes) {
+                resistenciaTotal += comp.calculaResistenciaTermica();
+            }
         }
-        
         return resistenciaTotal;
+    }
+    
+    private double calculaSomaAreasPortasJanelas() {
+        
+        double resultado = 0;
+        
+        for(Componente comp : componentes) {
+            if(comp.getClass().isInstance(Janela.class) || comp.getClass().isInstance(Porta.class)) {
+                resultado+=comp.calculaArea();
+            }
+        }
+        return resultado;
+    }
+    
+    private boolean verificaAreasParedeMaior() {
+        
+        double areaParede = calcularAreaParede();
+        double areaPortasJanelas = calculaSomaAreasPortasJanelas();
+        
+        if(areaPortasJanelas > areaParede) {
+            javax.swing.JOptionPane.showMessageDialog(null, "A soma das areas das portas e janelas não pode ser maior do qie a area da parede:");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    private boolean contemJanela() {
+        
+        for(Componente comp : componentes) {
+            if(comp.getClass().isInstance(Janela.class)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private boolean contemPorta() {
+        
+        for(Componente comp : componentes) {
+            if(comp.getClass().isInstance(Porta.class)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
