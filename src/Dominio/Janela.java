@@ -41,4 +41,15 @@ public class Janela implements Componente {
         return this.altura*this.largura;
     }
     
+    public Double getEspessura() {
+        return espessura;
+    }
+
+    /**
+     * @return the nomeMaterial
+     */
+    public String getNomeMaterial() {
+        return nomeMaterial;
+    }
+    
 }

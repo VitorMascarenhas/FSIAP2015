@@ -23,7 +23,7 @@ public class Camada implements Componente {
         this.altura = altura;
         this.largura = largura;
         this.espessura = espessura;
-        this.tipoMaterial = tipoMaterial;
+        this.tipoMaterial = material;
     }
     
     @Override
@@ -34,5 +34,19 @@ public class Camada implements Componente {
     @Override
     public double calculaArea() {
         return this.altura*this.largura;
+    }
+
+    /**
+     * @return the espessura
+     */
+    public Double getEspessura() {
+        return espessura;
+    }
+
+    /**
+     * @return the tipoMaterial
+     */
+    public String getTipoMaterial() {
+        return tipoMaterial;
     }
 }
