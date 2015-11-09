@@ -107,4 +107,11 @@ public class Parede {
         }
         return false;
     }
+    
+    /**
+     * @return the componentes
+     */
+    public ArrayList<Componente> getComponentes() {
+        return componentes;
+    }
 }

@@ -34,4 +34,15 @@ public class Porta implements Componente {
     public double calculaArea() {
         return this.altura * this.largura;
     }
+    
+    public Double getEspessura() {
+        return espessura;
+    }
+
+    /**
+     * @return the tipoMaterial
+     */
+    public String getTipoMaterial() {
+        return tipoMaterial;
+    }
 }

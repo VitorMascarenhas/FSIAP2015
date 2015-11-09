@@ -29,4 +29,26 @@ public class Casa {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * @return the paredes
+     */
+    public ArrayList<Parede> getParedes() {
+        return paredes;
+    }
+
+    /**
+     * @return the tempExterior
+     */
+    public float getTempExterior() {
+        return tempExterior;
+    }
+
+    /**
+     * @return the tempInterior
+     */
+    public float getTempInterior() {
+        return tempInterior;
+    }
+
+    
 }

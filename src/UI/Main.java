@@ -4,15 +4,21 @@
  * and open the template in the editor.
  */
 package UI;
+
+
+import java.io.FileNotFoundException;
+
 /**
  *
  * @author E336170
  */
 public class Main {
     
-    private static Project _gui = null;
+   private static Project _gui = null;
     
-    public static void main(String[] args) {
-       _gui = new Project();       
+    public static void main(String[] args) throws FileNotFoundException {
+       /*_gui = new Project();*/
+       
+       
     }
 }
