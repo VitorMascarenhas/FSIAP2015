@@ -33,7 +33,10 @@ public class MateriaisTest {
     @AfterClass
     public static void tearDownClass() {
     }
-    
+    /* From JavaWorld URL http://www.javaworld.com/article/2073352/core-java/simply-singleton.html 
+       Simply Singleton - Java Design Patterns by David Geary.
+       Viewed on 09/11/2015
+    */
     @Before
     public void setUp() {
       logger.info("getting singleton...");
@@ -55,33 +58,20 @@ public class MateriaisTest {
 
 
     /**
-     * Test of inserirMaterial method, of class Materiais.
+     * Test of Inserir Material e obter condutividade methods, of class Materiais.
      */
     @Test
-    public void testInserirMaterial() {
-        System.out.println("inserirMaterial");
+    public void InserirMaterialConsultarCondutividade() {
+        System.out.println("Inserir Material e consultar condutividades.");
         Materiais instance = Materiais.getInstance();
+        assertTrue("Não tem materiais gravados.", instance.materiais.isEmpty()==true);
         instance.inserirMaterial("Ferro", 80.2F);
         instance.inserirMaterial("Cobre", 401F);
         instance.inserirMaterial("Vidro", 0.79F);
+        assertTrue("Tem 3 materiais.", instance.materiais.size()==3);
         assertTrue("Ferro tem condutividade 80.2", instance.obterCondutividade("ferro")==80.2F);
         assertTrue("Vidro tem condutividade 0.79", instance.obterCondutividade("vidro")==0.79F);
         assertTrue("Cobre não tem condutividade 10", instance.obterCondutividade("ferro")!=10F);
     }
 
-    /**
-     * Test of obterCondutividade method, of class Materiais.
-     */
-    @Test
-    public void testObterCondutividade() {
-        System.out.println("obterCondutividade");
-        String nomeMaterial = "";
-        Materiais instance = null;
-        float expResult = 0.0F;
-        float result = instance.obterCondutividade(nomeMaterial);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

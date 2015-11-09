@@ -36,12 +36,12 @@ public class Materiais {
      * @param condutividade     
      */
     public void inserirMaterial(String nome, float condutividade) {
-        materiais.put(nome, new Material(nome, condutividade));
+        materiais.put(nome.toUpperCase(), new Material(nome.toUpperCase(), condutividade));
     }
     
     
     public float obterCondutividade(String nomeMaterial) {
-        return materiais.get(nomeMaterial).obterCondutividade();
+        return materiais.get(nomeMaterial.toUpperCase()).obterCondutividade();
     }
 
 }
