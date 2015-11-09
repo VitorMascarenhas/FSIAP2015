@@ -5,8 +5,10 @@
  */
 package Dominio;
 
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -15,6 +17,14 @@ import static org.junit.Assert.*;
 public class ParedeTest {
     
     public ParedeTest() {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -44,5 +54,4 @@ public class ParedeTest {
     @Test
     public void testAdicionarPorta() {
     }
-    
 }

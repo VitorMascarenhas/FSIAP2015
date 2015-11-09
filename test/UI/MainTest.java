@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dominio;
+package UI;
 
 import org.junit.After;
 import org.junit.Test;
@@ -14,9 +14,9 @@ import org.junit.Before;
  *
  * @author vitoralexandremascarenhasmascarenhas
  */
-public class CamadaTest {
+public class MainTest {
     
-    public CamadaTest() {
+    public MainTest() {
     }
 
     @Before
@@ -28,17 +28,10 @@ public class CamadaTest {
     }
 
     /**
-     * Test of calculaResistenciaTermica method, of class Camada.
+     * Test of main method, of class Main.
      */
     @Test
-    public void testCalculaResistenciaTermica() {
-    }
-
-    /**
-     * Test of calculaArea method, of class Camada.
-     */
-    @Test
-    public void testCalculaArea() {
+    public void testMain() {
     }
     
 }

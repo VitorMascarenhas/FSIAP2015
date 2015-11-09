@@ -5,9 +5,11 @@
  */
 package Dominio;
 
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import org.junit.Before;
+import Repositorios.Materiais;
 /**
  *
  * @author vitoralexandremascarenhasmascarenhas
@@ -17,20 +19,29 @@ public class JanelaTest {
     public JanelaTest() {
     }
 
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
+
     /**
      * Test of calculaResistenciaTermica method, of class Janela.
      */
     @Test
     public void testCalculaResistenciaTermica() {
-        System.out.println("Calcular resistencia terminca da janela:");
-        double altura = 3;
-        double largura = 2;
-        double espessura = 0.006;
-        double coefRes = 0.5;
-        double resTermica = 0.002;
-        Janela j = new Janela(altura, largura, espessura, coefRes);
-        double resultadoFinal = j.calculaResistenciaTermica();
-        assertEquals(resTermica, resultadoFinal, 0);
+        Materiais.getInstance().inserirMaterial("Ferro", 0.5f);
+        
+        Janela janela = new Janela(3, 4, 0.006f, "Ferro");
+        
+        float resultado = janela.calculaResistenciaTermica();
+        float resultadoEsperado = 0.0f;
+        assertEquals(resultadoEsperado, resultado);
+        
+        
+        
     }
 
     /**
@@ -38,12 +49,10 @@ public class JanelaTest {
      */
     @Test
     public void testCalculaArea() {
-        System.out.println("Calcula a area da janela:");
-        double altura = 2.5;
-        double largura = 2.3;
-        Janela j = new Janela(altura, largura);
-        double resultado = 5.75;
-        double resArea = j.calculaArea();
-        assertEquals(resultado, resArea, 0);
+        Janela janela = new Janela(3.0f, 4.0f);
+        float res = janela.calculaArea();
+        float resEsp = 12.0f;
+        assertEquals(resEsp, res);
     }
+
 }

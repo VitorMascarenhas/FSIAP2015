@@ -12,14 +12,14 @@ package Dominio;
 public class Camada implements Componente {
     
     private String tipoMaterial;
-    private Double altura;
-    private Double largura;
-    private Double espessura;
+    private float altura;
+    private float largura;
+    private float espessura;
     
     public Camada() {
     }
     
-    public Camada(double altura, double largura, double espessura, String material) {
+    public Camada(float altura, float largura, float espessura, String material) {
         this.altura = altura;
         this.largura = largura;
         this.espessura = espessura;
@@ -27,19 +27,19 @@ public class Camada implements Componente {
     }
     
     @Override
-    public double calculaResistenciaTermica() {
+    public float calculaResistenciaTermica() {
         return altura*largura;
     }
     
     @Override
-    public double calculaArea() {
+    public float calculaArea() {
         return this.altura*this.largura;
     }
 
     /**
      * @return the espessura
      */
-    public Double getEspessura() {
+    public float getEspessura() {
         return espessura;
     }
 

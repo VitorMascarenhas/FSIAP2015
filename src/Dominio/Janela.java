@@ -5,43 +5,44 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 /**
  *
  * @author 1081320
  */
 public class Janela implements Componente {
 
-    private Double altura;
-    private Double largura;
-    private Double espessura;
+    private float altura;
+    private float largura;
+    private float espessura;
     private String nomeMaterial;
     
     public Janela() {
     }
     
-    public Janela(double altura, double largura, double espessura, String nomeMaterial) {
+    public Janela(float altura, float largura, float espessura, String nomeMaterial) {
         this.altura = altura;
         this.largura = largura;
         this.espessura = espessura;
         this.nomeMaterial = nomeMaterial;
     }
     
-    public Janela(double altura, double largura) {
+    public Janela(float altura, float largura) {
         this.altura = altura;
         this.largura = largura;
     }
     
     @Override
-    public double calculaResistenciaTermica() {
-        return this.espessura/(this.calculaArea()*this.coefRes);
+    public float calculaResistenciaTermica() {
+        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.nomeMaterial));
     }
     
     @Override
-    public double calculaArea() {
+    public float calculaArea() {
         return this.altura*this.largura;
     }
     
-    public Double getEspessura() {
+    public float getEspessura() {
         return espessura;
     }
 
@@ -51,5 +52,4 @@ public class Janela implements Componente {
     public String getNomeMaterial() {
         return nomeMaterial;
     }
-    
 }

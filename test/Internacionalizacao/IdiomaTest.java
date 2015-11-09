@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dominio;
+package Internacionalizacao;
 
 import org.junit.After;
 import org.junit.Test;
@@ -14,9 +14,9 @@ import org.junit.Before;
  *
  * @author vitoralexandremascarenhasmascarenhas
  */
-public class CamadaTest {
+public class IdiomaTest {
     
-    public CamadaTest() {
+    public IdiomaTest() {
     }
 
     @Before
@@ -28,17 +28,17 @@ public class CamadaTest {
     }
 
     /**
-     * Test of calculaResistenciaTermica method, of class Camada.
+     * Test of initBundle method, of class Idioma.
      */
     @Test
-    public void testCalculaResistenciaTermica() {
+    public void testInitBundle() {
     }
 
     /**
-     * Test of calculaArea method, of class Camada.
+     * Test of initBundle method, of class Idioma.
      */
     @Test
-    public void testCalculaArea() {
+    public void testInitBundle_int() {
     }
     
 }

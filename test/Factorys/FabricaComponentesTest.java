@@ -9,14 +9,24 @@ import Dominio.Camada;
 import Dominio.Componente;
 import Dominio.Janela;
 import Dominio.Porta;
+import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
  * @author 11011_000
  */
 public class FabricaComponentesTest {
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
     
 
     /**
@@ -65,6 +75,13 @@ public class FabricaComponentesTest {
         Componente expResult=null;
         assertEquals(expResult, result);
 
+    }
+
+    /**
+     * Test of getComponente method, of class FabricaComponentes.
+     */
+    @Test
+    public void testGetComponente() {
     }
     
 }

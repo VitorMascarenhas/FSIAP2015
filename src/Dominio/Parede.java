@@ -15,19 +15,19 @@ import javax.swing.JApplet;
 public class Parede {
     
     private ArrayList<Componente> componentes;
-    private double altura;
-    private double largura;
+    private float altura;
+    private float largura;
     
     public Parede() {
     }
     
-    public Parede(double altura, double largura, double espessuraCamada, String tipoMaterial) {
+    public Parede(float altura, float largura, float espessuraCamada, String tipoMaterial) {
         this.altura = altura;
         this.largura = largura;
         this.componentes.add(new Camada(altura, largura, espessuraCamada, tipoMaterial));
     }
     
-    private double calcularAreaParede() {
+    private float calcularAreaParede() {
         return this.altura*this.largura;
     }
     
@@ -49,9 +49,9 @@ public class Parede {
         
     }
     
-    public double calculaResistenciaTermicaTotal() {
+    public float calculaResistenciaTermicaTotal() {
         
-        double resistenciaTotal = 0.0;
+        float resistenciaTotal = 0.0f;
         
         if((this.contemJanela() || this.contemPorta()) && !this.verificaAreasParedeMaior()) {
             //calcula resistencia em paralelo
@@ -63,9 +63,9 @@ public class Parede {
         return resistenciaTotal;
     }
     
-    private double calculaSomaAreasPortasJanelas() {
+    private float calculaSomaAreasPortasJanelas() {
         
-        double resultado = 0;
+        float resultado = 0;
         
         for(Componente comp : componentes) {
             if(comp.getClass().isInstance(Janela.class) || comp.getClass().isInstance(Porta.class)) {
@@ -77,8 +77,8 @@ public class Parede {
     
     private boolean verificaAreasParedeMaior() {
         
-        double areaParede = calcularAreaParede();
-        double areaPortasJanelas = calculaSomaAreasPortasJanelas();
+        float areaParede = calcularAreaParede();
+        float areaPortasJanelas = calculaSomaAreasPortasJanelas();
         
         if(areaPortasJanelas > areaParede) {
             javax.swing.JOptionPane.showMessageDialog(null, "A soma das areas das portas e janelas não pode ser maior do qie a area da parede:");

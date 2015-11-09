@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 /**
  *
  * @author 1081320
@@ -12,11 +13,11 @@ package Dominio;
 public class Porta implements Componente {
 
     private String tipoMaterial;
-    private Double altura;
-    private Double largura;
-    private Double espessura;
+    private float altura;
+    private float largura;
+    private float espessura;
 
-    public Porta(Double altura, Double largura, Double espessura) {
+    public Porta(float altura, float largura, float espessura) {
         this.altura=altura;
         this.largura=largura;
         this.espessura=espessura;
@@ -26,16 +27,16 @@ public class Porta implements Componente {
     }
 
     @Override
-    public double calculaResistenciaTermica() {
-        return this.espessura/(this.calculaArea()); //Incompleto: A área tem de ser multiplicada pela "condutividade" 
+    public float calculaResistenciaTermica() {
+        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
     }
 
     @Override
-    public double calculaArea() {
+    public float calculaArea() {
         return this.altura * this.largura;
     }
     
-    public Double getEspessura() {
+    public float getEspessura() {
         return espessura;
     }
 
