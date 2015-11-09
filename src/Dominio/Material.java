@@ -5,52 +5,26 @@
  */
 package Dominio;
 
-import java.util.*;
-
 /**
  *
  * @author 1081320
  */
 public class Material {
     
-    private static Material instancia=new Material();
-    
-    private Map<String, Double> tipoMaterial = new HashMap<>();
-/*    
-    private Material() {
-        this.tipoMaterial=null;
-    }
-    
-    private Material(Map<String, Double> tiposMaterial) {
-        this.tipoMaterial=tiposMaterial;
-    }
-    
-    public static Material getInstance() {
-        if(instancia==null)
-            instancia=new Material();
-        
-        return instancia;
-    }
-*/  
-    /**
-     * Inserir um material e respectiva condutividade
-     * @param nome
-     * @param condutividade 
-     */
-    public void inserirMaterial(String nome, double condutividade) {
-        this.tipoMaterial.put(nome, condutividade);
+    private final String nomeMaterial;
+    private final float condutividadeTermica;
+       
+    public Material(String nomeMaterial, float condutividadeTermica) {
+        this.nomeMaterial=nomeMaterial;
+        this.condutividadeTermica=condutividadeTermica;
     }
     
     /**
      * Retorna a condutividade de um material
      * 
-     * @param nome
-     * @return a condutividade do material inserido por parametro
+     * @return a condutividade termica do material
      */
-    public double obterCondutividade(String nome) {
-        
-        double condutividade = this.tipoMaterial.get(nome);
-        
-        return condutividade;
+    public float obterCondutividade() {
+       return condutividadeTermica;
     }    
 }
