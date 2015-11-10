@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Dominio.Material;
+import Repositorios.Materiais;
 /**
  *
  * @author Nuno Lemos
@@ -73,9 +74,9 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                 
                 
                 //Implementar gravação de dados
-                Material material = new Material();
-                double cond = Double.parseDouble(condutividade.getText());
-                material.inserirMaterial(nome.getText(), cond);
+                Materiais  materiais = Materiais.getInstance();
+                float cond = Float.parseFloat(condutividade.getText());
+                materiais.inserirMaterial(nome.getText(), cond);
             }
             
             if(nome.getText() == "" && condutividade.getText() == ""){
