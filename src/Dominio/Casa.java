@@ -17,12 +17,23 @@ public class Casa {
     private float tempExterior;
     private float tempInterior;
 
-    public void adicionarParede() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     *  Adiciona Parede
+     */     
+    public void adicionarParede(Parede P) {
+        this.paredes.add(P);
     }
-
+    /**
+     * @return a resistenciatotalTermica
+     */ 
     public float calculaResistenciaTermicaTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float resistenciaTotal = 0.0f;
+        for(Parede parede : paredes) {
+            if(parede.getClass().isInstance(Parede.class)) {
+                resistenciaTotal+=parede.calculaResistenciaTermicaTotal();
+            }
+        }
+        return resistenciaTotal;
     }
 
     public float calculaFluxoCalor() {
