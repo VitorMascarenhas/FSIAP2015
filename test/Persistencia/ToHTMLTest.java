@@ -40,5 +40,40 @@ public class ToHTMLTest {
     @Test
     public void testEpilogo() {
     }
+
+    /**
+     * Test of export method, of class ToHTML.
+     */
+    @Test
+    public void testExport() throws Exception {
+    }
+
+    /**
+     * Test of center method, of class ToHTML.
+     */
+    @Test
+    public void testCenter() {
+    }
+
+    /**
+     * Test of imprimeParede method, of class ToHTML.
+     */
+    @Test
+    public void testImprimeParede() {
+    }
+
+    /**
+     * Test of imprimeComponentes method, of class ToHTML.
+     */
+    @Test
+    public void testImprimeComponentes() {
+    }
+
+    /**
+     * Test of imprimeTemperaturas method, of class ToHTML.
+     */
+    @Test
+    public void testImprimeTemperaturas() {
+    }
     
 }
