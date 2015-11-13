@@ -6,6 +6,8 @@
 package Repositorios;
 
 import Dominio.Material;
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -44,4 +46,10 @@ public class Materiais {
         return materiais.get(nomeMaterial.toUpperCase()).obterCondutividade();
     }
 
+
+    public ArrayList<Material> getListMateriais() {
+        ArrayList<Material> mat = new ArrayList<Material>(materiais.values());
+        return mat;
+    }
+    
 }

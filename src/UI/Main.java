@@ -17,7 +17,7 @@ public class Main {
    private static Project _gui = null;
     
     public static void main(String[] args) throws FileNotFoundException {
-       /*_gui = new Project();*/
+       _gui = new Project();
        
        
     }

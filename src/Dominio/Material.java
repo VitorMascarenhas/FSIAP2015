@@ -27,5 +27,10 @@ public class Material {
     public float obterCondutividade() {
         System.out.println("Entrou no material");
         return condutividadeTermica;
-    }    
+    }
+    
+    @Override
+    public String toString(){
+        return nomeMaterial +" - " +condutividadeTermica;
+    }
 }
