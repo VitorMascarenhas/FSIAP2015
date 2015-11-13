@@ -74,4 +74,25 @@ public class MateriaisTest {
         assertTrue("Cobre não tem condutividade 10", instance.obterCondutividade("ferro")!=10F);
     }
 
+    /**
+     * Test of getInstance method, of class Materiais.
+     */
+    @Test
+    public void testGetInstance() {
+    }
+
+    /**
+     * Test of inserirMaterial method, of class Materiais.
+     */
+    @Test
+    public void testInserirMaterial() {
+    }
+
+    /**
+     * Test of obterCondutividade method, of class Materiais.
+     */
+    @Test
+    public void testObterCondutividade() {
+    }
+
 }

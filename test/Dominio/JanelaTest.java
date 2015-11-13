@@ -32,16 +32,13 @@ public class JanelaTest {
      */
     @Test
     public void testCalculaResistenciaTermica() {
+        System.out.println("Calcula resistencia termica:");
         Materiais.getInstance().inserirMaterial("Ferro", 0.5f);
+        Janela janela = new Janela(3.0f, 4.0f, 0.006f, "Ferro");
         
-        Janela janela = new Janela(3, 4, 0.006f, "Ferro");
-        
-        float resultado = janela.calculaResistenciaTermica();
-        float resultadoEsperado = 0.0f;
-        assertEquals(resultadoEsperado, resultado);
-        
-        
-        
+        float res = janela.calculaResistenciaTermica();
+        float resEsp = 0.001f;
+        assertEquals(resEsp, res, 0);
     }
 
     /**
@@ -52,7 +49,21 @@ public class JanelaTest {
         Janela janela = new Janela(3.0f, 4.0f);
         float res = janela.calculaArea();
         float resEsp = 12.0f;
-        assertEquals(resEsp, res);
+        assertEquals(resEsp, res, 0);
+        System.out.println("Calcula area:");
     }
 
+    /**
+     * Test of getEspessura method, of class Janela.
+     */
+    @Test
+    public void testGetEspessura() {
+    }
+
+    /**
+     * Test of getNomeMaterial method, of class Janela.
+     */
+    @Test
+    public void testGetNomeMaterial() {
+    }
 }

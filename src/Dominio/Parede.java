@@ -32,8 +32,8 @@ public class Parede {
     }
     
     public void adicionarCamada(Camada c) {
-        
-        this.componentes.add(c);
+        System.out.println("Espessura: "+c.getEspessura());
+        this.componentes.add((Componente)c);
     
     }
     
