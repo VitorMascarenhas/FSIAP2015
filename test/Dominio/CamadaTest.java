@@ -5,6 +5,8 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
+import java.text.DecimalFormat;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -32,6 +34,15 @@ public class CamadaTest {
      */
     @Test
     public void testCalculaResistenciaTermica() {
+        System.out.println("CalculaCamadaResistenciaTermica");
+        float altura = (float) 1.5;
+        float largura = (float) 8.0;
+        Materiais instance = Materiais.getInstance();
+        instance.inserirMaterial("Ferro", 80.2F);
+        Camada camada = new Camada(altura, largura, (float) 1.5,"ferro");
+        System.out.println(camada.calculaResistenciaTermica());
+        double resultado = 0.00155;
+        assertEquals("CalculaCamadaAreaTest", resultado, camada.calculaResistenciaTermica(), 0.00001);
     }
 
     /**
@@ -39,6 +50,12 @@ public class CamadaTest {
      */
     @Test
     public void testCalculaArea() {
+        System.out.println("CalculaCamadaAreaTest");
+        float altura = (float) 1.5;
+        float largura = (float) 8.0;
+        Camada camada = new Camada(altura, largura, (float) 1.5,"cimento");
+        double resultado = 12;
+        assertEquals("CalculaCamadaAreaTest", resultado, camada.calculaArea(), 0.0);
     }
     
 }

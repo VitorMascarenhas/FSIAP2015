@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 /**
  *
  * @author 1081320
@@ -25,10 +26,10 @@ public class Camada implements Componente {
         this.espessura = espessura;
         this.tipoMaterial = material;
     }
-    
+    //claculo da resistencia termica
     @Override
     public float calculaResistenciaTermica() {
-        return altura*largura;
+        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
     }
     
     @Override
