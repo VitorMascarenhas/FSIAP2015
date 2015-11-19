@@ -9,8 +9,10 @@ import Dominio.Camada;
 import Dominio.Casa;
 import Dominio.Componente;
 import Dominio.Janela;
+import Dominio.Material;
 import Dominio.Parede;
 import Dominio.Porta;
+import Repositorios.Materiais;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Formatter;
@@ -20,8 +22,8 @@ import java.util.Formatter;
  * @author rekgnyz
  */
 public class ToHTML {
-    
-    public static void export(String nomeExperiencia, Casa c1) throws FileNotFoundException{
+    /*METDOS PARA EXPORTAR EXPERIENCIA*/
+    public static void exportExp(String nomeExperiencia, Casa c1) throws FileNotFoundException{
         try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
             String html = prologo(nomeExperiencia);
             html+= imprimeTemperaturas(c1);
@@ -114,7 +116,7 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
-                "                <td>Nao apresenta dados</td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"</td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
@@ -141,7 +143,7 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
-                "                <td>Nao apresenta dados</td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getNomeMaterial())+"</td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
@@ -168,7 +170,7 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
-                "                <td>Nao apresenta dados</td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"</td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
@@ -196,6 +198,48 @@ public class ToHTML {
         
         return html;
     }
+    
+    
+    /*METODOS PARA EXPORTAR MATERIAIS*/
+    
+    public static void exportMat(String nomeFicheiro) throws FileNotFoundException{
+        try (Formatter fo = new Formatter (new File(nomeFicheiro+".html"))) {
+            String html = imprimeMateriais();
+            fo.format(html);
+            fo.close();
+        }
+    }
+    
+    
+    
+    public static String imprimeMateriais(){
+        String html = "<!DOCTYPE html>\n" +
+                        "<html>\n" +
+                        "<head>\n" +
+                        "<title>Lista Materiais</title>\n" +
+                        "</head>\n" +
+                        "<body>\n" +
+                        "<h4>Lista de materiais<h4>\n" +
+                        "<table>\n" +
+                        "  <tr>\n" +
+                        "    <td>Nome</td>\n" +
+                        "    <td>Condutividade</td>\n" +
+                        "  </tr>";
+        
+        for(Material m: Materiais.getInstance().getListMateriais()){
+            html +=  "  <tr>\n" +
+                        "    <td>"+ m.getNomeMaterial()+"</td>\n" +
+                        "    <td>"+ m.obterCondutividade()+"</td>\n" +
+                        "  </tr>";
+        }
+        
+        html+= "</table>\n" +
+                    "</body>\n" +
+                    "</html>";
+        
+        return html;
+    }
+    
     
 
 

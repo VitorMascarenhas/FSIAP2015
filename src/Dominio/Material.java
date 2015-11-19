@@ -31,6 +31,13 @@ public class Material {
     
     @Override
     public String toString(){
-        return nomeMaterial +" - " +condutividadeTermica;
+        return getNomeMaterial() +" - " +condutividadeTermica;
+    }
+
+    /**
+     * @return the nomeMaterial
+     */
+    public String getNomeMaterial() {
+        return nomeMaterial;
     }
 }
