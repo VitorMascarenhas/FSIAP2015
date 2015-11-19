@@ -47,5 +47,26 @@ public class CasaTest {
     @Test
     public void testCalculaFluxoCalor() {
     }
+
+    /**
+     * Test of getParedes method, of class Casa.
+     */
+    @Test
+    public void testGetParedes() {
+    }
+
+    /**
+     * Test of getTempExterior method, of class Casa.
+     */
+    @Test
+    public void testGetTempExterior() {
+    }
+
+    /**
+     * Test of getTempInterior method, of class Casa.
+     */
+    @Test
+    public void testGetTempInterior() {
+    }
     
 }

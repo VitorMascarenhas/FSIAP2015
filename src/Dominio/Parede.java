@@ -19,9 +19,11 @@ public class Parede {
     private float largura;
     
     public Parede() {
+        this.componentes = new ArrayList<>();
     }
     
     public Parede(float altura, float largura, float espessuraCamada, String tipoMaterial) {
+        this.componentes = new ArrayList<>();
         this.altura = altura;
         this.largura = largura;
         this.componentes.add(new Camada(altura, largura, espessuraCamada, tipoMaterial));
@@ -32,8 +34,8 @@ public class Parede {
     }
     
     public void adicionarCamada(Camada c) {
-        
-        this.componentes.add(c);
+        System.out.println("Espessura: "+c.getEspessura());
+        this.componentes.add((Componente)c);
     
     }
     

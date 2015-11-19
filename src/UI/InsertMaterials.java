@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Dominio.Material;
 import Repositorios.Materiais;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 /**
  *
  * @author Nuno Lemos
@@ -25,6 +27,9 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
     private JTextField nome, condutividade;
     private JLabel label_nome, label_condutividade;
     private JButton botton_inserir;
+    private JScrollPane lista_materiais;
+    private JList listbox;
+    
 
     //construtor
     public InsertMaterials (){
@@ -43,6 +48,9 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
         //instância botões da calculadora
         botton_inserir = new JButton("Inserir");
         
+        lista_materiais = new JScrollPane();
+        lista_materiais.getViewport().add( listbox );
+        
         //instância uma janela para os componetes
         Container janela = getContentPane();
         janela.setLayout(new GridLayout(7,1,1,1));
@@ -52,6 +60,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
         janela.add(label_condutividade);
         janela.add(condutividade);        
         janela.add(botton_inserir);
+        janela.add(lista_materiais);
         
 //associa receptor de ação aos botões
         botton_inserir.addActionListener(this);
@@ -82,6 +91,28 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
             if(nome.getText() == "" && condutividade.getText() == ""){
                 JOptionPane.showMessageDialog(null, "Rectifique os dados introduzidos.", "Erro", JOptionPane.ERROR_MESSAGE);                    
             }
+            
+            
+            
+			// Get the text field value
+			String stringValue = nome.getText();
+			nome.setText( "" );
+
+			// Add this item to the list and refresh
+			if( stringValue != null )
+			{
+                             
+                                Materiais.getInstance().inserirMaterial(nome.getText(), Float.parseFloat(condutividade.getText()));
+				listbox.setListData( Materiais.getInstance().getListMateriais().toArray());
+				listbox.setVisible(true);
+//                                listData.addElement( stringValue );
+//				listbox.setListData( listData );
+                                lista_materiais.revalidate();
+				lista_materiais.repaint();
+			}
+		
+            
+            
         }
     }
 
