@@ -108,15 +108,15 @@ public class Console {
         float pd = pD.calculaResistenciaTermicaTotal();
         float pchao = chao.calculaResistenciaTermicaTotal();
         float pteto = teto.calculaResistenciaTermicaTotal();
-        System.out.println("" + pa);
-        System.out.println("" + pb);
-        System.out.println("" + pc);
-        System.out.println("" + pd);
-        System.out.println("" + pchao);
-        System.out.println("" + pteto);
+        System.out.println("Resistência da parede A: " + pa);
+        System.out.println("Resistência da parede B: " + pb);
+        System.out.println("Resistência da parede C: " + pc);
+        System.out.println("Resistência da parede D: " + pd);
+        System.out.println("Resistência do chão: " + pchao);
+        System.out.println("Resistência do této: " + pteto);
         
         float fluxo = variacaoTemp/pchao;
-        System.out.println("" + fluxo);
+        System.out.println("Fluxo do chão: " + fluxo);
         
     }
 }
