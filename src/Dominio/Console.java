@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Factorys.FabricaComponentes;
 import Repositorios.Materiais;
 
 /**
@@ -32,7 +33,6 @@ public class Console {
         
         float variacaoTemp = temperaturaExterior-temperaturaInterior;
         float variacaoTempChao = temperaturaInterior-temperaturaTerra;
-        
         
         // Instancia da casa
         //Casa casa = new Casa();

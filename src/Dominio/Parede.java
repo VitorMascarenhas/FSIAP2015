@@ -7,6 +7,7 @@ package Dominio;
 
 import java.util.ArrayList;
 import javax.swing.JApplet;
+import Factorys.FabricaComponentes;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Parede {
     private ArrayList<Componente> componentes;
     private float altura;
     private float largura;
+    private FabricaComponentes fabrica = new FabricaComponentes();
     
     public Parede() {
         this.componentes = new ArrayList<>();
@@ -26,7 +28,7 @@ public class Parede {
         this.componentes = new ArrayList<>();
         this.altura = altura;
         this.largura = largura;
-        this.componentes.add(new Camada(altura, largura, espessuraCamada, tipoMaterial));
+        this.componentes.add(fabrica.getComponente("Camada", altura, largura, espessuraCamada, tipoMaterial));
     }
     
     private float calcularAreaParede() {
