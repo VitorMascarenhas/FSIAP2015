@@ -16,10 +16,12 @@ public class Casa {
     private ArrayList<Parede> paredes = new ArrayList();
     private float tempExterior;
     private float tempInterior;
+    private float tempTerra;
     
-    public Casa(float interior, float exterior){
+    public Casa(float interior, float exterior, float tempTerra){
         this.tempInterior=interior;
         this.tempExterior=exterior;
+        this.tempTerra = tempTerra;
     }
     
     /**
