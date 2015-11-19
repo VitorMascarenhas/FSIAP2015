@@ -37,6 +37,7 @@ public class Materiais {
      * @param nome
      * @param condutividade     
      */
+    //TODO verificar se já exitem o material com o mesmo nome 
     public void inserirMaterial(String nome, float condutividade) {
         materiais.put(nome.toUpperCase(), new Material(nome.toUpperCase(), condutividade));
     }

@@ -17,10 +17,11 @@ public class Porta implements Componente {
     private float largura;
     private float espessura;
 
-    public Porta(float altura, float largura, float espessura) {
+    public Porta(float altura, float largura, float espessura, String material) {
         this.altura=altura;
         this.largura=largura;
         this.espessura=espessura;
+        this.tipoMaterial= material;
     }
 
     public Porta() {

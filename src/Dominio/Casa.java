@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Casa {
 
-    private ArrayList<Parede> paredes;
+    private ArrayList<Parede> paredes = new ArrayList();
     private float tempExterior;
     private float tempInterior;
     
@@ -30,10 +30,10 @@ public class Casa {
         float resistenciaTotal = 0.0f;
         for(Parede parede : paredes) {
             if(parede.getClass().isInstance(Parede.class)) {
-                resistenciaTotal+=parede.calculaResistenciaTermicaTotal();
+                resistenciaTotal+=(1/parede.calculaResistenciaTermicaTotal());
             }
         }
-        return resistenciaTotal;
+        return 1/resistenciaTotal;
     }
 
     public float calculaFluxoCalor() {
