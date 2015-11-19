@@ -22,7 +22,7 @@ import java.util.Formatter;
 public class ToHTML {
     
     public static void export(String nomeExperiencia, Casa c1) throws FileNotFoundException{
-        try (Formatter fo = new Formatter (new File(nomeExperiencia))) {
+        try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
             String html = prologo(nomeExperiencia);
             html+= imprimeTemperaturas(c1);
             html+= center(c1);
@@ -39,14 +39,14 @@ public class ToHTML {
         "<title>"+nomeExperiencia+"</title>\n" +
         "</head>\n" +
         "<body>\n" +
-        "<img src=\"isep.png\"/>";
+        "<img src=\"imgs\\isep.png\"/>";
         
         return prologo;
     }
     
     public static String epilogo(){
         String epilogo = "<h4>Desenvolvido por:<h4>\n" +
-            "<h5>Aluno1, Aluno2, Aluno3, ALuno4, Aluno5<h5>\n" +
+            "<h5>1060708 - Eduardo Silva | 1081320 Jo&atilde;o Sardon | 1100912 - Nuno Lemos | 1101153 - Andr&eacute; Teixeira | 111073 - Joel Alves | 1120035 - V&iacute;tor Mascarenhas<h5>\n" +
             "</body>\n" +
             "</html>";
         return epilogo;
@@ -62,8 +62,10 @@ public class ToHTML {
         String fim="</table>";
         String center="";
         
-        for(Parede p :c1.getParedes()){
-            center+=imprimeParede(p);
+        if(c1.getParedes()!=null){
+            for(Parede p :c1.getParedes()){
+                center+=imprimeParede(p);
+            }
         }
   
         return center;
@@ -179,7 +181,7 @@ public class ToHTML {
     public static String imprimeTemperaturas(Casa c1){
         String html="<table>\n" +
             "  <tr>\n" +
-            "    <td>Temperatura interior:</td>\n" +
+            "    <td>Temperatura Interior:</td>\n" +
             "    <td>"+c1.getTempInterior()+"C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
@@ -194,5 +196,7 @@ public class ToHTML {
         
         return html;
     }
+    
+
 
 }
