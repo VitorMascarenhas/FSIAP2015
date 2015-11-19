@@ -13,20 +13,39 @@ import java.util.ArrayList;
  */
 public class Casa {
 
-    private ArrayList<Parede> paredes;
+    private ArrayList<Parede> paredes = new ArrayList();
     private float tempExterior;
     private float tempInterior;
-
-    public void adicionarParede() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Casa(float interior, float exterior){
+        this.tempInterior=interior;
+        this.tempExterior=exterior;
     }
-
+    
+    /**
+     *  Adiciona Parede
+     */     
+    public void adicionarParede(Parede P) {
+        this.paredes.add(P);
+    }
+    /**
+     * @return a resistenciatotalTermica
+     */ 
     public float calculaResistenciaTermicaTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float resistenciaTotal = 0.0f;
+        for(Parede parede : paredes) {
+            
+            resistenciaTotal+=(1/parede.calculaResistenciaTermicaTotal());
+            
+        }
+        
+        return 1/resistenciaTotal;
     }
 
     public float calculaFluxoCalor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float fluxoCalor;
+        fluxoCalor = Math.abs(tempExterior-tempInterior)/this.calculaResistenciaTermicaTotal();
+        return fluxoCalor;
     }
 
     /**

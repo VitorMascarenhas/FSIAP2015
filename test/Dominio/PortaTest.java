@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -41,7 +42,10 @@ public class PortaTest {
     public void testCalculaArea() {
         float altura = (float) 2.5;
         float largura = (float) 4.2;
-        Porta porta = new Porta(altura, largura, (float) 1.5);
+        Materiais instance = Materiais.getInstance();
+        
+        instance.inserirMaterial("Madeira", 5.2F);
+        Porta porta = new Porta(altura, largura, (float) 1.5, "Madeira");
         double resultado = 10.5;
         assertEquals("CalculaAreaTest", resultado, porta.calculaArea(), 0.0);
     }
