@@ -25,7 +25,7 @@ public class Material {
      * @return a condutividade termica do material
      */
     public float obterCondutividade() {
-        System.out.println("Entrou no material");
+        //System.out.println("Entrou no material");
         return condutividadeTermica;
     }
     

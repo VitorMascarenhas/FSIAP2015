@@ -17,6 +17,11 @@ public class Casa {
     private float tempExterior;
     private float tempInterior;
     
+    public Casa(float interior, float exterior){
+        this.tempInterior=interior;
+        this.tempExterior=exterior;
+    }
+    
     /**
      *  Adiciona Parede
      */     
@@ -29,15 +34,18 @@ public class Casa {
     public float calculaResistenciaTermicaTotal() {
         float resistenciaTotal = 0.0f;
         for(Parede parede : paredes) {
-            if(parede.getClass().isInstance(Parede.class)) {
-                resistenciaTotal+=(1/parede.calculaResistenciaTermicaTotal());
-            }
+            
+            resistenciaTotal+=(1/parede.calculaResistenciaTermicaTotal());
+            
         }
+        
         return 1/resistenciaTotal;
     }
 
     public float calculaFluxoCalor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float fluxoCalor;
+        fluxoCalor = Math.abs(tempExterior-tempInterior)/this.calculaResistenciaTermicaTotal();
+        return fluxoCalor;
     }
 
     /**
