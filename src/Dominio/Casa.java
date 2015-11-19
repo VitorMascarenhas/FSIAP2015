@@ -16,7 +16,7 @@ public class Casa {
     private ArrayList<Parede> paredes;
     private float tempExterior;
     private float tempInterior;
-
+    
     /**
      *  Adiciona Parede
      */     
