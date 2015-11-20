@@ -5,10 +5,19 @@
  */
 package Controlador;
 
+import Dominio.Casa;
+
 /**
  *
  * @author vitoralexandremascarenhasmascarenhas
  */
 public class ExperienciaController {
     
+    public ExperienciaController() {
+    }
+    
+    public void criarExperiencia(float tempExt, float tempInt, float tempTerra , float altura, float largura, float comprimento) {
+        Casa casa = new Casa(tempExt, tempInt, tempTerra, altura, largura, comprimento);
+        
+    }
 }
