@@ -57,7 +57,5 @@ public class Glossary extends JInternalFrame {
         setVisible(true);
         setMinimumSize(new Dimension(1000, 800));
          
-     }
-
-    
+     }    
 }
