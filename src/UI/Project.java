@@ -55,47 +55,47 @@ public class Project extends JFrame {
         JMenuBar rootMenu = new JMenuBar();
         rootMenu.setBorder(new BevelBorder(BevelBorder.RAISED));
 
-        JMenu menu, submenu;
-        JMenuItem item;
+        JMenu menuFile, menuExperience, menuTools, menuHelp, submenu;
+        JMenuItem itemsave, itemimportE, itemexit, itemstart, iteminsert, itemimportM, itemIngles, itemPortugues, itemGlossary, itemAbout;
                 
-        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.file.text"));
-        rootMenu.add(menu);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.saveToHtml.text")));
-        menu.add(item);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperience.text")));
-        menu.add(item);
+        menuFile = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.file.text"));
+        rootMenu.add(menuFile);
+        itemsave = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.saveToHtml.text")));
+        menuFile.add(itemsave);
+        itemimportE = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperience.text")));
+        menuFile.add(itemimportE);
         
-        menu.add(new JSeparator());
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.exit.text")));
-        menu.add(item);
+        menuFile.add(new JSeparator());
+        itemexit = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.exit.text")));
+        menuFile.add(itemexit);
 
 
-        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.experience.text"));
-        rootMenu.add(menu);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text")));
-        menu.add(item);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.insertMaterials.text")));
-        menu.add(item);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importMaterials.text")));
-        menu.add(item);
+        menuExperience = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.experience.text"));
+        rootMenu.add(menuExperience);
+        itemstart = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text")));
+        menuExperience.add(itemstart);
+        iteminsert = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.insertMaterials.text")));
+        menuExperience.add(iteminsert);
+        itemimportM = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importMaterials.text")));
+        menuExperience.add(itemimportM);
         
         
-        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.tools.text"));
-        rootMenu.add(menu);
+        menuTools = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.tools.text"));
+        rootMenu.add(menuTools);
         submenu = new JMenu(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.idioma.text")));
-        menu.add(submenu);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.ingles.text")));
-        submenu.add(item);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.portugues.text")));
-        submenu.add(item);
+        menuTools.add(submenu);
+        itemIngles = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.ingles.text")));
+        submenu.add(itemIngles);
+        itemPortugues = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.portugues.text")));
+        submenu.add(itemPortugues);
         
 
-        menu = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.help.text"));
-        rootMenu.add(menu);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.glossary.text")));
-        menu.add(item);
-        item = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.about.text")));
-        menu.add(item);
+        menuHelp = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.help.text"));
+        rootMenu.add(menuHelp);
+        itemGlossary = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.glossary.text")));
+        menuHelp.add(itemGlossary);
+        itemAbout = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.about.text")));
+        menuHelp.add(itemAbout);
         
         
         setJMenuBar(rootMenu);
