@@ -26,9 +26,9 @@ public class ToHTML {
     public static void exportExp(String nomeExperiencia, Casa c1) throws FileNotFoundException{
         try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
             String html = prologo(nomeExperiencia);
+            html+= imprimeResistenciaTermica(c1);
             html+= imprimeTemperaturas(c1);
             html+= center(c1);
-            html+= imprimeResistenciaTermica(c1);
             html+= epilogo();
             fo.format(html);
             fo.close();
@@ -66,7 +66,6 @@ public class ToHTML {
             "  <tr>\n" +
             "    <th>Parede</th>\n" +
             "    <th>Componente</th>\n" +
-            "    <th>Resistencia Termica da Parede</th>\n" +
             "  </tr>";
         
         String fim="</table>";
@@ -94,10 +93,10 @@ public class ToHTML {
             "        <tr>\n" +
             "          <th>Tipo</th>\n" +
             "          <th>Especifica&ccedil;&otilde;es</th>\n" +
+            "          <th>Resist&ecirc;ncia T&eacute;rmica Componente</th>\n" +
             "        </tr>";
         
         String fim="      </table>\n" +
-            "    <td>"+p1.calculaResistenciaTermicaTotal()+"</td>\n" +
             "    </td>";
         
         String comp="\n";
@@ -122,11 +121,11 @@ public class ToHTML {
                 "            <table>\n" +
                 "              <tr>\n" +
                 "                <td>&Aacute;rea:</td>\n" +
-                "                <td>"+ c1.calculaArea() +"cm</td>\n" +
+                "                <td>"+ c1.calculaArea() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Espessura:</td>\n" +
-                "                <td>"+ c.getEspessura() +"cm</td>\n" +
+                "                <td>"+ c.getEspessura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Nome Material:</td>\n" +
@@ -139,6 +138,7 @@ public class ToHTML {
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
+                "          <td>\n" + c1.calculaResistenciaTermica() + "</td>\n" +
                 "        </tr>";    
         }else if(c1 instanceof Janela){
             Janela c = (Janela) c1;
@@ -149,11 +149,11 @@ public class ToHTML {
                 "            <table>\n" +
                 "              <tr>\n" +
                 "                <td>&Aacute;rea:</td>\n" +
-                "                <td>"+ c1.calculaArea() +"cm</td>\n" +
+                "                <td>"+ c1.calculaArea() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Espessura:</td>\n" +
-                "                <td>"+ c.getEspessura() +"cm</td>\n" +
+                "                <td>"+ c.getEspessura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Nome Material:</td>\n" +
@@ -166,6 +166,7 @@ public class ToHTML {
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
+                "          <td>\n" + c1.calculaResistenciaTermica() + "</td>\n" +
                 "        </tr>"; 
         }else{
             Porta c = (Porta) c1;
@@ -176,11 +177,11 @@ public class ToHTML {
                 "            <table>\n" +
                 "              <tr>\n" +
                 "                <td>&Aacute;rea:</td>\n" +
-                "                <td>"+ c1.calculaArea() +"cm</td>\n" +
+                "                <td>"+ c1.calculaArea() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Espessura:</td>\n" +
-                "                <td>"+ c.getEspessura() +"cm</td>\n" +
+                "                <td>"+ c.getEspessura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Nome Material:</td>\n" +
@@ -193,6 +194,7 @@ public class ToHTML {
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
+                "          <td>\n" + c1.calculaResistenciaTermica() + "</td>\n" +
                 "        </tr>"; 
         }
         return html;
@@ -206,15 +208,15 @@ public class ToHTML {
             "<table>\n" +
             "  <tr>\n" +
             "    <td>Temperatura Interior:</td>\n" +
-            "    <td>"+c1.getTempInterior()+"C</td>\n" +
+            "    <td>"+c1.getTempInterior()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
             "    <td>Temperatura Exterior:</td>\n" +
-            "    <td>"+c1.getTempExterior()+"C</td>\n" +
+            "    <td>"+c1.getTempExterior()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
             "    <td>Temperatura Solo:</td>\n" +
-            "    <td>"+c1.getTempTerra()+"C</td>\n" +
+            "    <td>"+c1.getTempTerra()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "</table>";
         
@@ -224,6 +226,9 @@ public class ToHTML {
     /*Metodo para imprimir resistência térmica por parede*/
     public static String imprimeResistenciaTermica(Casa c1){
         String inicio="<h2>Resultados</h2>\n" +
+                "<h3>Fluxo</h3>" +
+                "<h4>Falta implementar</h4>" +
+                "<h3>Resist&ecirc;ncia T&eacute;rmica por Parede</h3>" +
                 "<table>\n" +
                 "  <tr>\n" +
                 "    <th>Parede</th>\n" +
