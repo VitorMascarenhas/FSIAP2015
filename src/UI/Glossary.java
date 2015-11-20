@@ -5,12 +5,59 @@
  */
 package UI;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.io.IOException;
+import javax.swing.BorderFactory;
 import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 /**
  *
  * @author Nuno Lemos
  */
 public class Glossary extends JInternalFrame {
+     
+    public Glossary()
+         {
+         super("Glossary",
+          true, //resizable
+          true, //closable
+          true, //maximizable
+          true);//iconifiable
+
+        //... Create content pane, set layout, add components
+        JPanel content = new JPanel();
+        content.setLayout(new BorderLayout());
+        JScrollPane pane = new JScrollPane();
+        JTextPane textpane = new JTextPane();
+        textpane.setContentType("text/html");
+        textpane.setEditable(false);
+        String cd = System.getProperty("user.dir") + "/";
+        try {
+            textpane.setPage("File:///" + cd + "glossary.html");
+        } catch (IOException e) {
+            System.out.println("Exception: " + e);
+        }
+        textpane.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        pane.getViewport().add(textpane);
+        content.add(pane);
+        add(content);
+
+        content.add(pane, BorderLayout.CENTER);
+
+        setContentPane(content);
+        pack();
+        
+        setSize(1000, 800);
+        setClosable(true);
+        setResizable(true);
+        setVisible(true);
+        setMinimumSize(new Dimension(1000, 800));
+         
+     }
+
     
 }
