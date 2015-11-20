@@ -71,5 +71,12 @@ public class Casa {
         return tempInterior;
     }
 
+    /**
+     * @return the tempTerra
+     */
+    public float getTempTerra() {
+        return tempTerra;
+    }
+
     
 }

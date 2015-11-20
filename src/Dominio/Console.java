@@ -6,7 +6,9 @@
 package Dominio;
 
 import Factorys.FabricaComponentes;
+import Persistencia.ToHTML;
 import Repositorios.Materiais;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -14,7 +16,7 @@ import Repositorios.Materiais;
  */
 public class Console {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         
         // ADICIONAR MATERIAIS AO REPOSITORIO
         Materiais.getInstance().inserirMaterial("Tijolo", 0.4f);
@@ -118,5 +120,14 @@ public class Console {
         float fluxo = variacaoTemp/pchao;
         System.out.println("Fluxo do chão: " + fluxo);
         
+        Casa c1 = new Casa(15.0f, 30.0f, 15.0f);
+        c1.adicionarParede(pA);
+        c1.adicionarParede(pB);
+        c1.adicionarParede(pC);
+        c1.adicionarParede(pD);
+        c1.adicionarParede(chao);
+        c1.adicionarParede(teto);
+        
+        ToHTML.exportExp("Experiencia1", c1);
     }
 }

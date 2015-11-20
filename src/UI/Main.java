@@ -6,6 +6,8 @@
 package UI;
 
 
+import Dominio.Casa;
+import Dominio.Parede;
 import Persistencia.ToHTML;
 import Repositorios.Materiais;
 import java.io.FileNotFoundException;
@@ -21,12 +23,5 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
        _gui = new Project();
        
-       Materiais m = Materiais.getInstance();
-
-       m.inserirMaterial("Madeira", (float) 1.25);
-       m.inserirMaterial("Vidro", (float) 1.75);
-       m.inserirMaterial("Plastico", (float) 1.35);
-       
-       ToHTML.exportMat("Materiais");
     }
 }
