@@ -44,10 +44,14 @@ public class CasaTest {
     public void testCalculaResistenciaTermicaTotal() {
         System.out.println("CalculaResistenciaTermicaTotal");
 
-        float altura = (float) 3;
-        float largura = (float) 9;
+        float tempExt = 30f;
+        float tempInt = 20f;
+        float tempSolo = 15;
+        float altura = 3f;
+        float largura = 9f;
+        float comprimento = 12f;
         
-        Casa casa1=new Casa(20f,10f);
+        Casa casa1=new Casa(tempExt, tempInt, tempSolo, altura, largura, comprimento);
         
         Materiais instance = Materiais.getInstance();
         instance.inserirMaterial("Ferro", 80.2F);
@@ -112,9 +116,14 @@ public class CasaTest {
     public void testCalculaFluxoCalor() {
         System.out.println("CalculaFluxoCalor");
         
-        float altura = (float) 3;
-        float largura = (float) 9;
-        Casa casa1=new Casa(20f,10f);
+        float tempExt = 30f;
+        float tempInt = 20f;
+        float tempSolo = 15f;
+        float altura = 3f;
+        float largura = 9f;
+        float comprimento = 12f;
+        
+        Casa casa1=new Casa(tempExt, tempInt, tempSolo, altura, largura, comprimento);
         
         Materiais instance = Materiais.getInstance();
         instance.inserirMaterial("Ferro", 80.2F);
@@ -190,5 +199,4 @@ public class CasaTest {
     @Test
     public void testGetTempInterior() {
     }
-    
 }

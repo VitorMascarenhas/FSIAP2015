@@ -25,9 +25,9 @@ public class Casa {
         this.tempInterior=interior;
         this.tempExterior=exterior;
         this.tempTerra = tempTerra;
-        this.altura;
-        this.largura;
-        this.comprimento;
+        this.altura=altura;
+        this.largura=largura;
+        this.comprimento=comprimento;
     }
     
     /**
