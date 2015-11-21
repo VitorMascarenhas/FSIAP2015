@@ -117,6 +117,15 @@ public class Parede {
         return false;
     }
     
+    public void removerComponente(Componente comp) {
+        
+        for(Componente c : componentes) {
+            if(c.equals(comp)) {
+                this.componentes.remove(c);
+            }
+        }
+    }
+    
     /**
      * @return the componentes
      */
