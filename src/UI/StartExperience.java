@@ -8,6 +8,7 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.JInternalFrame;
 
@@ -17,7 +18,7 @@ import javax.swing.JInternalFrame;
  */
 public class StartExperience extends JInternalFrame {
     private JTextField temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JLabel label_temperaturaExterior, label_temperaturaInterior, label_temperaturaSolo, label_comprimentoCasa, label_larguraCasa, label_alturaCasa, label_html, label_separadores;
+    private JLabel label_temperaturas, label_dimensoes, label_temperaturaExterior, label_temperaturaInterior, label_temperaturaSolo, label_comprimentoCasa, label_larguraCasa, label_alturaCasa, label_html, label_separadores;
 
     public StartExperience() {
         super("StartExperience",
@@ -33,26 +34,32 @@ public class StartExperience extends JInternalFrame {
         JPanel panelLeft = new JPanel();
         
         JPanel panelLeftNorth = new JPanel();
+        panelLeftNorth.setLayout( new GridLayout(2,10) );
         
-        label_temperaturaExterior = new JLabel("Temperatura Exterior");
+        label_temperaturas = new JLabel("Temperaturas:");
+        label_temperaturaExterior = new JLabel("Exterior");
         temperaturaExterior = new JTextField(5);
-        label_temperaturaInterior = new JLabel("Temperatura Interior");
+        label_temperaturaInterior = new JLabel("Interior");
         temperaturaInterior = new JTextField(5);
-        label_temperaturaSolo = new JLabel("Temperatura Chão");
+        label_temperaturaSolo = new JLabel("Solo");
         temperaturaSolo = new JTextField(5);
-        label_comprimentoCasa = new JLabel("Comprimento Casa");
+        
+        label_dimensoes = new JLabel("Dimensões Casa:");
+        label_comprimentoCasa = new JLabel("Comprimento");
         comprimentoCasa = new JTextField(5);
-        label_larguraCasa = new JLabel("Largura Casa");
+        label_larguraCasa = new JLabel("Largura");
         larguraCasa = new JTextField(5);
-        label_alturaCasa = new JLabel("Altura Casa");
+        label_alturaCasa = new JLabel("Altura");
         alturaCasa = new JTextField(5);
         
+        panelLeftNorth.add(label_temperaturas);
         panelLeftNorth.add(label_temperaturaExterior);
         panelLeftNorth.add(temperaturaExterior);
         panelLeftNorth.add(label_temperaturaInterior);
         panelLeftNorth.add(temperaturaInterior);
         panelLeftNorth.add(label_temperaturaSolo);
         panelLeftNorth.add(temperaturaSolo);
+        panelLeftNorth.add(label_dimensoes);
         panelLeftNorth.add(label_comprimentoCasa);
         panelLeftNorth.add(comprimentoCasa);
         panelLeftNorth.add(label_larguraCasa);
