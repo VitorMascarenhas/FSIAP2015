@@ -5,11 +5,6 @@
  */
 package UI;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
-import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileFilter;
 import javax.swing.*;
