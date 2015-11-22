@@ -16,8 +16,8 @@ import javax.swing.JInternalFrame;
  * @author Nuno Lemos
  */
 public class StartExperience extends JInternalFrame {
-    private JTextField temperaturaExterior, temperaturaInterior;
-    private JLabel label_temperaturaExterior, label_temperaturaInterior, label_html, label_separadores;
+    private JTextField temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
+    private JLabel label_temperaturaExterior, label_temperaturaInterior, label_temperaturaSolo, label_comprimentoCasa, label_larguraCasa, label_alturaCasa, label_html, label_separadores;
 
     public StartExperience() {
         super("StartExperience",
@@ -38,12 +38,27 @@ public class StartExperience extends JInternalFrame {
         temperaturaExterior = new JTextField(5);
         label_temperaturaInterior = new JLabel("Temperatura Interior");
         temperaturaInterior = new JTextField(5);
+        label_temperaturaSolo = new JLabel("Temperatura Chão");
+        temperaturaSolo = new JTextField(5);
+        label_comprimentoCasa = new JLabel("Comprimento Casa");
+        comprimentoCasa = new JTextField(5);
+        label_larguraCasa = new JLabel("Largura Casa");
+        larguraCasa = new JTextField(5);
+        label_alturaCasa = new JLabel("Altura Casa");
+        alturaCasa = new JTextField(5);
         
         panelLeftNorth.add(label_temperaturaExterior);
         panelLeftNorth.add(temperaturaExterior);
         panelLeftNorth.add(label_temperaturaInterior);
         panelLeftNorth.add(temperaturaInterior);
-        
+        panelLeftNorth.add(label_temperaturaSolo);
+        panelLeftNorth.add(temperaturaSolo);
+        panelLeftNorth.add(label_comprimentoCasa);
+        panelLeftNorth.add(comprimentoCasa);
+        panelLeftNorth.add(label_larguraCasa);
+        panelLeftNorth.add(larguraCasa);
+        panelLeftNorth.add(label_alturaCasa);
+        panelLeftNorth.add(alturaCasa);
         
         
         JPanel panelLeftSouth = new JPanel();
