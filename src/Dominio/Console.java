@@ -120,7 +120,7 @@ public class Console {
         float fluxo = variacaoTemp/pchao;
         System.out.println("Fluxo do chão: " + fluxo);
         
-        Casa c1 = new Casa(15.0f, 30.0f, 15.0f);
+        Casa c1 = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
         c1.adicionarParede(pA);
         c1.adicionarParede(pB);
         c1.adicionarParede(pC);

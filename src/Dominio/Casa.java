@@ -17,11 +17,17 @@ public class Casa {
     private float tempExterior;
     private float tempInterior;
     private float tempTerra;
+    private float altura;
+    private float largura;
+    private float comprimento;
     
-    public Casa(float interior, float exterior, float tempTerra){
+    public Casa(float interior, float exterior, float tempTerra, float altura, float largura, float comprimento){
         this.tempInterior=interior;
         this.tempExterior=exterior;
         this.tempTerra = tempTerra;
+        this.altura=altura;
+        this.largura=largura;
+        this.comprimento=comprimento;
     }
     
     /**
