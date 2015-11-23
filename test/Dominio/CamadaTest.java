@@ -6,7 +6,6 @@
 package Dominio;
 
 import Repositorios.Materiais;
-import java.text.DecimalFormat;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -23,7 +23,13 @@ public class CasaTest {
 
     @Before
     public void setUp() throws Exception {
-        casa2=new Casa(20f,10f);
+        float altura = 1.33f;
+        float largura = 2.80f;
+        float comprimento = 6.55f;
+        float interior = 18.80f;
+        float exterior = 6.55f;
+        float tempTerra = 17.1f;
+        Casa casa2 = new Casa(interior, exterior, tempTerra, altura, largura, comprimento);
     }
 
     @After
