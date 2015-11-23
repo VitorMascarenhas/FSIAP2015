@@ -10,6 +10,8 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.JInternalFrame;
@@ -19,9 +21,12 @@ import javax.swing.JInternalFrame;
  * @author Nuno Lemos
  */
 public class StartSimulation extends JInternalFrame {
-    private JTextField altura1, largura1, camadas1, espessura1, temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JLabel label_metros, label_espessura, label_espaco, label_camadas, label_largura, label_altura, label_temperaturas, label_dimensoes, label_temperaturaExterior, label_temperaturaInterior, label_temperaturaSolo, label_comprimentoCasa, label_larguraCasa, label_alturaCasa, label_html, label_separadores;
-
+    private JTextField altura1, largura1, espessura1, temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
+    private JLabel label_metrosaltura1, label_metroslargura1, label_metrosespessura1, label_espessura1, label_espaco1, label_material1, label_largura1, label_altura1, label_temperaturas, label_dimensoes, label_temperaturaExterior, label_temperaturaInterior, label_temperaturaSolo, label_comprimentoCasa, label_larguraCasa, label_alturaCasa, label_html, label_separadores;
+    private JComboBox material1;
+    private JButton buttonclean1, buttonadd1, buttonnext1;
+    private JList camadas1;
+    
     public StartSimulation() {
         super("StartSimulation",
           true, //resizable
@@ -90,7 +95,7 @@ public class StartSimulation extends JInternalFrame {
         
         
         JTabbedPane tabbedPane = new JTabbedPane();
-        ImageIcon icon = createImageIcon("images/middle.gif");
+        ImageIcon icon = createImageIcon("imgs/middle.gif");
 
         JComponent parede1 = (JComponent) makeTextPanel("");
         tabbedPane.addTab("Parede1", icon, parede1, "Parede 1");
@@ -104,7 +109,7 @@ public class StartSimulation extends JInternalFrame {
         tabbedPane.addTab("Parede3", icon, parede3, "Parede 3");
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
-        JComponent parede4 = (JComponent) makeTextPanel("Parede #4 (has a preferred size of 410 x 50).");
+        JComponent parede4 = (JComponent) makeTextPanel("Parede #4");
         parede4.setPreferredSize(new Dimension(410, 50));
         tabbedPane.addTab("Parede4", icon, parede4, "Parede 4");
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
@@ -122,38 +127,82 @@ public class StartSimulation extends JInternalFrame {
 
         //Espaço reservado para Parede 1
         
-        parede1.setLayout( new GridLayout(5,3) );
+        parede1.setLayout( new GridLayout(6,3) );
         
-        label_altura = new JLabel("Altura");
+        label_altura1 = new JLabel("Altura");
         altura1 = new JTextField(5);
-        label_metros = new JLabel("mts");
-        label_largura = new JLabel("Largura");
+        label_metrosaltura1 = new JLabel("mts");
+        
+        label_largura1 = new JLabel("Largura");
         largura1 = new JTextField(5);
-        label_metros = new JLabel("mts");
-        label_camadas = new JLabel("Camadas");
-        camadas1 = new JTextField(5);
-        label_espaco = new JLabel("");
-        label_espessura = new JLabel("Espessura");
+        label_metroslargura1 = new JLabel("mts");
+        
+        label_material1 = new JLabel("Material");
+        material1 = new JComboBox();
+        label_espaco1 = new JLabel("");
+        
+        label_espessura1 = new JLabel("Espessura");
         espessura1 = new JTextField(5);
-        label_metros = new JLabel("mts");
-                
-        parede1.add(label_espaco);
-        parede1.add(label_espaco);
-        parede1.add(label_altura);
+        label_metrosespessura1 = new JLabel("mts");
+             
+        buttonclean1 = new JButton("Limpar");
+        buttonadd1 = new JButton("Adicionar");
+        buttonnext1 = new JButton("Seguinte");
+
+//        final DefaultListModel model_camadas;
+//        model_camadas = new DefaultListModel();
+//        
+//        camadas1 = new JList(model_camadas); //data has type Object[]
+//        camadas1.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+//        camadas1.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+//        camadas1.setVisibleRowCount(-1);
+//       
+//        JScrollPane listScroller = new JScrollPane(camadas1);
+//        listScroller.setPreferredSize(new Dimension(250, 80));
+        
+        
+        
+        
+        parede1.add(label_altura1);
         parede1.add(altura1);
-        parede1.add(label_metros);
-        parede1.add(label_largura);
+        parede1.add(label_metrosaltura1);
+        
+        parede1.add(label_largura1);
         parede1.add(largura1);
-        parede1.add(label_metros);
-        parede1.add(label_camadas);
-        parede1.add(camadas1);
-        parede1.add(label_espaco);
-        parede1.add(label_espessura);
+        parede1.add(label_metroslargura1);
+        
+        parede1.add(label_material1);
+        parede1.add(material1);
+        parede1.add(label_espaco1);
+        
+        parede1.add(label_espessura1);
         parede1.add(espessura1);
-        parede1.add(label_metros);
+        parede1.add(label_metrosespessura1);
 
-              
+        parede1.add(buttonclean1);
+        parede1.add(buttonadd1);
+        parede1.add(buttonnext1);
 
+//        parede1.add(camadas1);
+        
+        
+//        for (int i = 0; i < 15; i++){
+//            model_camadas.addElement("Element " + i);
+//        }
+//
+//            buttonadd1.addActionListener(new ActionListener() {
+//                public void actionPerformed(ActionEvent e) {
+//                    model_camadas.addElement("Element");                    
+//                }
+//            });
+        
+                
+       
+             
+        
+        
+        
+        
 
         //Painel principal dividido em 2 - (Centro e Este)
         contentPane.add(panelLeft,
@@ -172,10 +221,10 @@ public class StartSimulation extends JInternalFrame {
     
     protected Component makeTextPanel(String text) {
         JPanel panel = new JPanel(false);
-        JLabel filler = new JLabel(text);
-        filler.setHorizontalAlignment(JLabel.CENTER);
-        panel.setLayout(new GridLayout(1, 1));
-        panel.add(filler);
+//        JLabel filler = new JLabel(text);
+//        filler.setHorizontalAlignment(JLabel.CENTER);
+//        panel.setLayout(new GridLayout(1, 1));
+//        panel.add(filler);
         return panel;
     }
     
