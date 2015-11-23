@@ -131,11 +131,13 @@ public class Project extends JFrame {
         }
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text"))) {
-            StartExperience start = new StartExperience();
-            //StartSimulation start = new StartSimulation();
-            start.setVisible(true);
-            desktop.add(start);
-            desktop.moveToFront(start);
+            StartExperience starte = new StartExperience();
+            StartSimulation starts = new StartSimulation();
+            starte.setVisible(true);
+            starts.setVisible(true);
+            desktop.add(starte);
+            desktop.add(starts);
+            desktop.moveToFront(starte);
         }     
    
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.insertMaterials.text"))) {
