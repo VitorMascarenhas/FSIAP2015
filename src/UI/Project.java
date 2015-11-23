@@ -29,7 +29,11 @@ public class Project extends JFrame {
 
     private boolean _quit = false;
     JDesktopPane desktop;
-
+    JMenuBar rootMenu;
+    JMenu menuFile, menuExperience, menuTools, menuHelp, submenu;
+    JMenuItem itemsave, itemimportE, itemexit, itemstart, iteminsert, itemimportM, itemIngles, itemPortugues, itemGlossary, itemAbout;
+    
+    
     public Project() {
 
         super("ISEP - FSIAP - Termodinâmica");
@@ -52,11 +56,8 @@ public class Project extends JFrame {
 
         initBundle();
         
-        JMenuBar rootMenu = new JMenuBar();
+        rootMenu = new JMenuBar();
         rootMenu.setBorder(new BevelBorder(BevelBorder.RAISED));
-
-        JMenu menuFile, menuExperience, menuTools, menuHelp, submenu;
-        JMenuItem itemsave, itemimportE, itemexit, itemstart, iteminsert, itemimportM, itemIngles, itemPortugues, itemGlossary, itemAbout;
                 
         menuFile = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.file.text"));
         rootMenu.add(menuFile);
@@ -78,8 +79,7 @@ public class Project extends JFrame {
         menuExperience.add(iteminsert);
         itemimportM = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importMaterials.text")));
         menuExperience.add(itemimportM);
-        
-        
+                
         menuTools = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.tools.text"));
         rootMenu.add(menuTools);
         submenu = new JMenu(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.idioma.text")));
@@ -89,14 +89,12 @@ public class Project extends JFrame {
         itemPortugues = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.portugues.text")));
         submenu.add(itemPortugues);
         
-
         menuHelp = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.help.text"));
         rootMenu.add(menuHelp);
         itemGlossary = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.glossary.text")));
         menuHelp.add(itemGlossary);
         itemAbout = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.about.text")));
         menuHelp.add(itemAbout);
-        
         
         setJMenuBar(rootMenu);
     }
@@ -134,6 +132,7 @@ public class Project extends JFrame {
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text"))) {
             StartExperience start = new StartExperience();
+            StartSimulation start = new StartSimulation();
             start.setVisible(true);
             desktop.add(start);
             desktop.moveToFront(start);
@@ -157,13 +156,17 @@ public class Project extends JFrame {
         // Chama as opções de menu do separador Ferramentas
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.ingles.text"))) {
             int idioma = 1;
-            initBundle(idioma);           
+            initBundle(idioma);
+            rootMenu.repaint();
+            rootMenu.revalidate();
        }
         
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.portugues.text"))) {
             int idioma = 0;
             initBundle(idioma);            
-       }
+            rootMenu.repaint();
+            rootMenu.revalidate();
+        }
         
         
         // Chama as opções de menu do separador Ajuda

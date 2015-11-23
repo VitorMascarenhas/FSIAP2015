@@ -16,7 +16,7 @@ public class Idioma {
     
     public static ResourceBundle BUNDLE;
     
-    public static Integer IDIOMA = 0; // - Idioma portugues por defeito
+    public static Integer IDIOMA = 1; // - Idioma portugues por defeito
     
     public static void initBundle() {
         if (IDIOMA == 0) {  //0 - Portugues
