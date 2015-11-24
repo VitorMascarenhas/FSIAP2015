@@ -6,6 +6,7 @@
 package Dominio;
 
 import Factorys.FabricaComponentes;
+import Persistencia.FromHTML;
 import Persistencia.ToHTML;
 import Repositorios.Materiais;
 import java.io.FileNotFoundException;
@@ -25,6 +26,7 @@ public class Console {
         Materiais.getInstance().inserirMaterial("Madeira", 0.11f);
         Materiais.getInstance().inserirMaterial("Alumínio", 237f);
         
+
         // Tamanho da casa
         float altura = 3f;
         float largura = 8f;
@@ -129,5 +131,12 @@ public class Console {
         c1.adicionarParede(teto);
         
         ToHTML.exportExp("Experiencia1", c1);
+        ToHTML.exportMat("Materiais");
+        FromHTML.ReadMateriais("Materiais");
+        
+        
+        for(Material m: Materiais.getInstance().getListMateriais()){
+            System.out.println(m.toString());
+        }
     }
 }

@@ -274,15 +274,15 @@ public class ToHTML {
                         "<h2>Lista de materiais</h2>\n<br>\n" +
                         "<table>\n" +
                         "  <tr>\n" +
-                        "    <td>Nome</td>\n" +
-                        "    <td>Condutividade</td>\n" +
-                        "  </tr>";
+                        "    <th>Nome</th>\n" +
+                        "    <th>Condutividade</th>\n" +
+                        "  </tr>\n";
         
         for(Material m: Materiais.getInstance().getListMateriais()){
             html +=  "  <tr>\n" +
                         "    <td>"+ m.getNomeMaterial()+"</td>\n" +
                         "    <td>"+ m.obterCondutividade()+"</td>\n" +
-                        "  </tr>";
+                        "  </tr>\n";
         }
         
         html+= "</table>\n" +
