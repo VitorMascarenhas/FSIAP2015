@@ -77,8 +77,12 @@ public class StartSimulation extends JInternalFrame {
         
         JPanel panelLeftSouth = new JPanel();
         
-        label_html = new JLabel("Espaço reservado para HTML");
-        panelLeftSouth.add(label_html);
+        
+        
+        //Espaço reservado para apresentação do HTML
+        
+//        label_html = new JLabel("Espaço reservado para HTML");
+//        panelLeftSouth.add(label_html);
         
         
         
@@ -98,7 +102,7 @@ public class StartSimulation extends JInternalFrame {
         ImageIcon icon = createImageIcon("imgs/middle.gif");
 
         JComponent parede1 = (JComponent) makeTextPanel("");
-        tabbedPane.addTab("Parede1", icon, parede1, "Parede 1");
+        tabbedPane.addTab("Parede1", icon, parede1, "Parede #1");
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
         JComponent parede2 = (JComponent) makeTextPanel("Parede #2");
@@ -149,6 +153,7 @@ public class StartSimulation extends JInternalFrame {
         buttonadd1 = new JButton("Adicionar");
         buttonnext1 = new JButton("Seguinte");
 
+        
 //        final DefaultListModel model_camadas;
 //        model_camadas = new DefaultListModel();
 //        
@@ -237,5 +242,5 @@ public class StartSimulation extends JInternalFrame {
             return null;
         }
     }
-    
+       
 }
