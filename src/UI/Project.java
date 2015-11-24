@@ -201,5 +201,5 @@ public class Project extends JFrame {
         }
     }
     CriarPortaUI cp = new CriarPortaUI();
-    
+    CriarJanelaUI cj = new CriarJanelaUI();
 }
