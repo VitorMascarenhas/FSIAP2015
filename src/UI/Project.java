@@ -200,4 +200,6 @@ public class Project extends JFrame {
             evaluateMenuItemActionPerformed(e);
         }
     }
+    CriarPortaUI cp = new CriarPortaUI();
+    
 }
