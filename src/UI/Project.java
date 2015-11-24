@@ -131,11 +131,8 @@ public class Project extends JFrame {
         }
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text"))) {
-            //StartExperience starte = new StartExperience();
             StartSimulation start = new StartSimulation();
-            //starte.setVisible(true);
             start.setVisible(true);
-            //desktop.add(starte);
             desktop.add(start);
             desktop.moveToFront(start);
         }     

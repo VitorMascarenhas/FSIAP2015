@@ -21,10 +21,18 @@ import javax.swing.JInternalFrame;
  * @author Nuno Lemos
  */
 public class StartSimulation extends JInternalFrame {
-    private JTextField altura1, largura1, espessura1, temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JLabel label_metrosaltura1, label_metroslargura1, label_metrosespessura1, label_espessura1, label_espaco1, label_material1, label_largura1, label_altura1, label_temperaturas, label_dimensoes, label_temperaturaExterior, label_temperaturaInterior, label_temperaturaSolo, label_comprimentoCasa, label_larguraCasa, label_alturaCasa, label_html, label_separadores;
-    private JComboBox material1;
-    private JButton buttonclean1, buttonadd1, buttonnext1;
+    private JTextField c_altura1, c_largura1, c_espessura1, 
+            j_altura1, j_largura1, j_espessura1, 
+            p_altura1, p_largura1, p_espessura1, 
+            temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
+    private JLabel lb_c_metrosaltura1, lb_c_metroslargura1, lb_c_metrosespessura1, lb_c_espessura1, lb_c_material1, lb_c_largura1, lb_c_altura1, 
+            lb_j_metrosaltura1, lb_j_metroslargura1, lb_j_metrosespessura1, lb_j_espessura1, lb_j_material1, lb_j_largura1, lb_j_altura1, 
+            lb_p_metrosaltura1, lb_p_metroslargura1, lb_p_metrosespessura1, lb_p_espessura1, lb_p_material1, lb_p_largura1, lb_p_altura1,
+            lb_espaco1, lb_c_espaco11, lb_c_espaco12, lb_c_espaco13, lb_j_espaco11, lb_j_espaco12, lb_j_espaco13, lb_p_espaco11, lb_p_espaco12, lb_p_espaco13,
+            lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
+            lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa, lb_html, lb_separadores;
+    private JComboBox c_material1, j_material1, p_material1;
+    private JButton c_buttonadd1, j_buttonadd1, p_buttonadd1, buttonclean1, buttonnext1;
     private JList camadas1;
     
     public StartSimulation() {
@@ -41,38 +49,51 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelLeft = new JPanel();
         
         JPanel panelLeftNorth = new JPanel();
-        panelLeftNorth.setLayout( new GridLayout(2,7) );
+        panelLeftNorth.setLayout( new GridLayout(2,10) );
         
-        label_temperaturas = new JLabel("Temperaturas:");
-        label_temperaturaExterior = new JLabel("Exterior");
+        lb_temperaturas = new JLabel("Temperaturas:");
+        lb_temperaturaExterior = new JLabel("Exterior");
         temperaturaExterior = new JTextField(5);
-        label_temperaturaInterior = new JLabel("Interior");
+        lb_temp_ext_unid = new JLabel("ºC");
+        lb_temperaturaInterior = new JLabel("Interior");
         temperaturaInterior = new JTextField(5);
-        label_temperaturaSolo = new JLabel("Solo");
+        lb_temp_int_unid = new JLabel("ºC");
+        lb_temperaturaSolo = new JLabel("Solo");
         temperaturaSolo = new JTextField(5);
+        lb_temp_sol_unid = new JLabel("ºC");
         
-        label_dimensoes = new JLabel("Dimensões Casa:");
-        label_comprimentoCasa = new JLabel("Comprimento");
+        lb_dimensoes = new JLabel("Dimensões Casa:");
+        lb_comprimentoCasa = new JLabel("Comprimento");
         comprimentoCasa = new JTextField(5);
-        label_larguraCasa = new JLabel("Largura");
+        lb_comprimento_unid = new JLabel("mts");
+        lb_larguraCasa = new JLabel("Largura");
         larguraCasa = new JTextField(5);
-        label_alturaCasa = new JLabel("Altura");
+        lb_largura_unid = new JLabel("mts");
+        lb_alturaCasa = new JLabel("Altura");
         alturaCasa = new JTextField(5);
+        lb_altura_unid = new JLabel("mts");
         
-        panelLeftNorth.add(label_temperaturas);
-        panelLeftNorth.add(label_temperaturaExterior);
+        
+        panelLeftNorth.add(lb_temperaturas);
+        panelLeftNorth.add(lb_temperaturaExterior);
         panelLeftNorth.add(temperaturaExterior);
-        panelLeftNorth.add(label_temperaturaInterior);
+        panelLeftNorth.add(lb_temp_ext_unid);
+        panelLeftNorth.add(lb_temperaturaInterior);
         panelLeftNorth.add(temperaturaInterior);
-        panelLeftNorth.add(label_temperaturaSolo);
+        panelLeftNorth.add(lb_temp_int_unid);
+        panelLeftNorth.add(lb_temperaturaSolo);
         panelLeftNorth.add(temperaturaSolo);
-        panelLeftNorth.add(label_dimensoes);
-        panelLeftNorth.add(label_comprimentoCasa);
+        panelLeftNorth.add(lb_temp_sol_unid);
+        panelLeftNorth.add(lb_dimensoes);
+        panelLeftNorth.add(lb_comprimentoCasa);
         panelLeftNorth.add(comprimentoCasa);
-        panelLeftNorth.add(label_larguraCasa);
+        panelLeftNorth.add(lb_comprimento_unid);
+        panelLeftNorth.add(lb_larguraCasa);
         panelLeftNorth.add(larguraCasa);
-        panelLeftNorth.add(label_alturaCasa);
+        panelLeftNorth.add(lb_largura_unid);
+        panelLeftNorth.add(lb_alturaCasa);
         panelLeftNorth.add(alturaCasa);
+        panelLeftNorth.add(lb_altura_unid);
         
         
         JPanel panelLeftSouth = new JPanel();
@@ -131,27 +152,32 @@ public class StartSimulation extends JInternalFrame {
 
         //Espaço reservado para Parede 1
         
-        parede1.setLayout( new GridLayout(6,3) );
+        parede1.setLayout( new GridLayout(16,3) );
         
-        label_altura1 = new JLabel("Altura");
-        altura1 = new JTextField(5);
-        label_metrosaltura1 = new JLabel("mts");
+        //camada
+        lb_c_altura1 = new JLabel("Altura Camada");
+        c_altura1 = new JTextField(5);
+        c_altura1.setEnabled(false);
+        c_altura1.setText("valor altura camada");
+        lb_c_metrosaltura1 = new JLabel("mts");
         
-        label_largura1 = new JLabel("Largura");
-        largura1 = new JTextField(5);
-        label_metroslargura1 = new JLabel("mts");
+        lb_c_largura1 = new JLabel("Largura Camada");
+        c_largura1 = new JTextField(5);
+        c_largura1.setEnabled(false);
+        c_largura1.setText("valor largura camada");
+        lb_c_metroslargura1 = new JLabel("mts");
         
-        label_material1 = new JLabel("Material");
-        material1 = new JComboBox();
-        label_espaco1 = new JLabel("");
+        lb_c_material1 = new JLabel("Material Camada");
+        c_material1 = new JComboBox();
+        lb_c_espaco11 = new JLabel("");
         
-        label_espessura1 = new JLabel("Espessura");
-        espessura1 = new JTextField(5);
-        label_metrosespessura1 = new JLabel("mts");
+        lb_c_espessura1 = new JLabel("Espessura Camada");
+        c_espessura1 = new JTextField(5);
+        lb_c_metrosespessura1 = new JLabel("mts");
              
-        buttonclean1 = new JButton("Limpar");
-        buttonadd1 = new JButton("Adicionar");
-        buttonnext1 = new JButton("Seguinte");
+        lb_c_espaco12 = new JLabel("");
+        lb_c_espaco13 = new JLabel("");
+        c_buttonadd1 = new JButton("Adicionar");
 
         
 //        final DefaultListModel model_camadas;
@@ -166,29 +192,123 @@ public class StartSimulation extends JInternalFrame {
 //        listScroller.setPreferredSize(new Dimension(250, 80));
         
         
+        //janelas
+        lb_j_altura1 = new JLabel("Altura Janela");
+        j_altura1 = new JTextField(5);
+        lb_j_metrosaltura1 = new JLabel("mts");
+        
+        lb_j_largura1 = new JLabel("Largura Janela");
+        j_largura1 = new JTextField(5);
+        lb_j_metroslargura1 = new JLabel("mts");
+        
+        lb_j_material1 = new JLabel("Material Janela");
+        j_material1 = new JComboBox();
+        lb_j_espaco11 = new JLabel("");
+        
+        lb_j_espessura1 = new JLabel("Espessura Janela");
+        j_espessura1 = new JTextField(5);
+        lb_j_metrosespessura1 = new JLabel("mts");
+             
+        lb_j_espaco12 = new JLabel("");
+        lb_j_espaco13 = new JLabel("");
+        j_buttonadd1 = new JButton("Adicionar");
+        
+        //portas
+        lb_p_altura1 = new JLabel("Altura Porta");
+        p_altura1 = new JTextField(5);
+        lb_p_metrosaltura1 = new JLabel("mts");
+        
+        lb_p_largura1 = new JLabel("Largura Porta");
+        p_largura1 = new JTextField(5);
+        lb_p_metroslargura1 = new JLabel("mts");
+        
+        lb_p_material1 = new JLabel("Material Porta");
+        p_material1 = new JComboBox();
+        lb_p_espaco11 = new JLabel("");
+        
+        lb_p_espessura1 = new JLabel("Espessura Porta");
+        p_espessura1 = new JTextField(5);
+        lb_p_metrosespessura1 = new JLabel("mts");
+             
+        lb_p_espaco12 = new JLabel("");
+        lb_p_espaco13 = new JLabel("");
+        p_buttonadd1 = new JButton("Adicionar");
+        
+        buttonclean1 = new JButton("Limpar");
+        buttonnext1 = new JButton("Seguinte");
+        lb_espaco1 = new JLabel("");
         
         
-        parede1.add(label_altura1);
-        parede1.add(altura1);
-        parede1.add(label_metrosaltura1);
+        //camada
+        parede1.add(lb_c_altura1);
+        parede1.add(c_altura1);
+        parede1.add(lb_c_metrosaltura1);
         
-        parede1.add(label_largura1);
-        parede1.add(largura1);
-        parede1.add(label_metroslargura1);
+        parede1.add(lb_c_largura1);
+        parede1.add(c_largura1);
+        parede1.add(lb_c_metroslargura1);
         
-        parede1.add(label_material1);
-        parede1.add(material1);
-        parede1.add(label_espaco1);
+        parede1.add(lb_c_material1);
+        parede1.add(c_material1);
+        parede1.add(lb_c_espaco11);
         
-        parede1.add(label_espessura1);
-        parede1.add(espessura1);
-        parede1.add(label_metrosespessura1);
+        parede1.add(lb_c_espessura1);
+        parede1.add(c_espessura1);
+        parede1.add(lb_c_metrosespessura1);
 
-        parede1.add(buttonclean1);
-        parede1.add(buttonadd1);
-        parede1.add(buttonnext1);
+        parede1.add(lb_c_espaco12);
+        parede1.add(lb_c_espaco13);
+        parede1.add(c_buttonadd1);
 
 //        parede1.add(camadas1);
+        
+        
+        //janela
+        parede1.add(lb_j_altura1);
+        parede1.add(j_altura1);
+        parede1.add(lb_j_metrosaltura1);
+        
+        parede1.add(lb_j_largura1);
+        parede1.add(j_largura1);
+        parede1.add(lb_j_metroslargura1);
+        
+        parede1.add(lb_j_material1);
+        parede1.add(j_material1);
+        parede1.add(lb_j_espaco11);
+        
+        parede1.add(lb_j_espessura1);
+        parede1.add(j_espessura1);
+        parede1.add(lb_j_metrosespessura1);
+
+        parede1.add(lb_j_espaco12);
+        parede1.add(lb_j_espaco13);
+        parede1.add(j_buttonadd1);
+        
+        
+        //porta
+        parede1.add(lb_p_altura1);
+        parede1.add(p_altura1);
+        parede1.add(lb_p_metrosaltura1);
+        
+        parede1.add(lb_p_largura1);
+        parede1.add(p_largura1);
+        parede1.add(lb_p_metroslargura1);
+        
+        parede1.add(lb_p_material1);
+        parede1.add(p_material1);
+        parede1.add(lb_p_espaco11);
+        
+        parede1.add(lb_p_espessura1);
+        parede1.add(p_espessura1);
+        parede1.add(lb_p_metrosespessura1);
+
+        parede1.add(lb_p_espaco12);
+        parede1.add(lb_p_espaco13);
+        parede1.add(p_buttonadd1);
+        
+        parede1.add(buttonclean1);
+        parede1.add(buttonnext1);
+        parede1.add(lb_espaco1);
         
         
 //        for (int i = 0; i < 15; i++){
