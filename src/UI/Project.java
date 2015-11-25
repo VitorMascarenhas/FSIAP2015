@@ -63,7 +63,7 @@ public class Project extends JFrame {
         rootMenu.add(menuFile);
         itemsave = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.saveToHtml.text")));
         menuFile.add(itemsave);
-        itemimportE = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperience.text")));
+        itemimportE = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperiment.text")));
         menuFile.add(itemimportE);
         
         menuFile.add(new JSeparator());
@@ -71,7 +71,7 @@ public class Project extends JFrame {
         menuFile.add(itemexit);
 
 
-        menuExperience = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.experience.text"));
+        menuExperience = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.experiment.text"));
         rootMenu.add(menuExperience);
         itemstart = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.startSimulation.text")));
         menuExperience.add(itemstart);
@@ -111,7 +111,7 @@ public class Project extends JFrame {
             desktop.moveToFront(save);
         }
 
-        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperience.text"))) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.importExperiment.text"))) {
             OpenExperience open = new OpenExperience();
             open.setVisible(true);
             desktop.add(open);
