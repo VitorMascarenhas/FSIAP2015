@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-import javax.swing.JInternalFrame;
 
 /**
  *
@@ -30,9 +29,9 @@ public class StartSimulation extends JInternalFrame {
             lb_p_metrosaltura1, lb_p_metroslargura1, lb_p_metrosespessura1, lb_p_espessura1, lb_p_material1, lb_p_largura1, lb_p_altura1,
             lb_espaco1, lb_c_espaco11, lb_c_espaco12, lb_c_espaco13, lb_j_espaco11, lb_j_espaco12, lb_j_espaco13, lb_p_espaco11, lb_p_espaco12, lb_p_espaco13,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
-            lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa, lb_html, lb_separadores;
+            lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa, lb_buttondef, lb_html, lb_separadores;
     private JComboBox c_material1, j_material1, p_material1;
-    private JButton c_buttonadd1, j_buttonadd1, p_buttonadd1, buttonclean1, buttonnext1;
+    private JButton c_buttonadd1, j_buttonadd1, p_buttonadd1, buttonclean1, buttonnext1, buttondefinir;
     private JList camadas1;
     
     public StartSimulation() {
@@ -49,7 +48,7 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelLeft = new JPanel();
         
         JPanel panelLeftNorth = new JPanel();
-        panelLeftNorth.setLayout( new GridLayout(2,10) );
+        panelLeftNorth.setLayout( new GridLayout(2,11) );
         
         lb_temperaturas = new JLabel("Temperaturas:");
         lb_temperaturaExterior = new JLabel("Exterior");
@@ -61,6 +60,7 @@ public class StartSimulation extends JInternalFrame {
         lb_temperaturaSolo = new JLabel("Solo");
         temperaturaSolo = new JTextField(5);
         lb_temp_sol_unid = new JLabel("ºC");
+        lb_buttondef = new JLabel("");
         
         lb_dimensoes = new JLabel("Dimensões Casa:");
         lb_comprimentoCasa = new JLabel("Comprimento");
@@ -73,6 +73,19 @@ public class StartSimulation extends JInternalFrame {
         alturaCasa = new JTextField(5);
         lb_altura_unid = new JLabel("mts");
         
+        buttondefinir = new JButton("Definir");
+        buttondefinir.addActionListener(new ActionListener() {
+ 
+            public void actionPerformed(ActionEvent e)
+            {
+                //Execute when button is pressed
+                Float comprimento = (Float.parseFloat(comprimentoCasa.getText()));
+                c_largura1.setText(comprimento.toString());
+                Float altura = (Float.parseFloat(alturaCasa.getText()));
+                c_altura1.setText(altura.toString());
+            }
+        });      
+        
         
         panelLeftNorth.add(lb_temperaturas);
         panelLeftNorth.add(lb_temperaturaExterior);
@@ -84,6 +97,8 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(lb_temperaturaSolo);
         panelLeftNorth.add(temperaturaSolo);
         panelLeftNorth.add(lb_temp_sol_unid);
+        panelLeftNorth.add(lb_buttondef);
+        
         panelLeftNorth.add(lb_dimensoes);
         panelLeftNorth.add(lb_comprimentoCasa);
         panelLeftNorth.add(comprimentoCasa);
@@ -95,6 +110,7 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(alturaCasa);
         panelLeftNorth.add(lb_altura_unid);
         
+        panelLeftNorth.add(buttondefinir);
         
         JPanel panelLeftSouth = new JPanel();
         
@@ -104,6 +120,32 @@ public class StartSimulation extends JInternalFrame {
         
 //        label_html = new JLabel("Espaço reservado para HTML");
 //        panelLeftSouth.add(label_html);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -158,13 +200,13 @@ public class StartSimulation extends JInternalFrame {
         lb_c_altura1 = new JLabel("Altura Camada");
         c_altura1 = new JTextField(5);
         c_altura1.setEnabled(false);
-        c_altura1.setText("valor altura camada");
+        //c_altura1.setText("valor altura camada");
         lb_c_metrosaltura1 = new JLabel("mts");
         
         lb_c_largura1 = new JLabel("Largura Camada");
         c_largura1 = new JTextField(5);
         c_largura1.setEnabled(false);
-        c_largura1.setText("valor largura camada");
+        //c_largura1.setText("valor largura camada");
         lb_c_metroslargura1 = new JLabel("mts");
         
         lb_c_material1 = new JLabel("Material Camada");
