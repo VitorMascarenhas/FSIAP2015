@@ -73,7 +73,7 @@ public class Project extends JFrame {
 
         menuExperience = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.experience.text"));
         rootMenu.add(menuExperience);
-        itemstart = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text")));
+        itemstart = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.startSimulation.text")));
         menuExperience.add(itemstart);
         iteminsert = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.insertMaterials.text")));
         menuExperience.add(iteminsert);
@@ -130,7 +130,7 @@ public class Project extends JFrame {
             }
         }
 
-        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startExperience.text"))) {
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startSimulation.text"))) {
             StartSimulation start = new StartSimulation();
             start.setVisible(true);
             desktop.add(start);
@@ -197,6 +197,6 @@ public class Project extends JFrame {
             evaluateMenuItemActionPerformed(e);
         }
     }
-    CriarPortaUI cp = new CriarPortaUI();
-    CriarJanelaUI cj = new CriarJanelaUI();
+//    CriarPortaUI cp = new CriarPortaUI();
+//    CriarJanelaUI cj = new CriarJanelaUI();
 }

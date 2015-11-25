@@ -51,7 +51,7 @@ public class Glossary extends JInternalFrame {
         setContentPane(content);
         pack();
         
-        setSize(1000, 800);
+        setSize(1480, 930);
         setClosable(true);
         setResizable(true);
         setVisible(true);

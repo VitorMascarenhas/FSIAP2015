@@ -65,11 +65,11 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
 //associa receptor de ação aos botões
         botton_inserir.addActionListener(this);
         //define o frame
-        setSize(200, 400);
+        setSize(400, 600);
         setMinimumSize(new Dimension(200, 400));
         Dimension paneSize = janela.getSize();   
         Dimension screenSize = janela.getToolkit().getScreenSize();   
-        setLocation((screenSize.width - paneSize.width) / 3, (screenSize.height - paneSize.height) / 4);
+        setLocation((screenSize.width - paneSize.width) / 4, (screenSize.height - paneSize.height) / 5);
         setVisible(true);
     }
 

@@ -336,7 +336,7 @@ public class StartSimulation extends JInternalFrame {
                         BorderLayout.EAST);
                 
         //define o frame
-        setSize(800, 600);
+        setSize(1480, 930);
         setMinimumSize(new Dimension(800, 600));
         Dimension paneSize = contentPane.getSize();   
         Dimension screenSize = contentPane.getToolkit().getScreenSize();   
