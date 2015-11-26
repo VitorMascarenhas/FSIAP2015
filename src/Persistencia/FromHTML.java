@@ -74,6 +74,45 @@ public class FromHTML {
             Scanner in = new Scanner( f );
             while ( in.hasNextLine() ){
                 String frase = in.nextLine();
+                if(frase.contains("Temperaturas")){
+                    
+                    /*avança para a tempreatura interiror*/
+                    for(int i = 0; i < 3; i++){
+                        in.nextLine();
+                    }
+                   
+                    frase = in.nextLine();
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("&");
+                    temperaturaInterior = vec[0];
+                    System.out.println("TI - " + temperaturaInterior);
+                    
+                    /*avança para a tempreatura exterior*/
+                    for(int i = 0; i < 3; i++){
+                        in.nextLine();
+                    }
+                    frase = in.nextLine();
+                    
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("&");
+                    temperaturaExterior = vec[0];
+                    System.out.println("TE - " + temperaturaExterior);
+                    
+                    /*avança para a tempreatura solo*/
+                    for(int i = 0; i < 3; i++){
+                        in.nextLine();
+                    }
+                    frase = in.nextLine();
+                    
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("&");
+                    temperaturaSolo = vec[0];
+                    System.out.println("TS - " + temperaturaSolo);
+                    
+                }
                 if(frase.contains("<div id = \"Parede\">")){
                     for(int i=0; i< 10; i++){               //Avança 10 linhas
                         in.nextLine();
