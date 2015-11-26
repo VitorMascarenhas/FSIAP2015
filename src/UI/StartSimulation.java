@@ -40,7 +40,7 @@ public class StartSimulation extends JInternalFrame {
     
     
     public StartSimulation() {
-        super("StartSimulation",
+        super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
           true, //resizable
           true, //closable
           true, //maximizable
@@ -55,30 +55,30 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelLeftNorth = new JPanel();
         panelLeftNorth.setLayout( new GridLayout(2,11) );
         
-        lb_temperaturas = new JLabel("Temperaturas:");
-        lb_temperaturaExterior = new JLabel("Exterior");
+        lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
+        lb_temperaturaExterior = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.outside.text"));
         temperaturaExterior = new JTextField(5);
         lb_temp_ext_unid = new JLabel("ºC");
-        lb_temperaturaInterior = new JLabel("Interior");
+        lb_temperaturaInterior = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.inside.text"));
         temperaturaInterior = new JTextField(5);
         lb_temp_int_unid = new JLabel("ºC");
-        lb_temperaturaSolo = new JLabel("Solo");
+        lb_temperaturaSolo = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor1.text"));
         temperaturaSolo = new JTextField(5);
         lb_temp_sol_unid = new JLabel("ºC");
         lb_buttondef = new JLabel("");
         
-        lb_dimensoes = new JLabel("Dimensões Casa:");
-        lb_comprimentoCasa = new JLabel("Comprimento");
+        lb_dimensoes = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.houseDimensions.text"));
+        lb_comprimentoCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.length.text"));
         comprimentoCasa = new JTextField(5);
         lb_comprimento_unid = new JLabel("m");
-        lb_larguraCasa = new JLabel("Largura");
+        lb_larguraCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text"));
         larguraCasa = new JTextField(5);
         lb_largura_unid = new JLabel("m");
-        lb_alturaCasa = new JLabel("Altura");
+        lb_alturaCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text"));
         alturaCasa = new JTextField(5);
         lb_altura_unid = new JLabel("m");
         
-        buttondefinir = new JButton("Definir");
+        buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e)
@@ -169,29 +169,29 @@ public class StartSimulation extends JInternalFrame {
         JTabbedPane tabbedPane = new JTabbedPane();
         ImageIcon icon = createImageIcon("imgs/middle.gif");
 
-        JComponent parede1 = (JComponent) makeTextPanel("");
-        tabbedPane.addTab("Parede1", icon, parede1, "Parede #1");
+        JComponent parede1 = (JComponent) makeTextPanel("Parede #1");
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall1.text"), icon, parede1, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall1.text"));
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
         JComponent parede2 = (JComponent) makeTextPanel("Parede #2");
-        tabbedPane.addTab("Parede2", icon, parede2, "Parede 2");
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall2.text"), icon, parede2, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall2.text"));
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
         JComponent parede3 = (JComponent) makeTextPanel("Parede #3");
-        tabbedPane.addTab("Parede3", icon, parede3, "Parede 3");
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall3.text"), icon, parede3, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall3.text"));
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
         JComponent parede4 = (JComponent) makeTextPanel("Parede #4");
         parede4.setPreferredSize(new Dimension(410, 50));
-        tabbedPane.addTab("Parede4", icon, parede4, "Parede 4");
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall4.text"), icon, parede4, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall4.text"));
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
         
         JComponent chao = (JComponent) makeTextPanel("Chão #5");
-        tabbedPane.addTab("Chão", icon, chao, "Chão");
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor2.text"), icon, chao, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor2.text"));
         tabbedPane.setMnemonicAt(4, KeyEvent.VK_5);
         
         JComponent teto = (JComponent) makeTextPanel("Teto #6");
-        tabbedPane.addTab("Teto", icon, teto, "Teto");
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"), icon, teto, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"));
         tabbedPane.setMnemonicAt(5, KeyEvent.VK_6);
         
         panelRight.add(tabbedPane);

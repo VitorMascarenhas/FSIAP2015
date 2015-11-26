@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 public class About extends JInternalFrame{
 
     public About(){
-        super("Acerca da Aplicação");
+        super(Internacionalizacao.Idioma.BUNDLE.getString("About.about.text"));
         Painel acerca = new Painel();
         add(acerca);
         setLocation(150,80);

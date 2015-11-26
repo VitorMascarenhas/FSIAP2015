@@ -15,7 +15,6 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import Dominio.Material;
 import Repositorios.Materiais;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -33,20 +32,20 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
 
     //construtor
     public InsertMaterials (){
-    super("Inserir Materiais",
+    super(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.insertMaterials.text"),
           true, //resizable
           true, //closable
           true, //maximizable
           true);//iconifiable
 
         //instância campos para exibir os valores
-        label_nome = new JLabel("Nome do Material");
+        label_nome = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.nameMaterial.text"));
         nome = new JTextField(25);
-        label_condutividade = new JLabel("Condutividade");
+        label_condutividade = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.conductivity.text"));
         condutividade = new JTextField(20);
         
         //instância botões da calculadora
-        botton_inserir = new JButton("Inserir");
+        botton_inserir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.insert.text"));
         
         lista_materiais = new JScrollPane();
         lista_materiais.getViewport().add( listbox );
@@ -78,7 +77,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
         if(e.getSource() == botton_inserir){
             
             if(nome.getText().isEmpty() || condutividade.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Tem de introduziz dados para inserir.", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.fraseEmpety1.text"), Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"), JOptionPane.ERROR_MESSAGE);
             } else {
                 
                 
@@ -89,7 +88,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
             }
             
             if(nome.getText() == "" && condutividade.getText() == ""){
-                JOptionPane.showMessageDialog(null, "Rectifique os dados introduzidos.", "Erro", JOptionPane.ERROR_MESSAGE);                    
+                JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.fraseEmpety2.text"), Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"), JOptionPane.ERROR_MESSAGE);                    
             }
             
             
@@ -110,8 +109,6 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                                 lista_materiais.revalidate();
 				lista_materiais.repaint();
 			}
-		
-            
             
         }
     }

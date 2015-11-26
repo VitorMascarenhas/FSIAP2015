@@ -22,7 +22,7 @@ public class Glossary extends JInternalFrame {
      
     public Glossary()
          {
-         super("Glossary",
+         super(Internacionalizacao.Idioma.BUNDLE.getString("Glossary.glossary.text"),
           true, //resizable
           true, //closable
           true, //maximizable
