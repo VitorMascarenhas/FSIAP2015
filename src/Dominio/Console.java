@@ -132,11 +132,13 @@ public class Console {
         
         ToHTML.exportExp("Experiencia1", c1);
         ToHTML.exportMat("Materiais");
-        FromHTML.ReadMateriais("Materiais");
+        FromHTML.leMateriais("Materiais");
         
         
         for(Material m: Materiais.getInstance().getListMateriais()){
             System.out.println(m.toString());
         }
+        
+        FromHTML.leExperiencia("Experiencia1");
     }
 }
