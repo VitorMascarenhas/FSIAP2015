@@ -6,11 +6,7 @@
 package UI;
 
 import Dominio.Componente;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -126,7 +122,8 @@ public class StartSimulation extends JInternalFrame {
                 BorderLayout.CENTER);
 
         JPanel panelRight = new JPanel();
-
+        panelRight.setLayout(new BorderLayout());
+        
         JTabbedPane tabbedPane = new JTabbedPane();
         ImageIcon icon = createImageIcon("imgs/middle.gif");
 
@@ -155,8 +152,8 @@ public class StartSimulation extends JInternalFrame {
         tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"), icon, teto, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"));
         tabbedPane.setMnemonicAt(5, KeyEvent.VK_6);
 
-        panelRight.add(tabbedPane);
-
+        panelRight.add(tabbedPane, BorderLayout.NORTH);
+        
         //Espaço reservado para Parede 1
         parede1.setLayout(new GridLayout(19, 3));
 
@@ -180,8 +177,8 @@ public class StartSimulation extends JInternalFrame {
         lb_c_metrosespessura1 = new JLabel("m");
 
         lb_c_espaco12 = new JLabel("");
-        listc = new JList<>();
-        //listc.setBorder(color.BLACK);
+        listc = new JList();
+
         c_buttonadd1 = new JButton("Adicionar Camada");
         c_buttonadd1.addActionListener(new ActionListener() {
 
@@ -363,7 +360,11 @@ public class StartSimulation extends JInternalFrame {
         JList listaComponentes = new JList();
         DefaultListModel<Componente> componentes = new DefaultListModel<>();
         listaComponentes.setModel(componentes);
-
+        listaComponentes.setSize(20, 20);
+        listaComponentes.setBackground(Color.black);
+        
+        panelRight.add(listaComponentes, BorderLayout.CENTER);
+        
         //define o frame
         setSize(1480, 930);
         setMinimumSize(new Dimension(800, 600));
