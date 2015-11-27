@@ -31,6 +31,12 @@ public class Parede {
         this.componentes.add(fabrica.getComponente("Camada", altura, largura, espessuraCamada, tipoMaterial));
     }
     
+    public Parede(float altura, float largura, ArrayList<Componente> componentes) {
+        this.altura = altura;
+        this.largura = largura;
+        this.componentes = componentes;
+    }
+    
     private float calcularAreaParede() {
         return this.altura*this.largura;
     }
