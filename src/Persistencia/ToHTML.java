@@ -86,7 +86,8 @@ public class ToHTML {
     *Metodo que imprime as informações contidas em cada parede
     */
     public static String imprimeParede(Parede p1, int indice){
-        String inicio="<tr>\n" +
+        String inicio="\n<div id = \"Parede\">\n" +    
+            "<tr>\n" +
             "    <td>"+indice+"</td>\n" +
             "    <td>\n" +
             "      <table>\n" +
@@ -97,7 +98,9 @@ public class ToHTML {
             "        </tr>";
         
         String fim="      </table>\n" +
-            "    </td>";
+            "    </td>\n"+
+            "</tr>\n"+
+            "</div>";
         
         String comp="\n";
         for(Componente c : p1.getComponentes()){
@@ -138,8 +141,8 @@ public class ToHTML {
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
-                "          <td>\n" + c1.calculaResistenciaTermica() + "</td>\n" +
-                "        </tr>";    
+                "          <td>" + c1.calculaResistenciaTermica() + "</td>\n" +
+                "        </tr>\n";    
         }else if(c1 instanceof Janela){
             Janela c = (Janela) c1;
               html+="        <tr>\n" +
@@ -166,8 +169,8 @@ public class ToHTML {
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
-                "          <td>\n" + c1.calculaResistenciaTermica() + "</td>\n" +
-                "        </tr>"; 
+                "          <td>" + c1.calculaResistenciaTermica() + "</td>\n" +
+                "        </tr>\n"; 
         }else{
             Porta c = (Porta) c1;
               html+="        <tr>\n" +
@@ -194,8 +197,8 @@ public class ToHTML {
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
-                "          <td>\n" + c1.calculaResistenciaTermica() + "</td>\n" +
-                "        </tr>"; 
+                "          <td>" + c1.calculaResistenciaTermica() + "</td>\n" +
+                "        </tr>\n"; 
         }
         return html;
     }
