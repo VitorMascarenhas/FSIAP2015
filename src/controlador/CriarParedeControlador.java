@@ -15,18 +15,28 @@ import java.util.*;
  */
 public class CriarParedeControlador {
 
-    public CriarParedeControlador(float altura, float largura, DefaultListModel<Componente> componentes) {
+    public CriarParedeControlador() {
+        
+        
+    }
+    
+    public Parede criarParede(String altura, String largura, DefaultListModel<Componente> componentes) {
+        
+        // converte as strings dos botões para float
+        float altPrd = Float.parseFloat(altura);
+        float larPrd = Float.parseFloat(largura);
         
         ArrayList<Componente> compParede = new ArrayList<>();
         
+        // preenche o arraylist com os objetos do JList
         for(int i = 0;i<componentes.size()-1;i++) {
             compParede.add(componentes.get(i));
         }
         
-        Parede parede = new Parede(altura, largura, compParede);
+        // cria a parede com todos os componentes
+        Parede parede = new Parede(altPrd, larPrd, compParede);
         
+        return parede;
     }
-    
-    
     
 }
