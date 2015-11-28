@@ -30,7 +30,8 @@ public class StartSimulation extends JInternalFrame {
             lb_j_espaco11, lb_j_espaco12, lb_j_espaco13, lb_j_espaco14, lb_j_espaco15,
             lb_p_espaco11, lb_p_espaco12, lb_p_espaco13, lb_p_espaco14, lb_p_espaco15,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
-            lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa, lb_buttondef, lb_html, lb_separadores;
+            lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa, lb_html, lb_separadores,
+            lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10, lb_buttondef11;
     private JComboBox c_material1, j_material1, p_material1;
     private JButton c_buttonadd1, j_buttonadd1, p_buttonadd1, buttonclean1, buttonnext1, buttondefinir;
     private JList camadas1;
@@ -50,7 +51,7 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelLeft = new JPanel();
 
         JPanel panelLeftNorth = new JPanel();
-        panelLeftNorth.setLayout(new GridLayout(2, 11));
+        panelLeftNorth.setLayout(new GridLayout(8, 4));
         
         JList listaComponentes = new JList();
         final DefaultListModel<Componente> componentes = new DefaultListModel<>();
@@ -59,24 +60,34 @@ public class StartSimulation extends JInternalFrame {
         listaComponentes.setBackground(Color.black);
         
         lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
+        lb_buttondef1 = new JLabel("");
+        lb_buttondef2 = new JLabel("");
+        lb_buttondef3 = new JLabel("");
         lb_temperaturaExterior = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.outside.text"));
         temperaturaExterior = new JTextField(5);
         lb_temp_ext_unid = new JLabel("ºC");
+        lb_buttondef4 = new JLabel("");
         lb_temperaturaInterior = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.inside.text"));
         temperaturaInterior = new JTextField(5);
         lb_temp_int_unid = new JLabel("ºC");
+        lb_buttondef5 = new JLabel("");
         lb_temperaturaSolo = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor1.text"));
         temperaturaSolo = new JTextField(5);
         lb_temp_sol_unid = new JLabel("ºC");
-        lb_buttondef = new JLabel("");
+        lb_buttondef6 = new JLabel("");
 
         lb_dimensoes = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.houseDimensions.text"));
+        lb_buttondef7 = new JLabel("");
+        lb_buttondef8 = new JLabel("");
+        lb_buttondef9 = new JLabel("");
         lb_comprimentoCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.length.text"));
         comprimentoCasa = new JTextField(5);
         lb_comprimento_unid = new JLabel("m");
+        lb_buttondef10 = new JLabel("");
         lb_larguraCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text"));
         larguraCasa = new JTextField(5);
         lb_largura_unid = new JLabel("m");
+        lb_buttondef11 = new JLabel("");
         lb_alturaCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text"));
         alturaCasa = new JTextField(5);
         lb_altura_unid = new JLabel("m");
@@ -94,24 +105,34 @@ public class StartSimulation extends JInternalFrame {
         });
 
         panelLeftNorth.add(lb_temperaturas);
+        panelLeftNorth.add(lb_buttondef1);
+        panelLeftNorth.add(lb_buttondef2);
+        panelLeftNorth.add(lb_buttondef3);
         panelLeftNorth.add(lb_temperaturaExterior);
         panelLeftNorth.add(temperaturaExterior);
         panelLeftNorth.add(lb_temp_ext_unid);
+        panelLeftNorth.add(lb_buttondef4);
         panelLeftNorth.add(lb_temperaturaInterior);
         panelLeftNorth.add(temperaturaInterior);
         panelLeftNorth.add(lb_temp_int_unid);
+        panelLeftNorth.add(lb_buttondef5);
         panelLeftNorth.add(lb_temperaturaSolo);
         panelLeftNorth.add(temperaturaSolo);
         panelLeftNorth.add(lb_temp_sol_unid);
-        panelLeftNorth.add(lb_buttondef);
+        panelLeftNorth.add(lb_buttondef6);
 
         panelLeftNorth.add(lb_dimensoes);
+        panelLeftNorth.add(lb_buttondef7);
+        panelLeftNorth.add(lb_buttondef8);
+        panelLeftNorth.add(lb_buttondef9);
         panelLeftNorth.add(lb_comprimentoCasa);
         panelLeftNorth.add(comprimentoCasa);
         panelLeftNorth.add(lb_comprimento_unid);
+        panelLeftNorth.add(lb_buttondef10);
         panelLeftNorth.add(lb_larguraCasa);
         panelLeftNorth.add(larguraCasa);
         panelLeftNorth.add(lb_largura_unid);
+        panelLeftNorth.add(lb_buttondef11);
         panelLeftNorth.add(lb_alturaCasa);
         panelLeftNorth.add(alturaCasa);
         panelLeftNorth.add(lb_altura_unid);
