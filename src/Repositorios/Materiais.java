@@ -60,4 +60,14 @@ public class Materiais {
         ArrayList<Material> mat = new ArrayList<Material>(materiais.values());
         return mat;
     }
+    
+    public String[] getListaDeMateriais(){
+        String matList[] =  new String[materiais.size()];
+        int cont = 0;
+        for (Material m : materiais.values()) {
+            matList[cont]=m.toString();
+            cont++;
+        }
+        return matList;
+    }
 }
