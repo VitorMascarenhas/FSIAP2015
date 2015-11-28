@@ -28,6 +28,7 @@ public class ToHTML {
             String html = prologo(nomeExperiencia);
             html+= imprimeResistenciaTermica(c1);
             html+= imprimeTemperaturas(c1);
+            html+= imprimeDimensoes(c1);
             html+= center(c1);
             html+= epilogo();
             fo.format(html);
@@ -62,6 +63,7 @@ public class ToHTML {
     /*Metodo que estrutura o html/tabel para as paredes e componentes*/
     public static String center(Casa c1){
         String inicio="<h2>Composi&ccedil;&atilde;o da casa</h2>\n" +
+                
             "<table>\n" +
             "  <tr>\n" +
             "    <th>Parede</th>\n" +
@@ -136,12 +138,12 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
-                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"</td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
-                "          <td>" + c1.calculaResistenciaTermica() + "</td>\n" +
+                "          <td>" + c1.calculaResistenciaTermica() + "w<sup>-1</sup>&deg;c</td>\n" +
                 "        </tr>\n";    
         }else if(c1 instanceof Janela){
             Janela c = (Janela) c1;
@@ -164,12 +166,12 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
-                "                <td>"+Materiais.getInstance().obterCondutividade(c.getNomeMaterial())+"</td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getNomeMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
-                "          <td>" + c1.calculaResistenciaTermica() + "</td>\n" +
+                "          <td>" + c1.calculaResistenciaTermica() + "w<sup>-1</sup>&deg;c</td>\n" +
                 "        </tr>\n"; 
         }else{
             Porta c = (Porta) c1;
@@ -192,12 +194,12 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
-                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"</td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +
                 "          </td>\n" +
-                "          <td>" + c1.calculaResistenciaTermica() + "</td>\n" +
+                "          <td>" + c1.calculaResistenciaTermica() + "w<sup>-1</sup>&deg;c</td>\n" +
                 "        </tr>\n"; 
         }
         return html;
@@ -226,11 +228,36 @@ public class ToHTML {
         return html;
     }
     
+    /*
+    *Metodo para imprimir as temperaturas
+    */
+    public static String imprimeDimensoes(Casa c1){
+        String html="<h2>Dimens&otilde;es da casa</h2>\n" +
+            "<table>\n" +
+            "  <tr>\n" +
+            "    <td>Altura</td>\n" +
+            "    <td>"+c1.getAltura()+"m</td>\n" +
+            "  </tr>\n" + 
+            "  <tr>\n" +
+            "    <td>Largura</td>\n" +
+            "    <td>"+c1.getLargura()+"m</td>\n" +
+            "  </tr>\n" +
+            "  <tr>\n" +
+            "    <td>Comprimento</td>\n" +
+            "    <td>"+c1.getComprimento()+"m</td>\n" +
+            "  </tr>\n"+
+            "</table>\n";
+                
+        return html;
+    }
+    
     /*Metodo para imprimir resistência térmica por parede*/
     public static String imprimeResistenciaTermica(Casa c1){
         String inicio="<h2>Resultados</h2>\n" +
-                "<h3>Fluxo</h3>" +
-                "<h4>Falta implementar</h4>" +
+                "<h3>Fluxo calor</h3>" +
+                c1.calculaFluxoCalor()+"w" +
+                "<h3>Resist&ecirc;ncia T&eacute;rmica Total</h3>" +
+                c1.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c" +
                 "<h3>Resist&ecirc;ncia T&eacute;rmica por Parede</h3>" +
                 "<table>\n" +
                 "  <tr>\n" +
@@ -243,7 +270,7 @@ public class ToHTML {
         for(Parede p: c1.getParedes()){
             html+="  <tr>\n" +
                 "    <td>"+cont+"</td>\n" +
-                "    <td>"+p.calculaResistenciaTermicaTotal()+"</td>\n" +
+                "    <td>"+p.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c</td>\n" +
                 "  </tr>\n";
             cont++;
         }
@@ -252,6 +279,7 @@ public class ToHTML {
 
         return inicio+html+fim;
     }
+    
     
     
     

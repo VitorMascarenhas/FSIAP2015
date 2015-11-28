@@ -65,6 +65,9 @@ public class FromHTML {
         String temperaturaExterior;
         String temperaturaInterior;
         String temperaturaSolo;
+        String altura;
+        String largura;
+        String comprimento;
         
         String vec[];
         
@@ -113,6 +116,48 @@ public class FromHTML {
                     System.out.println("TS - " + temperaturaSolo);
                     
                 }
+                /*Importa as dimensões da casa*/
+                if(frase.contains("<h2>Dimens&otilde;es da casa</h2>")){
+                    /*posiciona na altura*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();
+                    }
+                    frase=in.nextLine();
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    altura = vec[0];
+                    
+                    System.out.println("altura - " + altura);
+                    
+                    /*posiciona na largura*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();
+                    }
+                    
+                    frase=in.nextLine();
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    largura = vec[0];
+                    
+                    System.out.println("largura - " + largura);
+                 
+                    /*posiciona no comprimento*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();
+                    }
+                    
+                    frase=in.nextLine();
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    comprimento = vec[0];
+                   
+                    System.out.println("Comprimento - " + comprimento);
+                }
+                
+                /*Importa informações da Parede*/
                 if(frase.contains("<div id = \"Parede\">")){
                     for(int i=0; i< 10; i++){               //Avança 10 linhas
                         in.nextLine();
@@ -133,6 +178,7 @@ public class FromHTML {
 
                             vec = frase.split("<td>");
                             vec = vec[1].split("</td>");
+                            vec = vec[0].split("m");
                             area = vec[0];
 
                             /*para encontrar a espessura*/
@@ -143,6 +189,7 @@ public class FromHTML {
 
                             vec = frase.split("<td>");
                             vec = vec[1].split("</td>");
+                            vec = vec[0].split("m");
                             espessura = vec[0];
 
                             /*para encontrar o nome do material*/
@@ -163,6 +210,7 @@ public class FromHTML {
 
                             vec = frase.split("<td>");
                             vec = vec[1].split("</td>");
+                            vec = vec[0].split("wm");
                             condutividade = vec[0];
 
                             System.out.println(tipoComponente + " " + area + " "+ espessura + " " +nomeMaterial + " "+ condutividade );
@@ -178,11 +226,7 @@ public class FromHTML {
                                     in.nextLine();
                                 }
                                 frase = in.nextLine();
-                            }
-                            
-                            
-                        
-
+                            }                        
                     }
                 }
             }
