@@ -289,6 +289,7 @@ public class StartSimulation extends JInternalFrame {
         
         lb_tipo1 = new JLabel("Tipo");
         String[] tipoArray = {"Camada", "Janela", "Porta"};
+        
         tipo1 = new JComboBox(tipoArray);
         lb_espaco00 = new JLabel("");
         
@@ -301,7 +302,8 @@ public class StartSimulation extends JInternalFrame {
         lb_metroslargura1 = new JLabel("m");
 
         lb_material1 = new JLabel("Material");
-        String[] materiaisArray = {"", "Tijolo", "Cimento", "Madeira"};
+        //String[] materiaisArray = {"", "Tijolo", "Cimento", "Madeira"};
+        Object[] materiaisArray = Materiais.getInstance().getListMateriais().toArray();
         material1 = new JComboBox(materiaisArray);
         DefaultListModel<String> mdl = new DefaultListModel();
         for(String str : Materiais.getInstance().getNomesMateriais()) {
@@ -334,6 +336,8 @@ public class StartSimulation extends JInternalFrame {
                     }
                     CriarComponenteControlador ccc = new CriarComponenteControlador();
                     componentes.add(nComponentesParede1, ccc.criarComponente("Porta", altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                    listaComponentes.setVisible(true);
+                    listaComponentes.revalidate();
                     listaComponentes.repaint();
                     nComponentesParede1++;
                 }
