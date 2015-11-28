@@ -12,7 +12,7 @@ package Dominio;
 public class Material {
     
     private final String nomeMaterial;
-    private final float condutividadeTermica;
+    private float condutividadeTermica;
        
     public Material(String nomeMaterial, float condutividadeTermica) {
         this.nomeMaterial=nomeMaterial;

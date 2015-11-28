@@ -47,4 +47,9 @@ public class Porta implements Componente {
     public String getTipoMaterial() {
         return tipoMaterial;
     }
+    
+    @Override
+    public String toString(){
+        return "Porta - "+ tipoMaterial;
+    }
 }

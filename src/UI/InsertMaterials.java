@@ -27,7 +27,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
     private JLabel label_nome, label_condutividade;
     private JButton botton_inserir;
     private JScrollPane lista_materiais;
-    private JList listbox;
+    private JList listbox  = new JList();
     
 
     //construtor
@@ -61,6 +61,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
         janela.add(botton_inserir);
         janela.add(lista_materiais);
         
+        
 //associa receptor de ação aos botões
         botton_inserir.addActionListener(this);
         //define o frame
@@ -74,6 +75,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         if(e.getSource() == botton_inserir){
             
             if(nome.getText().isEmpty() || condutividade.getText().isEmpty()){
@@ -83,11 +85,12 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                 
                 //Implementar gravação de dados
                 Materiais  materiais = Materiais.getInstance();
-                float cond = Float.parseFloat(condutividade.getText());
+                String strCond = condutividade.getText().replace(",", ".");
+                float cond = Float.parseFloat(strCond);
                 materiais.inserirMaterial(nome.getText(), cond);
             }
             
-            if(nome.getText() == "" && condutividade.getText() == ""){
+            if(nome.getText().equals("") && condutividade.getText().equals("")){
                 JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.fraseEmpety2.text"), Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"), JOptionPane.ERROR_MESSAGE);                    
             }
             
@@ -96,15 +99,23 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
 			// Get the text field value
 			String stringValue = nome.getText();
 			nome.setText( "" );
+                        float condValue = Float.parseFloat(condutividade.getText().replace(",", "."));
 
 			// Add this item to the list and refresh
 			if( stringValue != null )
 			{
                              
-                                Materiais.getInstance().inserirMaterial(nome.getText(), Float.parseFloat(condutividade.getText()));
-				listbox.setListData( Materiais.getInstance().getListMateriais().toArray());
-				listbox.setVisible(true);
-//                                listData.addElement( stringValue );
+                                Materiais.getInstance().inserirMaterial(stringValue, condValue);
+                                
+                                try {
+                                Object[] list = Materiais.getInstance().getListMateriais().toArray();    
+                                listbox.setListData(list);
+                                listbox.setVisible(true);
+                            } catch (NullPointerException npe) {
+                                    System.out.println("Material Não Adicionado!!");
+                            }
+				
+//                              listData.addElement( stringValue );
 //				listbox.setListData( listData );
                                 lista_materiais.revalidate();
 				lista_materiais.repaint();
