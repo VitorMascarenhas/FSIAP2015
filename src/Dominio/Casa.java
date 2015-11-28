@@ -84,5 +84,26 @@ public class Casa {
         return tempTerra;
     }
 
+    /**
+     * @return the altura
+     */
+    public float getAltura() {
+        return altura;
+    }
+
+    /**
+     * @return the largura
+     */
+    public float getLargura() {
+        return largura;
+    }
+
+    /**
+     * @return the comprimento
+     */
+    public float getComprimento() {
+        return comprimento;
+    }
+
     
 }
