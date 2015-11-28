@@ -46,11 +46,18 @@ public class Materiais {
     public float obterCondutividade(String nomeMaterial) {
         return materiais.get(nomeMaterial.toUpperCase()).obterCondutividade();
     }
-
-
+    
+    public ArrayList<String> getNomesMateriais() {
+        
+        ArrayList<String> nomesMateriais = new ArrayList<>();
+        for(Material mat : this.getListMateriais()) {
+            nomesMateriais.add(mat.getNomeMaterial());
+        }
+        return nomesMateriais;
+    }
+    
     public ArrayList<Material> getListMateriais() {
         ArrayList<Material> mat = new ArrayList<Material>(materiais.values());
         return mat;
     }
-    
 }

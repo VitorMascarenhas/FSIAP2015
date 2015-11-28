@@ -6,12 +6,13 @@
 package UI;
 
 import Dominio.Componente;
+import controlador.CriarComponenteControlador;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
-
+import Repositorios.Materiais;
 /**
  *
  * @author Nuno Lemos
@@ -50,7 +51,13 @@ public class StartSimulation extends JInternalFrame {
 
         JPanel panelLeftNorth = new JPanel();
         panelLeftNorth.setLayout(new GridLayout(2, 11));
-
+        
+        JList listaComponentes = new JList();
+        final DefaultListModel<Componente> componentes = new DefaultListModel<>();
+        listaComponentes.setModel(componentes);
+        listaComponentes.setPreferredSize(null);
+        listaComponentes.setBackground(Color.black);
+        
         lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
         lb_temperaturaExterior = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.outside.text"));
         temperaturaExterior = new JTextField(5);
@@ -175,7 +182,7 @@ public class StartSimulation extends JInternalFrame {
         lb_c_espessura1 = new JLabel("Espessura Camada");
         c_espessura1 = new JTextField(5);
         lb_c_metrosespessura1 = new JLabel("m");
-
+        
         lb_c_espaco12 = new JLabel("");
         listc = new JList();
 
@@ -237,6 +244,14 @@ public class StartSimulation extends JInternalFrame {
 
         lb_p_material1 = new JLabel("Material Porta");
         p_material1 = new JComboBox();
+        DefaultListModel<String> mdl = new DefaultListModel();
+        for(String str : Materiais.getInstance().getNomesMateriais()) {
+            int i = 0;
+            mdl.add(i, str);
+            i++;
+        }
+        //p_material1.setModel(mdl);
+        
         lb_p_espaco11 = new JLabel("");
 
         lb_p_espessura1 = new JLabel("Espessura Porta");
@@ -247,11 +262,21 @@ public class StartSimulation extends JInternalFrame {
         listp = new JList<>();
         p_buttonadd1 = new JButton("Adicionar Porta");
         p_buttonadd1.addActionListener(new ActionListener() {
-
+            
+            
+            int nComponentesParede1 = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Execute when button is pressed
-
+                if(Float.parseFloat(p_altura1.getText()) > Float.parseFloat(c_altura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                }
+                if(Float.parseFloat(p_largura1.getText()) > Float.parseFloat(c_largura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
+                }
+                CriarComponenteControlador ccc = new CriarComponenteControlador();
+                componentes.add(nComponentesParede1, ccc.criarComponente("Porta", p_altura1.getText(), p_largura1.getText(), p_espessura1.getText(), p_material1.getClass().toString()));
+                
+                
             }
         });
 
@@ -356,16 +381,11 @@ public class StartSimulation extends JInternalFrame {
                 BorderLayout.CENTER);
         contentPane.add(panelRight,
                 BorderLayout.EAST);
-
-        JList listaComponentes = new JList();
-        DefaultListModel<Componente> componentes = new DefaultListModel<>();
-        listaComponentes.setModel(componentes);
-        listaComponentes.setSize(20, 20);
-        listaComponentes.setBackground(Color.black);
         
         panelRight.add(listaComponentes, BorderLayout.CENTER);
         
         //define o frame
+        pack();
         setSize(1480, 930);
         setMinimumSize(new Dimension(800, 600));
         Dimension paneSize = contentPane.getSize();
