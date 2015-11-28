@@ -19,16 +19,17 @@ import Repositorios.Materiais;
  */
 public class StartSimulation extends JInternalFrame {
 
-    private JTextField altura1, largura1, espessura1,            
+    private JTextField altura1, largura1, espessura1, details,           
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
     private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,           
             lb_espaco1, lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,            
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10, 
-            lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14;
+            lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14,
+            lb_componentes1, lb_espacocomp1;
     private JComboBox material1, tipo1;
-    private JButton buttonadd1, buttonclean1, buttonnext1, buttondefinir;
+    private JButton buttonadd1, buttonclean1, buttonnext1, buttondefinir, button_remove1, buttonvalidarparede1;
     private JList<Componente> list1;
 
     public StartSimulation() {
@@ -47,12 +48,16 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelLeftNorth = new JPanel();
         panelLeftNorth.setLayout(new GridLayout(5, 7));
         
+        
+        
         JList listaComponentes = new JList();
         final DefaultListModel<Componente> componentes = new DefaultListModel<>();
         listaComponentes.setModel(componentes);
         listaComponentes.setPreferredSize(null);
         listaComponentes.setBackground(Color.black);
         
+        
+                
         lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
         lb_buttondef1 = new JLabel("");
         lb_buttondef2 = new JLabel("");
@@ -187,7 +192,7 @@ public class StartSimulation extends JInternalFrame {
         panelRight.add(tabbedPane, BorderLayout.NORTH);
         
         //Espaço reservado para Parede 1
-        parede1.setLayout(new GridLayout(24, 3));
+        parede1.setLayout(new GridLayout(8, 3));
 
         //camada/janela/porta
         
@@ -247,10 +252,6 @@ public class StartSimulation extends JInternalFrame {
         lb_espaco14 = new JLabel("");
         lb_espaco15 = new JLabel("");
 
-        
-        
-        
-
         buttonclean1 = new JButton("Limpar");
         buttonnext1 = new JButton("Seguinte");
         lb_espaco1 = new JLabel("");
@@ -283,7 +284,6 @@ public class StartSimulation extends JInternalFrame {
         parede1.add(lb_espaco13);
         parede1.add(lb_espaco14);
         parede1.add(lb_espaco15);
-
         
         parede1.add(buttonclean1);
         parede1.add(buttonnext1);
@@ -304,7 +304,46 @@ public class StartSimulation extends JInternalFrame {
         contentPane.add(panelRight,
                 BorderLayout.EAST);
         
-        panelRight.add(listaComponentes, BorderLayout.CENTER);
+        
+        
+        JPanel panelcenter = new JPanel();
+        GridLayout pc = new GridLayout(2,1);
+        panelcenter.setLayout(pc);
+        panelRight.add(panelcenter, BorderLayout.CENTER);
+        
+        JPanel panellist = new JPanel();
+        GridLayout pl = new GridLayout(2,2);
+        panellist.setLayout(pl);
+        
+        lb_componentes1 = new JLabel("Componentes");
+        lb_espacocomp1 = new JLabel("");
+        
+        
+        button_remove1 = new JButton("Remover Componente");
+              
+        
+        panellist.add(lb_componentes1);
+        panellist.add(lb_espacocomp1);
+        panellist.add(listaComponentes);
+        panellist.add(button_remove1);
+        
+        
+        
+        JPanel panelvalidar = new JPanel();
+        GridLayout pv = new GridLayout(2,1);
+        panellist.setLayout(pv);
+        
+        
+        details = new JTextField(30);
+        buttonvalidarparede1 = new JButton("Validar Parede 1");
+        
+        panelvalidar.add(details);
+        panelvalidar.add(buttonvalidarparede1);
+        
+
+        panelcenter.add(panellist);
+        panelcenter.add(panelvalidar);
+        
         
         //define o frame
         pack();
