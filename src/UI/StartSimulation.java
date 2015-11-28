@@ -19,10 +19,12 @@ import Repositorios.Materiais;
  */
 public class StartSimulation extends JInternalFrame {
 
-    private JTextField altura1, largura1, espessura1, details,           
+    private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo,          
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,           
-            lb_espaco1, lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,            
+    private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1, lb_resultados,         
+            lb_espaco1, lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,
+            lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo,
+            lb_espaco_res1, lb_espaco_res2, lb_espaco_res3, lb_espaco_res4, lb_espaco_res5, lb_espaco_res6, lb_espaco_res7, lb_espaco_res8, lb_espaco_res9, lb_espaco_res10,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10, 
@@ -46,7 +48,7 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelLeft = new JPanel();
 
         JPanel panelLeftNorth = new JPanel();
-        panelLeftNorth.setLayout(new GridLayout(5, 7));
+        panelLeftNorth.setLayout(new GridLayout(5, 7, 10, 10));
         
         
         
@@ -148,15 +150,104 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(buttondefinir);
  
 
+        JPanel panelLeftCenter = new JPanel();
+        
+        ImageIcon image = new ImageIcon("imgs/resultados.jpg");
+        JLabel label = new JLabel("", image, JLabel.CENTER);
+        JPanel panelImagem = new JPanel(new BorderLayout());
+        panelImagem.add( label, BorderLayout.SOUTH );
+        
+        
         JPanel panelLeftSouth = new JPanel();
+             
+        
+        //Apresentação de resultados
+        
+               
+        
+        JPanel panelResultados = new JPanel();
+        panelResultados.setLayout(new GridLayout(8, 2, 10, 10));
+        
+        lb_resultados = new JLabel("Resultados:");
+        lb_espaco_res1 = new JLabel("");
+        lb_espaco_res2 = new JLabel("");
 
-        //Espaço reservado para apresentação do HTML
-//        label_html = new JLabel("Espaço reservado para HTML");
-//        panelLeftSouth.add(label_html);
+        lb_espaco_res3 = new JLabel("");
+        lb_rt_parede1 = new JLabel("RT Parede 1");
+        rt_parede1 = new JTextField(10);
+        rt_parede1.setEnabled(false);
+
+        lb_espaco_res4 = new JLabel("");
+        lb_rt_parede2 = new JLabel("RT Parede 2");
+        rt_parede2 = new JTextField(10);
+        rt_parede2.setEnabled(false);
+
+        lb_espaco_res5 = new JLabel("");
+        lb_rt_parede3 = new JLabel("RT Parede 3");
+        rt_parede3 = new JTextField(10);
+        rt_parede3.setEnabled(false);
+
+        lb_espaco_res6 = new JLabel("");
+        lb_rt_parede4 = new JLabel("RT Parede 4");
+        rt_parede4 = new JTextField(10);
+        rt_parede4.setEnabled(false);
+
+        lb_espaco_res7 = new JLabel("");
+        lb_rt_chao = new JLabel("RT Chão");
+        rt_chao = new JTextField(10);
+        rt_chao.setEnabled(false);
+
+        lb_espaco_res8 = new JLabel("");
+        lb_rt_teto = new JLabel("RT Teto");
+        rt_teto = new JTextField(10);
+        rt_teto.setEnabled(false);
+
+        lb_espaco_res9 = new JLabel("");
+        lb_rt_total = new JLabel("RT Total");
+        rt_total = new JTextField(10);
+        rt_total.setEnabled(false);
+
+        lb_espaco_res10 = new JLabel("");
+        lb_fluxo = new JLabel("Fluxo de Calor");
+        fluxo = new JTextField(10);
+        fluxo.setEnabled(false);
+        
+
+        panelResultados.add(lb_rt_parede1);
+        panelResultados.add(rt_parede1);
+
+        panelResultados.add(lb_rt_parede2);
+        panelResultados.add(rt_parede2);
+
+        panelResultados.add(lb_rt_parede3);
+        panelResultados.add(rt_parede3);
+
+        panelResultados.add(lb_rt_parede4);
+        panelResultados.add(rt_parede4);
+
+        panelResultados.add(lb_rt_chao);
+        panelResultados.add(rt_chao);
+
+        panelResultados.add(lb_rt_teto);
+        panelResultados.add(rt_teto);
+
+        panelResultados.add(lb_rt_total);
+        panelResultados.add(rt_total);
+
+        panelResultados.add(lb_fluxo);
+        panelResultados.add(fluxo);
+        
+        
+        panelLeftCenter.add(panelImagem);
+        panelLeftSouth.add(panelResultados);
+        
+        
         panelLeft.add(panelLeftNorth,
                 BorderLayout.NORTH);
-        panelLeft.add(panelLeftSouth,
+        panelLeft.add(panelLeftCenter,
                 BorderLayout.CENTER);
+        panelLeft.add(panelLeftSouth,
+                BorderLayout.SOUTH);
 
         JPanel panelRight = new JPanel();
         panelRight.setLayout(new BorderLayout());
@@ -192,7 +283,7 @@ public class StartSimulation extends JInternalFrame {
         panelRight.add(tabbedPane, BorderLayout.NORTH);
         
         //Espaço reservado para Parede 1
-        parede1.setLayout(new GridLayout(8, 3));
+        parede1.setLayout(new GridLayout(8, 3, 10, 10));
 
         //camada/janela/porta
         
@@ -203,16 +294,15 @@ public class StartSimulation extends JInternalFrame {
         
         lb_altura1 = new JLabel("Altura");
         altura1 = new JTextField(5);
-        altura1.setEnabled(false);
         lb_metrosaltura1 = new JLabel("m");
 
         lb_largura1 = new JLabel("Largura");
         largura1 = new JTextField(5);
-        largura1.setEnabled(false);
         lb_metroslargura1 = new JLabel("m");
 
         lb_material1 = new JLabel("Material");
-        material1 = new JComboBox();
+        String[] materiaisArray = {"", "Tijolo", "Cimento", "Madeira"};
+        material1 = new JComboBox(materiaisArray);
         DefaultListModel<String> mdl = new DefaultListModel();
         for(String str : Materiais.getInstance().getNomesMateriais()) {
             int i = 0;
@@ -338,6 +428,13 @@ public class StartSimulation extends JInternalFrame {
         
         details = new JTextField(30);
         buttonvalidarparede1 = new JButton("Validar Parede 1");
+        buttonvalidarparede1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                //Execute when button is pressed
+                
+            }
+        });
         
         panelvalidar.add(details);
         panelvalidar.add(buttonvalidarparede1);
