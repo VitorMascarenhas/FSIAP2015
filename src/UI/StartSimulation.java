@@ -332,6 +332,15 @@ public class StartSimulation extends JInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(tipo1.getSelectedItem().equals("Porta")) {
+                    if(altura1.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    }
+                    if(largura1.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    }
+                    if(espessura1.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    }
                     if(Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
                         JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
                     }
