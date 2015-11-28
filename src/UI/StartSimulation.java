@@ -30,7 +30,7 @@ public class StartSimulation extends JInternalFrame {
             lb_componentes1, lb_espacocomp1;
     private JComboBox material1, tipo1;
     private JButton buttonadd1, buttonclean1, buttonnext1, buttondefinir, button_remove1, buttonvalidarparede1;
-    private JList<Componente> list1;
+    private JList<Componente> list1, listaComponentes;
 
     public StartSimulation() {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
@@ -50,7 +50,7 @@ public class StartSimulation extends JInternalFrame {
         
         
         
-        JList listaComponentes = new JList();
+        listaComponentes = new JList();
         final DefaultListModel<Componente> componentes = new DefaultListModel<>();
         listaComponentes.setModel(componentes);
         listaComponentes.setPreferredSize(null);
@@ -235,16 +235,18 @@ public class StartSimulation extends JInternalFrame {
         int nComponentesParede1 = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
-                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                if(tipo1.getSelectedItem().equals("Porta")) {
+                    if(Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
+                        JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                    }
+                    if(Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
+                        JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
+                    }
+                    CriarComponenteControlador ccc = new CriarComponenteControlador();
+                    componentes.add(nComponentesParede1, ccc.criarComponente("Porta", altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                    listaComponentes.repaint();
+                    nComponentesParede1++;
                 }
-                if(Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
-                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
-                }
-                CriarComponenteControlador ccc = new CriarComponenteControlador();
-                componentes.add(nComponentesParede1, ccc.criarComponente("Porta", altura1.getText(), largura1.getText(), espessura1.getText(), material1.getClass().toString()));
-                
-                
             }
         });
 
