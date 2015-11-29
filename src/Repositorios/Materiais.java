@@ -65,7 +65,8 @@ public class Materiais {
         String matList[] =  new String[materiais.size()];
         int cont = 0;
         for (Material m : materiais.values()) {
-            matList[cont]=m.toString();
+            String[] s = m.toString().split(" ");
+            matList[cont]=s[0];
             cont++;
         }
         return matList;
