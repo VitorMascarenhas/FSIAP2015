@@ -57,11 +57,11 @@ public class Casa {
         float resistenciaTotal = 0.0f;
         for(Parede parede : paredes) {
             
-            resistenciaTotal+=(1/parede.calculaResistenciaTermicaTotal());
+            resistenciaTotal+=parede.calculaResistenciaTermicaTotal();
             
         }
         
-        return 1/resistenciaTotal;
+        return resistenciaTotal;
     }
 
     public float calculaFluxoCalor() {
@@ -69,7 +69,7 @@ public class Casa {
         fluxoCalor = Math.abs(tempExterior-tempInterior)/this.calculaResistenciaTermicaTotal();
         return fluxoCalor;
     }
-
+    
     /**
      * @return the paredes
      */

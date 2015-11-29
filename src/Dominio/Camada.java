@@ -16,6 +16,7 @@ public class Camada implements Componente {
     private float altura;
     private float largura;
     private float espessura;
+    private float area;
     
     public Camada() {
     }
@@ -25,28 +26,23 @@ public class Camada implements Componente {
         this.largura = largura;
         this.espessura = espessura;
         this.tipoMaterial = material;
+        this.area = 0f;
     }
     //claculo da resistencia termica
     @Override
     public float calculaResistenciaTermica() {
-        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
+        return this.espessura/(this.area*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
     }
     
     @Override
     public float calculaArea() {
-        return this.getAltura()*this.getLargura();
+        this.area = this.getAltura()*this.getLargura();
+        
+        return this.area;
     }
     
-    public float calcularArea(boolean b, float valor) {
-        
-        float resistenciaTermica = 0f;
-        
-        if(b == true) {
-            resistenciaTermica = this.altura*this.largura - valor;
-        } else {
-            resistenciaTermica = this.altura*this.largura;
-        }
-        return resistenciaTermica;
+    public void atualizarArea(float area) {
+        this.area = area;
     }
     
     /**

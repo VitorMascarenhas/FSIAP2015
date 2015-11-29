@@ -19,6 +19,7 @@ public class Parede {
     private float altura;
     private float largura;
     private FabricaComponentes fabrica = new FabricaComponentes();
+    private boolean temPortaJanela = false;
     
     public Parede() {
         this.componentes = new ArrayList<>();
@@ -63,14 +64,15 @@ public class Parede {
         
         float resistenciaTotal = 0.0f;
         float totalAreas = calculaSomaAreasPortasJanelas();
+        this.contemJanela();
+        this.contemPorta();
         
-        if(this.contemJanela() || this.contemPorta()) {
+        if(this.temPortaJanela == true) {
             for(Componente compo : this.componentes) {
-                if(compo instanceof Camada) {
-                    resistenciaTotal+=(1/compo.calculaResistenciaTermica());
-                }
+                resistenciaTotal+=(1/compo.calculaResistenciaTermica());
                 System.out.println("Resistencia termica em paralelo: " + compo.calculaResistenciaTermica());
             }
+            System.out.println("resultado " + resistenciaTotal + 1/resistenciaTotal);
             return 1/resistenciaTotal;
         } else {
             for(Componente comp : componentes) {
@@ -106,24 +108,24 @@ public class Parede {
         }
     }
     
-    private boolean contemJanela() {
+    private void contemJanela() {
         
         for(Componente comp : componentes) {
-            if(comp.getClass().isInstance(Janela.class)) {
-                return true;
+            if(comp instanceof Janela) {
+                this.temPortaJanela = true;
+                break;
             }
         }
-        return false;
     }
     
-    private boolean contemPorta() {
+    private void contemPorta() {
         
         for(Componente comp : componentes) {
             if(comp.getClass().isInstance(Porta.class)) {
-                return true;
+                this.temPortaJanela = true;
+                break;
             }
         }
-        return false;
     }
     
     public void removerComponente(Componente comp) {
