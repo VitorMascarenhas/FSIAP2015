@@ -23,17 +23,19 @@ import java.util.Formatter;
  */
 public class ToHTML {
     /*METoDOS PARA EXPORTAR EXPERIENCIA*/
-    public static void exportExp(String nomeExperiencia, Casa c1) throws FileNotFoundException{
+    public static String exportExp(String nomeExperiencia, Casa c1) throws FileNotFoundException{
+        String html = prologo(nomeExperiencia);
+        html+= imprimeResistenciaTermica(c1);
+        html+= imprimeTemperaturas(c1);
+        html+= imprimeDimensoes(c1);
+        html+= center(c1);
+        html+= epilogo();
+        
         try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
-            String html = prologo(nomeExperiencia);
-            html+= imprimeResistenciaTermica(c1);
-            html+= imprimeTemperaturas(c1);
-            html+= imprimeDimensoes(c1);
-            html+= center(c1);
-            html+= epilogo();
             fo.format(html);
             fo.close();
         }
+        return html;
     }
     
     

@@ -9,6 +9,8 @@ import Factorys.FabricaComponentes;
 import Persistencia.FromHTML;
 import Persistencia.ToHTML;
 import Repositorios.Materiais;
+import UI.OpenExperience;
+import UI.SaveToHTML;
 import java.io.FileNotFoundException;
 
 /**
@@ -122,25 +124,29 @@ public class Console {
         float fluxo = variacaoTemp/pchao;
         System.out.println("Fluxo do chão: " + fluxo);
         
-        Casa c1 = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
-        c1.adicionarParede(pA);
-        c1.adicionarParede(pB);
-        c1.adicionarParede(pC);
-        c1.adicionarParede(pD);
-        c1.adicionarParede(chao);
-        c1.adicionarParede(teto);
-        
-        ToHTML.exportExp("Experiencia1", c1);
-        ToHTML.exportMat("Materiais");
-        FromHTML.leMateriais("Materiais");
-        
-        
-        for(Material m: Materiais.getInstance().getListMateriais()){
-            System.out.println(m.toString());
-        }
-        
-        
-        Casa c2 = FromHTML.leExperiencia("Experiencia1");;
-        ToHTML.exportExp("Experiencia2", c2);
+//        Casa c1 = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
+//        c1.adicionarParede(pA);
+//        c1.adicionarParede(pB);
+//        c1.adicionarParede(pC);
+//        c1.adicionarParede(pD);
+//        c1.adicionarParede(chao);
+//        c1.adicionarParede(teto);
+//        
+//        ToHTML.exportExp("Experiencia1", c1);
+//        ToHTML.exportMat("Materiais");
+//        FromHTML.leMateriais("Materiais");
+//        
+//        
+//        for(Material m: Materiais.getInstance().getListMateriais()){
+//            System.out.println(m.toString());
+//        }
+//        
+//        System.out.println(c1.getParedes().size());
+////        Casa c2 = FromHTML.leExperiencia("Experiencia1");
+//        System.out.println(c2.getParedes().size());
+////        ToHTML.exportExp("Experiencia3", c2);
+//        
+//        SaveToHTML save = new SaveToHTML(c2);
+        OpenExperience open = new OpenExperience();
     }
 }

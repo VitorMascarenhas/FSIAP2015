@@ -6,10 +6,14 @@
 package UI;
 
 
+import Dominio.Casa;
+import Persistencia.FromHTML;
 import java.io.File;
 import java.io.FileFilter;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -20,22 +24,18 @@ public class OpenExperience extends JInternalFrame {
     public OpenExperience() {
 
         JFileChooser chooser = new JFileChooser();
-        FileFilter filter = new ExtensionFileFilter("html",".html");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML FIles", "html");
+        chooser.addChoosableFileFilter(filter);
+        chooser.setAcceptAllFileFilterUsed(false); 
         //chooser.setFileFilter(filter);
         int option = chooser.showOpenDialog(OpenExperience.this);
         if (option == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = chooser.getSelectedFile();
-                String f = selectedFile.getParent() + File.separator + selectedFile.getName();
-                if(!f.toLowerCase().endsWith(".html")){
-                    f += ".html";
-                }
-            
-                
-                StartSimulation start = new StartSimulation();
-                start.setVisible(true);
-                
-                
-                
+            try{
+                File fi = chooser.getSelectedFile();
+                Casa c1 = FromHTML.leExperiencia(fi);
+            }catch(Exception e2){
+                JOptionPane.showMessageDialog(null, e2);
+            }
             } else if (option == JFileChooser.CANCEL_OPTION) {
                 System.out.println(JFileChooser.CANCEL_OPTION);
             }

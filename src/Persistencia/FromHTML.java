@@ -61,9 +61,9 @@ public class FromHTML {
     }
     
     /*Lê experiencia*/
-    public static Casa leExperiencia(String fileName){
-        File f ;
-        f = new File( fileName+".html" );
+    public static Casa leExperiencia(File f){
+//        File f ;
+//        f = new File( fileName+".html" );
         String temperaturaExterior= "";
         String temperaturaInterior= "";
         String temperaturaSolo= "";
@@ -182,14 +182,14 @@ public class FromHTML {
         FabricaComponentes fab = new FabricaComponentes();
         
        Scanner in = new Scanner( f );
+       int cont = 0;
+       Parede p1 = new Parede();
         while ( in.hasNextLine() ){
             String frase = in.nextLine();
-            Parede p1 = new Parede();
 
             
             /*Importa informações da Parede*/
             if(frase.contains("<div id = \"Parede\">")){
-                p1 = new Parede();
                 for(int i=0; i< 10; i++){               //Avança 10 linhas
                     in.nextLine();
                 }
@@ -289,7 +289,9 @@ public class FromHTML {
                     frase= in.nextLine();
 
                     if(frase.contains("/table")){           /*entao ja terminou a aparede*/
-                        c1.adicionarParede(p1);
+                        System.out.println("PAREDE");
+                        c1.adicionarParede(p1, cont);
+                        cont++;
                         for(int i = 0; i< 2; i++){
                             in.nextLine();
                         }
