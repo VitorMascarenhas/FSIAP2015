@@ -293,10 +293,10 @@ public class StartSimulation extends JInternalFrame {
         lb_largura1 = new JLabel("Largura");
         largura1 = new JTextField(5);
         lb_metroslargura1 = new JLabel("m");
-
+        
         lb_material1 = new JLabel("Material");
         //String[] materiaisArray = {"", "Tijolo", "Cimento", "Madeira"};
-        Object[] materiaisArray = Materiais.getInstance().getListMateriais().toArray();
+        Object[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
         material1 = new JComboBox(materiaisArray);
         
         lb_espaco11 = new JLabel("");
