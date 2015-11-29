@@ -33,6 +33,16 @@ public class PortaTest {
      */
     @Test
     public void testCalculaResistenciaTermica() {
+        System.out.println("Calcula resistencia termica:");
+        Materiais.getInstance().inserirMaterial("Madeira", 0.14f);
+        float altura = 2.5f;
+        float largura = 1.2f;
+        float espessura = 1.2f;
+        Porta porta = new Porta(altura, largura, espessura, "Madeira");
+        
+        float res = porta.calculaResistenciaTermica();
+        float resEsp = espessura/((altura*largura)*Materiais.getInstance().obterCondutividade("Madeira"));
+        assertEquals(resEsp, res, 0);
     }
 
     /**
