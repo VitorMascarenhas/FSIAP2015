@@ -34,7 +34,7 @@ public class Porta implements Componente {
 
     @Override
     public float calculaArea() {
-        return this.altura * this.largura;
+        return this.getAltura() * this.getLargura();
     }
     
     public float getEspessura() {
@@ -51,5 +51,19 @@ public class Porta implements Componente {
     @Override
     public String toString(){
         return "Porta - "+ tipoMaterial;
+    }
+
+    /**
+     * @return the altura
+     */
+    public float getAltura() {
+        return altura;
+    }
+
+    /**
+     * @return the largura
+     */
+    public float getLargura() {
+        return largura;
     }
 }

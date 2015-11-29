@@ -5,6 +5,7 @@
  */
 package UI;
 
+import Internacionalizacao.Idioma;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
+import Internacionalizacao.Idioma;
 
 /**
  *
@@ -37,7 +39,11 @@ public class Glossary extends JInternalFrame {
         textpane.setEditable(false);
         String cd = System.getProperty("user.dir") + "/";
         try {
-            textpane.setPage("File:///" + cd + "glossary.html");
+            if(Idioma.IDIOMA == 1){
+                textpane.setPage("File:///" + cd + "glossary.html");
+            } else {
+                textpane.setPage("File:///" + cd + "glossario.html");
+            }
         } catch (IOException e) {
             System.out.println("Exception: " + e);
         }
