@@ -148,7 +148,7 @@ public class StartSimulation extends JInternalFrame {
 
         JPanel panelLeftCenter = new JPanel();
 
-        ImageIcon image = new ImageIcon("imgs/resultados.jpg");
+        ImageIcon image = new ImageIcon("imgs/DFI_marca_cor.png");
         JLabel label = new JLabel("", image, JLabel.CENTER);
         JPanel panelImagem = new JPanel(new BorderLayout());
         panelImagem.add(label, BorderLayout.SOUTH);
