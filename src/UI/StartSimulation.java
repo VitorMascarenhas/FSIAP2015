@@ -403,11 +403,6 @@ public class StartSimulation extends JInternalFrame {
 
         details = new JTextField(30);
         buttonvalidarparede1 = new JButton("Validar Parede 1");
-        if(componentes.isEmpty()) {
-            buttonvalidarparede1.setEnabled(false);
-        } else {
-            buttonvalidarparede1.setEnabled(true);
-        }
         buttonvalidarparede1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
                 CriarParedeControlador ccp = new CriarParedeControlador();
