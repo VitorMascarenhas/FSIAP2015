@@ -31,7 +31,7 @@ public class Project extends JFrame {
     JDesktopPane desktop;
     JMenuBar rootMenu;
     JMenu menuFile, menuExperience, menuTools, menuHelp, submenu;
-    JMenuItem itemsave, itemimportE, itemexit, itemstart, iteminsert, itemimportM, itemIngles, itemPortugues, itemGlossary, itemAbout;
+    JMenuItem itemsave, itemimportE, itemexit, itemstart, iteminsert, itemimportM, itemexportM, itemIngles, itemPortugues, itemGlossary, itemAbout;
     
     
     public Project() {
@@ -79,6 +79,8 @@ public class Project extends JFrame {
         menuExperience.add(iteminsert);
         itemimportM = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.importMaterials.text")));
         menuExperience.add(itemimportM);
+        itemexportM = new JMenuItem(new MenuItemAction(Internacionalizacao.Idioma.BUNDLE.getString("Project.exportMaterials.text")));
+        menuExperience.add(itemexportM);
                 
         menuTools = new JMenu(Internacionalizacao.Idioma.BUNDLE.getString("Project.tools.text"));
         rootMenu.add(menuTools);
@@ -149,6 +151,13 @@ public class Project extends JFrame {
             importx.setVisible(true);
             desktop.add(importx);
             desktop.moveToFront(importx);
+        }
+        
+        if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.exportMaterials.text"))) {
+            ExportMaterials exportx = new ExportMaterials();
+            exportx.setVisible(true);
+            desktop.add(exportx);
+            desktop.moveToFront(exportx);
         }
 
         

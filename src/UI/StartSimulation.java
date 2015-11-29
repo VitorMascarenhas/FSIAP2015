@@ -21,13 +21,13 @@ import Repositorios.Materiais;
  * @author Nuno Lemos
  */
 public class StartSimulation extends JInternalFrame {
-    
-    private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo,
+
+    private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
     private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,
             lb_espaco1, lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,
-            lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo,
-            lb_unid_rt1, lb_unid_rt2, lb_unid_rt3, lb_unid_rt4, lb_unid_rt5, lb_unid_rt6, lb_unid_rt7, lb_unid_rt8,
+            lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo, lb_fluxo1, lb_fluxo2, lb_fluxo3, lb_fluxo4, lb_fluxo5, lb_fluxo6,
+            lb_unid_rt1, lb_unid_rt2, lb_unid_rt3, lb_unid_rt4, lb_unid_rt5, lb_unid_rt6, lb_unid_rt7, lb_unid_rt8, lb_unid_fluxo1, lb_unid_fluxo2, lb_unid_fluxo3, lb_unid_fluxo4, lb_unid_fluxo5, lb_unid_fluxo6,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
@@ -108,45 +108,11 @@ public class StartSimulation extends JInternalFrame {
             }
         });
 
-        panelLeftNorth.add(lb_temperaturas);
-        panelLeftNorth.add(lb_buttondef1);
-        panelLeftNorth.add(lb_buttondef2);
-        panelLeftNorth.add(lb_buttondef3);
-        panelLeftNorth.add(lb_dimensoes);
-        panelLeftNorth.add(lb_buttondef4);
-        panelLeftNorth.add(lb_buttondef5);
-
-        panelLeftNorth.add(lb_temperaturaExterior);
-        panelLeftNorth.add(temperaturaExterior);
-        panelLeftNorth.add(lb_temp_ext_unid);
-        panelLeftNorth.add(lb_buttondef6);
-        panelLeftNorth.add(lb_comprimentoCasa);
-        panelLeftNorth.add(comprimentoCasa);
-        panelLeftNorth.add(lb_comprimento_unid);
-
-        panelLeftNorth.add(lb_temperaturaInterior);
-        panelLeftNorth.add(temperaturaInterior);
-        panelLeftNorth.add(lb_temp_int_unid);
-        panelLeftNorth.add(lb_buttondef7);
-        panelLeftNorth.add(lb_larguraCasa);
-        panelLeftNorth.add(larguraCasa);
-        panelLeftNorth.add(lb_largura_unid);
-
-        panelLeftNorth.add(lb_temperaturaSolo);
-        panelLeftNorth.add(temperaturaSolo);
-        panelLeftNorth.add(lb_temp_sol_unid);
-        panelLeftNorth.add(lb_buttondef8);
-        panelLeftNorth.add(lb_alturaCasa);
-        panelLeftNorth.add(alturaCasa);
-        panelLeftNorth.add(lb_altura_unid);
-
-        panelLeftNorth.add(lb_buttondef9);
-        panelLeftNorth.add(lb_buttondef10);
-        panelLeftNorth.add(lb_buttondef11);
-        panelLeftNorth.add(lb_buttondef12);
-        panelLeftNorth.add(lb_buttondef13);
-        panelLeftNorth.add(lb_buttondef14);
-        panelLeftNorth.add(buttondefinir);
+        panelLeftNorth.add(lb_temperaturas);    panelLeftNorth.add(lb_buttondef1);  panelLeftNorth.add(lb_buttondef2);  panelLeftNorth.add(lb_buttondef3);  panelLeftNorth.add(lb_dimensoes);   panelLeftNorth.add(lb_buttondef4);  panelLeftNorth.add(lb_buttondef5);
+        panelLeftNorth.add(lb_temperaturaExterior); panelLeftNorth.add(temperaturaExterior);    panelLeftNorth.add(lb_temp_ext_unid);   panelLeftNorth.add(lb_buttondef6);  panelLeftNorth.add(lb_comprimentoCasa); panelLeftNorth.add(comprimentoCasa);    panelLeftNorth.add(lb_comprimento_unid);
+        panelLeftNorth.add(lb_temperaturaInterior); panelLeftNorth.add(temperaturaInterior);    panelLeftNorth.add(lb_temp_int_unid);   panelLeftNorth.add(lb_buttondef7);  panelLeftNorth.add(lb_larguraCasa); panelLeftNorth.add(larguraCasa);    panelLeftNorth.add(lb_largura_unid);
+        panelLeftNorth.add(lb_temperaturaSolo); panelLeftNorth.add(temperaturaSolo);    panelLeftNorth.add(lb_temp_sol_unid);   panelLeftNorth.add(lb_buttondef8);  panelLeftNorth.add(lb_alturaCasa);  panelLeftNorth.add(alturaCasa); panelLeftNorth.add(lb_altura_unid);
+        panelLeftNorth.add(lb_buttondef9);  panelLeftNorth.add(lb_buttondef10); panelLeftNorth.add(lb_buttondef11); panelLeftNorth.add(lb_buttondef12); panelLeftNorth.add(lb_buttondef13); panelLeftNorth.add(lb_buttondef14); panelLeftNorth.add(buttondefinir);
 
         JPanel panelLeftCenter = new JPanel();
 
@@ -159,37 +125,62 @@ public class StartSimulation extends JInternalFrame {
 
         //Apresentação de resultados
         JPanel panelResultados = new JPanel();
-        panelResultados.setLayout(new GridLayout(8, 3, 10, 10));
+        panelResultados.setLayout(new GridLayout(7, 6, 10, 10));
 
         lb_rt_parede1 = new JLabel("RT Parede 1");
         rt_parede1 = new JTextField(10);
         rt_parede1.setEnabled(false);
         lb_unid_rt1 = new JLabel("W-1.C");
+        lb_fluxo1 = new JLabel("Fluxo Parede 1");
+        fluxo1 = new JTextField(10);
+        fluxo1.setEnabled(false);
+        lb_unid_fluxo1 = new JLabel("W");
+        
 
         lb_rt_parede2 = new JLabel("RT Parede 2");
         rt_parede2 = new JTextField(10);
         rt_parede2.setEnabled(false);
         lb_unid_rt2 = new JLabel("W-1.C");
+        lb_fluxo2 = new JLabel("Fluxo Parede 2");
+        fluxo2 = new JTextField(10);
+        fluxo2.setEnabled(false);
+        lb_unid_fluxo2 = new JLabel("W");
 
         lb_rt_parede3 = new JLabel("RT Parede 3");
         rt_parede3 = new JTextField(10);
         rt_parede3.setEnabled(false);
         lb_unid_rt3 = new JLabel("W-1.C");
+        lb_fluxo3 = new JLabel("Fluxo Parede 3");
+        fluxo3 = new JTextField(10);
+        fluxo3.setEnabled(false);
+        lb_unid_fluxo3 = new JLabel("W");
 
         lb_rt_parede4 = new JLabel("RT Parede 4");
         rt_parede4 = new JTextField(10);
         rt_parede4.setEnabled(false);
         lb_unid_rt4 = new JLabel("W-1.C");
+        lb_fluxo4 = new JLabel("Fluxo Parede 4");
+        fluxo4 = new JTextField(10);
+        fluxo4.setEnabled(false);
+        lb_unid_fluxo4 = new JLabel("W");
 
         lb_rt_chao = new JLabel("RT Chão");
         rt_chao = new JTextField(10);
         rt_chao.setEnabled(false);
         lb_unid_rt5 = new JLabel("W-1.C");
+        lb_fluxo5 = new JLabel("Fluxo Chão");
+        fluxo5 = new JTextField(10);
+        fluxo5.setEnabled(false);
+        lb_unid_fluxo5 = new JLabel("W");
 
         lb_rt_teto = new JLabel("RT Teto");
         rt_teto = new JTextField(10);
         rt_teto.setEnabled(false);
         lb_unid_rt6 = new JLabel("W-1.C");
+        lb_fluxo6 = new JLabel("Fluxo Teto");
+        fluxo6 = new JTextField(10);
+        fluxo6.setEnabled(false);
+        lb_unid_fluxo6 = new JLabel("W");
 
         lb_rt_total = new JLabel("RT Total");
         rt_total = new JTextField(10);
@@ -201,37 +192,13 @@ public class StartSimulation extends JInternalFrame {
         fluxo.setEnabled(false);
         lb_unid_rt8 = new JLabel("W");
 
-        panelResultados.add(lb_rt_parede1);
-        panelResultados.add(rt_parede1);
-        panelResultados.add(lb_unid_rt1);
-
-        panelResultados.add(lb_rt_parede2);
-        panelResultados.add(rt_parede2);
-        panelResultados.add(lb_unid_rt2);
-
-        panelResultados.add(lb_rt_parede3);
-        panelResultados.add(rt_parede3);
-        panelResultados.add(lb_unid_rt3);
-
-        panelResultados.add(lb_rt_parede4);
-        panelResultados.add(rt_parede4);
-        panelResultados.add(lb_unid_rt4);
-
-        panelResultados.add(lb_rt_chao);
-        panelResultados.add(rt_chao);
-        panelResultados.add(lb_unid_rt5);
-
-        panelResultados.add(lb_rt_teto);
-        panelResultados.add(rt_teto);
-        panelResultados.add(lb_unid_rt6);
-
-        panelResultados.add(lb_rt_total);
-        panelResultados.add(rt_total);
-        panelResultados.add(lb_unid_rt7);
-
-        panelResultados.add(lb_fluxo);
-        panelResultados.add(fluxo);
-        panelResultados.add(lb_unid_rt8);
+        panelResultados.add(lb_rt_parede1); panelResultados.add(rt_parede1);    panelResultados.add(lb_unid_rt1);   panelResultados.add(lb_fluxo1); panelResultados.add(fluxo1);    panelResultados.add(lb_unid_fluxo1);
+        panelResultados.add(lb_rt_parede2); panelResultados.add(rt_parede2);    panelResultados.add(lb_unid_rt2);   panelResultados.add(lb_fluxo2); panelResultados.add(fluxo2);    panelResultados.add(lb_unid_fluxo2);
+        panelResultados.add(lb_rt_parede3); panelResultados.add(rt_parede3);    panelResultados.add(lb_unid_rt3);   panelResultados.add(lb_fluxo3); panelResultados.add(fluxo3);    panelResultados.add(lb_unid_fluxo3);
+        panelResultados.add(lb_rt_parede4); panelResultados.add(rt_parede4);    panelResultados.add(lb_unid_rt4);   panelResultados.add(lb_fluxo4); panelResultados.add(fluxo4);    panelResultados.add(lb_unid_fluxo4);
+        panelResultados.add(lb_rt_chao);    panelResultados.add(rt_chao);   panelResultados.add(lb_unid_rt5);   panelResultados.add(lb_fluxo5); panelResultados.add(fluxo5);    panelResultados.add(lb_unid_fluxo5);
+        panelResultados.add(lb_rt_teto);    panelResultados.add(rt_teto);   panelResultados.add(lb_unid_rt6);   panelResultados.add(lb_fluxo6); panelResultados.add(fluxo6);    panelResultados.add(lb_unid_fluxo6);
+        panelResultados.add(lb_rt_total);   panelResultados.add(rt_total);  panelResultados.add(lb_unid_rt7);   panelResultados.add(lb_fluxo);  panelResultados.add(fluxo); panelResultados.add(lb_unid_rt8);
 
         panelLeftCenter.add(panelImagem);
         panelLeftSouth.add(panelResultados);
@@ -252,7 +219,7 @@ public class StartSimulation extends JInternalFrame {
         JComponent parede1 = (JComponent) makeTextPanel("Parede #1");
         tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall1.text"), icon, parede1, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall1.text"));
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-
+        
         JComponent parede2 = (JComponent) makeTextPanel("Parede #2");
         tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall2.text"), icon, parede2, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall2.text"));
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
@@ -277,7 +244,7 @@ public class StartSimulation extends JInternalFrame {
         panelRight.add(tabbedPane, BorderLayout.NORTH);
 
         //Espaço reservado para Parede 1
-        parede1.setLayout(new GridLayout(8, 3, 10, 10));
+        parede1.setLayout(new GridLayout(7, 3, 10, 10));
 
         //camada/janela/porta
         lb_tipo1 = new JLabel("Tipo");
@@ -305,6 +272,10 @@ public class StartSimulation extends JInternalFrame {
         espessura1 = new JTextField(5);
         lb_metrosespessura1 = new JLabel("m");
 
+        lb_espaco13 = new JLabel("");
+        lb_espaco14 = new JLabel("");
+        lb_espaco15 = new JLabel("");
+        
         lb_espaco12 = new JLabel("");
         list1 = new JList();
 
@@ -392,46 +363,19 @@ public class StartSimulation extends JInternalFrame {
             }
         });
 
-        lb_espaco13 = new JLabel("");
-        lb_espaco14 = new JLabel("");
-        lb_espaco15 = new JLabel("");
+        
 
-        buttonclean1 = new JButton("Limpar");
-        buttonnext1 = new JButton("Seguinte");
-        lb_espaco1 = new JLabel("");
+        
 
         //adicionar objetos da camada à parede
-        parede1.add(lb_tipo1);
-        parede1.add(tipo1);
-        parede1.add(lb_espaco00);
+        parede1.add(lb_tipo1);      parede1.add(tipo1);         parede1.add(lb_espaco00);
+        parede1.add(lb_altura1);    parede1.add(altura1);       parede1.add(lb_metrosaltura1);
+        parede1.add(lb_largura1);   parede1.add(largura1);      parede1.add(lb_metroslargura1);
+        parede1.add(lb_material1);  parede1.add(material1);     parede1.add(lb_espaco11);
+        parede1.add(lb_espessura1); parede1.add(espessura1);    parede1.add(lb_metrosespessura1);
+        parede1.add(lb_espaco12);   parede1.add(lb_espaco13);   parede1.add(buttonadd1);
 
-        parede1.add(lb_altura1);
-        parede1.add(altura1);
-        parede1.add(lb_metrosaltura1);
 
-        parede1.add(lb_largura1);
-        parede1.add(largura1);
-        parede1.add(lb_metroslargura1);
-
-        parede1.add(lb_material1);
-        parede1.add(material1);
-        parede1.add(lb_espaco11);
-
-        parede1.add(lb_espessura1);
-        parede1.add(espessura1);
-        parede1.add(lb_metrosespessura1);
-
-        parede1.add(lb_espaco12);
-        parede1.add(list1);
-        parede1.add(buttonadd1);
-
-        parede1.add(lb_espaco13);
-        parede1.add(lb_espaco14);
-        parede1.add(lb_espaco15);
-
-        parede1.add(buttonclean1);
-        parede1.add(buttonnext1);
-        parede1.add(lb_espaco1);
 
 //        for (int i = 0; i < 15; i++){
 //            model_camadas.addElement("Element " + i);
@@ -448,22 +392,19 @@ public class StartSimulation extends JInternalFrame {
         contentPane.add(panelRight,
                 BorderLayout.EAST);
 
+        
         JPanel panelcenter = new JPanel();
         GridLayout pc = new GridLayout(2, 1);
         panelcenter.setLayout(pc);
         panelRight.add(panelcenter, BorderLayout.CENTER);
 
         JPanel panellist = new JPanel();
-        GridLayout pl = new GridLayout(2, 2);
+        GridLayout pl = new GridLayout(1, 1);
         panellist.setLayout(pl);
 
-        lb_componentes1 = new JLabel("Componentes");
-        lb_espacocomp1 = new JLabel("");
 
         button_remove1 = new JButton("Remover Componente");
 
-        panellist.add(lb_componentes1);
-        panellist.add(lb_espacocomp1);
         panellist.add(listaComponentes);
         panellist.add(button_remove1);
 
@@ -487,6 +428,8 @@ public class StartSimulation extends JInternalFrame {
 
         panelcenter.add(panellist);
         panelcenter.add(panelvalidar);
+        
+
 
         //define o frame
         pack();
