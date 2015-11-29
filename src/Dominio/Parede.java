@@ -62,15 +62,20 @@ public class Parede {
     public float calculaResistenciaTermicaTotal() {
         
         float resistenciaTotal = 0.0f;
+        float totalAreas = calculaSomaAreasPortasJanelas();
         
         if(this.contemJanela() || this.contemPorta()) {
             for(Componente compo : this.componentes) {
-                resistenciaTotal+=(1/compo.calculaResistenciaTermica());
+                if(compo instanceof Camada) {
+                    resistenciaTotal+=(1/compo.calculaResistenciaTermica());
+                }
+                System.out.println("Resistencia termica em paralelo: " + compo.calculaResistenciaTermica());
             }
             return 1/resistenciaTotal;
         } else {
             for(Componente comp : componentes) {
-                resistenciaTotal += comp.calculaResistenciaTermica();
+                resistenciaTotal+=comp.calculaResistenciaTermica();
+                System.out.println("resistencia termica em serie: " + comp.calculaResistenciaTermica());
             }
         }
         return resistenciaTotal;

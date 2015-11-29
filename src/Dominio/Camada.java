@@ -36,7 +36,19 @@ public class Camada implements Componente {
     public float calculaArea() {
         return this.getAltura()*this.getLargura();
     }
-
+    
+    public float calcularArea(boolean b, float valor) {
+        
+        float resistenciaTermica = 0f;
+        
+        if(b == true) {
+            resistenciaTermica = this.altura*this.largura - valor;
+        } else {
+            resistenciaTermica = this.altura*this.largura;
+        }
+        return resistenciaTermica;
+    }
+    
     /**
      * @return the espessura
      */

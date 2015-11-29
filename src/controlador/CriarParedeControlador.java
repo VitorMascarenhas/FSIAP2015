@@ -20,6 +20,8 @@ public class CriarParedeControlador {
     
     public void criarParede(String altura, String largura, DefaultListModel<Componente> componentes, int index) {
         
+        System.out.println("Tamanho:" + componentes.size());
+        
         // converte as strings dos botões para float
         float altPrd = Float.parseFloat(altura);
         float larPrd = Float.parseFloat(largura);
@@ -27,10 +29,10 @@ public class CriarParedeControlador {
         ArrayList<Componente> compParede = new ArrayList<>();
         
         // preenche o arraylist com os objetos do JList
-        for(int i = 0;i<componentes.size()-1;i++) {
+        for(int i = 0;i<componentes.size();i++) {
             compParede.add(componentes.get(i));
         }
-        
+        System.out.println("Tamanho array " + compParede.size());
         // cria a parede com todos os componentes
         Parede parede = new Parede(altPrd, larPrd, compParede);
         

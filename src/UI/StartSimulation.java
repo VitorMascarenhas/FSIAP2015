@@ -5,8 +5,7 @@
  */
 package UI;
 
-import Dominio.Casa;
-import Dominio.Componente;
+import Dominio.*;
 import controlador.CriarComponenteControlador;
 import controlador.CriarParedeControlador;
 import java.awt.*;
@@ -408,14 +407,14 @@ public class StartSimulation extends JInternalFrame {
             public void actionPerformed(ActionEvent e) {
                 float areaPrd1 = 0f;
                 float areaSomaPortasJanelas = 0f;
-                if(componentes.contains(Porta) || componentes.contains(Janela)) {
-                    for(int i = 0; i < componentes.size()-1;i++) {
-                        if(componentes.get(i).equals(Porta) || componentes.get(i).equals(Janela)) {
-                            areaSomaPortasJanelas+=componentes.get(i).calculaArea();
-                        }
+                for(int i = 0; i < componentes.size();i++) {
+                    if(componentes.get(i) instanceof Porta || componentes.get(i) instanceof Janela) {
+                        areaSomaPortasJanelas+=componentes.get(i).calculaArea();
+                        System.out.println("portas janelas " + areaSomaPortasJanelas);
                     }
                 }
-                areaPrd1 = Float.parseFloat(altura1.getText())*Float.parseFloat(largura1.getText());
+                areaPrd1 = Float.parseFloat(comprimentoCasa.getText())*Float.parseFloat(alturaCasa.getText());
+                System.out.println("parede " + areaPrd1);
                 if(areaSomaPortasJanelas > areaPrd1) {
                     JOptionPane.showMessageDialog(null, "A area das portas e das janelas não pode ser superior à area da parede.\nAltere os valores dos componentes e volte a tentar.");
                 }
