@@ -25,16 +25,15 @@ public class StartSimulation extends JInternalFrame {
     private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
     private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,
-            lb_espaco1, lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,
+            lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,
             lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo, lb_fluxo1, lb_fluxo2, lb_fluxo3, lb_fluxo4, lb_fluxo5, lb_fluxo6,
             lb_unid_rt1, lb_unid_rt2, lb_unid_rt3, lb_unid_rt4, lb_unid_rt5, lb_unid_rt6, lb_unid_rt7, lb_unid_rt8, lb_unid_fluxo1, lb_unid_fluxo2, lb_unid_fluxo3, lb_unid_fluxo4, lb_unid_fluxo5, lb_unid_fluxo6,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
-            lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14,
-            lb_componentes1, lb_espacocomp1;
+            lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14;
                     private JComboBox material1, tipo1;
-    private JButton buttonadd1, buttonclean1, buttonnext1, buttondefinir, button_remove1, buttonvalidarparede1;
+    private JButton buttonadd1, buttondefinir, button_remove1, buttonvalidarparede1;
     private JList<Componente> list1, listaComponentes;
 
     public StartSimulation() {
@@ -75,7 +74,6 @@ public class StartSimulation extends JInternalFrame {
         temperaturaSolo = new JTextField(5);
         lb_temp_sol_unid = new JLabel("ºC");
         lb_buttondef6 = new JLabel("");
-
         lb_dimensoes = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.houseDimensions.text"));
         lb_buttondef7 = new JLabel("");
         lb_buttondef8 = new JLabel("");
@@ -91,11 +89,9 @@ public class StartSimulation extends JInternalFrame {
         lb_alturaCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text"));
         alturaCasa = new JTextField(5);
         lb_altura_unid = new JLabel("m");
-
         lb_buttondef12 = new JLabel("");
         lb_buttondef13 = new JLabel("");
         lb_buttondef14 = new JLabel("");
-
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
 
@@ -136,7 +132,6 @@ public class StartSimulation extends JInternalFrame {
         fluxo1.setEnabled(false);
         lb_unid_fluxo1 = new JLabel("W");
         
-
         lb_rt_parede2 = new JLabel("RT Parede 2");
         rt_parede2 = new JTextField(10);
         rt_parede2.setEnabled(false);
@@ -363,9 +358,7 @@ public class StartSimulation extends JInternalFrame {
             }
         });
 
-        
-
-        
+              
 
         //adicionar objetos da camada à parede
         parede1.add(lb_tipo1);      parede1.add(tipo1);         parede1.add(lb_espaco00);
@@ -374,7 +367,6 @@ public class StartSimulation extends JInternalFrame {
         parede1.add(lb_material1);  parede1.add(material1);     parede1.add(lb_espaco11);
         parede1.add(lb_espessura1); parede1.add(espessura1);    parede1.add(lb_metrosespessura1);
         parede1.add(lb_espaco12);   parede1.add(lb_espaco13);   parede1.add(buttonadd1);
-
 
 
 //        for (int i = 0; i < 15; i++){
@@ -401,7 +393,6 @@ public class StartSimulation extends JInternalFrame {
         JPanel panellist = new JPanel();
         GridLayout pl = new GridLayout(1, 1);
         panellist.setLayout(pl);
-
 
         button_remove1 = new JButton("Remover Componente");
 
@@ -430,14 +421,12 @@ public class StartSimulation extends JInternalFrame {
         panelcenter.add(panelvalidar);
         
 
-
         //define o frame
         pack();
         setSize(1480, 930);
         setMinimumSize(new Dimension(800, 600));
         Dimension paneSize = contentPane.getSize();
         Dimension screenSize = contentPane.getToolkit().getScreenSize();
-
         setVisible(true);
     }
 
