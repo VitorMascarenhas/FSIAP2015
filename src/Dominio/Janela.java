@@ -52,4 +52,8 @@ public class Janela implements Componente {
     public String getNomeMaterial() {
         return nomeMaterial;
     }
+    
+    public String toString(){
+        return "Janela - "+nomeMaterial;
+    }
 }

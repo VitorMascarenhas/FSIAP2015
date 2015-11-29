@@ -13,21 +13,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import Repositorios.Materiais;
+
 /**
  *
  * @author Nuno Lemos
  */
 public class StartSimulation extends JInternalFrame {
 
-    private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo,          
+    private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo,
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,         
+    private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,
             lb_espaco1, lb_espaco00, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,
             lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo,
             lb_unid_rt1, lb_unid_rt2, lb_unid_rt3, lb_unid_rt4, lb_unid_rt5, lb_unid_rt6, lb_unid_rt7, lb_unid_rt8,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
-            lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10, 
+            lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
             lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14,
             lb_componentes1, lb_espacocomp1;
     private JComboBox material1, tipo1;
@@ -49,17 +50,13 @@ public class StartSimulation extends JInternalFrame {
 
         JPanel panelLeftNorth = new JPanel();
         panelLeftNorth.setLayout(new GridLayout(5, 7, 10, 10));
-        
-        
-        
+
         listaComponentes = new JList();
         final DefaultListModel<Componente> componentes = new DefaultListModel<>();
         listaComponentes.setModel(componentes);
         listaComponentes.setPreferredSize(null);
         listaComponentes.setBackground(Color.black);
-        
-        
-                
+
         lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
         lb_buttondef1 = new JLabel("");
         lb_buttondef2 = new JLabel("");
@@ -92,7 +89,7 @@ public class StartSimulation extends JInternalFrame {
         lb_alturaCasa = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text"));
         alturaCasa = new JTextField(5);
         lb_altura_unid = new JLabel("m");
-        
+
         lb_buttondef12 = new JLabel("");
         lb_buttondef13 = new JLabel("");
         lb_buttondef14 = new JLabel("");
@@ -116,7 +113,7 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(lb_dimensoes);
         panelLeftNorth.add(lb_buttondef4);
         panelLeftNorth.add(lb_buttondef5);
-        
+
         panelLeftNorth.add(lb_temperaturaExterior);
         panelLeftNorth.add(temperaturaExterior);
         panelLeftNorth.add(lb_temp_ext_unid);
@@ -124,7 +121,7 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(lb_comprimentoCasa);
         panelLeftNorth.add(comprimentoCasa);
         panelLeftNorth.add(lb_comprimento_unid);
-        
+
         panelLeftNorth.add(lb_temperaturaInterior);
         panelLeftNorth.add(temperaturaInterior);
         panelLeftNorth.add(lb_temp_int_unid);
@@ -132,7 +129,7 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(lb_larguraCasa);
         panelLeftNorth.add(larguraCasa);
         panelLeftNorth.add(lb_largura_unid);
-        
+
         panelLeftNorth.add(lb_temperaturaSolo);
         panelLeftNorth.add(temperaturaSolo);
         panelLeftNorth.add(lb_temp_sol_unid);
@@ -140,7 +137,7 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(lb_alturaCasa);
         panelLeftNorth.add(alturaCasa);
         panelLeftNorth.add(lb_altura_unid);
-        
+
         panelLeftNorth.add(lb_buttondef9);
         panelLeftNorth.add(lb_buttondef10);
         panelLeftNorth.add(lb_buttondef11);
@@ -148,31 +145,25 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.add(lb_buttondef13);
         panelLeftNorth.add(lb_buttondef14);
         panelLeftNorth.add(buttondefinir);
- 
 
         JPanel panelLeftCenter = new JPanel();
-        
+
         ImageIcon image = new ImageIcon("imgs/resultados.jpg");
         JLabel label = new JLabel("", image, JLabel.CENTER);
         JPanel panelImagem = new JPanel(new BorderLayout());
-        panelImagem.add( label, BorderLayout.SOUTH );
-        
-        
+        panelImagem.add(label, BorderLayout.SOUTH);
+
         JPanel panelLeftSouth = new JPanel();
-             
-        
+
         //Apresentação de resultados
-        
-               
-        
         JPanel panelResultados = new JPanel();
         panelResultados.setLayout(new GridLayout(8, 3, 10, 10));
-        
+
         lb_rt_parede1 = new JLabel("RT Parede 1");
         rt_parede1 = new JTextField(10);
         rt_parede1.setEnabled(false);
         lb_unid_rt1 = new JLabel("W-1.C");
-        
+
         lb_rt_parede2 = new JLabel("RT Parede 2");
         rt_parede2 = new JTextField(10);
         rt_parede2.setEnabled(false);
@@ -207,7 +198,6 @@ public class StartSimulation extends JInternalFrame {
         fluxo = new JTextField(10);
         fluxo.setEnabled(false);
         lb_unid_rt8 = new JLabel("W");
-        
 
         panelResultados.add(lb_rt_parede1);
         panelResultados.add(rt_parede1);
@@ -240,12 +230,10 @@ public class StartSimulation extends JInternalFrame {
         panelResultados.add(lb_fluxo);
         panelResultados.add(fluxo);
         panelResultados.add(lb_unid_rt8);
-        
-        
+
         panelLeftCenter.add(panelImagem);
         panelLeftSouth.add(panelResultados);
-        
-        
+
         panelLeft.add(panelLeftNorth,
                 BorderLayout.NORTH);
         panelLeft.add(panelLeftCenter,
@@ -255,7 +243,7 @@ public class StartSimulation extends JInternalFrame {
 
         JPanel panelRight = new JPanel();
         panelRight.setLayout(new BorderLayout());
-        
+
         JTabbedPane tabbedPane = new JTabbedPane();
         ImageIcon icon = createImageIcon("imgs/middle.gif");
 
@@ -285,18 +273,17 @@ public class StartSimulation extends JInternalFrame {
         tabbedPane.setMnemonicAt(5, KeyEvent.VK_6);
 
         panelRight.add(tabbedPane, BorderLayout.NORTH);
-        
+
         //Espaço reservado para Parede 1
         parede1.setLayout(new GridLayout(8, 3, 10, 10));
 
         //camada/janela/porta
-        
         lb_tipo1 = new JLabel("Tipo");
         String[] tipoArray = {"Camada", "Janela", "Porta"};
-        
+
         tipo1 = new JComboBox(tipoArray);
         lb_espaco00 = new JLabel("");
-        
+
         lb_altura1 = new JLabel("Altura");
         altura1 = new JTextField(5);
         lb_metrosaltura1 = new JLabel("m");
@@ -310,49 +297,78 @@ public class StartSimulation extends JInternalFrame {
         Object[] materiaisArray = Materiais.getInstance().getListMateriais().toArray();
         material1 = new JComboBox(materiaisArray);
         DefaultListModel<String> mdl = new DefaultListModel();
-        for(String str : Materiais.getInstance().getNomesMateriais()) {
+        for (String str : Materiais.getInstance().getNomesMateriais()) {
             int i = 0;
             mdl.add(i, str);
             i++;
         }
         //p_material1.setModel(mdl);
-        
+
         lb_espaco11 = new JLabel("");
 
         lb_espessura1 = new JLabel("Espessura");
         espessura1 = new JTextField(5);
         lb_metrosespessura1 = new JLabel("m");
-        
+
         lb_espaco12 = new JLabel("");
         list1 = new JList();
 
         buttonadd1 = new JButton("Adicionar");
         buttonadd1.addActionListener(new ActionListener() {
-        int nComponentesParede1 = 0;
+            int nComponentesParede1 = 0;
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(tipo1.getSelectedItem().equals("Porta")) {
-                    if(altura1.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
-                    }
-                    if(largura1.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
-                    }
-                    if(espessura1.getText().isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
-                    }
-                    if(Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
-                        JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
-                    }
-                    if(Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
-                        JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
-                    }
-                    CriarComponenteControlador ccc = new CriarComponenteControlador();
-                    componentes.add(nComponentesParede1, ccc.criarComponente("Porta", altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
-                    listaComponentes.setVisible(true);
-                    listaComponentes.revalidate();
-                    listaComponentes.repaint();
-                    nComponentesParede1++;
+                String cmpnente = tipo1.getSelectedItem().toString().toUpperCase();
+                CriarComponenteControlador ccc = new CriarComponenteControlador();
+                switch (cmpnente) {
+                    case "PORTA":
+                        if (altura1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                        }
+                        if (largura1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                        }
+                        if (espessura1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                        }
+                        if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
+                            JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                        }
+                        if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
+                            JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
+                        }
+
+                        componentes.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                        listaComponentes.setVisible(true);
+                        listaComponentes.revalidate();
+                        listaComponentes.repaint();
+                        nComponentesParede1++;
+                        break;
+
+                    case "JANELA":
+                        if (altura1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                        }
+                        if (largura1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                        }
+                        if (espessura1.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                        }
+                        if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
+                            JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
+                        }
+                        if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
+                            JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
+                        }
+
+                        componentes.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                        listaComponentes.setVisible(true);
+                        listaComponentes.revalidate();
+                        listaComponentes.repaint();
+                        nComponentesParede1++;
+                        break;
                 }
             }
         });
@@ -369,7 +385,7 @@ public class StartSimulation extends JInternalFrame {
         parede1.add(lb_tipo1);
         parede1.add(tipo1);
         parede1.add(lb_espaco00);
-        
+
         parede1.add(lb_altura1);
         parede1.add(altura1);
         parede1.add(lb_metrosaltura1);
@@ -393,7 +409,7 @@ public class StartSimulation extends JInternalFrame {
         parede1.add(lb_espaco13);
         parede1.add(lb_espaco14);
         parede1.add(lb_espaco15);
-        
+
         parede1.add(buttonclean1);
         parede1.add(buttonnext1);
         parede1.add(lb_espaco1);
@@ -412,55 +428,46 @@ public class StartSimulation extends JInternalFrame {
                 BorderLayout.CENTER);
         contentPane.add(panelRight,
                 BorderLayout.EAST);
-        
-        
-        
+
         JPanel panelcenter = new JPanel();
-        GridLayout pc = new GridLayout(2,1);
+        GridLayout pc = new GridLayout(2, 1);
         panelcenter.setLayout(pc);
         panelRight.add(panelcenter, BorderLayout.CENTER);
-        
+
         JPanel panellist = new JPanel();
-        GridLayout pl = new GridLayout(2,2);
+        GridLayout pl = new GridLayout(2, 2);
         panellist.setLayout(pl);
-        
+
         lb_componentes1 = new JLabel("Componentes");
         lb_espacocomp1 = new JLabel("");
-        
-        
+
         button_remove1 = new JButton("Remover Componente");
-              
-        
+
         panellist.add(lb_componentes1);
         panellist.add(lb_espacocomp1);
         panellist.add(listaComponentes);
         panellist.add(button_remove1);
-        
-        
-        
+
         JPanel panelvalidar = new JPanel();
-        GridLayout pv = new GridLayout(2,1);
+        GridLayout pv = new GridLayout(2, 1);
         panellist.setLayout(pv);
-        
-        
+
         details = new JTextField(30);
         buttonvalidarparede1 = new JButton("Validar Parede 1");
         buttonvalidarparede1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 //Execute when button is pressed
-                
+
             }
         });
-        
+
         panelvalidar.add(details);
         panelvalidar.add(buttonvalidarparede1);
-        
 
         panelcenter.add(panellist);
         panelcenter.add(panelvalidar);
-        
-        
+
         //define o frame
         pack();
         setSize(1480, 930);
