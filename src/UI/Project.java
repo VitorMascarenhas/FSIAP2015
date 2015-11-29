@@ -5,7 +5,7 @@
  */
 package UI;
 
-
+import Dominio.*;
 /**
  *
  * @author Nuno Lemos
