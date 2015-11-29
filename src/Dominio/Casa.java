@@ -20,6 +20,11 @@ public class Casa {
     private float altura;
     private float largura;
     private float comprimento;
+    private Parede chão;
+    
+    public Casa() {
+        this.paredes = new ArrayList<>();
+    }
     
     public Casa(float interior, float exterior, float tempTerra, float altura, float largura, float comprimento){
         this.tempInterior=interior;
@@ -118,6 +123,28 @@ public class Casa {
     public float getComprimento() {
         return comprimento;
     }
-
     
+    public void setTemperaturaInterior(float tempInterior) {
+        this.tempInterior = tempInterior;
+    }
+    
+    public void setTemperaturaExterior(float temperaturaExterior) {
+        this.tempExterior = temperaturaExterior;
+    }
+    
+    public void setTemperaturaTerra(float temperaturaTerra) {
+        this.tempTerra = temperaturaTerra;
+    }
+    
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+    
+    public void setLargura(float largura) {
+        this.largura = largura;
+    }
+    
+    public void setComprimento(float comprimento) {
+        this.comprimento = comprimento;
+    }
 }

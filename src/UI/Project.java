@@ -39,12 +39,14 @@ public class Project extends JFrame {
         super("ISEP - FSIAP - Termodinâmica");
         desktop = new JDesktopPane();
         desktop.setBackground(Color.DARK_GRAY);
-
+        
+        Casa casa = new Casa();
+        
         this.setContentPane(desktop);
-
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
         setMainMenuBar();
 
         setSize(1500, 1000); //Tamanho da janela
