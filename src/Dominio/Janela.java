@@ -39,7 +39,7 @@ public class Janela implements Componente {
     
     @Override
     public float calculaArea() {
-        return this.altura*this.largura;
+        return this.getAltura()*this.getLargura();
     }
     
     public float getEspessura() {
@@ -55,5 +55,19 @@ public class Janela implements Componente {
     
     public String toString(){
         return "Janela - "+nomeMaterial;
+    }
+
+    /**
+     * @return the altura
+     */
+    public float getAltura() {
+        return altura;
+    }
+
+    /**
+     * @return the largura
+     */
+    public float getLargura() {
+        return largura;
     }
 }

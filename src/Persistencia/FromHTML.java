@@ -5,7 +5,14 @@
  */
 package Persistencia;
 
+import Dominio.Camada;
+import Dominio.Casa;
+import Dominio.Componente;
+import Dominio.Janela;
 import Dominio.Material;
+import Dominio.Parede;
+import Dominio.Porta;
+import Factorys.FabricaComponentes;
 import Repositorios.Materiais;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,24 +61,19 @@ public class FromHTML {
     }
     
     /*Lê experiencia*/
-    public static void leExperiencia(String fileName){
+    public static Casa leExperiencia(String fileName){
         File f ;
         f = new File( fileName+".html" );
-        String tipoComponente = "";
-        String area;
-        String nomeMaterial;
-        String espessura;
-        String condutividade;
-        String temperaturaExterior;
-        String temperaturaInterior;
-        String temperaturaSolo;
-        String altura;
-        String largura;
-        String comprimento;
+        String temperaturaExterior= "";
+        String temperaturaInterior= "";
+        String temperaturaSolo= "";
+        String altura= "";
+        String largura= "";
+        String comprimento= "";
         
         String vec[];
         
-        
+        Casa c1;
         
         try {
             Scanner in = new Scanner( f );
@@ -156,84 +158,145 @@ public class FromHTML {
                    
                     System.out.println("Comprimento - " + comprimento);
                 }
-                
-                /*Importa informações da Parede*/
-                if(frase.contains("<div id = \"Parede\">")){
-                    for(int i=0; i< 10; i++){               //Avança 10 linhas
-                        in.nextLine();
-                    }
-                    while(!frase.contains("</div>")){
-                        frase = in.nextLine();
-                        /*Se for uma camada*/
-                      
-                            if(frase.contains("Camada")){tipoComponente = "Camada";}
-                            if(frase.contains("Janela")){tipoComponente = "Janela";}
-                            if(frase.contains("Porta")){tipoComponente = "Porta";}
-
-                            /*para encontrar a Area*/
-                            for(int i = 0; i < 5; i++){
-                                in.nextLine();              //avança 5 linhas
-                            }
-                            frase = in.nextLine();
-
-                            vec = frase.split("<td>");
-                            vec = vec[1].split("</td>");
-                            vec = vec[0].split("m");
-                            area = vec[0];
-
-                            /*para encontrar a espessura*/
-                            for(int i = 0; i< 3; i++){
-                                in.nextLine();              //avança 3 linhas
-                            }
-                            frase = in.nextLine();
-
-                            vec = frase.split("<td>");
-                            vec = vec[1].split("</td>");
-                            vec = vec[0].split("m");
-                            espessura = vec[0];
-
-                            /*para encontrar o nome do material*/
-                            for(int i = 0; i< 3; i++){
-                                in.nextLine();              //avança 3 linhas
-                            }
-                            frase = in.nextLine();
-
-                            vec = frase.split("<td>");
-                            vec = vec[1].split("</td>");
-                            nomeMaterial = vec[0];
-
-                            /*para encontrar a condutividade*/
-                            for(int i = 0; i< 3; i++){
-                                in.nextLine();              //avança 3 linhas
-                            }
-                            frase = in.nextLine();
-
-                            vec = frase.split("<td>");
-                            vec = vec[1].split("</td>");
-                            vec = vec[0].split("wm");
-                            condutividade = vec[0];
-
-                            System.out.println(tipoComponente + " " + area + " "+ espessura + " " +nomeMaterial + " "+ condutividade );
-
-
-                            for(int i = 0; i< 6; i++){      /*avança para o componente seguinte*/
-                                in.nextLine();              //avança 7 linhas
-                            }
-                            frase= in.nextLine();
-                            
-                            if(frase.contains("/table")){           /*entao ja terminou a aparede*/
-                                for(int i = 0; i< 2; i++){
-                                    in.nextLine();
-                                }
-                                frase = in.nextLine();
-                            }                        
-                    }
-                }
             }
-            
+            c1 = new Casa(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
+            leParede(c1, f);
+            return c1;
         } catch (FileNotFoundException ex) {
             System.out.println("Não foi possivel abrir o ficheiro");
+            return null;
         }
     
+    }
+    
+    
+    public static void leParede(Casa c1, File f) throws FileNotFoundException{
+        String tipoComponente = "";
+        String area= "";
+        String nomeMaterial= "";
+        String espessura= "";
+        String condutividade= "";
+        String vec[];
+        String alturaComponente;
+        String larguraComponente;
+        FabricaComponentes fab = new FabricaComponentes();
+        
+       Scanner in = new Scanner( f );
+        while ( in.hasNextLine() ){
+            String frase = in.nextLine();
+            Parede p1 = new Parede();
+
+            
+            /*Importa informações da Parede*/
+            if(frase.contains("<div id = \"Parede\">")){
+                p1 = new Parede();
+                for(int i=0; i< 10; i++){               //Avança 10 linhas
+                    in.nextLine();
+                }
+                while(!frase.contains("</div>")){
+                    frase = in.nextLine();
+                    /*Se for uma camada*/
+
+                    if(frase.contains("Camada")){tipoComponente = "Camada";}
+                    if(frase.contains("Janela")){tipoComponente = "Janela";}
+                    if(frase.contains("Porta")){tipoComponente = "Porta";}
+
+                    /*para encontrar a Area*/
+                    for(int i = 0; i < 5; i++){
+                        in.nextLine();              //avança 5 linhas
+                    }
+                    frase = in.nextLine();
+
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    area = vec[0];
+
+                    /*para encontrar a espessura*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();              //avança 3 linhas
+                    }
+                    frase = in.nextLine();
+
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    espessura = vec[0];
+
+                    /*para encontrar o nome do material*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();              //avança 3 linhas
+                    }
+                    frase = in.nextLine();
+
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    nomeMaterial = vec[0];
+
+                    /*para encontrar a altura do componente*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();              //avança 3 linhas
+                    }
+                    frase = in.nextLine();
+
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    alturaComponente = vec[0];
+
+                   /*para encontrar a largura do componente*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();              //avança 3 linhas
+                    }
+                    frase = in.nextLine();
+
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("m");
+                    larguraComponente = vec[0];
+
+
+
+                    /*para encontrar a condutividade*/
+                    for(int i = 0; i< 3; i++){
+                        in.nextLine();              //avança 3 linhas
+                    }
+                    frase = in.nextLine();
+
+                    vec = frase.split("<td>");
+                    vec = vec[1].split("</td>");
+                    vec = vec[0].split("wm");
+                    condutividade = vec[0];
+
+                    System.out.println(tipoComponente + " " + area + " "+ espessura + " " + alturaComponente + " "+ larguraComponente + " " +nomeMaterial + " "+ condutividade );
+
+                    /*cria o tipo de componente e adiciona a parede*/
+
+                    if(tipoComponente.equalsIgnoreCase("Camada")){
+                        p1.adicionarCamada((Camada) fab.getComponente(tipoComponente, Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), Float.parseFloat(espessura), nomeMaterial));
+                    }else if(tipoComponente.equalsIgnoreCase("Porta")){
+                        p1.adicionarPorta((Porta) fab.getComponente(tipoComponente, Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), Float.parseFloat(espessura), nomeMaterial));
+                    }else if(tipoComponente.equalsIgnoreCase("Janela")){
+                        p1.adicionarJanela((Janela) fab.getComponente(tipoComponente, Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), Float.parseFloat(espessura), nomeMaterial));
+                    }
+                    /*TERMINOU COMPONENTE*/
+
+
+
+                    for(int i = 0; i< 6; i++){      /*avança para o componente seguinte*/
+                        in.nextLine();              //avança 7 linhas
+                    }
+                    frase= in.nextLine();
+
+                    if(frase.contains("/table")){           /*entao ja terminou a aparede*/
+                        c1.adicionarParede(p1);
+                        for(int i = 0; i< 2; i++){
+                            in.nextLine();
+                        }
+                        frase = in.nextLine();
+                    }                        
+                }
+            }
+        }
     }
 }

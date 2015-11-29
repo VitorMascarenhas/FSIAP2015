@@ -139,6 +139,8 @@ public class Console {
             System.out.println(m.toString());
         }
         
-        FromHTML.leExperiencia("Experiencia1");
+        
+        Casa c2 = FromHTML.leExperiencia("Experiencia1");;
+        ToHTML.exportExp("Experiencia2", c2);
     }
 }

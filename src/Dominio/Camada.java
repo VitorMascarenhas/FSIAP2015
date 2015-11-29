@@ -34,7 +34,7 @@ public class Camada implements Componente {
     
     @Override
     public float calculaArea() {
-        return this.altura*this.largura;
+        return this.getAltura()*this.getLargura();
     }
 
     /**
@@ -53,5 +53,19 @@ public class Camada implements Componente {
     
     public String toString(){
         return "Camada - "+tipoMaterial;
+    }
+
+    /**
+     * @return the altura
+     */
+    public float getAltura() {
+        return altura;
+    }
+
+    /**
+     * @return the largura
+     */
+    public float getLargura() {
+        return largura;
     }
 }

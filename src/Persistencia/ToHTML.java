@@ -137,6 +137,14 @@ public class ToHTML {
                 "                <td>"+ c.getTipoMaterial() +"</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
+                "                <td>Altura:</td>\n" +
+                "                <td>"+ c.getAltura() +"m</td>\n" +
+                "              </tr>\n" +
+                "              <tr>\n" +
+                "                <td>Largura:</td>\n" +
+                "                <td>"+ c.getLargura() +"m</td>\n" +
+                "              </tr>\n" +
+                "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
                 "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
@@ -165,6 +173,14 @@ public class ToHTML {
                 "                <td>"+ c.getNomeMaterial() +"</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
+                "                <td>Altura:</td>\n" +
+                "                <td>"+ c.getAltura() +"m</td>\n" +
+                "              </tr>\n" +
+                "              <tr>\n" +
+                "                <td>Largura:</td>\n" +
+                "                <td>"+ c.getLargura() +"m</td>\n" +
+                "              </tr>\n" +
+                "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
                 "                <td>"+Materiais.getInstance().obterCondutividade(c.getNomeMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
@@ -191,6 +207,14 @@ public class ToHTML {
                 "              <tr>\n" +
                 "                <td>Nome Material:</td>\n" +
                 "                <td>"+ c.getTipoMaterial() +"</td>\n" +
+                "              </tr>\n" +
+                "              <tr>\n" +
+                "                <td>Altura:</td>\n" +
+                "                <td>"+ c.getAltura() +"m</td>\n" +
+                "              </tr>\n" +
+                "              <tr>\n" +
+                "                <td>Largura:</td>\n" +
+                "                <td>"+ c.getLargura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>Condutividade:</td>\n" +
