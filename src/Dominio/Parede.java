@@ -63,13 +63,11 @@ public class Parede {
         
         float resistenciaTotal = 0.0f;
         
-        if((this.contemJanela() || this.contemPorta()) && !this.verificaAreasParedeMaior()) {
-            if(calculaSomaAreasPortasJanelas() > calcularAreaParede()) {
-                for(Componente compo : this.componentes) {
-                    resistenciaTotal+=(1/compo.calculaResistenciaTermica());
-                }
-                return 1/resistenciaTotal;
+        if(this.contemJanela() || this.contemPorta()) {
+            for(Componente compo : this.componentes) {
+                resistenciaTotal+=(1/compo.calculaResistenciaTermica());
             }
+            return 1/resistenciaTotal;
         } else {
             for(Componente comp : componentes) {
                 resistenciaTotal += comp.calculaResistenciaTermica();
