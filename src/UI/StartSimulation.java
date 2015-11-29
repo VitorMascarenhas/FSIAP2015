@@ -20,7 +20,8 @@ import Repositorios.Materiais;
  * @author Nuno Lemos
  */
 public class StartSimulation extends JInternalFrame {
-
+    
+    
     private JTextField altura1, largura1, espessura1, details, rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
     private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,
