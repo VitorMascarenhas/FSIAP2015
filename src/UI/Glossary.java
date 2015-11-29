@@ -39,7 +39,7 @@ public class Glossary extends JInternalFrame {
         textpane.setEditable(false);
         String cd = System.getProperty("user.dir") + "/";
         try {
-            if(Idioma.IDIOMA == 0){
+            if(Idioma.IDIOMA == 1){
                 textpane.setPage("File:///" + cd + "glossary.html");
             } else {
                 textpane.setPage("File:///" + cd + "glossario.html");
