@@ -137,6 +137,10 @@ public class Parede {
         }
     }
     
+    public void inserirComponente(Componente c, int indice) {
+        this.componentes.add(indice, c);
+    }
+    
     /**
      * @return the componentes
      */

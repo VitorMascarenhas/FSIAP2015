@@ -406,33 +406,9 @@ public class StartSimulation extends JInternalFrame {
         buttonvalidarparede1.addActionListener(new ActionListener() {
             
             public void actionPerformed(ActionEvent e) {
-                float areaPrd1 = 0f;
-                float areaSomaPortasJanelas = 0f;
                 
-                for(int i = 0; i < componentes.size();i++) {
-                    if(componentes.get(i) instanceof Porta || componentes.get(i) instanceof Janela) {
-                        areaSomaPortasJanelas+=componentes.get(i).calculaArea();
-                        System.out.println("portas janelas " + areaSomaPortasJanelas);
-                    }
-                }
-                areaPrd1 = Float.parseFloat(comprimentoCasa.getText())*Float.parseFloat(alturaCasa.getText());
-                
-                float areaFinal = areaPrd1 - areaSomaPortasJanelas;
-                
-                        for(int i = 0; i < componentes.size();i++) {
-                    if(componentes.get(i) instanceof Camada) {
-                        Camada camada = (Camada)componentes.get(i);
-                        camada.atualizarArea(areaFinal);
-                        componentes.set(i, camada);
-                    }
-                }
-                System.out.println("parede " + areaPrd1);
-                if(areaSomaPortasJanelas > areaPrd1) {
-                    JOptionPane.showMessageDialog(null, "A area das portas e das janelas não pode ser superior à area da parede.\nAltere os valores dos componentes e volte a tentar.");
-                }
                 CriarParedeControlador ccp = new CriarParedeControlador();
                 ccp.criarParede(altura1.getText(), largura1.getText(), componentes, 0);
-                
                 rt_parede1.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
             }
         });
