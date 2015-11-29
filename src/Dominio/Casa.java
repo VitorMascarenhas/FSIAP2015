@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author 1081320
  */
 public class Casa {
-
-    private ArrayList<Parede> paredes = new ArrayList();
+    
+    private static ArrayList<Parede> paredes = new ArrayList();
     private float tempExterior;
     private float tempInterior;
     private float tempTerra;
@@ -33,8 +33,8 @@ public class Casa {
     /**
      *  Adiciona Parede
      */     
-    public void adicionarParede(Parede P) {
-        this.paredes.add(P);
+    public static void adicionarParede(Parede P) {
+        paredes.add(P);
     }
     /**
      * @return a resistenciatotalTermica

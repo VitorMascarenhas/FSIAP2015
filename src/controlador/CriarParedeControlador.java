@@ -16,11 +16,9 @@ import java.util.*;
 public class CriarParedeControlador {
 
     public CriarParedeControlador() {
-        
-        
     }
     
-    public Parede criarParede(String altura, String largura, DefaultListModel<Componente> componentes) {
+    public void criarParede(String altura, String largura, DefaultListModel<Componente> componentes) {
         
         // converte as strings dos botões para float
         float altPrd = Float.parseFloat(altura);
@@ -36,7 +34,7 @@ public class CriarParedeControlador {
         // cria a parede com todos os componentes
         Parede parede = new Parede(altPrd, larPrd, compParede);
         
-        return parede;
+        Casa.adicionarParede(parede);
     }
     
 }
