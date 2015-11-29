@@ -55,7 +55,7 @@ public class CriarParedeControlador {
                 i++;
             }
         }
-        System.out.println("parede " + areaPrd1);
+        System.out.println("parede " + areaPrd);
         
         Casa.adicionarParede(parede, index);
     }
