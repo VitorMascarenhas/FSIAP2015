@@ -64,8 +64,8 @@ public class Parede {
         
         float resistenciaTotal = 0.0f;
         float totalAreas = calculaSomaAreasPortasJanelas();
-        this.contemJanela();
-        this.contemPorta();
+        
+        contemPortaJanela();
         
         if(this.temPortaJanela == true) {
             for(Componente compo : this.componentes) {
@@ -108,10 +108,10 @@ public class Parede {
         }
     }
     
-    private void contemJanela() {
+    private void contemPortaJanela() {
         
         for(Componente comp : componentes) {
-            if(comp instanceof Janela) {
+            if(comp instanceof Janela || comp instanceof Porta) {
                 this.temPortaJanela = true;
                 break;
             }
@@ -138,6 +138,18 @@ public class Parede {
     }
     
     public void inserirComponente(Componente c, int indice) {
+        this.componentes.add(indice, c);
+    }
+    
+    public int getTamanho() {
+        return this.componentes.size();
+    }
+    
+    public Componente getComponente(int indice) {
+        return this.componentes.get(indice);
+    }
+    
+    public void setComponente(Camada c, int indice) {
         this.componentes.add(indice, c);
     }
     

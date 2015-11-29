@@ -14,4 +14,6 @@ public interface Componente {
     public float calculaResistenciaTermica();
     
     public float calculaArea();
+    
+    public void atualizarArea(float area);
 }

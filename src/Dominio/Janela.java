@@ -33,6 +33,10 @@ public class Janela implements Componente {
     }
     
     @Override
+    public void atualizarArea(float area) {
+    }
+    
+    @Override
     public float calculaResistenciaTermica() {
         return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.nomeMaterial));
     }

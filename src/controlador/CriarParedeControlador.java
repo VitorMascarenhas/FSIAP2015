@@ -46,15 +46,13 @@ public class CriarParedeControlador {
             }
         }
         float areaFinal = areaPrd - areaSomaPortasJanelas;
-        int i = 0;
-        for(Componente comp : parede.getComponentes()) {
-            if(comp instanceof Camada) {
-                Camada camada = (Camada)comp;
-                camada.atualizarArea(areaFinal);
-                parede.inserirComponente(comp, i);
-                i++;
+        
+        for(int i = 0; i < parede.getTamanho();i++) {
+            if(parede.getComponente(i) instanceof Camada) {
+                parede.getComponente(i).atualizarArea(areaFinal);
             }
         }
+        
         System.out.println("parede " + areaPrd);
         
         Casa.adicionarParede(parede, index);

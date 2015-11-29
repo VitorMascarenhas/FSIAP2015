@@ -41,6 +41,7 @@ public class Camada implements Componente {
         return this.area;
     }
     
+    @Override
     public void atualizarArea(float area) {
         this.area = area;
     }

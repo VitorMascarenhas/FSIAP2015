@@ -31,7 +31,10 @@ public class Porta implements Componente {
     public float calculaResistenciaTermica() {
         return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
     }
-
+    
+    public void atualizarArea(float area) {
+    }
+    
     @Override
     public float calculaArea() {
         return this.getAltura() * this.getLargura();
