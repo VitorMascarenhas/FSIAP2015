@@ -39,8 +39,8 @@ public class About extends JInternalFrame{
             Dimension dimensaoPainel = this.getSize();
             double largura = dimensaoPainel.getWidth();
             double altura = dimensaoPainel.getHeight();
-            ImageIcon i1 = new ImageIcon("imgs/acerca.jpg");
-            Image i2 = i1.getImage().getScaledInstance(1200, 800, Image.SCALE_DEFAULT);
+            ImageIcon i1 = new ImageIcon("imgs/about.png");
+            Image i2 = i1.getImage()/*.getScaledInstance(1200, 800, Image.SCALE_DEFAULT)*/;
             Image i3 = new ImageIcon(i2).getImage();
             g.drawImage(i3, 0, 0, this);
         }
