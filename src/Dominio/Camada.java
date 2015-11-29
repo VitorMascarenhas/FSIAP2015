@@ -50,4 +50,8 @@ public class Camada implements Componente {
     public String getTipoMaterial() {
         return tipoMaterial;
     }
+    
+    public String toString(){
+        return "Camada - "+tipoMaterial;
+    }
 }
