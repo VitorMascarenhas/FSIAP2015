@@ -5,8 +5,10 @@
  */
 package UI;
 
+import Dominio.Casa;
 import Dominio.Componente;
 import controlador.CriarComponenteControlador;
+import controlador.CriarParedeControlador;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +33,7 @@ public class StartSimulation extends JInternalFrame {
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
             lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14,
             lb_componentes1, lb_espacocomp1;
-    private JComboBox material1, tipo1;
+                    private JComboBox material1, tipo1;
     private JButton buttonadd1, buttonclean1, buttonnext1, buttondefinir, button_remove1, buttonvalidarparede1;
     private JList<Componente> list1, listaComponentes;
 
@@ -55,8 +57,8 @@ public class StartSimulation extends JInternalFrame {
         final DefaultListModel<Componente> componentes = new DefaultListModel<>();
         listaComponentes.setModel(componentes);
         listaComponentes.setPreferredSize(null);
-        listaComponentes.setBackground(Color.black);
-
+        //listaComponentes.setBackground(Color.black);
+        
         lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
         lb_buttondef1 = new JLabel("");
         lb_buttondef2 = new JLabel("");
@@ -296,14 +298,7 @@ public class StartSimulation extends JInternalFrame {
         //String[] materiaisArray = {"", "Tijolo", "Cimento", "Madeira"};
         Object[] materiaisArray = Materiais.getInstance().getListMateriais().toArray();
         material1 = new JComboBox(materiaisArray);
-        DefaultListModel<String> mdl = new DefaultListModel();
-        for (String str : Materiais.getInstance().getNomesMateriais()) {
-            int i = 0;
-            mdl.add(i, str);
-            i++;
-        }
-        //p_material1.setModel(mdl);
-
+        
         lb_espaco11 = new JLabel("");
 
         lb_espessura1 = new JLabel("Espessura");
@@ -479,13 +474,14 @@ public class StartSimulation extends JInternalFrame {
         details = new JTextField(30);
         buttonvalidarparede1 = new JButton("Validar Parede 1");
         buttonvalidarparede1.addActionListener(new ActionListener() {
-
+            
             public void actionPerformed(ActionEvent e) {
-                //Execute when button is pressed
-
+                CriarParedeControlador ccp = new CriarParedeControlador();
+                ccp.criarParede(altura1.getText(), largura1.getText(), componentes, 0);
+                rt_parede1.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
             }
         });
-
+        
         panelvalidar.add(details);
         panelvalidar.add(buttonvalidarparede1);
 

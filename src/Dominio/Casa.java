@@ -33,9 +33,23 @@ public class Casa {
     /**
      *  Adiciona Parede
      */     
-    public static void adicionarParede(Parede P) {
+    public static void adicionarParede(Parede P, int index) {
+        paredes.add(index, P);
+    }
+    
+    public void adicionarParede(Parede P) {
         paredes.add(P);
     }
+    
+    public static float getResistenciaTotalParede(int index) {
+        
+        float resistenciaTotal = 0f;
+        
+        Parede prd = paredes.get(index);
+        
+        return resistenciaTotal = prd.calculaResistenciaTermicaTotal();
+    }
+    
     /**
      * @return a resistenciatotalTermica
      */ 
