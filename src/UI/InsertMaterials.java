@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Repositorios.Materiais;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 /**
  *
@@ -33,10 +34,10 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
     //construtor
     public InsertMaterials (){
     super(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.insertMaterials.text"),
-          true, //resizable
+          false, //resizable
           true, //closable
-          true, //maximizable
-          true);//iconifiable
+          false, //maximizable
+          false);//iconifiable
 
         //instância campos para exibir os valores
         label_nome = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.nameMaterial.text"));
@@ -51,21 +52,38 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
         lista_materiais.getViewport().add( listbox );
         
         //instância uma janela para os componetes
+        JPanel painel = new JPanel();
+        JPanel paineltemp = new JPanel();
         Container janela = getContentPane();
-        janela.setLayout(new GridLayout(7,1,1,1));
+        GridLayout grid = new GridLayout(1,2);
+        //janela.setLayout(new GridLayout(3,1));
         //inclusão dos elementos no container
-        janela.add(label_nome);
-        janela.add(nome);
-        janela.add(label_condutividade);
-        janela.add(condutividade);        
-        janela.add(botton_inserir);
-        janela.add(lista_materiais);
+        painel.setLayout(grid);
+        paineltemp.add(label_nome);
+        painel.add(paineltemp);
+        
+        paineltemp.add(nome);
+        painel.add(paineltemp);
+        
+        paineltemp.add(label_condutividade);
+        painel.add(paineltemp);
+        
+        paineltemp.add(condutividade);
+        painel.add(paineltemp);
+        
+        paineltemp.add(botton_inserir);
+        painel.add(paineltemp);
+        
+        paineltemp.add(lista_materiais);
+        painel.add(paineltemp);
+        
+        janela.add(painel);
         
         //associa receptor de ação aos botões
         botton_inserir.addActionListener(this);
         //define o frame
-        setSize(400, 600);
-        setMinimumSize(new Dimension(200, 400));
+        setSize(300, 400);
+        setMinimumSize(new Dimension(300, 400));
         Dimension paneSize = janela.getSize();   
         Dimension screenSize = janela.getToolkit().getScreenSize();   
         setLocation((screenSize.width - paneSize.width) / 4, (screenSize.height - paneSize.height) / 5);
@@ -80,13 +98,16 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
             if(nome.getText().isEmpty() || condutividade.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.fraseEmpety1.text"), Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"), JOptionPane.ERROR_MESSAGE);
             } else {
-                
-                
                 //Implementar gravação de dados
-                Materiais  materiais = Materiais.getInstance();
-                String strCond = condutividade.getText().replace(",", ".");
-                float cond = Float.parseFloat(strCond);
-                materiais.inserirMaterial(nome.getText(), cond);
+                try{                
+                    Materiais  materiais = Materiais.getInstance();
+                    String strCond = condutividade.getText().replace(",", ".");
+                    float cond = Float.parseFloat(strCond);
+                    materiais.inserirMaterial(nome.getText(), cond);
+                }
+                catch(NumberFormatException ex) {
+                    throw new IllegalArgumentException("Valor de condutividade inválido");
+                }
             }
             
             if(nome.getText().equals("") && condutividade.getText().equals("")){
