@@ -61,8 +61,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
         janela.add(botton_inserir);
         janela.add(lista_materiais);
         
-        
-//associa receptor de ação aos botões
+        //associa receptor de ação aos botões
         botton_inserir.addActionListener(this);
         //define o frame
         setSize(400, 600);
@@ -95,7 +94,6 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
             }
             
             
-            
 			// Get the text field value
 			String stringValue = nome.getText();
 			nome.setText( "" );
@@ -112,7 +110,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                                 listbox.setListData(list);
                                 listbox.setVisible(true);
                             } catch (NullPointerException npe) {
-                                    System.out.println("Material Não Adicionado!!");
+                                    System.out.println(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"));
                             }
 				
 //                              listData.addElement( stringValue );
