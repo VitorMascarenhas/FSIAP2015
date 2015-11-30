@@ -5,7 +5,6 @@
  */
 package UI;
 
-import Dominio.*;
 /**
  *
  * @author Nuno Lemos
@@ -39,8 +38,6 @@ public class Project extends JFrame {
         super("ISEP - FSIAP - Termodinâmica");
         desktop = new JDesktopPane();
         desktop.setBackground(Color.DARK_GRAY);
-        
-        Casa casa = new Casa();
         
         this.setContentPane(desktop);
         
@@ -135,7 +132,7 @@ public class Project extends JFrame {
         }
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startSimulation.text"))) {
-            StartSimulation start = new StartSimulation(casa);
+            StartSimulation start = new StartSimulation();
             start.setVisible(true);
             desktop.add(start);
             desktop.moveToFront(start);
