@@ -16,8 +16,14 @@ public class ExperienciaController {
     public ExperienciaController() {
     }
     
-    public void criarExperiencia(float tempExt, float tempInt, float tempTerra , float altura, float largura, float comprimento) {
-        Casa casa = new Casa(tempExt, tempInt, tempTerra, altura, largura, comprimento);
+    public void criarExperiencia(String tempExt, String tempInt, String tempTerra, String altura, String largura, String comprimento) {
         
+        float alturaCasa = Float.parseFloat(altura);
+        float larguraCasa = Float.parseFloat(altura);
+        float comprimentoCasa = Float.parseFloat(comprimento);
+        float tempExtCasa = Float.parseFloat(tempExt);
+        float tempIntCasa = Float.parseFloat(tempInt);
+        float tempTerraCasa = Float.parseFloat(tempTerra);
+        Casa casa = new Casa(tempExtCasa, tempIntCasa, tempTerraCasa, alturaCasa, larguraCasa, comprimentoCasa);
     }
 }
