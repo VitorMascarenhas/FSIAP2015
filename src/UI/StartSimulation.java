@@ -36,7 +36,7 @@ public class StartSimulation extends JInternalFrame {
     private JButton buttonadd1, buttondefinir, button_remove1, buttonvalidarparede1;
     private JList<Componente> list1, listaComponentes;
 
-    public StartSimulation() {
+    public StartSimulation(Casa casa) {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
                 true, //resizable
                 true, //closable

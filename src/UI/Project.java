@@ -135,7 +135,7 @@ public class Project extends JFrame {
         }
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("Project.startSimulation.text"))) {
-            StartSimulation start = new StartSimulation();
+            StartSimulation start = new StartSimulation(casa);
             start.setVisible(true);
             desktop.add(start);
             desktop.moveToFront(start);
