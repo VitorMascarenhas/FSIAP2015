@@ -406,7 +406,7 @@ public class StartSimulation extends JInternalFrame {
         buttonvalidarparede1.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
                 CriarParedeControlador ccp = new CriarParedeControlador();
-                ccp.criarParede(altura1.getText(), largura1.getText(), componentes, 0);
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes, 0);
                 rt_parede1.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
             }
         });

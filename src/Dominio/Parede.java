@@ -70,7 +70,7 @@ public class Parede {
         if(this.temPortaJanela == true) {
             for(Componente compo : this.componentes) {
                 resistenciaTotal+=(1/compo.calculaResistenciaTermica());
-                System.out.println("Resistencia termica em paralelo: " + compo.calculaResistenciaTermica());
+                System.out.println("Resistencia termica em paralelo: " + 1/compo.calculaResistenciaTermica());
             }
             System.out.println("resultado " + resistenciaTotal + 1/resistenciaTotal);
             return 1/resistenciaTotal;
@@ -85,10 +85,10 @@ public class Parede {
     
     private float calculaSomaAreasPortasJanelas() {
         
-        float resultado = 0;
+        float resultado = 0f;
         
         for(Componente comp : componentes) {
-            if(comp.getClass().isInstance(Janela.class) || comp.getClass().isInstance(Porta.class)) {
+            if(comp instanceof Janela || comp instanceof Porta) {
                 resultado+=comp.calculaArea();
             }
         }

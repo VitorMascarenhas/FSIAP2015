@@ -26,8 +26,8 @@ public class Camada implements Componente {
         this.largura = largura;
         this.espessura = espessura;
         this.tipoMaterial = material;
-        this.area = 0f;
     }
+    
     //claculo da resistencia termica
     @Override
     public float calculaResistenciaTermica() {
@@ -63,7 +63,11 @@ public class Camada implements Componente {
     public String toString(){
         return "Camada - "+tipoMaterial;
     }
-
+    
+    public float getArea() {
+        return this.area;
+    }
+    
     /**
      * @return the altura
      */

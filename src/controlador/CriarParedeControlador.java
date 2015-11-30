@@ -25,6 +25,7 @@ public class CriarParedeControlador {
         // converte as strings dos botões para float
         float altPrd = Float.parseFloat(altura);
         float larPrd = Float.parseFloat(largura);
+        float areaPrd = altPrd*larPrd;
         
         ArrayList<Componente> compParede = new ArrayList<>();
         
@@ -36,8 +37,8 @@ public class CriarParedeControlador {
         // cria a parede com todos os componentes
         Parede parede = new Parede(altPrd, larPrd, compParede);
         
-        float areaPrd = altPrd*larPrd;
         float areaSomaPortasJanelas = 0f;
+        float areaFinal = 0f;
         
         for(Componente comp : parede.getComponentes()) {
             if(comp instanceof Porta || comp instanceof Janela) {
@@ -45,11 +46,15 @@ public class CriarParedeControlador {
                 System.out.println("portas janelas " + areaSomaPortasJanelas);
             }
         }
-        float areaFinal = areaPrd - areaSomaPortasJanelas;
+        
+        areaFinal = areaPrd - areaSomaPortasJanelas;
+        System.out.println("areaFinal " + areaFinal + " areaparede " + areaPrd + " areasomapj " + areaSomaPortasJanelas);
         
         for(int i = 0; i < parede.getTamanho();i++) {
             if(parede.getComponente(i) instanceof Camada) {
                 parede.getComponente(i).atualizarArea(areaFinal);
+                Camada camada = (Camada)parede.getComponente(i);
+                System.out.println("area: " + camada.getArea());
             }
         }
         
