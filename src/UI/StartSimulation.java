@@ -32,7 +32,7 @@ public class StartSimulation extends JInternalFrame {
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
             lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14;
-                    private JComboBox material1, tipo1;
+    private JComboBox material1, tipo1;
     private JButton buttonadd1, buttondefinir, button_remove1, buttonvalidarparede1;
     private JList<Componente> list1, listaComponentes;
 
@@ -70,7 +70,7 @@ public class StartSimulation extends JInternalFrame {
         temperaturaInterior = new JTextField(5);
         lb_temp_int_unid = new JLabel("ºC");
         lb_buttondef5 = new JLabel("");
-        lb_temperaturaSolo = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor1.text"));
+        lb_temperaturaSolo = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floorS.text"));
         temperaturaSolo = new JTextField(5);
         lb_temp_sol_unid = new JLabel("ºC");
         lb_buttondef6 = new JLabel("");
@@ -123,66 +123,66 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelResultados = new JPanel();
         panelResultados.setLayout(new GridLayout(7, 6, 10, 10));
 
-        lb_rt_parede1 = new JLabel("RT Parede 1");
+        lb_rt_parede1 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtwall.text")+" 1"));
         rt_parede1 = new JTextField(10);
         rt_parede1.setEnabled(false);
         lb_unid_rt1 = new JLabel("W-1.C");
-        lb_fluxo1 = new JLabel("Fluxo Parede 1");
+        lb_fluxo1 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowwall.text")+" 1"));
         fluxo1 = new JTextField(10);
         fluxo1.setEnabled(false);
         lb_unid_fluxo1 = new JLabel("W");
         
-        lb_rt_parede2 = new JLabel("RT Parede 2");
+        lb_rt_parede2 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtwall.text")+" 2"));
         rt_parede2 = new JTextField(10);
         rt_parede2.setEnabled(false);
         lb_unid_rt2 = new JLabel("W-1.C");
-        lb_fluxo2 = new JLabel("Fluxo Parede 2");
+        lb_fluxo2 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowwall.text")+" 2"));
         fluxo2 = new JTextField(10);
         fluxo2.setEnabled(false);
         lb_unid_fluxo2 = new JLabel("W");
 
-        lb_rt_parede3 = new JLabel("RT Parede 3");
+        lb_rt_parede3 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtwall.text")+" 3"));
         rt_parede3 = new JTextField(10);
         rt_parede3.setEnabled(false);
         lb_unid_rt3 = new JLabel("W-1.C");
-        lb_fluxo3 = new JLabel("Fluxo Parede 3");
+        lb_fluxo3 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowwall.text")+" 3"));
         fluxo3 = new JTextField(10);
         fluxo3.setEnabled(false);
         lb_unid_fluxo3 = new JLabel("W");
 
-        lb_rt_parede4 = new JLabel("RT Parede 4");
+        lb_rt_parede4 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtwall.text")+" 4"));
         rt_parede4 = new JTextField(10);
         rt_parede4.setEnabled(false);
         lb_unid_rt4 = new JLabel("W-1.C");
-        lb_fluxo4 = new JLabel("Fluxo Parede 4");
+        lb_fluxo4 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowwall.text")+" 4"));
         fluxo4 = new JTextField(10);
         fluxo4.setEnabled(false);
         lb_unid_fluxo4 = new JLabel("W");
 
-        lb_rt_chao = new JLabel("RT Chão");
+        lb_rt_chao = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtfloor.text"));
         rt_chao = new JTextField(10);
         rt_chao.setEnabled(false);
         lb_unid_rt5 = new JLabel("W-1.C");
-        lb_fluxo5 = new JLabel("Fluxo Chão");
+        lb_fluxo5 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowfloor.text"));
         fluxo5 = new JTextField(10);
         fluxo5.setEnabled(false);
         lb_unid_fluxo5 = new JLabel("W");
 
-        lb_rt_teto = new JLabel("RT Teto");
+        lb_rt_teto = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtceiling.text"));
         rt_teto = new JTextField(10);
         rt_teto.setEnabled(false);
         lb_unid_rt6 = new JLabel("W-1.C");
-        lb_fluxo6 = new JLabel("Fluxo Teto");
+        lb_fluxo6 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowceiling.text"));
         fluxo6 = new JTextField(10);
         fluxo6.setEnabled(false);
         lb_unid_fluxo6 = new JLabel("W");
 
-        lb_rt_total = new JLabel("RT Total");
+        lb_rt_total = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rttotal.text"));
         rt_total = new JTextField(10);
         rt_total.setEnabled(false);
         lb_unid_rt7 = new JLabel("C/W");
 
-        lb_fluxo = new JLabel("Fluxo de Calor");
+        lb_fluxo = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.heatflowtotal.text"));
         fluxo = new JTextField(10);
         fluxo.setEnabled(false);
         lb_unid_rt8 = new JLabel("W");
@@ -212,24 +212,24 @@ public class StartSimulation extends JInternalFrame {
         ImageIcon icon = createImageIcon("imgs/middle.gif");
 
         JComponent parede1 = (JComponent) makeTextPanel("Parede #1");
-        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall1.text"), icon, parede1, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall1.text"));
+        tabbedPane.addTab((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 1"), icon, parede1, (Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 1"));
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         
         JComponent parede2 = (JComponent) makeTextPanel("Parede #2");
-        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall2.text"), icon, parede2, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall2.text"));
+        tabbedPane.addTab((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 2"), icon, parede2, (Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 2"));
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
         JComponent parede3 = (JComponent) makeTextPanel("Parede #3");
-        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall3.text"), icon, parede3, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall3.text"));
+        tabbedPane.addTab((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 3"), icon, parede3, (Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 3"));
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
         JComponent parede4 = (JComponent) makeTextPanel("Parede #4");
         parede4.setPreferredSize(new Dimension(410, 50));
-        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall4.text"), icon, parede4, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall4.text"));
+        tabbedPane.addTab((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 4"), icon, parede4, (Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 4"));
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
 
         JComponent chao = (JComponent) makeTextPanel("Chão #5");
-        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor2.text"), icon, chao, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor2.text"));
+        tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor.text"), icon, chao, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor.text"));
         tabbedPane.setMnemonicAt(4, KeyEvent.VK_5);
 
         JComponent teto = (JComponent) makeTextPanel("Teto #6");
@@ -393,7 +393,12 @@ public class StartSimulation extends JInternalFrame {
         panellist.setLayout(pl);
 
         button_remove1 = new JButton("Remover Componente");
-
+        button_remove1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+            
         panellist.add(listaComponentes);
         panellist.add(button_remove1);
 
@@ -404,7 +409,7 @@ public class StartSimulation extends JInternalFrame {
         details = new JTextField(30);
         buttonvalidarparede1 = new JButton("Validar Parede 1");
         buttonvalidarparede1.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 CriarParedeControlador ccp = new CriarParedeControlador();
                 ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes, 0);
                 rt_parede1.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
