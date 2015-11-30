@@ -267,28 +267,28 @@ public class StartSimulation extends JInternalFrame {
         parede1.setLayout(new GridLayout(7, 3, 10, 10));
 
         //camada/janela/porta
-        lb_tipo1 = new JLabel("Tipo");
-        String[] tipoArray = {"Camada", "Janela", "Porta"};
+        lb_tipo1 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text"));
+        String[] tipoArray = {Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.window.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.door.text")};
 
         tipo1 = new JComboBox(tipoArray);
         lb_espaco00 = new JLabel("");
 
-        lb_altura1 = new JLabel("Altura");
+        lb_altura1 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text"));
         altura1 = new JTextField(5);
         lb_metrosaltura1 = new JLabel("m");
 
-        lb_largura1 = new JLabel("Largura");
+        lb_largura1 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text"));
         largura1 = new JTextField(5);
         lb_metroslargura1 = new JLabel("m");
         
-        lb_material1 = new JLabel("Material");
+        lb_material1 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text"));
         //String[] materiaisArray = {"", "Tijolo", "Cimento", "Madeira"};
         Object[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
         material1 = new JComboBox(materiaisArray);
         
         lb_espaco11 = new JLabel("");
 
-        lb_espessura1 = new JLabel("Espessura");
+        lb_espessura1 = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text"));
         espessura1 = new JTextField(5);
         lb_metrosespessura1 = new JLabel("m");
 
@@ -299,7 +299,7 @@ public class StartSimulation extends JInternalFrame {
         lb_espaco12 = new JLabel("");
         list1 = new JList();
 
-        buttonadd1 = new JButton("Adicionar");
+        buttonadd1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.add.text"));
         buttonadd1.addActionListener(new ActionListener() {
             int nComponentesParede1 = 0;
 
@@ -417,7 +417,7 @@ public class StartSimulation extends JInternalFrame {
         GridLayout pl = new GridLayout(1, 1);
         panellist.setLayout(pl);
 
-        button_remove1 = new JButton("Remover Componente");
+        button_remove1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         button_remove1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 
@@ -432,7 +432,7 @@ public class StartSimulation extends JInternalFrame {
         panellist.setLayout(pv);
 
         details = new JTextField(30);
-        buttonvalidarparede1 = new JButton("Validar Parede 1");
+        buttonvalidarparede1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text"));
         buttonvalidarparede1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CriarParedeControlador ccp = new CriarParedeControlador();
