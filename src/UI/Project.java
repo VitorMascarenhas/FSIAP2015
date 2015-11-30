@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.border.BevelBorder;
 import Internacionalizacao.Idioma;
-import java.awt.event.FocusEvent;
+
 
 public class Project extends JFrame{
 
@@ -38,13 +38,15 @@ public class Project extends JFrame{
         desktop = new JDesktopPane();
         desktop.setBackground(Color.DARK_GRAY);
         
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
         this.setContentPane(desktop);
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         setMainMenuBar();
-
+        
         setSize(1500, 1000); //Tamanho da janela
         setVisible(true);
 
