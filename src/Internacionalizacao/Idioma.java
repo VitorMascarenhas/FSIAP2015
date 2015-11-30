@@ -25,13 +25,4 @@ public class Idioma {
             BUNDLE=ResourceBundle.getBundle("Internacionalizacao.Bundle_en_EN");
         }
     }    
-    
-    public static void initBundle(int IDIOMA) {
-        if (IDIOMA == 0) {  //0 - Portugues
-            BUNDLE=ResourceBundle.getBundle("Internacionalizacao.Bundle_pt_PT");
-        } else if (IDIOMA == 1) {   // 1 - Ingles
-            BUNDLE=ResourceBundle.getBundle("Internacionalizacao.Bundle_en_EN");
-        }
-    }    
-
 }
