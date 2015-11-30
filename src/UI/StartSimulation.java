@@ -299,16 +299,17 @@ public class StartSimulation extends JInternalFrame {
         lb_espaco12 = new JLabel("");
         list1 = new JList();
 
-        buttonadd1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.add.text"));
+        buttonadd1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
         buttonadd1.addActionListener(new ActionListener() {
             int nComponentesParede1 = 0;
 
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {  
+                int indice=tipo1.getSelectedIndex();
                 String cmpnente = tipo1.getSelectedItem().toString().toUpperCase();
                 CriarComponenteControlador ccc = new CriarComponenteControlador();
-                switch (cmpnente) {
-                    case "PORTA":
+                switch (indice) {
+                    case 2: //porta
                         if (altura1.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
                         }
@@ -332,7 +333,7 @@ public class StartSimulation extends JInternalFrame {
                         nComponentesParede1++;
                         break;
 
-                    case "JANELA":
+                    case 1: //janela
                         if (altura1.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
                         }
@@ -356,7 +357,7 @@ public class StartSimulation extends JInternalFrame {
                         nComponentesParede1++;
                         break;
                         
-                    case "CAMADA":
+                    case 0: //camada
                         if (altura1.getText().isEmpty()) {
                             JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
                         }
