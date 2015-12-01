@@ -23,7 +23,7 @@ import java.util.Formatter;
  */
 public class ToHTML {
     /*METoDOS PARA EXPORTAR EXPERIENCIA*/
-    public static String exportExp(String nomeExperiencia, Casa c1) throws FileNotFoundException{
+    public static String exportExp(String nomeExperiencia, Casa c1){
         String html = prologo(nomeExperiencia);
         html+= imprimeResistenciaTermica(c1);
         html+= imprimeTemperaturas(c1);
@@ -31,10 +31,10 @@ public class ToHTML {
         html+= center(c1);
         html+= epilogo();
         
-        try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
-            fo.format(html);
-            fo.close();
-        }
+//        try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
+//            fo.format(html);
+//            fo.close();
+//        }
         return html;
     }
     
@@ -311,12 +311,9 @@ public class ToHTML {
     
     
     /*METODOS PARA EXPORTAR MATERIAIS*/ 
-    public static void exportMat(String nomeFicheiro) throws FileNotFoundException{
-        try (Formatter fo = new Formatter (new File(nomeFicheiro+".html"))) {
-            String html = imprimeMateriais();
-            fo.format(html);
-            fo.close();
-        }
+    public static String exportMat(){
+        String html = imprimeMateriais();
+        return html;
     }
     
     

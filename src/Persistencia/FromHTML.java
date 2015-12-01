@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,36 +28,45 @@ import java.util.logging.Logger;
 public class FromHTML {
     
     /*Leitura de Materiais via HTML*/
-    public static void leMateriais(String fileName) throws FileNotFoundException{
-        File f ;
-        f = new File( fileName+".html" );
+    public static void leMateriais(File f) throws FileNotFoundException{
+//        File f ;
+//        f = new File( fileName+".html" );
         try{
             Scanner in = new Scanner( f );
-            while ( in.hasNextLine() ){
-                String frase = in.nextLine();
-                
-                if(frase.contains("<td>")){
-                    String vec[];
-                    vec = frase.split("<td>");
-                    vec = vec[1].split("</td>");
-                    String nomeMaterial = vec[0];
-
+            
+            for(int i = 0; i < 3; i++){
+                in.nextLine();
+            }
+            String frase = in.nextLine();
+            if(frase.contains("<title>Lista Materiais</title>")){
+                while ( in.hasNextLine() ){
                     frase = in.nextLine();
-                    vec = frase.split("<td>");
-                    vec = vec[1].split("</td>");
-                    String condutividade = vec[0];
-                    
-                    Materiais.getInstance().inserirMaterial(nomeMaterial, Float.parseFloat(condutividade));
 
-                    System.out.println("Nome " + nomeMaterial + " - " +condutividade);
+                    if(frase.contains("<td>")){
+                        String vec[];
+                        vec = frase.split("<td>");
+                        vec = vec[1].split("</td>");
+                        String nomeMaterial = vec[0];
 
-                }else{
-                    in.nextLine();
+                        frase = in.nextLine();
+                        vec = frase.split("<td>");
+                        vec = vec[1].split("</td>");
+                        String condutividade = vec[0];
+
+                        Materiais.getInstance().inserirMaterial(nomeMaterial, Float.parseFloat(condutividade));
+
+                        System.out.println("Nome " + nomeMaterial + " - " +condutividade);
+
+                    }else{
+                        in.nextLine();
+                    }
                 }
-            } 
+            }else{
+                JOptionPane.showMessageDialog(null, "Não é um ficheiro de materiais");
+            }
         in.close();
         } catch (FileNotFoundException ex) {
-            System.out.println("Não foi possivel abrir o ficheiro");
+            JOptionPane.showMessageDialog(null, "Não é um ficheiro de materiais");
         }
     }
     
