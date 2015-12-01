@@ -854,16 +854,15 @@ public class StartSimulation extends JInternalFrame {
         contentPane.add(panelRight,
                 BorderLayout.EAST);
 
+        JPanel panelcenter1 = new JPanel();
+        GridLayout pc1 = new GridLayout(2, 1);
+        panelcenter1.setLayout(pc1);
+        panelRight.add(panelcenter1, BorderLayout.CENTER);
         
-        JPanel panelcenter = new JPanel();
-        GridLayout pc = new GridLayout(2, 1);
-        panelcenter.setLayout(pc);
-        panelRight.add(panelcenter, BorderLayout.CENTER);
-
-        JPanel panellist = new JPanel();
-        GridLayout pl = new GridLayout(1, 1);
-        panellist.setLayout(pl);
-
+        JPanel panellist1 = new JPanel();
+        GridLayout pl1 = new GridLayout(2, 1);
+        panellist1.setLayout(pl1);
+        
         button_remove1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         button_remove1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -871,14 +870,14 @@ public class StartSimulation extends JInternalFrame {
             }
         });
             
-        panellist.add(listaComponentes1);
-        panellist.add(button_remove1);
-
+        panellist1.add(listaComponentes1);
+        panellist1.add(button_remove1);
+        
         JPanel panelvalidar = new JPanel();
-        GridLayout pv = new GridLayout(2, 1);
-        panellist.setLayout(pv);
+        GridLayout pv1 = new GridLayout(2, 1);
+        panellist1.setLayout(pv1);
 
-        details = new JTextField(30);
+        details = new JTextField(20);
         buttonvalidarparede1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text"));
         buttonvalidarparede1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -891,8 +890,8 @@ public class StartSimulation extends JInternalFrame {
         panelvalidar.add(details);
         panelvalidar.add(buttonvalidarparede1);
 
-        panelcenter.add(panellist);
-        panelcenter.add(panelvalidar);
+        panelcenter1.add(panellist1);
+        panelcenter1.add(panelvalidar);
         
 
         //define o frame
