@@ -36,11 +36,11 @@ public class OpenExperience extends JInternalFrame {
             }catch(Exception e2){
                 JOptionPane.showMessageDialog(null, e2);
             }
-            } else if (option == JFileChooser.CANCEL_OPTION) {
-                System.out.println(JFileChooser.CANCEL_OPTION);
-            }
-
+        } else if (option == JFileChooser.CANCEL_OPTION) {
+            System.out.println(JFileChooser.CANCEL_OPTION);
         }
+
+    }
 
 
 

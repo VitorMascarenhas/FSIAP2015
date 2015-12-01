@@ -8,8 +8,12 @@ package UI;
 import Persistencia.ToHTML;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -20,20 +24,34 @@ public class ExportMaterials extends JInternalFrame {
 
 public ExportMaterials() {
 
-        JFileChooser chooser = new JFileChooser();
-        FileFilter filter = new ExtensionFileFilter("html",".html");
-        //chooser.setFileFilter(filter);
-        int option = chooser.showSaveDialog(ExportMaterials.this);
-        if (option == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = chooser.getSelectedFile();
-                String f = selectedFile.getParent() + File.separator + selectedFile.getName();
-                if(!f.toLowerCase().endsWith(".html")){
-                    f += ".html";
-                }
-            ToHTML file = new ToHTML();
-            } else if (option == JFileChooser.CANCEL_OPTION) {
-                System.out.println(JFileChooser.CANCEL_OPTION);
+ JFileChooser chooser = new JFileChooser(new File("c:\\"));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML FIles", "html");
+        chooser.addChoosableFileFilter(filter);
+        chooser.setAcceptAllFileFilterUsed(false); 
+        int result = chooser.showSaveDialog(null);
+        
+        //int option = chooser.showSaveDialog(SaveToHTML.this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            String content = ToHTML.exportMat();
+            File fi = chooser.getSelectedFile();
+            try{
+                FileWriter fw = new FileWriter(fi.getPath()+".html");
+                fw.write(content);
+                fw.flush();
+                fw.close();
+            }catch(Exception e2){
+                JOptionPane.showMessageDialog(null, e2.getMessage());
             }
+        }
+//                File selectedFile = chooser.getSelectedFile();
+//                String f = selectedFile.getParent() + File.separator + selectedFile.getName();
+//                if(!f.toLowerCase().endsWith(".html")){
+//                    f += ".html";
+//                }
+//            ToHTML file = new ToHTML();
+//            } else if (option == JFileChooser.CANCEL_OPTION) {
+//                System.out.println(JFileChooser.CANCEL_OPTION);
+//            }
 
         }
 
