@@ -20,7 +20,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class SaveToHTML extends JInternalFrame {
 
-public SaveToHTML(Casa c1) throws FileNotFoundException {
+public SaveToHTML(){
 
         JFileChooser chooser = new JFileChooser(new File("c:\\"));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML FIles", "html");
@@ -30,7 +30,7 @@ public SaveToHTML(Casa c1) throws FileNotFoundException {
         
         //int option = chooser.showSaveDialog(SaveToHTML.this);
         if (result == JFileChooser.APPROVE_OPTION) {
-            String content = ToHTML.exportExp("Experiencia", c1);
+            String content = ToHTML.exportExp("Experiencia");
             File fi = chooser.getSelectedFile();
             try{
                 FileWriter fw = new FileWriter(fi.getPath()+".html");

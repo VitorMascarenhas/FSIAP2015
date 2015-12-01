@@ -32,7 +32,7 @@ public class OpenExperience extends JInternalFrame {
         if (option == JFileChooser.APPROVE_OPTION) {
             try{
                 File fi = chooser.getSelectedFile();
-                Casa c1 = FromHTML.leExperiencia(fi);
+                FromHTML.leExperiencia(fi);
             }catch(Exception e2){
                 JOptionPane.showMessageDialog(null, e2);
             }

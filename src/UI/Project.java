@@ -108,10 +108,10 @@ public class Project extends JFrame{
     private void evaluateMenuItemActionPerformed(ActionEvent e) {
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Idioma.BUNDLE.getString("Project.saveToHtml.text"))) {
-            /*SaveToHTML save = new SaveToHTML();
+            SaveToHTML save = new SaveToHTML();
             save.setVisible(true);
             desktop.add(save);
-            desktop.moveToFront(save);*/
+            desktop.moveToFront(save);
         }
 
         if (e.getActionCommand().trim().equalsIgnoreCase(Idioma.BUNDLE.getString("Project.importExperiment.text"))) {

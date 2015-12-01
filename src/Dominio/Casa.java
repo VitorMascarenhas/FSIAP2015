@@ -14,12 +14,12 @@ import java.util.ArrayList;
 public class Casa {
     
     private static ArrayList<Parede> paredes = new ArrayList();
-    private float tempExterior;
-    private float tempInterior;
-    private float tempTerra;
-    private float altura;
-    private float largura;
-    private float comprimento;
+    private static float tempExterior;
+    private static float tempInterior;
+    private static float tempTerra;
+    private static float altura;
+    private static float largura;
+    private static float comprimento;
     private Parede chão;
     
     public Casa() {
@@ -58,7 +58,7 @@ public class Casa {
     /**
      * @return a resistenciatotalTermica
      */ 
-    public float calculaResistenciaTermicaTotal() {
+    public static float calculaResistenciaTermicaTotal() {
         float resistenciaTotal = 0.0f;
         for(Parede parede : paredes) {
             
@@ -69,58 +69,58 @@ public class Casa {
         return resistenciaTotal;
     }
 
-    public float calculaFluxoCalor() {
+    public static float calculaFluxoCalor() {
         float fluxoCalor;
-        fluxoCalor = Math.abs(tempExterior-tempInterior)/this.calculaResistenciaTermicaTotal();
+        fluxoCalor = Math.abs(tempExterior-tempInterior)/calculaResistenciaTermicaTotal();
         return fluxoCalor;
     }
     
     /**
      * @return the paredes
      */
-    public ArrayList<Parede> getParedes() {
+    public static ArrayList<Parede> getParedes() {
         return paredes;
     }
 
     /**
      * @return the tempExterior
      */
-    public float getTempExterior() {
+    public static float getTempExterior() {
         return tempExterior;
     }
 
     /**
      * @return the tempInterior
      */
-    public float getTempInterior() {
+    public static float getTempInterior() {
         return tempInterior;
     }
 
     /**
      * @return the tempTerra
      */
-    public float getTempTerra() {
+    public static float getTempTerra() {
         return tempTerra;
     }
 
     /**
      * @return the altura
      */
-    public float getAltura() {
+    public static float getAltura() {
         return altura;
     }
 
     /**
      * @return the largura
      */
-    public float getLargura() {
+    public static float getLargura() {
         return largura;
     }
 
     /**
      * @return the comprimento
      */
-    public float getComprimento() {
+    public static float getComprimento() {
         return comprimento;
     }
     
@@ -147,4 +147,5 @@ public class Casa {
     public void setComprimento(float comprimento) {
         this.comprimento = comprimento;
     }
+    
 }

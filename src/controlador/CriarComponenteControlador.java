@@ -20,7 +20,6 @@ public class CriarComponenteControlador {
     }
     
     public Componente criarComponente(String nomeComponente, String altura, String largura, String espessura, String tipoMaterial) {
-        
         float altCmp = Float.parseFloat(altura);
         float larCmp = Float.parseFloat(largura);
         float espCmp = Float.parseFloat(espessura);

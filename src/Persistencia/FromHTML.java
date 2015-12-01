@@ -5,17 +5,22 @@
  */
 package Persistencia;
 
+import Controlador.ExperienciaController;
 import Dominio.Camada;
 import Dominio.Casa;
 import Dominio.Componente;
 import Dominio.Janela;
+import controlador.CriarComponenteControlador;
+import controlador.CriarParedeControlador;
 import Dominio.Material;
 import Dominio.Parede;
 import Dominio.Porta;
 import Factorys.FabricaComponentes;
 import Repositorios.Materiais;
+import controlador.CriarComponenteControlador;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,9 +76,10 @@ public class FromHTML {
     }
     
     /*Lê experiencia*/
-    public static Casa leExperiencia(File f){
+    public static void leExperiencia(File f){
 //        File f ;
 //        f = new File( fileName+".html" );
+        ExperienciaController ec = new ExperienciaController();
         String temperaturaExterior= "";
         String temperaturaInterior= "";
         String temperaturaSolo= "";
@@ -169,18 +175,22 @@ public class FromHTML {
                     System.out.println("Comprimento - " + comprimento);
                 }
             }
-            c1 = new Casa(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
-            leParede(c1, f);
-            return c1;
+//            Casa.adicionarDimensoes(Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
+//            Casa.adicionarTemperaturas(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaSolo));
+            //c1 = new Casa(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
+            leParede(f);
+            //return c1;
         } catch (FileNotFoundException ex) {
             System.out.println("Não foi possivel abrir o ficheiro");
-            return null;
+            //return null;
         }
     
     }
     
     
-    public static void leParede(Casa c1, File f) throws FileNotFoundException{
+    public static void leParede(File f) throws FileNotFoundException{
+        CriarComponenteControlador ccc = new CriarComponenteControlador();
+        CriarParedeControlador cpc = new CriarParedeControlador();
         String tipoComponente = "";
         String area= "";
         String nomeMaterial= "";
@@ -193,7 +203,9 @@ public class FromHTML {
         
        Scanner in = new Scanner( f );
        int cont = 0;
-       Parede p1 = new Parede();
+       //Parede p1 = new Parede();
+       ArrayList<Componente> componentes = new ArrayList();
+       
         while ( in.hasNextLine() ){
             String frase = in.nextLine();
 
@@ -281,14 +293,9 @@ public class FromHTML {
                     System.out.println(tipoComponente + " " + area + " "+ espessura + " " + alturaComponente + " "+ larguraComponente + " " +nomeMaterial + " "+ condutividade );
 
                     /*cria o tipo de componente e adiciona a parede*/
-
-                    if(tipoComponente.equalsIgnoreCase("Camada")){
-                        p1.adicionarCamada((Camada) fab.getComponente(tipoComponente, Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), Float.parseFloat(espessura), nomeMaterial));
-                    }else if(tipoComponente.equalsIgnoreCase("Porta")){
-                        p1.adicionarPorta((Porta) fab.getComponente(tipoComponente, Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), Float.parseFloat(espessura), nomeMaterial));
-                    }else if(tipoComponente.equalsIgnoreCase("Janela")){
-                        p1.adicionarJanela((Janela) fab.getComponente(tipoComponente, Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), Float.parseFloat(espessura), nomeMaterial));
-                    }
+                    componentes.add(ccc.criarComponente(tipoComponente, alturaComponente, larguraComponente, espessura, nomeMaterial));
+                    
+                    
                     /*TERMINOU COMPONENTE*/
 
 
@@ -300,7 +307,7 @@ public class FromHTML {
 
                     if(frase.contains("/table")){           /*entao ja terminou a aparede*/
                         System.out.println("PAREDE");
-                        c1.adicionarParede(p1, cont);
+                        cpc.criarParede(alturaComponente, larguraComponente, componentes, cont);
                         cont++;
                         for(int i = 0; i< 2; i++){
                             in.nextLine();

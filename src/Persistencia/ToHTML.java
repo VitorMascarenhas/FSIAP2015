@@ -23,12 +23,12 @@ import java.util.Formatter;
  */
 public class ToHTML {
     /*METoDOS PARA EXPORTAR EXPERIENCIA*/
-    public static String exportExp(String nomeExperiencia, Casa c1){
+    public static String exportExp(String nomeExperiencia){
         String html = prologo(nomeExperiencia);
-        html+= imprimeResistenciaTermica(c1);
-        html+= imprimeTemperaturas(c1);
-        html+= imprimeDimensoes(c1);
-        html+= center(c1);
+        html+= imprimeResistenciaTermica();
+        html+= imprimeTemperaturas();
+        html+= imprimeDimensoes();
+        html+= center();
         html+= epilogo();
         
 //        try (Formatter fo = new Formatter (new File(nomeExperiencia+".html"))) {
@@ -63,7 +63,7 @@ public class ToHTML {
     
     
     /*Metodo que estrutura o html/tabel para as paredes e componentes*/
-    public static String center(Casa c1){
+    public static String center(){
         String inicio="<h2>Composi&ccedil;&atilde;o da casa</h2>\n" +
                 
             "<table>\n" +
@@ -76,8 +76,8 @@ public class ToHTML {
         
         String center="";
         int cont = 1;
-        if(c1.getParedes()!=null){
-            for(Parede p :c1.getParedes()){
+        if(Casa.getParedes()!=null){
+            for(Parede p : Casa.getParedes()){
                 center+=imprimeParede(p, cont);
                 cont++;
             }
@@ -234,20 +234,20 @@ public class ToHTML {
     /*
     *Metodo para imprimir as temperaturas
     */
-    public static String imprimeTemperaturas(Casa c1){
+    public static String imprimeTemperaturas(){
         String html="<h2>Temperaturas</h2>\n" +
             "<table>\n" +
             "  <tr>\n" +
             "    <td>Temperatura Interior:</td>\n" +
-            "    <td>"+c1.getTempInterior()+"&deg;C</td>\n" +
+            "    <td>"+Casa.getTempInterior()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
             "    <td>Temperatura Exterior:</td>\n" +
-            "    <td>"+c1.getTempExterior()+"&deg;C</td>\n" +
+            "    <td>"+Casa.getTempExterior()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
             "    <td>Temperatura Solo:</td>\n" +
-            "    <td>"+c1.getTempTerra()+"&deg;C</td>\n" +
+            "    <td>"+Casa.getTempTerra()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "</table>";
         
@@ -257,20 +257,20 @@ public class ToHTML {
     /*
     *Metodo para imprimir as temperaturas
     */
-    public static String imprimeDimensoes(Casa c1){
+    public static String imprimeDimensoes(){
         String html="<h2>Dimens&otilde;es da casa</h2>\n" +
             "<table>\n" +
             "  <tr>\n" +
             "    <td>Altura</td>\n" +
-            "    <td>"+c1.getAltura()+"m</td>\n" +
+            "    <td>"+Casa.getAltura()+"m</td>\n" +
             "  </tr>\n" + 
             "  <tr>\n" +
             "    <td>Largura</td>\n" +
-            "    <td>"+c1.getLargura()+"m</td>\n" +
+            "    <td>"+Casa.getLargura()+"m</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
             "    <td>Comprimento</td>\n" +
-            "    <td>"+c1.getComprimento()+"m</td>\n" +
+            "    <td>"+Casa.getComprimento()+"m</td>\n" +
             "  </tr>\n"+
             "</table>\n";
                 
@@ -278,12 +278,12 @@ public class ToHTML {
     }
     
     /*Metodo para imprimir resistência térmica por parede*/
-    public static String imprimeResistenciaTermica(Casa c1){
+    public static String imprimeResistenciaTermica(){
         String inicio="<h2>Resultados</h2>\n" +
                 "<h3>Fluxo calor</h3>" +
-                c1.calculaFluxoCalor()+"w" +
+                Casa.calculaFluxoCalor()+"w" +
                 "<h3>Resist&ecirc;ncia T&eacute;rmica Total</h3>" +
-                c1.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c" +
+                Casa.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c" +
                 "<h3>Resist&ecirc;ncia T&eacute;rmica por Parede</h3>" +
                 "<table>\n" +
                 "  <tr>\n" +
@@ -293,7 +293,7 @@ public class ToHTML {
         
         String html="";
         int cont = 1;
-        for(Parede p: c1.getParedes()){
+        for(Parede p: Casa.getParedes()){
             html+="  <tr>\n" +
                 "    <td>"+cont+"</td>\n" +
                 "    <td>"+p.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c</td>\n" +
