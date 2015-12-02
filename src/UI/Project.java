@@ -221,7 +221,7 @@ public class Project extends JFrame{
         itemstart.setText(Idioma.BUNDLE.getString("Project.startSimulation.text"));
         iteminsert.setText(Idioma.BUNDLE.getString("Project.insertMaterials.text"));
         itemimportM.setText(Idioma.BUNDLE.getString("Project.importMaterials.text"));
-        itemexportM = new JMenuItem(new MenuItemAction(Idioma.BUNDLE.getString("Project.exportMaterials.text")));
+        itemexportM.setText(Idioma.BUNDLE.getString("Project.exportMaterials.text"));
         menuTools.setText(Idioma.BUNDLE.getString("Project.tools.text")); 
         submenu.setText(Idioma.BUNDLE.getString("Project.idioma.text"));
         itemIngles.setText(Idioma.BUNDLE.getString("Project.ingles.text"));

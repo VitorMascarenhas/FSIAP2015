@@ -54,7 +54,7 @@ public class ToHTML {
     
     /*Método com o fim do html*/
     public static String epilogo(){
-        String epilogo = "<h3>Desenvolvido por:<h3>\n" +
+        String epilogo = "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.developedby.text")+ "<h3>\n" +
             "<h4>1060708 - Eduardo Silva | 1081320 Jo&atilde;o Sardon | 1100912 - Nuno Lemos | 1101153 - Andr&eacute; Teixeira | 111073 - Joel Alves | 1120035 - V&iacute;tor Mascarenhas<h4>\n" +
             "</body>\n" +
             "</html>";
@@ -64,12 +64,12 @@ public class ToHTML {
     
     /*Metodo que estrutura o html/tabel para as paredes e componentes*/
     public static String center(){
-        String inicio="<h2>Composi&ccedil;&atilde;o da casa</h2>\n" +
+        String inicio="<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.housecomposition.text")+ "</h2>\n" +
                 
             "<table>\n" +
             "  <tr>\n" +
-            "    <th>Parede</th>\n" +
-            "    <th>Componente</th>\n" +
+            "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.wall.text") +"</th>\n" +
+            "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.component.text") +"</th>\n" +
             "  </tr>";
         
         String fim="</table>";
@@ -96,9 +96,9 @@ public class ToHTML {
             "    <td>\n" +
             "      <table>\n" +
             "        <tr>\n" +
-            "          <th>Tipo</th>\n" +
-            "          <th>Especifica&ccedil;&otilde;es</th>\n" +
-            "          <th>Resist&ecirc;ncia T&eacute;rmica Componente</th>\n" +
+            "          <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.type.text") +"</th>\n" +
+            "          <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.specifications.text") +"</th>\n" +
+            "          <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentthermalresitence.text") +"</th>\n" +
             "        </tr>";
         
         String fim="      </table>\n" +
@@ -122,32 +122,32 @@ public class ToHTML {
         if(c1 instanceof Camada ){
             Camada c = (Camada) c1;
               html+="        <tr>\n" +
-                "          <td>Camada</td>\n" +
+                "          <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.layer.text") +"</td>\n" +
                 "          <td>\n" +
                 "            <!--informações da camada-->\n" +
                 "            <table>\n" +
                 "              <tr>\n" +
-                "                <td>&Aacute;rea:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.area.text") +"</td>\n" +
                 "                <td>"+ c1.calculaArea() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Espessura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thickness.text") +"</td>\n" +
                 "                <td>"+ c.getEspessura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Nome Material:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materialname.text") +"</td>\n" +
                 "                <td>"+ c.getTipoMaterial() +"</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Altura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentheight.text") +"</td>\n" +
                 "                <td>"+ c.getAltura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Largura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentwidth.text") +"</td>\n" +
                 "                <td>"+ c.getLargura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Condutividade:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHtml.condutivity.text") +"</td>\n" +
                 "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
@@ -158,32 +158,32 @@ public class ToHTML {
         }else if(c1 instanceof Janela){
             Janela c = (Janela) c1;
               html+="        <tr>\n" +
-                "          <td>Janela</td>\n" +
+                "          <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.window.text") +"</td>\n" +
                 "          <td>\n" +
                 "            <!--informações da camada-->\n" +
                 "            <table>\n" +
                 "              <tr>\n" +
-                "                <td>&Aacute;rea:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.area.text") +"</td>\n" +
                 "                <td>"+ c1.calculaArea() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Espessura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thickness.text") +"</td>\n" +
                 "                <td>"+ c.getEspessura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Nome Material:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materialname.text") +"</td>\n" +
                 "                <td>"+ c.getNomeMaterial() +"</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Altura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentheight.text") +"</td>\n" +
                 "                <td>"+ c.getAltura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Largura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentwidth.text") +"</td>\n" +
                 "                <td>"+ c.getLargura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Condutividade:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHtml.condutivity.text") +"</td>\n" +
                 "                <td>"+Materiais.getInstance().obterCondutividade(c.getNomeMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
@@ -194,32 +194,32 @@ public class ToHTML {
         }else{
             Porta c = (Porta) c1;
               html+="        <tr>\n" +
-                "          <td>Porta</td>\n" +
+                "          <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.door.text") +"</td>\n" +
                 "          <td>\n" +
                 "            <!--informações da camada-->\n" +
                 "            <table>\n" +
                 "              <tr>\n" +
-                "                <td>&Aacute;rea:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.area.text") +"</td>\n" +
                 "                <td>"+ c1.calculaArea() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Espessura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thickness.text") +"</td>\n" +
                 "                <td>"+ c.getEspessura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Nome Material:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materialname.text") +"</td>\n" +
                 "                <td>"+ c.getTipoMaterial() +"</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Altura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentheight.text") +"</td>\n" +
                 "                <td>"+ c.getAltura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Largura:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentwidth.text") +"</td>\n" +
                 "                <td>"+ c.getLargura() +"m</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
-                "                <td>Condutividade:</td>\n" +
+                "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHtml.condutivity.text") +"</td>\n" +
                 "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
@@ -235,18 +235,18 @@ public class ToHTML {
     *Metodo para imprimir as temperaturas
     */
     public static String imprimeTemperaturas(){
-        String html="<h2>Temperaturas</h2>\n" +
+        String html="<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.temperatures.text") +"</h2>\n" +
             "<table>\n" +
             "  <tr>\n" +
-            "    <td>Temperatura Interior:</td>\n" +
+            "    <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.tempinside.text") +"</td>\n" +
             "    <td>"+Casa.getTempInterior()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
-            "    <td>Temperatura Exterior:</td>\n" +
+            "    <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.tempoutside.text") +"</td>\n" +
             "    <td>"+Casa.getTempExterior()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
-            "    <td>Temperatura Solo:</td>\n" +
+            "    <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.tempfloor.text") +"</td>\n" +
             "    <td>"+Casa.getTempTerra()+"&deg;C</td>\n" +
             "  </tr>\n" +
             "</table>";
@@ -258,18 +258,18 @@ public class ToHTML {
     *Metodo para imprimir as temperaturas
     */
     public static String imprimeDimensoes(){
-        String html="<h2>Dimens&otilde;es da casa</h2>\n" +
+        String html="<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.housedimensions.text") +"</h2>\n" +
             "<table>\n" +
             "  <tr>\n" +
-            "    <td>Altura</td>\n" +
+            "    <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.height.text") +"</td>\n" +
             "    <td>"+Casa.getAltura()+"m</td>\n" +
             "  </tr>\n" + 
             "  <tr>\n" +
-            "    <td>Largura</td>\n" +
+            "    <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.with.text") +"</td>\n" +
             "    <td>"+Casa.getLargura()+"m</td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
-            "    <td>Comprimento</td>\n" +
+            "    <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.length.text") +"</td>\n" +
             "    <td>"+Casa.getComprimento()+"m</td>\n" +
             "  </tr>\n"+
             "</table>\n";
@@ -279,16 +279,16 @@ public class ToHTML {
     
     /*Metodo para imprimir resistência térmica por parede*/
     public static String imprimeResistenciaTermica(){
-        String inicio="<h2>Resultados</h2>\n" +
-                "<h3>Fluxo calor</h3>" +
+        String inicio="<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.results.text") +"</h2>\n" +
+                "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.heatflow.text") +"</h3>" +
                 Casa.calculaFluxoCalor()+"w" +
-                "<h3>Resist&ecirc;ncia T&eacute;rmica Total</h3>" +
+                "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.totalthermalresistence.text") +"</h3>" +
                 Casa.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c" +
-                "<h3>Resist&ecirc;ncia T&eacute;rmica por Parede</h3>" +
+                "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thermalresistencebywall.text") +"</h3>" +
                 "<table>\n" +
                 "  <tr>\n" +
-                "    <th>Parede</th>\n" +
-                "    <th>Resist&ecirc;ncia T&eacute;rmica</th>\n" +
+                "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.wall.text") +"</th>\n" +
+                "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thermalresistence.text") +"</th>\n" +
                 "  </tr>\n";
         
         String html="";
@@ -325,11 +325,11 @@ public class ToHTML {
                         "<title>Lista Materiais</title>\n" +
                         "</head>\n" +
                         "<body>\n" +
-                        "<h2>Lista de materiais</h2>\n<br>\n" +
+                        "<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materiallist.text") +"</h2>\n<br>\n" +
                         "<table>\n" +
                         "  <tr>\n" +
-                        "    <th>Nome</th>\n" +
-                        "    <th>Condutividade</th>\n" +
+                        "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.name.text") +"</th>\n" +
+                        "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materialcondutivity.text") +"</th>\n" +
                         "  </tr>\n";
         
         for(Material m: Materiais.getInstance().getListMateriais()){

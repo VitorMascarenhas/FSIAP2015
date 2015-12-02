@@ -42,6 +42,10 @@ public class Casa {
         paredes.add(index, P);
     }
     
+    public static void eliminarParedes() {
+        paredes.clear();
+    }
+    
     public void adicionarParede(Parede P) {
         paredes.add(P);
     }
