@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import Repositorios.Materiais;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.plaf.basic.BasicComboBoxUI;
 
 /**
  *
@@ -135,12 +138,12 @@ public class StartSimulation extends JInternalFrame {
                 Float altura = (Float.parseFloat(alturaCasa.getText()));
                 altura1.setText(altura.toString());
                 
-                //comprimentoCasa.setEnabled(false);
-                //alturaCasa.setEnabled(false);
-                //larguraCasa.setEnabled(false);
-                //temperaturaExterior.setEnabled(false);
-                //temperaturaInterior.setEnabled(false);
-                //temperaturaSolo.setEnabled(false);
+                comprimentoCasa.setEnabled(false);
+                alturaCasa.setEnabled(false);
+                larguraCasa.setEnabled(false);
+                temperaturaExterior.setEnabled(false);
+                temperaturaInterior.setEnabled(false);
+                temperaturaSolo.setEnabled(false);
             }
         });
 
@@ -876,7 +879,23 @@ public class StartSimulation extends JInternalFrame {
         JPanel panelvalidar = new JPanel();
         GridLayout pv1 = new GridLayout(2, 1);
         panellist1.setLayout(pv1);
+        
+        tipo1.addItemListener(new ItemListener() {
 
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo1.getSelectedItem().toString().equalsIgnoreCase("camada")) {
+                    largura1.setText(larguraCasa.getText());
+                    largura1.setEnabled(false);
+                    altura1.setText(alturaCasa.getText()+"");
+                    altura1.setEnabled(false);
+                } else {
+                    largura1.setEnabled(true);
+                    altura1.setEnabled(true);
+                }
+            }
+        });
+        
         details = new JTextField(20);
         buttonvalidarparede1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text"));
         buttonvalidarparede1.addActionListener(new ActionListener() {
