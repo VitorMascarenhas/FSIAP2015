@@ -72,10 +72,50 @@ public class StartSimulation extends JInternalFrame {
         panelLeftNorth.setLayout(new GridLayout(5, 7, 10, 10));
 
         listaComponentes1 = new JList();
-        final DefaultListModel<Componente> componentes = new DefaultListModel<>();
-        listaComponentes1.setModel(componentes);
+        final DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
+        listaComponentes1.setModel(componentes1);
         listaComponentes1.setPreferredSize(null);
-        //listaComponentes.setBackground(Color.black);
+        JScrollPane scrooll1 = new JScrollPane();
+        scrooll1.getViewport().add( listaComponentes1 );
+        
+        listaComponentes2 = new JList();
+        final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
+        listaComponentes2.setModel(componentes2);
+        listaComponentes2.setPreferredSize(null);
+        JScrollPane scrooll2 = new JScrollPane();
+        scrooll2.getViewport().add( listaComponentes2 );
+        
+        listaComponentes3 = new JList();
+        final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
+        listaComponentes3.setModel(componentes3);
+        listaComponentes3.setPreferredSize(null);
+        JScrollPane scrooll3 = new JScrollPane();
+        scrooll3.getViewport().add( listaComponentes3 );
+                
+        listaComponentes4 = new JList();
+        final DefaultListModel<Componente> componentes4 = new DefaultListModel<>();
+        listaComponentes4.setModel(componentes4);
+        listaComponentes4.setPreferredSize(null);
+        JScrollPane scrooll4 = new JScrollPane();
+        scrooll4.getViewport().add( listaComponentes4 );
+        
+        listaComponentes5 = new JList();
+        final DefaultListModel<Componente> componentes5 = new DefaultListModel<>();
+        listaComponentes5.setModel(componentes5);
+        listaComponentes5.setPreferredSize(null);
+        JScrollPane scrooll5 = new JScrollPane();
+        scrooll5.getViewport().add( listaComponentes5 );
+        
+        listaComponentes6 = new JList();
+        final DefaultListModel<Componente> componentes6 = new DefaultListModel<>();
+        listaComponentes6.setModel(componentes6);
+        listaComponentes6.setPreferredSize(null);
+        JScrollPane scrooll6 = new JScrollPane();
+        scrooll6.getViewport().add( listaComponentes6 );
+        
+        
+        
+        
         
         lb_temperaturas = new JLabel(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.temperatures.text"));
         lb_buttondef1 = new JLabel("");
@@ -426,7 +466,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                         }
 
-                        componentes.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                        componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
                         listaComponentes1.setVisible(true);
                         listaComponentes1.revalidate();
                         listaComponentes1.repaint();
@@ -450,7 +490,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
                         }
 
-                        componentes.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                        componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
                         listaComponentes1.setVisible(true);
                         listaComponentes1.revalidate();
                         listaComponentes1.repaint();
@@ -474,7 +514,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                         }
 
-                        componentes.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                        componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
                         listaComponentes1.setVisible(true);
                         listaComponentes1.revalidate();
                         listaComponentes1.repaint();
@@ -509,7 +549,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                         }
 
-                        componentes.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), material2.getSelectedItem().toString()));
+                        componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), material2.getSelectedItem().toString()));
                         listaComponentes2.setVisible(true);
                         listaComponentes2.revalidate();
                         listaComponentes2.repaint();
@@ -533,7 +573,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
                         }
 
-                        componentes.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), material2.getSelectedItem().toString()));
+                        componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), material2.getSelectedItem().toString()));
                         listaComponentes2.setVisible(true);
                         listaComponentes2.revalidate();
                         listaComponentes2.repaint();
@@ -557,7 +597,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                         }
 
-                        componentes.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), material2.getSelectedItem().toString()));
+                        componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), material2.getSelectedItem().toString()));
                         listaComponentes2.setVisible(true);
                         listaComponentes2.revalidate();
                         listaComponentes2.repaint();
@@ -592,7 +632,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                         }
 
-                        componentes.add(nComponentesParede3, ccc.criarComponente(cmpnente, altura3.getText(), largura3.getText(), espessura3.getText(), material3.getSelectedItem().toString()));
+                        componentes3.add(nComponentesParede3, ccc.criarComponente(cmpnente, altura3.getText(), largura3.getText(), espessura3.getText(), material3.getSelectedItem().toString()));
                         listaComponentes3.setVisible(true);
                         listaComponentes3.revalidate();
                         listaComponentes3.repaint();
@@ -616,7 +656,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
                         }
 
-                        componentes.add(nComponentesParede3, ccc.criarComponente(cmpnente, altura3.getText(), largura3.getText(), espessura3.getText(), material3.getSelectedItem().toString()));
+                        componentes3.add(nComponentesParede3, ccc.criarComponente(cmpnente, altura3.getText(), largura3.getText(), espessura3.getText(), material3.getSelectedItem().toString()));
                         listaComponentes3.setVisible(true);
                         listaComponentes3.revalidate();
                         listaComponentes3.repaint();
@@ -640,7 +680,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                         }
 
-                        componentes.add(nComponentesParede3, ccc.criarComponente(cmpnente, altura3.getText(), largura3.getText(), espessura3.getText(), material3.getSelectedItem().toString()));
+                        componentes3.add(nComponentesParede3, ccc.criarComponente(cmpnente, altura3.getText(), largura3.getText(), espessura3.getText(), material3.getSelectedItem().toString()));
                         listaComponentes3.setVisible(true);
                         listaComponentes3.revalidate();
                         listaComponentes3.repaint();
@@ -675,7 +715,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                         }
 
-                        componentes.add(nComponentesParede4, ccc.criarComponente(cmpnente, altura4.getText(), largura4.getText(), espessura4.getText(), material4.getSelectedItem().toString()));
+                        componentes4.add(nComponentesParede4, ccc.criarComponente(cmpnente, altura4.getText(), largura4.getText(), espessura4.getText(), material4.getSelectedItem().toString()));
                         listaComponentes4.setVisible(true);
                         listaComponentes4.revalidate();
                         listaComponentes4.repaint();
@@ -699,7 +739,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
                         }
 
-                        componentes.add(nComponentesParede4, ccc.criarComponente(cmpnente, altura4.getText(), largura4.getText(), espessura4.getText(), material4.getSelectedItem().toString()));
+                        componentes4.add(nComponentesParede4, ccc.criarComponente(cmpnente, altura4.getText(), largura4.getText(), espessura4.getText(), material4.getSelectedItem().toString()));
                         listaComponentes4.setVisible(true);
                         listaComponentes4.revalidate();
                         listaComponentes4.repaint();
@@ -723,7 +763,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                         }
 
-                        componentes.add(nComponentesParede4, ccc.criarComponente(cmpnente, altura4.getText(), largura4.getText(), espessura4.getText(), material4.getSelectedItem().toString()));
+                        componentes4.add(nComponentesParede4, ccc.criarComponente(cmpnente, altura4.getText(), largura4.getText(), espessura4.getText(), material4.getSelectedItem().toString()));
                         listaComponentes4.setVisible(true);
                         listaComponentes4.revalidate();
                         listaComponentes4.repaint();
@@ -756,7 +796,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                         }
 
-                        componentes.add(nComponentesParede5, ccc.criarComponente(cmpnente, altura5.getText(), largura5.getText(), espessura5.getText(), material5.getSelectedItem().toString()));
+                        componentes5.add(nComponentesParede5, ccc.criarComponente(cmpnente, altura5.getText(), largura5.getText(), espessura5.getText(), material5.getSelectedItem().toString()));
                         listaComponentes5.setVisible(true);
                         listaComponentes5.revalidate();
                         listaComponentes5.repaint();
@@ -786,7 +826,7 @@ public class StartSimulation extends JInternalFrame {
                             JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                         }
 
-                        componentes.add(nComponentesParede6, ccc.criarComponente(cmpnente, altura6.getText(), largura6.getText(), espessura6.getText(), material6.getSelectedItem().toString()));
+                        componentes6.add(nComponentesParede6, ccc.criarComponente(cmpnente, altura6.getText(), largura6.getText(), espessura6.getText(), material6.getSelectedItem().toString()));
                         listaComponentes6.setVisible(true);
                         listaComponentes6.revalidate();
                         listaComponentes6.repaint();
@@ -850,15 +890,21 @@ public class StartSimulation extends JInternalFrame {
         contentPane.add(panelRight,
                 BorderLayout.EAST);
 
+               
         
         
         
         
-        //Painel 1
+        JPanel panelGlobalInferior = new JPanel();
+        panelGlobalInferior.setLayout(new GridLayout(3, 2));
+        
+        
+      
+        
+       //Painel 1
         JPanel panelcenter1 = new JPanel();
         GridLayout pc1 = new GridLayout(2, 1);
         panelcenter1.setLayout(pc1);
-        panelRight.add(panelcenter1, BorderLayout.CENTER);
         
         JPanel panellist1 = new JPanel();
         GridLayout pl1 = new GridLayout(2, 1);
@@ -895,11 +941,11 @@ public class StartSimulation extends JInternalFrame {
         });
         
         details1 = new JTextField(20);
-        buttonvalidarparede1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text"));
+        buttonvalidarparede1 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 1");
         buttonvalidarparede1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CriarParedeControlador ccp = new CriarParedeControlador();
-                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes, 0);
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes1, 0);
                 rt_parede1.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
             }
         });
@@ -908,28 +954,15 @@ public class StartSimulation extends JInternalFrame {
         panelvalidar1.add(buttonvalidarparede1);
 
         panelcenter1.add(panellist1);
-        panelcenter1.add(panelvalidar1);
-        
-        
-        
-        
-        
-        
+        panelcenter1.add(panelvalidar1);        
         
         
         
                 
         //Painel 2
-        
-        listaComponentes2 = new JList();
-        final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
-        listaComponentes2.setModel(componentes2);
-        listaComponentes2.setPreferredSize(null);
-        
         JPanel panelcenter2 = new JPanel();
         GridLayout pc2 = new GridLayout(2, 1);
         panelcenter2.setLayout(pc2);
-        panelRight.add(panelcenter2, BorderLayout.CENTER);
         
         JPanel panellist2 = new JPanel();
         GridLayout pl2 = new GridLayout(2, 1);
@@ -966,11 +999,11 @@ public class StartSimulation extends JInternalFrame {
         });
         
         details2 = new JTextField(20);
-        buttonvalidarparede2 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text"));
+        buttonvalidarparede2 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 2");
         buttonvalidarparede2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CriarParedeControlador ccp = new CriarParedeControlador();
-                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes, 0);
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes2, 0);
                 rt_parede2.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
             }
         });
@@ -985,10 +1018,257 @@ public class StartSimulation extends JInternalFrame {
         
         
         
+        //Painel 3
+        JPanel panelcenter3 = new JPanel();
+        GridLayout pc3 = new GridLayout(2, 1);
+        panelcenter3.setLayout(pc3);
+                
+        JPanel panellist3 = new JPanel();
+        GridLayout pl3 = new GridLayout(2, 1);
+        panellist1.setLayout(pl3);
+        
+        button_remove3 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
+        button_remove3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+            
+        panellist3.add(listaComponentes3);
+        panellist3.add(button_remove3);
+        
+        JPanel panelvalidar3 = new JPanel();
+        GridLayout pv3 = new GridLayout(2, 1);
+        panellist3.setLayout(pv3);
+        
+        tipo3.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo3.getSelectedItem().toString().equalsIgnoreCase("camada")) {
+                    largura3.setText(larguraCasa.getText());
+                    largura3.setEnabled(false);
+                    altura3.setText(alturaCasa.getText()+"");
+                    altura3.setEnabled(false);
+                } else {
+                    largura1.setEnabled(true);
+                    altura1.setEnabled(true);
+                }
+            }
+        });
+        
+        details3 = new JTextField(20);
+        buttonvalidarparede3 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 3");
+        buttonvalidarparede3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CriarParedeControlador ccp = new CriarParedeControlador();
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes3, 0);
+                rt_parede3.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
+            }
+        });
+        
+        panelvalidar3.add(details3);
+        panelvalidar3.add(buttonvalidarparede3);
+
+        panelcenter3.add(panellist3);
+        panelcenter3.add(panelvalidar3);
         
         
         
         
+        
+        
+        //Painel 4
+        JPanel panelcenter4 = new JPanel();
+        GridLayout pc4 = new GridLayout(2, 1);
+        panelcenter4.setLayout(pc4);
+                
+        JPanel panellist4 = new JPanel();
+        GridLayout pl4 = new GridLayout(2, 1);
+        panellist4.setLayout(pl4);
+        
+        button_remove4 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
+        button_remove4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+            
+        panellist4.add(listaComponentes4);
+        panellist4.add(button_remove4);
+        
+        JPanel panelvalidar4 = new JPanel();
+        GridLayout pv4 = new GridLayout(2, 1);
+        panellist4.setLayout(pv4);
+        
+        tipo4.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo4.getSelectedItem().toString().equalsIgnoreCase("camada")) {
+                    largura4.setText(larguraCasa.getText());
+                    largura4.setEnabled(false);
+                    altura4.setText(alturaCasa.getText()+"");
+                    altura4.setEnabled(false);
+                } else {
+                    largura4.setEnabled(true);
+                    altura4.setEnabled(true);
+                }
+            }
+        });
+        
+        details4 = new JTextField(20);
+        buttonvalidarparede4 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 4");
+        buttonvalidarparede4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CriarParedeControlador ccp = new CriarParedeControlador();
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes4, 0);
+                rt_parede4.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
+            }
+        });
+        
+        panelvalidar4.add(details4);
+        panelvalidar4.add(buttonvalidarparede4);
+
+        panelcenter4.add(panellist4);
+        panelcenter4.add(panelvalidar4);
+        
+        
+        
+        
+        
+        
+        //Painel 5
+        JPanel panelcenter5 = new JPanel();
+        GridLayout pc5 = new GridLayout(2, 1);
+        panelcenter5.setLayout(pc1);
+                
+        JPanel panellist5 = new JPanel();
+        GridLayout pl5 = new GridLayout(2, 1);
+        panellist5.setLayout(pl5);
+        
+        button_remove5 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
+        button_remove5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+            
+        panellist5.add(listaComponentes1);
+        panellist5.add(button_remove1);
+        
+        JPanel panelvalidar5 = new JPanel();
+        GridLayout pv5 = new GridLayout(2, 1);
+        panellist5.setLayout(pv1);
+        
+        tipo5.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo5.getSelectedItem().toString().equalsIgnoreCase("camada")) {
+                    largura5.setText(larguraCasa.getText());
+                    largura5.setEnabled(false);
+                    altura5.setText(alturaCasa.getText()+"");
+                    altura5.setEnabled(false);
+                } else {
+                    largura5.setEnabled(true);
+                    altura5.setEnabled(true);
+                }
+            }
+        });
+        
+        details5 = new JTextField(20);
+        buttonvalidarparede5 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatefloor.text"));
+        buttonvalidarparede5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CriarParedeControlador ccp = new CriarParedeControlador();
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes5, 0);
+                rt_chao.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
+            }
+        });
+        
+        panelvalidar5.add(details5);
+        panelvalidar5.add(buttonvalidarparede5);
+
+        panelcenter5.add(panellist5);
+        panelcenter5.add(panelvalidar5);
+        
+        
+        
+        
+        
+        
+        
+        //Painel 6
+        JPanel panelcenter6 = new JPanel();
+        GridLayout pc6 = new GridLayout(2, 1);
+        panelcenter6.setLayout(pc1);
+                
+        JPanel panellist6 = new JPanel();
+        GridLayout pl6 = new GridLayout(2, 1);
+        panellist6.setLayout(pl1);
+        
+        button_remove6 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
+        button_remove6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+            
+        panellist6.add(listaComponentes6);
+        panellist6.add(button_remove6);
+        
+        JPanel panelvalidar6 = new JPanel();
+        GridLayout pv6 = new GridLayout(2, 1);
+        panellist6.setLayout(pv6);
+        
+        tipo1.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo6.getSelectedItem().toString().equalsIgnoreCase("camada")) {
+                    largura6.setText(larguraCasa.getText());
+                    largura6.setEnabled(false);
+                    altura6.setText(alturaCasa.getText()+"");
+                    altura6.setEnabled(false);
+                } else {
+                    largura6.setEnabled(true);
+                    altura6.setEnabled(true);
+                }
+            }
+        });
+        
+        details6 = new JTextField(20);
+        buttonvalidarparede6 = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateceiling.text"));
+        buttonvalidarparede6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                CriarParedeControlador ccp = new CriarParedeControlador();
+                ccp.criarParede(comprimentoCasa.getText(), alturaCasa.getText(), componentes6, 0);
+                rt_teto.setText(Float.toString(Casa.getResistenciaTotalParede(0)));
+            }
+        });
+        
+        panelvalidar6.add(details6);
+        panelvalidar6.add(buttonvalidarparede6);
+
+        panelcenter6.add(panellist6);
+        panelcenter6.add(panelvalidar6);
+        
+        
+        
+        
+        
+        
+                
+        panelGlobalInferior.add(panelcenter1);
+        panelGlobalInferior.add(panelcenter2);
+        panelGlobalInferior.add(panelcenter3);
+        panelGlobalInferior.add(panelcenter4);
+        panelGlobalInferior.add(panelcenter5);
+        panelGlobalInferior.add(panelcenter6);
+        
+        
+        panelRight.add(panelGlobalInferior, BorderLayout.CENTER);
         
 
         //define o frame
