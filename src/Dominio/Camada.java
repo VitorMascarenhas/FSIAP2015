@@ -10,7 +10,7 @@ import Repositorios.Materiais;
  *
  * @author 1081320
  */
-public class Camada implements Componente {
+public final class Camada implements Componente {
     
     private String tipoMaterial;
     private float altura;
@@ -26,6 +26,7 @@ public class Camada implements Componente {
         this.largura = largura;
         this.espessura = espessura;
         this.tipoMaterial = material;
+        this.calculaArea();
     }
     
     //claculo da resistencia termica
@@ -37,7 +38,6 @@ public class Camada implements Componente {
     @Override
     public float calculaArea() {
         this.area = this.getAltura()*this.getLargura();
-        
         return this.area;
     }
     
@@ -61,7 +61,7 @@ public class Camada implements Componente {
     }
     
     public String toString(){
-        return "Camada - "+tipoMaterial;
+        return "Camada - " + tipoMaterial;
     }
     
     public float getArea() {
