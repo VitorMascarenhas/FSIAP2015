@@ -6,8 +6,7 @@
 package Dominio;
 
 import Factorys.FabricaComponentes;
-import Persistencia.FromHTML;
-import Persistencia.ToHTML;
+import Persistencia.*;
 import Repositorios.Materiais;
 import UI.OpenExperience;
 import UI.SaveToHTML;

@@ -8,9 +8,11 @@ package UI;
 
 import Dominio.Casa;
 import Dominio.Parede;
+import Persistencia.BinaryFile;
 import Persistencia.ToHTML;
 import Repositorios.Materiais;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
@@ -20,8 +22,11 @@ public class Main {
     
    private static Project _gui = null;
     
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+         //adicionar conteodu do ficheiro binario
+        BinaryFile.readObject();
+        //BinaryFile.writeObject();
        _gui = new Project();
        
     }
-}
+}   

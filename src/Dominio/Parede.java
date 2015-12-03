@@ -8,12 +8,13 @@ package Dominio;
 import java.util.ArrayList;
 import javax.swing.JApplet;
 import Factorys.FabricaComponentes;
+import java.io.Serializable;
 
 /**
  *
  * @author 1081320
  */
-public class Parede {
+public class Parede implements Serializable {
     
     private ArrayList<Componente> componentes;
     private float altura;

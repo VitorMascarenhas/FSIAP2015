@@ -5,13 +5,14 @@
  */
 package Dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author 1081320
  */
-public class Casa {
+public class Casa implements Serializable{
     
     private static ArrayList<Parede> paredes = new ArrayList();
     private static float tempExterior;
@@ -33,6 +34,18 @@ public class Casa {
         this.altura=altura;
         this.largura=largura;
         this.comprimento=comprimento;
+    }
+    //clone casa
+    public Casa(Casa casa){
+        this.paredes = new ArrayList<>();
+        this.tempInterior=casa.getTemperaturaInterior();
+        this.tempExterior=casa.getTemperaturaExterior();
+        this.tempTerra = casa.getTemperaturaTerra();
+        this.altura=casa.getAlt();
+        this.largura=casa.getLar();
+        this.comprimento=casa.getCompr();
+        
+        
     }
     
     /**
@@ -85,12 +98,20 @@ public class Casa {
     public static ArrayList<Parede> getParedes() {
         return paredes;
     }
+    
+    public  ArrayList<Parede> getAllParedes() {
+        return paredes;
+    }
 
     /**
      * @return the tempExterior
      */
     public static float getTempExterior() {
         return tempExterior;
+    }
+    
+    public float getTemperaturaExterior(){
+         return tempExterior;
     }
 
     /**
@@ -99,34 +120,51 @@ public class Casa {
     public static float getTempInterior() {
         return tempInterior;
     }
-
+    
+    public  float getTemperaturaInterior() {
+        return tempInterior;
+    }
     /**
      * @return the tempTerra
      */
     public static float getTempTerra() {
         return tempTerra;
     }
-
+    
+    public  float getTemperaturaTerra() {
+        return tempTerra;
+    }
     /**
      * @return the altura
      */
     public static float getAltura() {
         return altura;
     }
-
+    
+    public float getAlt() {
+        return altura;
+    }
     /**
      * @return the largura
      */
     public static float getLargura() {
         return largura;
     }
-
+    
+    public  float getLar() {
+        return largura;
+    }
     /**
      * @return the comprimento
      */
     public static float getComprimento() {
         return comprimento;
     }
+    public  float getCompr() {
+        return comprimento;
+    }
+    
+   
     
     public void setTemperaturaInterior(float tempInterior) {
         this.tempInterior = tempInterior;

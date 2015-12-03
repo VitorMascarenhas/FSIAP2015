@@ -6,11 +6,12 @@
 package Dominio;
 
 import Repositorios.Materiais;
+import java.io.Serializable;
 /**
  *
  * @author 1081320
  */
-public class Camada implements Componente {
+public class Camada implements Componente, Serializable {
     
     private String tipoMaterial;
     private float altura;

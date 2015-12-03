@@ -6,11 +6,12 @@
 package Dominio;
 
 import Repositorios.Materiais;
+import java.io.Serializable;
 /**
  *
  * @author 1081320
  */
-public class Janela implements Componente {
+public class Janela implements Componente, Serializable{
 
     private float altura;
     private float largura;

@@ -5,11 +5,13 @@
  */
 package Dominio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author 1081320
  */
-public class Material {
+public class Material implements Serializable {
     
     private final String nomeMaterial;
     private float condutividadeTermica;

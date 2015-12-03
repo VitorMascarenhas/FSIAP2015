@@ -7,6 +7,7 @@ package Repositorios;
 
 import Dominio.Material;
 import java.awt.List;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -16,7 +17,7 @@ import java.util.Map;
  *
  * @author 11011_000
  */
-public class Materiais {
+public class Materiais implements Serializable{
 
     Map<String, Material> materiais = (Map<String, Material>) new HashMap();
     private static Materiais instancia = null;
