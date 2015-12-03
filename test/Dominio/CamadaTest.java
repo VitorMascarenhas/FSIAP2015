@@ -17,11 +17,21 @@ import org.junit.Before;
  */
 public class CamadaTest {
     
+    private Materiais instanceMaterial = Materiais.getInstance();;
+    private Camada instanceCamada;
+    
     public CamadaTest() {
     }
 
     @Before
     public void setUp() throws Exception {
+    
+        float altura = (float) 1.5;
+        float largura = (float) 8.0;
+        
+        instanceMaterial.inserirMaterial("Ferro", 80.2F);
+        instanceCamada = new Camada(altura, largura, (float) 1.5,"ferro");
+    
     }
 
     @After
@@ -34,14 +44,14 @@ public class CamadaTest {
     @Test
     public void testCalculaResistenciaTermica() {
         System.out.println("CalculaCamadaResistenciaTermica");
-        float altura = (float) 1.5;
-        float largura = (float) 8.0;
-        Materiais instance = Materiais.getInstance();
-        instance.inserirMaterial("Ferro", 80.2F);
-        Camada camada = new Camada(altura, largura, (float) 1.5,"ferro");
-        System.out.println(camada.calculaResistenciaTermica());
-        double resultado = 0.00155;
-        assertEquals("CalculaCamadaAreaTest", resultado, camada.calculaResistenciaTermica(), 0.00001);
+//        float altura = (float) 1.5;
+//        float largura = (float) 8.0;
+//        Materiais instance = Materiais.getInstance();
+//        instance.inserirMaterial("Ferro", 80.2F);
+//        Camada camada = new Camada(altura, largura, (float) 1.5,"ferro");
+//        System.out.println(camada.calculaResistenciaTermica());
+        float resultado = 0.00155F;
+        assertEquals("A resistencia termica deve ser " + resultado, resultado, instanceCamada.calculaResistenciaTermica(), 0.00001);
     }
 
     /**
@@ -54,7 +64,7 @@ public class CamadaTest {
         float largura = (float) 8.0;
         Camada camada = new Camada(altura, largura, (float) 1.5,"cimento");
         double resultado = 12;
-        assertEquals("CalculaCamadaAreaTest", resultado, camada.calculaArea(), 0.0);
+        assertEquals("O resultado deve ser + " + resultado, resultado, camada.calculaArea(), 0.0);
     }
     
 }

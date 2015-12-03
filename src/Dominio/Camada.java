@@ -27,6 +27,7 @@ public class Camada implements Componente, Serializable {
         this.largura = largura;
         this.espessura = espessura;
         this.tipoMaterial = material;
+        this.calculaArea();
     }
     
     //claculo da resistencia termica
@@ -38,7 +39,6 @@ public class Camada implements Componente, Serializable {
     @Override
     public float calculaArea() {
         this.area = this.getAltura()*this.getLargura();
-        
         return this.area;
     }
     
@@ -62,7 +62,7 @@ public class Camada implements Componente, Serializable {
     }
     
     public String toString(){
-        return "Camada - "+tipoMaterial;
+        return "Camada - " + tipoMaterial;
     }
     
     public float getArea() {
