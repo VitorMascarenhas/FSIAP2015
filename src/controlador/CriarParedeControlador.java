@@ -100,6 +100,8 @@ public class CriarParedeControlador {
         
         System.out.println("parede " + areaPrd);
         
-        Casa.adicionarParede(parede, index);
+        Casa casa = new Casa();
+        
+        casa.adicionarParede(parede, index);
     }
 }

@@ -50,7 +50,7 @@ public class Casa implements Serializable{
     
     /**
      *  Adiciona Parede
-     */     
+     */
     public static void adicionarParede(Parede P, int index) {
         paredes.add(index, P);
     }

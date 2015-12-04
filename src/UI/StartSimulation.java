@@ -320,7 +320,7 @@ public class StartSimulation extends JInternalFrame {
         tabbedPane.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"), icon, teto, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"));
         tabbedPane.setMnemonicAt(5, KeyEvent.VK_6);
 
-        panelRight.add(tabbedPane, BorderLayout.NORTH);
+        //panelRight.add(tabbedPane, BorderLayout.NORTH);
 
         //Espaço reservado para Parede 1
         parede1.setLayout(new GridLayout(7, 3, 10, 10));
@@ -1268,8 +1268,11 @@ public class StartSimulation extends JInternalFrame {
         panelGlobalInferior.add(panelcenter6);
         
         
-        panelRight.add(panelGlobalInferior, BorderLayout.CENTER);
+        //panelRight.add(panelGlobalInferior, BorderLayout.CENTER);
         
+        
+        WallPanel panelParedes = new WallPanel();
+        panelRight.add(panelParedes);
 
         //define o frame
         pack();
