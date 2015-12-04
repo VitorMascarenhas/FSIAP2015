@@ -851,7 +851,22 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnRemover6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRemover6ActionPerformed
-
+    
+    public void getTempDim(String tempExt, String tempInt, String tempSolo, String comprimento, String largura, String altura) {
+        altura1.setText(altura);
+        largura1.setText(largura);
+        altura2.setText(altura);
+        largura2.setText(comprimento);
+        altura3.setText(altura);
+        largura3.setText(largura);
+        altura4.setText(altura);
+        largura4.setText(comprimento);
+        altura5.setText(comprimento);
+        largura5.setText(largura);
+        altura6.setText(comprimento);
+        largura6.setText(largura);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField altura1;
