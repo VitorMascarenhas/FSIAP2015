@@ -47,8 +47,8 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes4.setModel(componentes4);
         listaComponentes5.setModel(componentes5);
         listaComponentes6.setModel(componentes6);
-        Object[] MateriaisArray = Materiais.getInstance().getListaDeMateriais();
-        tipoMaterial1 = new JComboBox(materiaisArray);
+        //Object[] MateriaisArray = Materiais.getInstance().getListaDeMateriais();
+        //tipoMaterial1 = new JComboBox(materiaisArray);
     }
 
     /**
