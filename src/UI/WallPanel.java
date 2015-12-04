@@ -5,6 +5,16 @@
  */
 package UI;
 
+import Dominio.Componente;
+import Repositorios.Materiais;
+import controlador.CriarComponenteControlador;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author suq-madik
@@ -14,8 +24,31 @@ public class WallPanel extends javax.swing.JPanel {
     /**
      * Creates new form WallPanel
      */
+    private JTextField details1, details2, details3, details4, details5, details6,
+            rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
+            temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
+    private JComboBox material1, material2, material3, material4, material5, material6;
+    private JButton buttonadd1, buttonadd2, buttonadd3, buttonadd4, buttonadd5, buttonadd6,
+            buttondefinir,
+            button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
+            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6;
+    final DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
+    final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
+    final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
+    final DefaultListModel<Componente> componentes4 = new DefaultListModel<>();
+    final DefaultListModel<Componente> componentes5 = new DefaultListModel<>();
+    final DefaultListModel<Componente> componentes6 = new DefaultListModel<>();
+
     public WallPanel() {
         initComponents();
+        listaComponentes1.setModel(componentes1);
+        listaComponentes2.setModel(componentes2);
+        listaComponentes3.setModel(componentes3);
+        listaComponentes4.setModel(componentes4);
+        listaComponentes5.setModel(componentes5);
+        listaComponentes6.setModel(componentes6);
+        Object[] MateriaisArray = Materiais.getInstance().getListaDeMateriais();
+        tipoMaterial1 = new JComboBox(materiaisArray);
     }
 
     /**
@@ -29,20 +62,20 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         painelParede1 = new javax.swing.JPanel();
-        tipo1 = new javax.swing.JComboBox<>();
+        tipo1 = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         altura1 = new javax.swing.JTextField();
         largura1 = new javax.swing.JTextField();
-        tipoMaterial1 = new javax.swing.JComboBox<>();
+        tipoMaterial1 = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         espessura1 = new javax.swing.JTextField();
         btnAdicionar1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaComponentes1 = new javax.swing.JList<>();
+        listaComponentes1 = new javax.swing.JList<Componente>();
         btnRemover1 = new javax.swing.JButton();
         btnValidar1 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
@@ -50,20 +83,20 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel40 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         painelParede2 = new javax.swing.JPanel();
-        tipo2 = new javax.swing.JComboBox<>();
+        tipo2 = new javax.swing.JComboBox<String>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         altura2 = new javax.swing.JTextField();
         largura2 = new javax.swing.JTextField();
-        tipoMaterial2 = new javax.swing.JComboBox<>();
+        tipoMaterial2 = new javax.swing.JComboBox<String>();
         jLabel11 = new javax.swing.JLabel();
         espessura2 = new javax.swing.JTextField();
         btnAdicionar2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listaComponentes2 = new javax.swing.JList<>();
+        listaComponentes2 = new javax.swing.JList<Componente>();
         btnRemover2 = new javax.swing.JButton();
         btnValidar2 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
@@ -71,40 +104,40 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel37 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         painelParede3 = new javax.swing.JPanel();
-        tipo3 = new javax.swing.JComboBox<>();
+        tipo3 = new javax.swing.JComboBox<String>();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         altura3 = new javax.swing.JTextField();
         largura3 = new javax.swing.JTextField();
-        tipoMaterial3 = new javax.swing.JComboBox<>();
+        tipoMaterial3 = new javax.swing.JComboBox<String>();
         jLabel17 = new javax.swing.JLabel();
         espessura3 = new javax.swing.JTextField();
         btnAdicionar3 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        listaComponentes3 = new javax.swing.JList<>();
+        listaComponentes3 = new javax.swing.JList<Componente>();
         btnRemover3 = new javax.swing.JButton();
         btnValidar3 = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         painelParede4 = new javax.swing.JPanel();
-        tipo4 = new javax.swing.JComboBox<>();
+        tipo4 = new javax.swing.JComboBox<String>();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         altura4 = new javax.swing.JTextField();
         largura4 = new javax.swing.JTextField();
-        tipoMaterial4 = new javax.swing.JComboBox<>();
+        tipoMaterial4 = new javax.swing.JComboBox<String>();
         jLabel23 = new javax.swing.JLabel();
         espessura4 = new javax.swing.JTextField();
         btnAdicionar4 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        listaComponentes4 = new javax.swing.JList<>();
+        listaComponentes4 = new javax.swing.JList<Componente>();
         btnRemover4 = new javax.swing.JButton();
         btnValidar4 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
@@ -116,13 +149,13 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel28 = new javax.swing.JLabel();
         altura5 = new javax.swing.JTextField();
         largura5 = new javax.swing.JTextField();
-        tipoMaterial5 = new javax.swing.JComboBox<>();
+        tipoMaterial5 = new javax.swing.JComboBox<String>();
         jLabel29 = new javax.swing.JLabel();
         espessura5 = new javax.swing.JTextField();
         btnAdicionar5 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        listaComponentes5 = new javax.swing.JList<>();
+        listaComponentes5 = new javax.swing.JList<Componente>();
         btnRemover5 = new javax.swing.JButton();
         btnValidar5 = new javax.swing.JButton();
         jLabel41 = new javax.swing.JLabel();
@@ -134,20 +167,20 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel34 = new javax.swing.JLabel();
         altura6 = new javax.swing.JTextField();
         largura6 = new javax.swing.JTextField();
-        tipoMaterial6 = new javax.swing.JComboBox<>();
+        tipoMaterial6 = new javax.swing.JComboBox<String>();
         jLabel35 = new javax.swing.JLabel();
         espessura6 = new javax.swing.JTextField();
         btnAdicionar6 = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        listaComponentes6 = new javax.swing.JList<>();
+        listaComponentes6 = new javax.swing.JList<Componente>();
         btnRemover6 = new javax.swing.JButton();
         btnValidar6 = new javax.swing.JButton();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
 
-        tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setText("Tipo:");
 
@@ -161,20 +194,25 @@ public class WallPanel extends javax.swing.JPanel {
 
         largura1.setText("jTextField2");
 
-        tipoMaterial1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoMaterial1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Espessura:");
 
         espessura1.setText("jTextField4");
 
         btnAdicionar1.setText("Adicionar");
+        btnAdicionar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionar1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Lista de componentes:");
 
-        listaComponentes1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaComponentes1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(listaComponentes1);
 
@@ -272,7 +310,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Parede 1", painelParede1);
 
-        tipo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("Tipo:");
 
@@ -286,7 +324,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         largura2.setText("jTextField2");
 
-        tipoMaterial2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoMaterial2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Espessura:");
 
@@ -296,10 +334,10 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel12.setText("Lista de componentes:");
 
-        listaComponentes2.setModel(new javax.swing.AbstractListModel<String>() {
+        listaComponentes2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(listaComponentes2);
 
@@ -407,7 +445,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Parede 2", jPanel2);
 
-        tipo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel13.setText("Tipo:");
 
@@ -421,7 +459,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         largura3.setText("jTextField2");
 
-        tipoMaterial3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoMaterial3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel17.setText("Espessura:");
 
@@ -431,10 +469,10 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel18.setText("Lista de componentes:");
 
-        listaComponentes3.setModel(new javax.swing.AbstractListModel<String>() {
+        listaComponentes3.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3.setViewportView(listaComponentes3);
 
@@ -545,7 +583,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Parede 3", jPanel3);
 
-        tipo4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel19.setText("Tipo:");
 
@@ -559,7 +597,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         largura4.setText("jTextField2");
 
-        tipoMaterial4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoMaterial4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel23.setText("Espessura:");
 
@@ -569,10 +607,10 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel24.setText("Lista de componentes:");
 
-        listaComponentes4.setModel(new javax.swing.AbstractListModel<String>() {
+        listaComponentes4.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane4.setViewportView(listaComponentes4);
 
@@ -680,7 +718,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         largura5.setText("jTextField2");
 
-        tipoMaterial5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoMaterial5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel29.setText("Espessura:");
 
@@ -690,10 +728,10 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel30.setText("Lista de componentes:");
 
-        listaComponentes5.setModel(new javax.swing.AbstractListModel<String>() {
+        listaComponentes5.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(listaComponentes5);
 
@@ -795,7 +833,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         largura6.setText("jTextField2");
 
-        tipoMaterial6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipoMaterial6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel35.setText("Espessura:");
 
@@ -805,10 +843,10 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel36.setText("Lista de componentes:");
 
-        listaComponentes6.setModel(new javax.swing.AbstractListModel<String>() {
+        listaComponentes6.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane6.setViewportView(listaComponentes6);
 
@@ -940,8 +978,86 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnRemover6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRemover6ActionPerformed
-    
-    public void getTempDim(String tempExt, String tempInt, String tempSolo, String comprimento, String largura, String altura) {
+
+    private void btnAdicionar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionar1ActionPerformed
+        int nComponentesParede1 = 0;
+        int indice = tipo1.getSelectedIndex();
+        String cmpnente = tipo1.getSelectedItem().toString().toUpperCase();
+        CriarComponenteControlador ccc = new CriarComponenteControlador();
+        switch (indice) {
+            case 2: //Porta = 2
+                if (altura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                }
+                if (largura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                }
+                if (espessura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                }
+                if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                }
+                if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
+                }
+
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                listaComponentes1.setVisible(true);
+                listaComponentes1.revalidate();
+                listaComponentes1.repaint();
+                nComponentesParede1++;
+                break;
+            case 1: //Janela = 1
+                if (altura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                }
+                if (largura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                }
+                if (espessura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                }
+                if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
+                }
+                if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
+                }
+
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                listaComponentes1.setVisible(true);
+                listaComponentes1.revalidate();
+                listaComponentes1.repaint();
+                nComponentesParede1++;
+                break;
+            case 0: //Camada = 0
+                if (altura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                }
+                if (largura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                }
+                if (espessura1.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                }
+                if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
+                }
+                if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
+                }
+
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                listaComponentes1.setVisible(true);
+                listaComponentes1.revalidate();
+                listaComponentes1.repaint();
+                nComponentesParede1++;
+                break;
+        }
+    }//GEN-LAST:event_btnAdicionar1ActionPerformed
+
+    public void getDim(String comprimento, String largura, String altura) {
         altura1.setText(altura);
         largura1.setText(largura);
         altura2.setText(altura);
@@ -955,7 +1071,7 @@ public class WallPanel extends javax.swing.JPanel {
         altura6.setText(comprimento);
         largura6.setText(largura);
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField altura1;
@@ -1055,12 +1171,12 @@ public class WallPanel extends javax.swing.JPanel {
     private javax.swing.JTextField largura4;
     private javax.swing.JTextField largura5;
     private javax.swing.JTextField largura6;
-    private javax.swing.JList<String> listaComponentes1;
-    private javax.swing.JList<String> listaComponentes2;
-    private javax.swing.JList<String> listaComponentes3;
-    private javax.swing.JList<String> listaComponentes4;
-    private javax.swing.JList<String> listaComponentes5;
-    private javax.swing.JList<String> listaComponentes6;
+    private javax.swing.JList<Componente> listaComponentes1;
+    private javax.swing.JList<Componente> listaComponentes2;
+    private javax.swing.JList<Componente> listaComponentes3;
+    private javax.swing.JList<Componente> listaComponentes4;
+    private javax.swing.JList<Componente> listaComponentes5;
+    private javax.swing.JList<Componente> listaComponentes6;
     private javax.swing.JPanel painelParede1;
     private javax.swing.JPanel painelParede2;
     private javax.swing.JPanel painelParede3;
@@ -1078,6 +1194,4 @@ public class WallPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> tipoMaterial5;
     private javax.swing.JComboBox<String> tipoMaterial6;
     // End of variables declaration//GEN-END:variables
-
-
 }
