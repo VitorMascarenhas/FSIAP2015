@@ -155,36 +155,16 @@ public class StartSimulation extends JInternalFrame {
         buttondefinir.addActionListener(new ActionListener() {
             
             public void actionPerformed(ActionEvent e) {
-                if(comprimentoCasa.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo comprimento da casa está vazio.\nInsira um comprimento para a casa.");
+                if(comprimentoCasa.getText().isEmpty()
+                        || alturaCasa.getText().isEmpty()
+                        || larguraCasa.getText().isEmpty()
+                        || temperaturaExterior.getText().isEmpty()
+                        || temperaturaInterior.getText().isEmpty()
+                        || temperaturaSolo.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Existem campos por preencher.\nPreencha os campos e volte a tentar.");
+                } else {
+                    
                 }
-                if(alturaCasa.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura da casa está vazio.\nInsira uma altura para a casa.");
-                }
-                if(larguraCasa.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura da casa está vazio.\nInsira uma largura para a casa.");
-                }
-                if(temperaturaExterior.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo temperatura exterior da casa está vazio.\nInsira uma temperatura exterior para a casa.");
-                }
-                if(temperaturaInterior.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo temperatura interior da casa está vazio.\nInsira uma temperatura interior para a casa.");
-                }
-                if(temperaturaSolo.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo temperatura do solo da casa está vazio.\nInsira uma temperatura do solo para a casa.");
-                }
-                //Execute when button is pressed
-                Float comprimento = (Float.parseFloat(comprimentoCasa.getText()));
-                largura1.setText(comprimento.toString());
-                Float altura = (Float.parseFloat(alturaCasa.getText()));
-                altura1.setText(altura.toString());
-                
-                comprimentoCasa.setEnabled(false);
-                alturaCasa.setEnabled(false);
-                larguraCasa.setEnabled(false);
-                temperaturaExterior.setEnabled(false);
-                temperaturaInterior.setEnabled(false);
-                temperaturaSolo.setEnabled(false);
             }
         });
 
