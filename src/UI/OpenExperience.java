@@ -7,9 +7,11 @@ package UI;
 
 
 import Dominio.Casa;
+import Persistencia.BinaryFile;
 import Persistencia.FromHTML;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -25,15 +27,34 @@ public class OpenExperience extends JInternalFrame {
 
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML FIles", "html");
+        FileNameExtensionFilter filterBin = new FileNameExtensionFilter("Binary Files", "bin");
+
         chooser.addChoosableFileFilter(filter);
-        chooser.setAcceptAllFileFilterUsed(false); 
+        chooser.addChoosableFileFilter(filterBin);
+        chooser.setAcceptAllFileFilterUsed(false);
         //chooser.setFileFilter(filter);
         int option = chooser.showOpenDialog(OpenExperience.this);
+
         if (option == JFileChooser.APPROVE_OPTION) {
-            try{
+            try {
+
                 File fi = chooser.getSelectedFile();
-                FromHTML.leExperiencia(fi);
-            }catch(Exception e2){
+                String[] extension = fi.getName().split(Pattern.quote("."));
+
+                if (extension[1].equals("bin")) {
+
+                    //LER Binario
+                    System.out.println("ler binario");
+                    BinaryFile.readFile(fi);
+
+                } else {
+
+                    //LER HTML
+                    FromHTML.leExperiencia(fi);
+
+                }
+
+            } catch (Exception e2) {
                 JOptionPane.showMessageDialog(null, e2);
             }
         } else if (option == JFileChooser.CANCEL_OPTION) {
