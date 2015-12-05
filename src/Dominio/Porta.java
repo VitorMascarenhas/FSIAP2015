@@ -5,7 +5,6 @@
  */
 package Dominio;
 
-import Repositorios.Materiais;
 import java.io.Serializable;
 /**
  *
@@ -42,6 +41,7 @@ public class Porta implements Componente, Serializable {
         return this.getAltura() * this.getLargura();
     }
     
+    @Override
     public float getEspessura() {
         return espessura;
     }
@@ -49,6 +49,7 @@ public class Porta implements Componente, Serializable {
     /**
      * @return the tipoMaterial
      */
+    @Override
     public String getTipoMaterial() {
         return tipoMaterial;
     }

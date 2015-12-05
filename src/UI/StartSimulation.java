@@ -257,6 +257,13 @@ public class StartSimulation extends JInternalFrame {
 //        panel.add(filler);
         return panel;
     }
-
-  
+    
+    public void preencheSimulacao(Casa c1){
+        temperaturaExterior.setText(c1.getTemperaturaExterior()+"");
+        temperaturaInterior.setText(c1.getTemperaturaInterior()+"");
+        temperaturaSolo.setText(c1.getTemperaturaTerra()+"");
+        comprimentoCasa.setText(c1.getCompr()+"");
+        larguraCasa.setText(c1.getLar()+"");
+        alturaCasa.setText(c1.getAlt()+"");
+    }
 }

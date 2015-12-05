@@ -90,7 +90,7 @@ public class ToHTML {
     *Metodo que imprime as informações contidas em cada parede
     */
     public static String imprimeParede(Parede p1, int indice){
-        String inicio="\n<div id = \"Parede\">\n" +    
+        String inicio="\n<!--Parede-->\n" +    
             "<tr>\n" +
             "    <td>"+indice+"</td>\n" +
             "    <td>\n" +
@@ -104,7 +104,7 @@ public class ToHTML {
         String fim="      </table>\n" +
             "    </td>\n"+
             "</tr>\n"+
-            "</div>";
+            "<!--FimParede-->";
         
         String comp="\n";
         for(Componente c : p1.getComponentes()){
