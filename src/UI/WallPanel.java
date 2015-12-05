@@ -8,13 +8,16 @@ package UI;
 import Dominio.Componente;
 import Repositorios.Materiais;
 import controlador.CriarComponenteControlador;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
+import java.awt.Event.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 /**
  *
  * @author suq-madik
@@ -32,6 +35,7 @@ public class WallPanel extends javax.swing.JPanel {
             buttondefinir,
             button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
             buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6;
+    private String altura, largura, comprimento;
     final DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
@@ -50,6 +54,69 @@ public class WallPanel extends javax.swing.JPanel {
         Object[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
         tipoMaterial1 = new JComboBox(materiaisArray);
         disableTextField();
+        
+        tipo1.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo1.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                    disableTextField1();
+                    getDimParede1(altura, largura);
+                } else {
+                    enableTextField1();
+                    limparTextField(altura1);
+                    limparTextField(largura1);
+                }
+            }
+        });
+        
+        tipo2.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo2.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                    disableTextField2();
+                    getDimParede2(altura, comprimento);
+                } else {
+                    enableTextField2();
+                    getDimParede2(altura, comprimento);
+                    limparTextField(altura2);
+                    limparTextField(largura2);
+                }
+            }
+        });
+    
+        tipo3.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo3.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                    disableTextField3();
+                    getDimParede3(altura, largura);
+                } else {
+                    enableTextField3();
+                    getDimParede3(altura, largura);
+                    limparTextField(altura3);
+                    limparTextField(largura3);
+                }
+            }
+        });
+            
+        tipo4.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(tipo4.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                    disableTextField4();
+                    getDimParede4(altura, comprimento);
+                } else {
+                    enableTextField4();
+                    getDimParede4(altura, comprimento);
+                    limparTextField(altura4);
+                    limparTextField(largura4);
+                }
+            }
+        });
     }
 
     /**
@@ -181,7 +248,7 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
 
-        tipo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
         tipo1.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 tipo1ComponentShown(evt);
@@ -310,7 +377,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Parede 1", painelParede1);
 
-        tipo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
         jLabel7.setText("Tipo:");
 
@@ -445,7 +512,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Parede 2", jPanel2);
 
-        tipo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
         jLabel13.setText("Tipo:");
 
@@ -577,7 +644,7 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Parede 3", jPanel3);
 
-        tipo4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipo4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
         jLabel19.setText("Tipo:");
 
@@ -1038,13 +1105,9 @@ public class WallPanel extends javax.swing.JPanel {
     private void largura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_largura2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_largura2ActionPerformed
-
+    
     private void tipo1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tipo1ComponentShown
-        if(tipo1.getSelectedItem().toString().equalsIgnoreCase("Camada")) {
-            disableTextField1();
-        } else {
-            enableTextField1();
-        }
+        
     }//GEN-LAST:event_tipo1ComponentShown
     
     private void tipo2ComponentShown(java.awt.event.ComponentEvent evt) {                                     
@@ -1068,6 +1131,7 @@ public class WallPanel extends javax.swing.JPanel {
             disableTextField4();
         } else {
             enableTextField4();
+            
         }
     }
     
@@ -1084,6 +1148,43 @@ public class WallPanel extends javax.swing.JPanel {
         largura5.setText(largura);
         altura6.setText(comprimento);
         largura6.setText(largura);
+        this.altura = altura;
+        this.largura = largura;
+        this.comprimento = comprimento;
+    }
+    
+    private void getDimParede1(String altura, String largura) {
+        altura1.setText(altura);
+        largura1.setText(largura);
+    }
+    
+    private void getDimParede2(String altura, String comprimento) {
+        altura2.setText(altura);
+        largura2.setText(comprimento);
+    }
+    
+    private void getDimParede3(String altura, String largura) {
+        altura3.setText(altura);
+        largura3.setText(largura);
+    }
+    
+    private void getDimParede4(String altura, String comprimento) {
+        altura4.setText(altura);
+        largura4.setText(comprimento);
+    }
+    
+    private void getDimParede5(String comprimento, String largura) {
+        altura5.setText(comprimento);
+        largura5.setText(largura);
+    }
+    
+    private void getDimParede6(String comprimento, String largura) {
+        altura6.setText(comprimento);
+        largura6.setText(largura);
+    }
+    
+    private void limparTextField(JTextField tf) {
+        tf.setText("");
     }
     
     private void disableTextField() {
