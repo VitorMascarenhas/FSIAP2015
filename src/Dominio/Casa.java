@@ -80,9 +80,17 @@ public class Casa implements Serializable{
         float fluxo;
         float temperaturas;
         if(index == 4){
-            temperaturas = tempTerra-tempInterior;
+            if(tempTerra > tempInterior){
+                temperaturas = tempTerra-tempInterior;
+            }else{
+                temperaturas =tempInterior-tempTerra;
+            }
         }else{
-            temperaturas = tempExterior-tempInterior;
+            if(tempExterior > tempInterior){
+                temperaturas = tempExterior-tempInterior;
+            }else{
+                temperaturas = tempInterior-tempExterior;
+            }
         }
         
         return temperaturas/getResistenciaTotalParede(index);
@@ -104,8 +112,10 @@ public class Casa implements Serializable{
     }
 
     public static float calculaFluxoCalor() {
-        float fluxoCalor;
-        fluxoCalor = Math.abs(tempExterior-tempInterior)/calculaResistenciaTermicaTotal();
+        float fluxoCalor = 0;
+        for(int i = 0; i< paredes.size(); i++){
+            fluxoCalor += getFluxoPorParede(i);
+        }
         return fluxoCalor;
     }
     
