@@ -73,6 +73,23 @@ public class Casa implements Serializable{
     }
     
     /**
+     * 
+     * @return o fluxo da parede
+     */
+    public static float getFluxoPorParede(int index) {
+        float fluxo;
+        float temperaturas;
+        if(index == 4){
+            temperaturas = tempTerra-tempInterior;
+        }else{
+            temperaturas = tempExterior-tempInterior;
+        }
+        
+        return temperaturas/getResistenciaTotalParede(index);
+    }
+    
+    
+    /**
      * @return a resistenciatotalTermica
      */ 
     public static float calculaResistenciaTermicaTotal() {

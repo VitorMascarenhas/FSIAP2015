@@ -282,13 +282,14 @@ public class ToHTML {
         String inicio="<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.results.text") +"</h2>\n" +
                 "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.heatflow.text") +"</h3>" +
                 Casa.calculaFluxoCalor()+"w" +
-                "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.totalthermalresistence.text") +"</h3>" +
-                Casa.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c" +
+                /*"<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.totalthermalresistence.text") +"</h3>" +
+                Casa.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c" + */
                 "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thermalresistencebywall.text") +"</h3>" +
                 "<table>\n" +
                 "  <tr>\n" +
                 "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.wall.text") +"</th>\n" +
                 "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.thermalresistence.text") +"</th>\n" +
+                "    <th>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.wallheatflow.text") +"</th>\n" +
                 "  </tr>\n";
         
         String html="";
@@ -297,6 +298,7 @@ public class ToHTML {
             html+="  <tr>\n" +
                 "    <td>"+cont+"</td>\n" +
                 "    <td>"+p.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c</td>\n" +
+                "    <td>"+Casa.getFluxoPorParede(cont)+"w</td>\n" +
                 "  </tr>\n";
             cont++;
         }
