@@ -50,6 +50,7 @@ public class Camada implements Componente, Serializable {
     /**
      * @return the espessura
      */
+    @Override
     public float getEspessura() {
         return espessura;
     }
@@ -82,4 +83,5 @@ public class Camada implements Componente, Serializable {
     public float getLargura() {
         return largura;
     }
+
 }

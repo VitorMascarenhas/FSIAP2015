@@ -50,13 +50,6 @@ public class Janela implements Componente, Serializable{
     public float getEspessura() {
         return espessura;
     }
-
-    /**
-     * @return the nomeMaterial
-     */
-    public String getNomeMaterial() {
-        return nomeMaterial;
-    }
     
     public String toString(){
         return "Janela - "+nomeMaterial;
@@ -74,5 +67,10 @@ public class Janela implements Componente, Serializable{
      */
     public float getLargura() {
         return largura;
+    }
+
+    @Override
+    public String getTipoMaterial() {
+        return nomeMaterial;
     }
 }
