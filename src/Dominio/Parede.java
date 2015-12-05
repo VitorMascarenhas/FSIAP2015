@@ -62,7 +62,7 @@ public class Parede implements Serializable {
     }
     
     public float calculaResistenciaTermicaTotal() {
-        
+       /* 
         float resistenciaTotal = 0.0f;
         float totalAreas = calculaSomaAreasPortasJanelas();
         
@@ -81,7 +81,9 @@ public class Parede implements Serializable {
                 System.out.println("resistencia termica em serie: " + comp.calculaResistenciaTermica());
             }
         }
-        return resistenciaTotal;
+        return resistenciaTotal;*/
+        
+        return Termodinamica.calculaResistenciaTermicaTotal(componentes);
     }
     
     private float calculaSomaAreasPortasJanelas() {
@@ -108,7 +110,8 @@ public class Parede implements Serializable {
             return true;
         }
     }
-    
+
+    /*
     private void contemPortaJanela() {
         
         for(Componente comp : componentes) {
@@ -117,9 +120,9 @@ public class Parede implements Serializable {
                 break;
             }
         }
-    }
+    }*/
     
-    private void contemPorta() {
+/*    private void contemPorta() {
         
         for(Componente comp : componentes) {
             if(comp.getClass().isInstance(Porta.class)) {
@@ -127,7 +130,7 @@ public class Parede implements Serializable {
                 break;
             }
         }
-    }
+    }*/
     
     public void removerComponente(Componente comp) {
         
