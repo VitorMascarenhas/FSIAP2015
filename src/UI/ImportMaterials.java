@@ -28,8 +28,10 @@ public class ImportMaterials extends JInternalFrame {
    public ImportMaterials() {
 
         JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML FIles", "html");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML Files", "html");
+        FileNameExtensionFilter filter2 = new FileNameExtensionFilter("Text Files", "txt");
         chooser.addChoosableFileFilter(filter);
+        chooser.addChoosableFileFilter(filter2);
         chooser.setAcceptAllFileFilterUsed(false); 
         //chooser.setFileFilter(filter);
         int option = chooser.showOpenDialog(ImportMaterials.this);

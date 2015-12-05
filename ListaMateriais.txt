@@ -1,0 +1,18 @@
+Alumínio;204
+Cobre;372
+Ferro\Aço;52
+Zinco;110
+Granito;3.5
+Mármore;2.5
+Tijolo;0.7
+Betão Leve;0.9
+Betão de Isolamento;0.23
+Vidro;0.8
+Esferovite;0.12
+Borracha;0.3
+Cortiça;0.0045
+Cimento;0.9
+PVC-Espuma;0.035
+Ar;0.023
+Parquet;0.27
+Betume;0.2

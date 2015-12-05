@@ -27,7 +27,7 @@ import Internacionalizacao.Idioma;
 public class Project extends JFrame{
 
     private boolean _quit = false;
-    JDesktopPane desktop;
+    private JDesktopPane desktop;
     JMenuBar rootMenu;
     JMenu menuFile, menuExperience, menuTools, menuHelp, submenu;
     JMenuItem itemsave, itemimportE, itemexit, itemstart, iteminsert, itemimportM, itemexportM, itemIngles, itemPortugues, itemGlossary, itemAbout;
@@ -230,6 +230,9 @@ public class Project extends JFrame{
         itemGlossary.setText(Idioma.BUNDLE.getString("Project.glossary.text"));
         itemAbout.setText(Idioma.BUNDLE.getString("Project.about.text"));
         
+    }
+    public JDesktopPane getJDesktopPane(){
+        return desktop;
     }
 
 }
