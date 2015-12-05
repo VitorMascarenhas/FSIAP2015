@@ -5,7 +5,6 @@
  */
 package Dominio;
 
-import Repositorios.Materiais;
 import java.io.Serializable;
 /**
  *
