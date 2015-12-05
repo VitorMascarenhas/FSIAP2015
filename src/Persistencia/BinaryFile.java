@@ -35,11 +35,11 @@ public  class BinaryFile {
         
     }
  
-    public static void writeFile(Casa casa) throws IOException {
+    public static void writeFile(Casa casa, File file) throws IOException {
 
         try {
             //create a stream chain with object stream at the top.
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("objects.bin"));
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file.getPath()+".bin"));
             
             out.writeObject(casa);
             out.close();
