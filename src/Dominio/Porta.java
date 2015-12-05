@@ -30,9 +30,10 @@ public class Porta implements Componente, Serializable {
 
     @Override
     public float calculaResistenciaTermica() {
-        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
+        return Dominio.Termodinamica.calculaResistenciaTermica(this);
     }
     
+    @Override
     public void atualizarArea(float area) {
     }
     

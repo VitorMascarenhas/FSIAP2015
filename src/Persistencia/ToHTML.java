@@ -172,7 +172,7 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materialname.text") +"</td>\n" +
-                "                <td>"+ c.getNomeMaterial() +"</td>\n" +
+                "                <td>"+ c.getTipoMaterial() +"</td>\n" +
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.componentheight.text") +"</td>\n" +
@@ -184,7 +184,7 @@ public class ToHTML {
                 "              </tr>\n" +
                 "              <tr>\n" +
                 "                <td>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHtml.condutivity.text") +"</td>\n" +
-                "                <td>"+Materiais.getInstance().obterCondutividade(c.getNomeMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
+                "                <td>"+Materiais.getInstance().obterCondutividade(c.getTipoMaterial())+"wm<sup>-1</sup>&deg;c<sup>-1</sup></td>\n" +
                 "              </tr>\n" +
                 "            </table>\n" +
                 "            <!--Fim informações camada camada-->\n" +

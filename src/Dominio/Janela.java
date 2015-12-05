@@ -39,7 +39,7 @@ public class Janela implements Componente, Serializable{
     
     @Override
     public float calculaResistenciaTermica() {
-        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.nomeMaterial));
+        return Dominio.Termodinamica.calculaResistenciaTermica(this);
     }
     
     @Override
@@ -49,13 +49,6 @@ public class Janela implements Componente, Serializable{
     
     public float getEspessura() {
         return espessura;
-    }
-
-    /**
-     * @return the nomeMaterial
-     */
-    public String getNomeMaterial() {
-        return nomeMaterial;
     }
     
     public String toString(){
@@ -74,5 +67,10 @@ public class Janela implements Componente, Serializable{
      */
     public float getLargura() {
         return largura;
+    }
+
+    @Override
+    public String getTipoMaterial() {
+        return nomeMaterial;
     }
 }
