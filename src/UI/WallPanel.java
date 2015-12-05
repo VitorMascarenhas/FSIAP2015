@@ -13,7 +13,6 @@ import controlador.CriarComponenteControlador;
 import controlador.CriarParedeControlador;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -30,16 +29,10 @@ public class WallPanel extends javax.swing.JPanel {
     /**
      * Creates new form WallPanel
      */
-    private JTextField details1, details2, details3, details4, details5, details6,
-            rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
-            temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JComboBox material1, material2, material3, material4, material5, material6;
-    private JButton buttonadd1, buttonadd2, buttonadd3, buttonadd4, buttonadd5, buttonadd6,
-            buttondefinir,
-            button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
-            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6;
+    private JComboBox material1;
     private String altura, largura, comprimento;
-    final DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
+    
+    static DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes4 = new DefaultListModel<>();
@@ -55,7 +48,9 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes5.setModel(componentes5);
         listaComponentes6.setModel(componentes6);
         String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
-        tipoMaterial1 = new JComboBox(materiaisArray);
+        for (String string : materiaisArray) {
+            tipoMaterial1.addItem(string);
+        }
         disableTextField();
         
         tipo1.addItemListener(new ItemListener() {

@@ -12,44 +12,52 @@ public class Termodinamica {
     /* Método de calcular a resistência térmica de um determinado componente
     Resistencia térmica = Largura / (Condutividade material * Área)
     */
-    public static float calculaResistenciaTermica(Componente componente) {
+    public static float CalculaResistenciaTermica(Componente componente) {
         return componente.getEspessura()/(componente.calculaArea()*Materiais.getInstance().obterCondutividade(componente.getTipoMaterial()));
     }
     
     
-    public static float calculaResistenciaTermicaTotal(ArrayList<Componente> componentes) {
+    public static float CalculaResistenciaTermicaTotal(ArrayList<Componente> componentes) {
         
         ArrayList<Componente> serie = new ArrayList<>();
         ArrayList<Componente> paralelo = new ArrayList<>();
         
-        float resEqSerie = 0.0f;
-        float resEqParal = 0.0f;
-        float resTotal = 0.0f;
+        float resEqSerie = 0.0f;    //Resistencia equivalente em série
+        float resEqParal = 0.0f;    //Resistencia equivalente em paralelo
+        float resTotal = 0.0f;      //Resistencia termica total
         
-        
+        // Verifica quais os componentes em série e em paralelo
         for(Componente c : componentes)
-            if (c instanceof Camada)
+            if (c instanceof Camada) // Em série se camadas de parede
                 serie.add(c);
             else
-                if(c instanceof Janela || c instanceof Porta)
+                if(c instanceof Janela || c instanceof Porta) { // Em paralelo para restantes componentes
                     paralelo.add(c);
-
-        for(Componente c: serie)
-            resEqSerie+=calculaResistenciaTermica(c);
+                }
         
+        // Calcula resistencia termica em serie
+        for(Componente c: serie)
+            resEqSerie+=CalculaResistenciaTermica(c);
+   
+        // Calcula resistencia termica em paralelo
         for(Componente c:paralelo)
-            resEqParal += 1/calculaResistenciaTermica(c);
+            resEqParal += 1/CalculaResistenciaTermica(c);
         
         if (resEqSerie!=0.0f && resEqParal!=0.0f) // Tem camadas e janelas
             resTotal = 1/((1/resEqSerie)+resEqParal);
         else
             if(resEqSerie!=0.0f) // Tem só camadas
                 resTotal=resEqSerie;
-            else    // Tem só janelas ou portas
-                resTotal=1/resEqParal;
         
         return resTotal;
+    }
 
+    public static float FluxoCalor(Parede parede, float tempInterior, float tempExterior) {
+        
+        /* O fluxo é sempre positivo, mas se devolver fluxo negativo significa perda
+        de calor da casa para o exterior, o que será relevante para calcular o fluxo total e 
+        determinar a capacidade o AVAC */
+        return (tempExterior-tempInterior)/parede.calculaResistenciaTermicaTotal();
     }
     
 }
