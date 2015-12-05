@@ -39,7 +39,7 @@ public class Janela implements Componente, Serializable{
     
     @Override
     public float calculaResistenciaTermica() {
-        return this.espessura/(this.calculaArea()*Materiais.getInstance().obterCondutividade(this.nomeMaterial));
+        return Dominio.Termodinamica.calculaResistenciaTermica(this);
     }
     
     @Override

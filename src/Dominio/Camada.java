@@ -33,7 +33,7 @@ public class Camada implements Componente, Serializable {
     //claculo da resistencia termica
     @Override
     public float calculaResistenciaTermica() {
-        return this.espessura/(this.area*Materiais.getInstance().obterCondutividade(this.tipoMaterial));
+        return Dominio.Termodinamica.calculaResistenciaTermica(this);
     }
     
     @Override
@@ -58,6 +58,7 @@ public class Camada implements Componente, Serializable {
     /**
      * @return the tipoMaterial
      */
+    @Override
     public String getTipoMaterial() {
         return tipoMaterial;
     }
