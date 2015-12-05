@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public class Main {
     
-   private static Project _gui = null;
+   public static Project _gui = null;
     
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
        _gui = new Project();

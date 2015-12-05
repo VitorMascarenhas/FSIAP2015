@@ -9,8 +9,12 @@ import Dominio.Camada;
 import Dominio.Casa;
 import Dominio.Parede;
 import Repositorios.Materiais;
+import static UI.Main._gui;
+import UI.Project;
+import UI.StartSimulation;
 import java.io.*; 
 import java.util.*; 
+import javax.swing.JDesktopPane;
 /**
  *
  * @author joelalves
@@ -18,12 +22,24 @@ import java.util.*;
 public  class BinaryFile {
        public static void readFile(File file) throws IOException, ClassNotFoundException {
            try {
-           //ObjectInputStream in = new ObjectInputStream (new FileInputStream("objects.bin"));
+           //ObjectInputStream in = new ObjectInputStream (new FileInputStream("as.bin"));
            ObjectInputStream in = new ObjectInputStream (new FileInputStream(file));
            
            System.out.println("I have read:");
            Casa c1= (Casa) in.readObject();  
            System.out.println("A  object: " + c1);
+               System.out.println(c1.getTemperaturaExterior()+"");
+               System.out.println(c1.getTemperaturaInterior()+"");
+               System.out.println(c1.getTemperaturaTerra()+"");
+               System.out.println(c1.getCompr()+"");
+               System.out.println(c1.getLar()+"");
+               System.out.println(c1.getAlt()+"");
+           StartSimulation start = new StartSimulation();
+           start.preencheSimulacao(c1);
+           JDesktopPane desktop = _gui.getJDesktopPane();
+           desktop.add(start);
+           desktop.moveToFront(start);
+           start.panelWalls.preencheSimulacao(c1);
 
            }
            catch (IOException io) {
@@ -40,8 +56,15 @@ public  class BinaryFile {
         try {
             //create a stream chain with object stream at the top.
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file.getPath()+".bin"));
-            
+            casa =ExemploCasa();
+             System.out.println(casa.getTemperaturaExterior()+"");
+        System.out.println(casa.getTemperaturaInterior()+"");
+        System.out.println(casa.getTemperaturaTerra()+"");
+        System.out.println(casa.getCompr()+"");
+        System.out.println(casa.getLar()+"");
+        System.out.println(casa.getAlt()+"");
             out.writeObject(casa);
+            //escrever os materiais. 
             out.close();
 
         } catch (IOException io) {
@@ -53,32 +76,21 @@ public  class BinaryFile {
     }
     public static Casa ExemploCasa(){
     // ADICIONAR MATERIAIS AO REPOSITORIO
-        Materiais.getInstance().inserirMaterial("Tijolo", 0.4f);
-        Materiais.getInstance().inserirMaterial("Fibra de vidro", 0.046f);
-        Materiais.getInstance().inserirMaterial("Ar", 0.026f);
-        Materiais.getInstance().inserirMaterial("Madeira", 0.11f);
-        Materiais.getInstance().inserirMaterial("Alumínio", 237f);
-        
-
-        // Tamanho da casa
+//        Materiais.getInstance().inserirMaterial("Tijolo", 0.4f);
+//        Materiais.getInstance().inserirMaterial("Fibra de vidro", 0.046f);
+//        Materiais.getInstance().inserirMaterial("Ar", 0.026f);
+//        Materiais.getInstance().inserirMaterial("Madeira", 0.11f);
+//        Materiais.getInstance().inserirMaterial("Alumínio", 237f);
+//        
+//
+//        // Tamanho da casa
         float altura = 3f;
         float largura = 8f;
         float comprimento = 12f;
         float temperaturaInterior = 20f;
         float temperaturaExterior = 35f;
         float temperaturaTerra = 15f;
-        
-        float variacaoTemp = temperaturaExterior-temperaturaInterior;
-        float variacaoTempChao = temperaturaInterior-temperaturaTerra;
-        
-        // Instancia da casa
-        //Casa casa = new Casa();
-        
-        /* Todas as paredes laterais s\ao iguais
-        *  Criação das paredes da casa
-        *  Criação de todos os componentes da primeira parede
-        *  Parede inicia com uma camada de tijolo de 7cm de espessura
-        */
+
         Parede pA = new Parede(largura, altura, 0.07f, "Tijolo");
         // Camada de tijolo de 7cm de espessura
         Camada camadaATij = new Camada(largura, altura, 0.07f, "Tijolo");
@@ -138,17 +150,7 @@ public  class BinaryFile {
         // criação do chão com uma camada de tijolo e uma camada de madeira
         Parede chao = new Parede(largura, comprimento, 0.1f, "Tijolo");
         Camada camadaChaoMad = new Camada(largura, comprimento, 0.02f, "Madeira");
-        
-        float pa = pA.calculaResistenciaTermicaTotal();
-        float pb = pB.calculaResistenciaTermicaTotal();
-        float pc = pC.calculaResistenciaTermicaTotal();
-        float pd = pD.calculaResistenciaTermicaTotal();
-        float pchao = chao.calculaResistenciaTermicaTotal();
-        float pteto = teto.calculaResistenciaTermicaTotal();
-        
-        float fluxo = variacaoTemp/pchao;
-        
-        
+
         Casa c1 = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
         c1.adicionarParede(pA);
         c1.adicionarParede(pB);
@@ -156,6 +158,7 @@ public  class BinaryFile {
         c1.adicionarParede(pD);
         c1.adicionarParede(chao);
         c1.adicionarParede(teto);
+       
         return c1;
     }
 }
