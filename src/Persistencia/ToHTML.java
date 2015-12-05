@@ -325,6 +325,7 @@ public class ToHTML {
                         "<html>\n" +
                         "<head>\n" +
                         "<title>Lista Materiais</title>\n" +
+                        "<meta charset=\"UTF-8\">\n" +
                         "</head>\n" +
                         "<body>\n" +
                         "<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materiallist.text") +"</h2>\n<br>\n" +
