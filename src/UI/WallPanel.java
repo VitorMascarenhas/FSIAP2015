@@ -10,6 +10,7 @@ import Dominio.Componente;
 import Dominio.Parede;
 import Repositorios.Materiais;
 import controlador.CriarComponenteControlador;
+import controlador.CriarParedeControlador;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -53,7 +54,7 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes4.setModel(componentes4);
         listaComponentes5.setModel(componentes5);
         listaComponentes6.setModel(componentes6);
-        Object[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
+        String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
         tipoMaterial1 = new JComboBox(materiaisArray);
         disableTextField();
         
@@ -265,8 +266,6 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Material:");
 
-        tipoMaterial1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel5.setText("Espessura:");
 
         btnAdicionar1.setText("Adicionar");
@@ -293,6 +292,11 @@ public class WallPanel extends javax.swing.JPanel {
         });
 
         btnValidar1.setText("Validar Parede");
+        btnValidar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar1ActionPerformed(evt);
+            }
+        });
 
         jLabel38.setText("m");
 
@@ -394,8 +398,6 @@ public class WallPanel extends javax.swing.JPanel {
                 largura2ActionPerformed(evt);
             }
         });
-
-        tipoMaterial2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Espessura:");
 
@@ -523,8 +525,6 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel15.setText("Largura:");
 
         jLabel16.setText("Material:");
-
-        tipoMaterial3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel17.setText("Espessura:");
 
@@ -656,8 +656,6 @@ public class WallPanel extends javax.swing.JPanel {
 
         jLabel22.setText("Material:");
 
-        tipoMaterial4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel23.setText("Espessura:");
 
         btnAdicionar4.setText("Adicionar");
@@ -773,8 +771,6 @@ public class WallPanel extends javax.swing.JPanel {
 
         altura5.setText("jTextField1");
 
-        tipoMaterial5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel29.setText("Espessura:");
 
         btnAdicionar5.setText("Adicionar");
@@ -881,8 +877,6 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel33.setText("Largura:");
 
         jLabel34.setText("Material:");
-
-        tipoMaterial6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel35.setText("Espessura:");
 
@@ -1111,6 +1105,12 @@ public class WallPanel extends javax.swing.JPanel {
     private void tipo1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tipo1ComponentShown
         
     }//GEN-LAST:event_tipo1ComponentShown
+
+    private void btnValidar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidar1ActionPerformed
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura1.getText(), largura1.getText(), componentes1, 0);
+        Casa.getResistenciaTotalParede(0);
+    }//GEN-LAST:event_btnValidar1ActionPerformed
     
     private void tipo2ComponentShown(java.awt.event.ComponentEvent evt) {                                     
         if(tipo2.getSelectedItem().toString().equalsIgnoreCase("Camada")) {

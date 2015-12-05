@@ -237,9 +237,20 @@ public class StartSimulation extends JInternalFrame {
                 BorderLayout.CENTER);
         contentPane.add(panelRight,
                 BorderLayout.EAST);
+        
+        rt_parede1.addActionListener(new ActionListener() {
 
-               
- 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Casa.getParede(0) != null) {
+                    float resistencia = Casa.getResistenciaTotalParede(0);
+                    rt_parede1.setText(resistencia + "");
+                }
+            }
+        });
+        
+        
+        
         //define o frame
         pack();
         setSize(1480, 930);

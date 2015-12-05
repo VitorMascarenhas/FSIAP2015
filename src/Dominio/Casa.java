@@ -217,4 +217,7 @@ public class Casa implements Serializable{
         this.comprimento = comprimento;
     }
     
+    public static Parede getParede(int indice) {
+        return paredes.get(indice);
+    }
 }
