@@ -6,6 +6,8 @@
 package UI;
 
 import Dominio.*;
+import Persistencia.BinaryFile;
+import Persistencia.ToHTML;
 import controlador.CriarComponenteControlador;
 import controlador.CriarParedeControlador;
 import java.awt.*;
@@ -16,6 +18,9 @@ import javax.swing.*;
 import Repositorios.Materiais;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.File;
+import java.io.FileWriter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 
 /**
@@ -52,9 +57,9 @@ public class StartSimulation extends JInternalFrame {
     private JButton buttonadd1, buttonadd2, buttonadd3, buttonadd4, buttonadd5, buttonadd6,
             buttondefinir,
             button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
-            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6;
+            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6,buttonSaveBinary ;
     private JList<Componente> listaComponentes1, listaComponentes2, listaComponentes3, listaComponentes4, listaComponentes5, listaComponentes6;
-
+    public  final WallPanel panelWalls;
     public StartSimulation() {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
                 true, //resizable
@@ -66,7 +71,7 @@ public class StartSimulation extends JInternalFrame {
         //Use the content pane's default BorderLayout.
         contentPane.setLayout(new BorderLayout()); //unnecessary
         
-        final WallPanel panelWalls = new WallPanel();
+         panelWalls = new WallPanel();
         
         JPanel panelLeft = new JPanel();
 
@@ -142,7 +147,7 @@ public class StartSimulation extends JInternalFrame {
 
         //Apresentação de resultados
         JPanel panelResultados = new JPanel();
-        panelResultados.setLayout(new GridLayout(7, 6, 10, 10));
+        panelResultados.setLayout(new GridLayout(8, 6, 10, 10));
         
         lb_rt_parede1 = new JLabel((Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.rtwall.text")+" 1"));
         rt_parede1 = new JTextField(10);
@@ -207,7 +212,31 @@ public class StartSimulation extends JInternalFrame {
         fluxo = new JTextField(10);
         fluxo.setEnabled(false);
         lb_unid_rt8 = new JLabel("W");
+        
+        buttonSaveBinary = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("Project.guardar.text"));
+        buttonSaveBinary.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser chooser = new JFileChooser(new File("c:\\"));
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Binary Files", "bin");
+                chooser.addChoosableFileFilter(filter);
+                chooser.setAcceptAllFileFilterUsed(false); 
+                int result = chooser.showSaveDialog(null);
 
+                //int option = chooser.showSaveDialog(SaveToHTML.this);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File fi = chooser.getSelectedFile();
+                    //chama o controlador para ir boscar o objecto casa
+                    System.out.println(fi.getName());
+                    try{
+                        BinaryFile.writeFile(null, fi);
+                    }catch(Exception e2){
+                        JOptionPane.showMessageDialog(null, e2.getMessage());
+                    }
+                }
+            }
+        });
+        
         panelResultados.add(lb_rt_parede1); panelResultados.add(rt_parede1);    panelResultados.add(lb_unid_rt1);   panelResultados.add(lb_fluxo1); panelResultados.add(fluxo1);    panelResultados.add(lb_unid_fluxo1);
         panelResultados.add(lb_rt_parede2); panelResultados.add(rt_parede2);    panelResultados.add(lb_unid_rt2);   panelResultados.add(lb_fluxo2); panelResultados.add(fluxo2);    panelResultados.add(lb_unid_fluxo2);
         panelResultados.add(lb_rt_parede3); panelResultados.add(rt_parede3);    panelResultados.add(lb_unid_rt3);   panelResultados.add(lb_fluxo3); panelResultados.add(fluxo3);    panelResultados.add(lb_unid_fluxo3);
@@ -215,7 +244,9 @@ public class StartSimulation extends JInternalFrame {
         panelResultados.add(lb_rt_chao);    panelResultados.add(rt_chao);   panelResultados.add(lb_unid_rt5);   panelResultados.add(lb_fluxo5); panelResultados.add(fluxo5);    panelResultados.add(lb_unid_fluxo5);
         panelResultados.add(lb_rt_teto);    panelResultados.add(rt_teto);   panelResultados.add(lb_unid_rt6);   panelResultados.add(lb_fluxo6); panelResultados.add(fluxo6);    panelResultados.add(lb_unid_fluxo6);
         panelResultados.add(lb_rt_total);   panelResultados.add(rt_total);  panelResultados.add(lb_unid_rt7);   panelResultados.add(lb_fluxo);  panelResultados.add(fluxo); panelResultados.add(lb_unid_rt8);
-
+        
+        panelResultados.add(buttonSaveBinary);
+        
         panelLeftCenter.add(panelImagem);
         panelLeftSouth.add(panelResultados);
 

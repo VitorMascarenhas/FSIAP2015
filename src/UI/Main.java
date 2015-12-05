@@ -20,13 +20,9 @@ import java.io.IOException;
  */
 public class Main {
     
-   private static Project _gui = null;
+   public static Project _gui = null;
     
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-         //adicionar conteodu do ficheiro binario
-         //BinaryFile.readObject();
-        Casa casa = new Casa();
-        BinaryFile.writeFile(casa);
        _gui = new Project();
        
     }
