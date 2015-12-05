@@ -231,10 +231,11 @@ public class FromHTML {
 
             /*Importa informações da Parede*/
             if(frase.contains("<!--Parede-->")){
+                System.out.println("PAREDE");
                 for(int i=0; i< 10; i++){    
                     in.nextLine();
                 }
-                while (!frase.contains("</div>")) {
+                while (!frase.contains("<!--FimParede-->")) {
                     frase = in.nextLine();
 
                     //verifica se é camada janela ou porta
@@ -321,8 +322,8 @@ public class FromHTML {
                     }
                     frase = in.nextLine();
 
-                    if(frase.contains("<!--FimParede-->")){           /*entao ja terminou a aparede*/
-                        System.out.println("PAREDE");
+                    if(frase.contains("</table>")){           /*entao ja terminou a aparede*/
+                        System.out.println("FIM PAREDE");
                         
                         p1 = new Parede(Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), componentes);
                         cont++;
