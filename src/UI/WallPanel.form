@@ -151,6 +151,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="tipo1ComponentShown"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -176,14 +179,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="largura1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="tipoMaterial1">
               <Properties>
@@ -206,9 +203,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar1">
               <Properties>
@@ -430,14 +424,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="altura2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="largura2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="largura2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="tipoMaterial2">
                   <Properties>
@@ -460,9 +451,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="espessura2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField4"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAdicionar2">
                   <Properties>
@@ -688,14 +676,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="altura3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="largura3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="tipoMaterial3">
                   <Properties>
@@ -718,9 +700,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="espessura3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField4"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAdicionar3">
                   <Properties>
@@ -928,14 +907,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="largura4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="tipoMaterial4">
               <Properties>
@@ -958,9 +931,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar4">
               <Properties>
@@ -1144,9 +1114,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="largura5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="tipoMaterial5">
               <Properties>
@@ -1169,9 +1136,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar5">
               <Properties>
@@ -1350,14 +1314,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="largura6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="tipoMaterial6">
               <Properties>
@@ -1380,9 +1338,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar6">
               <Properties>
