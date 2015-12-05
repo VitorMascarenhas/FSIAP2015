@@ -32,7 +32,7 @@ public class WallPanel extends javax.swing.JPanel {
     private JComboBox material1;
     private String altura, largura, comprimento;
     
-    final DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
+    static DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes4 = new DefaultListModel<>();
@@ -48,7 +48,9 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes5.setModel(componentes5);
         listaComponentes6.setModel(componentes6);
         String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
-        tipoMaterial1 = new JComboBox(materiaisArray);
+        for (String string : materiaisArray) {
+            tipoMaterial1.addItem(string);
+        }
         disableTextField();
         
         tipo1.addItemListener(new ItemListener() {
