@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import Internacionalizacao.Idioma;
+import java.awt.Toolkit;
 
 /**
  *
@@ -57,7 +58,13 @@ public class Glossary extends JInternalFrame {
         setContentPane(content);
         pack();
         
-        setSize(1480, 930);
+        int inset = 50;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenMinus50 = new Dimension(screenSize.width - inset*2, screenSize.height - inset*2);
+        this.setPreferredSize(screenMinus50);
+        this.pack();
+        this.setSize(screenMinus50);
+        //setSize(1480, 930);
         setClosable(true);
         setResizable(true);
         setVisible(true);

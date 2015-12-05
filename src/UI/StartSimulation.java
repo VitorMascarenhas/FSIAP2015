@@ -284,10 +284,18 @@ public class StartSimulation extends JInternalFrame {
         
         //define o frame
         pack();
-        setSize(1480, 930);
-        setMinimumSize(new Dimension(800, 600));
-        Dimension paneSize = contentPane.getSize();
-        Dimension screenSize = contentPane.getToolkit().getScreenSize();
+        int inset = 50;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenMinus50 = new Dimension(screenSize.width - inset*2, screenSize.height - inset*2);
+        //setSize(screenSize.width - inset*2, screenSize.height - inset*2);
+        this.setPreferredSize(screenMinus50);
+        this.pack();
+        this.setSize(screenMinus50);
+        
+        //setSize(1480, 930);
+//        setMinimumSize(new Dimension(800, 600));
+//        Dimension paneSize = contentPane.getSize();
+//        Dimension screenSize = contentPane.getToolkit().getScreenSize();
         setVisible(true);
     }
 
