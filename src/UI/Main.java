@@ -24,8 +24,9 @@ public class Main {
     
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
          //adicionar conteodu do ficheiro binario
-        BinaryFile.readObject();
-        //BinaryFile.writeObject();
+         //BinaryFile.readObject();
+        Casa casa = new Casa();
+        BinaryFile.writeFile(casa);
        _gui = new Project();
        
     }
