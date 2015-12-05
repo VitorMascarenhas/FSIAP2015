@@ -85,7 +85,7 @@ public class TermodinamicaTest {
         parede.adicionarCamada(camada3);
         parede.adicionarJanela(janela);
         float expResult = 0.0175F;
-        float result = Termodinamica.calculaResistenciaTermicaTotal(parede.getComponentes());
+        float result = Termodinamica.CalculaResistenciaTermicaTotal(parede.getComponentes());
         assertEquals("A resistencia termica da parede é " + expResult + " W/K", expResult, result, 0.001);
     }
 
