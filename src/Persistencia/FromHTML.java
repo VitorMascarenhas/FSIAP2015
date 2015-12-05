@@ -71,7 +71,8 @@ public class FromHTML {
     /*
     *Metodo que lê a experiencia via html
     */
-    public static void leExperiencia(File f){
+    public static Casa leExperiencia(File f){
+        Casa c1= new Casa();
 //        File f ;
 //        f = new File( fileName+".html" );
         ExperienciaController ec = new ExperienciaController();
@@ -180,19 +181,19 @@ public class FromHTML {
             }
 //            Casa.adicionarDimensoes(Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
 //            Casa.adicionarTemperaturas(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaSolo));
-            //c1 = new Casa(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
-            leParede(f);
+            c1 = new Casa(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
+            leParede(f, c1);
             //return c1;
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("FromHTML.impossibletoopen.text"));
         }
-    
+        return c1;
     }
     
     /*
     * Metodo que prmite ler as paredes via html
     */
-    public static void leParede(File f) throws FileNotFoundException{
+    public static void leParede(File f, Casa c1) throws FileNotFoundException{
         CriarComponenteControlador ccc = new CriarComponenteControlador();
         CriarParedeControlador cpc = new CriarParedeControlador();
         String tipoComponente = "";
@@ -207,7 +208,7 @@ public class FromHTML {
         
        Scanner in = new Scanner( f );
        int cont = 0;
-       //Parede p1 = new Parede();
+       Parede p1 = new Parede();
        ArrayList<Componente> componentes = new ArrayList();
        
         while ( in.hasNextLine() ){
@@ -215,7 +216,7 @@ public class FromHTML {
 
             
             /*Importa informações da Parede*/
-            if(frase.contains("<div id = \"Parede\">")){
+            if(frase.contains("<!--Parede-->")){
                 for(int i=0; i< 10; i++){    
                     in.nextLine();
                 }
@@ -299,10 +300,12 @@ public class FromHTML {
                     }
                     frase= in.nextLine();
 
-                    if(frase.contains("/table")){           /*entao ja terminou a aparede*/
+                    if(frase.contains("<!--FimParede-->")){           /*entao ja terminou a aparede*/
                         System.out.println("PAREDE");
-                        cpc.criarParede(alturaComponente, larguraComponente, componentes, cont);
+                        
+                        p1 = new Parede(Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), componentes);
                         cont++;
+                        c1.adicionarParede(p1);
                         for(int i = 0; i< 2; i++){
                             in.nextLine();
                         }
