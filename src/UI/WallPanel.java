@@ -5,7 +5,9 @@
  */
 package UI;
 
+import Dominio.Casa;
 import Dominio.Componente;
+import Dominio.Parede;
 import Repositorios.Materiais;
 import controlador.CriarComponenteControlador;
 import javax.swing.ComboBoxModel;
@@ -1367,4 +1369,20 @@ public class WallPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> tipoMaterial5;
     private javax.swing.JComboBox<String> tipoMaterial6;
     // End of variables declaration//GEN-END:variables
+
+    public void preencheSimulacao(Casa c1){    
+        Parede p1 = c1.getAllParedes().get(0);
+        listaComponentes1 = new JList(p1.getComponentes().toArray());
+        Parede p2 = c1.getAllParedes().get(1);
+        listaComponentes2 = new JList(p2.getComponentes().toArray());
+        Parede p3 = c1.getAllParedes().get(2);
+        listaComponentes3 = new JList(p3.getComponentes().toArray());
+        Parede p4 = c1.getAllParedes().get(3);
+        listaComponentes4 = new JList(p4.getComponentes().toArray());
+        Parede p5 = c1.getAllParedes().get(4);
+        listaComponentes5 = new JList(p5.getComponentes().toArray());
+        Parede p6 = c1.getAllParedes().get(5);
+        listaComponentes6 = new JList(p6.getComponentes().toArray());
+    }
+
 }
