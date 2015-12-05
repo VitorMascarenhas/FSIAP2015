@@ -16,4 +16,8 @@ public interface Componente {
     public float calculaArea();
     
     public void atualizarArea(float area);
+    
+    public float getEspessura();
+    
+    public String getTipoMaterial();
 }
