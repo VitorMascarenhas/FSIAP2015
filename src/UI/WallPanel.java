@@ -5,9 +5,12 @@
  */
 package UI;
 
+import Dominio.Camada;
 import Dominio.Casa;
 import Dominio.Componente;
+import Dominio.Janela;
 import Dominio.Parede;
+import Dominio.Porta;
 import Repositorios.Materiais;
 import controlador.CriarComponenteControlador;
 import controlador.CriarParedeControlador;
@@ -20,6 +23,7 @@ import javax.swing.JTextField;
 import java.awt.Event.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Arrays;
 /**
  *
  * @author suq-madik
@@ -1505,10 +1509,34 @@ public class WallPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> tipoMaterial6;
     // End of variables declaration//GEN-END:variables
 
-    public void preencheSimulacao(Casa c1){    
+    public void preencheSimulacao(Casa c1){
         Parede p1 = c1.getAllParedes().get(0);
-        System.out.println(p1);
-        listaComponentes1 = new JList(p1.getComponentes().toArray());
+        //listaComponentes1 = new JList(p1.getComponentes().toArray());
+        int nComponentesParede1=0;
+        CriarComponenteControlador ccc = new CriarComponenteControlador();
+        String cmpnente="";
+        //componentes1.copyInto(p1.getComponentes().toArray());
+        for(Componente c: p1.getComponentes()){
+            if(c instanceof Camada){
+                cmpnente="CAMADA";
+                Camada camada = (Camada) c;
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }else if(c instanceof Porta){
+                cmpnente="PORTA";
+                Porta camada = (Porta) c;
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+                
+            }else if(c instanceof Janela){
+                 cmpnente="JANELA";
+                 Janela camada = (Janela) c;
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }
+            
+            nComponentesParede1++;
+        }
+        listaComponentes1.setVisible(true);
+        listaComponentes1.revalidate();
+        listaComponentes1.repaint();
         Parede p2 = c1.getAllParedes().get(1);
         listaComponentes2 = new JList(p2.getComponentes().toArray());
         Parede p3 = c1.getAllParedes().get(2);

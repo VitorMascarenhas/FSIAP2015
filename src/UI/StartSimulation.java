@@ -330,5 +330,6 @@ public class StartSimulation extends JInternalFrame {
         comprimentoCasa.setText(c1.getCompr()+"");
         larguraCasa.setText(c1.getLar()+"");
         alturaCasa.setText(c1.getAlt()+"");
+        panelWalls.preencheSimulacao(c1);
     }
 }
