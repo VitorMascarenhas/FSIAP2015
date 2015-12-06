@@ -96,7 +96,38 @@ public class StartSimulation extends JInternalFrame {
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
             
+            @Override
             public void actionPerformed(ActionEvent e) {
+                /*try {
+                    float numero = Float.parseFloat(temperaturaExterior.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero1 = Float.parseFloat(alturaCasa.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero2 = Float.parseFloat(larguraCasa.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero3 = Float.parseFloat(temperaturaInterior.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero4 = Float.parseFloat(temperaturaSolo.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero5 = Float.parseFloat(comprimentoCasa.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }*/
                 if(comprimentoCasa.getText().isEmpty()
                         || alturaCasa.getText().isEmpty()
                         || larguraCasa.getText().isEmpty()
