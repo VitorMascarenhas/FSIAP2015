@@ -36,15 +36,13 @@ public class FromHTML {
             Scanner in = new Scanner(f);
 
             if (f.getCanonicalPath().endsWith(".txt")) {
-                System.out.println("TEXTO!!!!");
                 while (in.hasNextLine()) {
                     String[] materialData = in.nextLine().split(";");
-                    String nomeMaterial = materialData[0];
+                    String nomeMaterial = materialData[0].trim().replace("-", " ");
                     String condutividade = materialData[1];
                     Materiais.getInstance().inserirMaterial(nomeMaterial, Float.parseFloat(condutividade));
-                    in.nextLine();
                 }
-                
+
             } else {
                 for (int i = 0; i < 3; i++) {
                     in.nextLine();
@@ -85,9 +83,9 @@ public class FromHTML {
 
     /*
     *Metodo que lê a experiencia via html
-    */
-    public static Casa leExperiencia(File f){
-        Casa c1= new Casa();
+     */
+    public static Casa leExperiencia(File f) {
+        Casa c1 = new Casa();
 //        File f ;
 //        f = new File( fileName+".html" );
         ExperienciaController ec = new ExperienciaController();
@@ -207,8 +205,8 @@ public class FromHTML {
 
     /*
     * Metodo que prmite ler as paredes via html
-    */
-    public static void leParede(File f, Casa c1) throws FileNotFoundException{
+     */
+    public static void leParede(File f, Casa c1) throws FileNotFoundException {
         CriarComponenteControlador ccc = new CriarComponenteControlador();
         CriarParedeControlador cpc = new CriarParedeControlador();
         String tipoComponente = "";
@@ -220,19 +218,19 @@ public class FromHTML {
         String alturaComponente;
         String larguraComponente;
         FabricaComponentes fab = new FabricaComponentes();
-        
-       Scanner in = new Scanner( f );
-       int cont = 0;
-       Parede p1 = new Parede();
-       ArrayList<Componente> componentes = new ArrayList();
-       
-        while ( in.hasNextLine() ){
+
+        Scanner in = new Scanner(f);
+        int cont = 0;
+        Parede p1 = new Parede();
+        ArrayList<Componente> componentes = new ArrayList();
+
+        while (in.hasNextLine()) {
             String frase = in.nextLine();
 
             /*Importa informações da Parede*/
-            if(frase.contains("<!--Parede-->")){
+            if (frase.contains("<!--Parede-->")) {
                 System.out.println("PAREDE");
-                for(int i=0; i< 10; i++){    
+                for (int i = 0; i < 10; i++) {
                     in.nextLine();
                 }
                 while (!frase.contains("<!--FimParede-->")) {
@@ -322,13 +320,14 @@ public class FromHTML {
                     }
                     frase = in.nextLine();
 
-                    if(frase.contains("</table>")){           /*entao ja terminou a aparede*/
+                    if (frase.contains("</table>")) {
+                        /*entao ja terminou a aparede*/
                         System.out.println("FIM PAREDE");
-                        
+
                         p1 = new Parede(Float.parseFloat(alturaComponente), Float.parseFloat(larguraComponente), componentes);
                         cont++;
                         c1.adicionarParede(p1);
-                        for(int i = 0; i< 2; i++){
+                        for (int i = 0; i < 2; i++) {
                             in.nextLine();
                         }
                         frase = in.nextLine();
