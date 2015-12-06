@@ -45,7 +45,7 @@ public class Materiais implements Serializable{
     
     
     public float obterCondutividade(String nomeMaterial) {
-        return materiais.get(nomeMaterial.toUpperCase()).obterCondutividade();
+        return materiais.get(nomeMaterial.toUpperCase().trim()).obterCondutividade();
     }
     
     public ArrayList<String> getNomesMateriais() {
@@ -66,9 +66,12 @@ public class Materiais implements Serializable{
         String matList[] =  new String[materiais.size()];
         int cont = 0;
         for (Material m : materiais.values()) {
-            String[] s = m.toString().split(" ");
+            String[] s = m.toString().split("-");
             matList[cont]=s[0];
             cont++;
+        }
+        for (String string : matList) {
+            string.trim();
         }
         return matList;
     }
