@@ -40,8 +40,10 @@
         <Container class="javax.swing.JPanel" name="painelParede1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Parede 1">
-                <Property name="tabTitle" type="java.lang.String" value="Parede 1"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.wall.text&quot;)+&quot; 1&quot;" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -54,7 +56,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnValidar1" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
                               <Component id="btnRemover1" min="-2" pref="196" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnAdicionar1" alignment="0" max="32767" attributes="0"/>
@@ -134,7 +136,7 @@
                       <Component id="btnRemover1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnValidar1" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace pref="106" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -143,11 +145,7 @@
             <Component class="javax.swing.JComboBox" name="tipo1">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Camada"/>
-                    <StringItem index="1" value="Janela"/>
-                    <StringItem index="2" value="Porta"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -159,22 +157,30 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.type.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Altura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.height.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Largura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.width.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.material.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura1">
@@ -193,14 +199,18 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Espessura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.thickness.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura1">
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.addcomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionar1ActionPerformed"/>
@@ -208,7 +218,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de componentes:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.complist.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -221,13 +233,7 @@
                 <Component class="javax.swing.JList" name="listaComponentes1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -238,7 +244,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnRemover1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remover Componente"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemover1ActionPerformed"/>
@@ -246,7 +254,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnValidar1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Validar Parede"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.validatewall.text&quot;)+&quot; 1&quot;" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValidar1ActionPerformed"/>
@@ -272,8 +282,10 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Parede 2">
-                <Property name="tabTitle" type="java.lang.String" value="Parede 2"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.wall.text&quot;)+&quot; 2&quot;" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -288,13 +300,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="painelParede2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="painelParede2">
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -401,22 +416,30 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tipo:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.type.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Altura:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.height.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Largura:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.width.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Material:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.material.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="altura2">
@@ -438,19 +461,25 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Espessura:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.thickness.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="espessura2">
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAdicionar2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Adicionar"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.addcomp.text&quot;)" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lista de componentes:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.complist.text&quot;)" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -463,13 +492,7 @@
                     <Component class="javax.swing.JList" name="listaComponentes2">
                       <Properties>
                         <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                          <StringArray count="5">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                            <StringItem index="4" value="Item 5"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -480,7 +503,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnRemover2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Remover Componente"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemover2ActionPerformed"/>
@@ -488,7 +513,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnValidar2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Validar Parede"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.validatewall.text&quot;)+&quot; 2&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel25">
@@ -513,8 +540,10 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Parede 3">
-                <Property name="tabTitle" type="java.lang.String" value="Parede 3"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.wall.text&quot;)+&quot; 3&quot;" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -529,7 +558,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="painelParede3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -577,7 +606,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -647,22 +676,30 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tipo:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.type.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Altura:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.height.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Largura:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.width.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Material:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.material.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="altura3">
@@ -681,19 +718,25 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Espessura:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.thickness.text&quot;)+&quot;:&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="espessura3">
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAdicionar3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Adicionar"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.addcomp.text&quot;)" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lista de componentes:"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.complist.text&quot;)" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -706,13 +749,7 @@
                     <Component class="javax.swing.JList" name="listaComponentes3">
                       <Properties>
                         <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                          <StringArray count="5">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
-                            <StringItem index="4" value="Item 5"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -723,7 +760,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnRemover3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Remover Componente"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemover3ActionPerformed"/>
@@ -731,7 +770,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnValidar3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Validar Parede"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.validatewall.text&quot;)+&quot; 3&quot;" type="code"/>
+                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel47">
@@ -756,8 +797,10 @@
         <Container class="javax.swing.JPanel" name="painelParede4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Parede 4">
-                <Property name="tabTitle" type="java.lang.String" value="Parede 4"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.wall.text&quot;)+&quot; 4&quot;" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -770,7 +813,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnValidar4" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
                               <Component id="btnRemover4" min="-2" pref="196" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnAdicionar4" alignment="0" max="32767" attributes="0"/>
@@ -850,7 +893,7 @@
                       <Component id="btnRemover4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnValidar4" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace pref="106" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -872,22 +915,30 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tipo:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.type.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Altura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.height.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Largura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.width.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.material.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura4">
@@ -906,19 +957,25 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Espessura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.thickness.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura4">
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.addcomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de componentes:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.complist.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane4">
@@ -931,13 +988,7 @@
                 <Component class="javax.swing.JList" name="listaComponentes4">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -948,7 +999,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnRemover4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remover Componente"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemover4ActionPerformed"/>
@@ -956,7 +1009,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnValidar4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Validar Parede"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.validatewall.text&quot;)+&quot; 4&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel44">
@@ -979,8 +1034,10 @@
         <Container class="javax.swing.JPanel" name="painelParede5">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Ch&#xe3;o">
-                <Property name="tabTitle" type="java.lang.String" value="Ch&#xe3;o"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.floor.text&quot;)" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -993,7 +1050,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnValidar5" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
                               <Component id="btnRemover5" min="-2" pref="196" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnAdicionar5" alignment="0" max="32767" attributes="0"/>
@@ -1066,7 +1123,7 @@
                       <Component id="btnRemover5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnValidar5" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1074,23 +1131,26 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Altura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.height.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel27">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Largura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.width.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel28">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.material.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="largura5">
             </Component>
@@ -1106,19 +1166,25 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Espessura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.thickness.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura5">
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.addcomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel30">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de componentes:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.complist.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane5">
@@ -1131,13 +1197,7 @@
                 <Component class="javax.swing.JList" name="listaComponentes5">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -1148,7 +1208,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnRemover5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remover Componente"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemover5ActionPerformed"/>
@@ -1156,7 +1218,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnValidar5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Validar Parede"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.validatefloor.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel41">
@@ -1179,8 +1243,10 @@
         <Container class="javax.swing.JPanel" name="painelParede6">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Teto">
-                <Property name="tabTitle" type="java.lang.String" value="Teto"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.ceiling.text&quot;)" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1193,7 +1259,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnValidar6" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
                               <Component id="btnRemover6" min="-2" pref="196" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnAdicionar6" alignment="0" max="32767" attributes="0"/>
@@ -1266,7 +1332,7 @@
                       <Component id="btnRemover6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnValidar6" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace pref="112" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1274,17 +1340,23 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Altura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.height.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel33">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Largura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.width.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.material.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="altura6">
@@ -1303,19 +1375,25 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Espessura:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.thickness.text&quot;)+&quot;:&quot;" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="espessura6">
             </Component>
             <Component class="javax.swing.JButton" name="btnAdicionar6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.addcomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de componentes:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.complist.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane6">
@@ -1328,13 +1406,7 @@
                 <Component class="javax.swing.JList" name="listaComponentes6">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -1345,7 +1417,12 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnRemover6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remover Componente"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                </Property>
+                <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.removecomp.text&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemover6ActionPerformed"/>
@@ -1353,7 +1430,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnValidar6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Validar Parede"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Internacionalizacao.Idioma.BUNDLE.getString(&quot;StartSimulation.validateceiling.text&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel50">
