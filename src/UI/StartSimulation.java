@@ -40,7 +40,7 @@ public class StartSimulation extends JInternalFrame {
             lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14;
     private JButton buttondefinir, buttonSaveBinary ;
     private  final WallPanel panelWalls;
-    
+    public ExperienciaController ec = new ExperienciaController();
 
     public StartSimulation() {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
@@ -96,7 +96,7 @@ public class StartSimulation extends JInternalFrame {
         lb_buttondef14 = new JLabel("");
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
-            ExperienciaController ec = new ExperienciaController();
+        
             
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -322,6 +322,11 @@ public class StartSimulation extends JInternalFrame {
         comprimentoCasa.setText(c1.getCompr()+"");
         larguraCasa.setText(c1.getLar()+"");
         alturaCasa.setText(c1.getAlt()+"");
+        comprimentoCasa.setEnabled(false);
+        larguraCasa.setEnabled(false);
+        alturaCasa.setEnabled(false);
+        ec.criarExperiencia(temperaturaExterior.getText(), temperaturaInterior.getText(), temperaturaSolo.getText(), alturaCasa.getText(), larguraCasa.getText(), comprimentoCasa.getText());
+        panelWalls.getDim(comprimentoCasa.getText(), larguraCasa.getText(), alturaCasa.getText());
         panelWalls.preencheSimulacao(c1);
         Casa.eliminarParedes();
     }
