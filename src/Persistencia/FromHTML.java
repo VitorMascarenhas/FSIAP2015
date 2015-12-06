@@ -10,6 +10,8 @@ import Dominio.*;
 import controlador.*;
 import Factorys.FabricaComponentes;
 import Repositorios.Materiais;
+import static UI.Main._gui;
+import UI.StartSimulation;
 import controlador.CriarComponenteControlador;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
 /**
@@ -84,7 +87,7 @@ public class FromHTML {
     /*
     *Metodo que lê a experiencia via html
      */
-    public static Casa leExperiencia(File f) {
+    public static void leExperiencia(File f) {
         Casa c1 = new Casa();
 //        File f ;
 //        f = new File( fileName+".html" );
@@ -196,11 +199,16 @@ public class FromHTML {
 //            Casa.adicionarTemperaturas(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaSolo));
             c1 = new Casa(Float.parseFloat(temperaturaInterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(temperaturaExterior), Float.parseFloat(altura), Float.parseFloat(largura), Float.parseFloat(comprimento));
             leParede(f, c1);
+               StartSimulation start = new StartSimulation();
+               start.preencheSimulacao(c1);
+               JDesktopPane desktop = _gui.getJDesktopPane();
+               desktop.add(start);
+               desktop.moveToFront(start);
             //return c1;
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("FromHTML.impossibletoopen.text"));
         }
-        return c1;
+        //return c1;
     }
 
     /*
@@ -222,18 +230,20 @@ public class FromHTML {
         Scanner in = new Scanner(f);
         int cont = 0;
         Parede p1 = new Parede();
-        ArrayList<Componente> componentes = new ArrayList();
+        
 
         while (in.hasNextLine()) {
             String frase = in.nextLine();
 
             /*Importa informações da Parede*/
             if (frase.contains("<!--Parede-->")) {
+                ArrayList<Componente> componentes = new ArrayList();
                 System.out.println("PAREDE");
                 for (int i = 0; i < 10; i++) {
                     in.nextLine();
                 }
                 while (!frase.contains("<!--FimParede-->")) {
+                    
                     frase = in.nextLine();
 
                     //verifica se é camada janela ou porta
