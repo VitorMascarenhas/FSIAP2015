@@ -1854,7 +1854,8 @@ public class WallPanel extends javax.swing.JPanel {
         int nComponentesParede1=0;
         CriarComponenteControlador ccc = new CriarComponenteControlador();
         String cmpnente="";
-        //componentes1.copyInto(p1.getComponentes().toArray());
+        altura1.setText(String.valueOf(c1.getAlt()));
+        largura1.setText(String.valueOf(c1.getLar()));
         for(Componente c: p1.getComponentes()){
             if(c instanceof Camada){
                 cmpnente="CAMADA";
@@ -1864,7 +1865,7 @@ public class WallPanel extends javax.swing.JPanel {
                 cmpnente="PORTA";
                 Porta camada = (Porta) c;
                 componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
-                
+              
             }else if(c instanceof Janela){
                  cmpnente="JANELA";
                  Janela camada = (Janela) c;
