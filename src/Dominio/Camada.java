@@ -63,8 +63,9 @@ public class Camada implements Componente, Serializable {
         return tipoMaterial;
     }
     
+    @Override
     public String toString(){
-        return "Camada - " + tipoMaterial + " - " + Materiais.getInstance().obterCondutividade(tipoMaterial) + " Altura - "+altura+" Largura - "+largura+" Espessura - "+espessura ;
+        return Internacionalizacao.Idioma.BUNDLE.getString("Camada.layer.text") + " - " + tipoMaterial + ": " + Materiais.getInstance().obterCondutividade(tipoMaterial) + " "+ Internacionalizacao.Idioma.BUNDLE.getString("Camada.height.text") +" "+altura+" "+ Internacionalizacao.Idioma.BUNDLE.getString("Camada.width.text") +" "+largura+" "+ Internacionalizacao.Idioma.BUNDLE.getString("Camada.thickness.text") +" "+espessura ;
     }
     
     public float getArea() {

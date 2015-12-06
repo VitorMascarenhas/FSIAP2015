@@ -38,15 +38,10 @@ public class StartSimulation extends JInternalFrame {
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
             lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14;
-    private JComboBox material1, material2, material3, material4, material5, material6,
-            tipo1, tipo2, tipo3, tipo4, tipo5, tipo6;
-    private JButton buttonadd1, buttonadd2, buttonadd3, buttonadd4, buttonadd5, buttonadd6,
-            buttondefinir,
-            button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
-            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6,buttonSaveBinary ;
-    private JList<Componente> listaComponentes1, listaComponentes2, listaComponentes3, listaComponentes4, listaComponentes5, listaComponentes6;
+    private JButton buttondefinir, buttonSaveBinary ;
     private  final WallPanel panelWalls;
-    private ExperienciaController ec;
+    public ExperienciaController ec = new ExperienciaController();
+  
 
 
     public StartSimulation() {
@@ -56,11 +51,14 @@ public class StartSimulation extends JInternalFrame {
                 true, //maximizable
                 true);//iconifiable
 
+        
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout()); //unnecessary
         
          panelWalls = new WallPanel();
-        ec = new ExperienciaController();
+
+         panelWalls.cleanLists();
+
         JPanel panelLeft = new JPanel();
 
         JPanel panelLeftNorth = new JPanel();
@@ -102,7 +100,7 @@ public class StartSimulation extends JInternalFrame {
         lb_buttondef14 = new JLabel("");
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
-             
+
             
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -142,7 +140,7 @@ public class StartSimulation extends JInternalFrame {
                         || temperaturaExterior.getText().isEmpty()
                         || temperaturaInterior.getText().isEmpty()
                         || temperaturaSolo.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Existem campos por preencher.\nPreencha os campos e volte a tentar.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validate.text"));
                 } else {
                     ec.criarExperiencia(temperaturaExterior.getText(), temperaturaInterior.getText(), temperaturaSolo.getText(), alturaCasa.getText(), larguraCasa.getText(), comprimentoCasa.getText());
                     panelWalls.getDim(comprimentoCasa.getText(), larguraCasa.getText(), alturaCasa.getText());
@@ -301,9 +299,7 @@ public class StartSimulation extends JInternalFrame {
                 }
             }
         });
-        
-        
-        
+                        
         //define o frame
         pack();
         int inset = 50;
@@ -331,6 +327,12 @@ public class StartSimulation extends JInternalFrame {
         comprimentoCasa.setText(c1.getCompr()+"");
         larguraCasa.setText(c1.getLar()+"");
         alturaCasa.setText(c1.getAlt()+"");
+        comprimentoCasa.setEnabled(false);
+        larguraCasa.setEnabled(false);
+        alturaCasa.setEnabled(false);
+        ec.criarExperiencia(temperaturaExterior.getText(), temperaturaInterior.getText(), temperaturaSolo.getText(), alturaCasa.getText(), larguraCasa.getText(), comprimentoCasa.getText());
+        panelWalls.getDim(comprimentoCasa.getText(), larguraCasa.getText(), alturaCasa.getText());
         panelWalls.preencheSimulacao(c1);
+        Casa.eliminarParedes();
     }
 }
