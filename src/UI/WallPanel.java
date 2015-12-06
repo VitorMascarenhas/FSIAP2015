@@ -51,6 +51,10 @@ public class WallPanel extends javax.swing.JPanel {
         for (String string : materiaisArray) {
             tipoMaterial1.addItem(string);
         }
+        String[] tipoArray = {Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.window.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.door.text")};
+        for (String string : tipoArray) {
+            tipo1.addItem(string);
+        }
         disableTextField();
         
         tipo1.addItemListener(new ItemListener() {
@@ -246,47 +250,41 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
 
-        tipo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
         tipo1.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 tipo1ComponentShown(evt);
             }
         });
 
-        jLabel1.setText("Tipo:");
+        jLabel1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel2.setText("Altura:");
+        jLabel2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel3.setText("Largura:");
+        jLabel3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel4.setText("Material:");
+        jLabel4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        jLabel5.setText("Espessura:");
+        jLabel5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        btnAdicionar1.setText("Adicionar");
+        btnAdicionar1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
         btnAdicionar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionar1ActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Lista de componentes:");
+        jLabel6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        listaComponentes1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listaComponentes1);
 
-        btnRemover1.setText("Remover Componente");
+        btnRemover1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover1ActionPerformed(evt);
             }
         });
 
-        btnValidar1.setText("Validar Parede");
+        btnValidar1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 1");
         btnValidar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValidar1ActionPerformed(evt);
@@ -308,7 +306,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede1Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
@@ -373,20 +371,20 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 1", painelParede1);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 1", painelParede1);
 
         tipo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
-        jLabel7.setText("Tipo:");
+        jLabel7.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel8.setText("Altura:");
+        jLabel8.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel9.setText("Largura:");
+        jLabel9.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel10.setText("Material:");
+        jLabel10.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
         largura2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,27 +392,22 @@ public class WallPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel11.setText("Espessura:");
+        jLabel11.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        btnAdicionar2.setText("Adicionar");
+        btnAdicionar2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        jLabel12.setText("Lista de componentes:");
+        jLabel12.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        listaComponentes2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(listaComponentes2);
 
-        btnRemover2.setText("Remover Componente");
+        btnRemover2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover2ActionPerformed(evt);
             }
         });
 
-        btnValidar2.setText("Validar Parede");
+        btnValidar2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 2");
 
         jLabel25.setText("m");
 
@@ -506,42 +499,39 @@ public class WallPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(painelParede2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 2", jPanel2);
+        painelParede2.getAccessibleContext().setAccessibleName("");
+
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 2", jPanel2);
 
         tipo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
-        jLabel13.setText("Tipo:");
+        jLabel13.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel14.setText("Altura:");
+        jLabel14.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel15.setText("Largura:");
+        jLabel15.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel16.setText("Material:");
+        jLabel16.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        jLabel17.setText("Espessura:");
+        jLabel17.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        btnAdicionar3.setText("Adicionar");
+        btnAdicionar3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        jLabel18.setText("Lista de componentes:");
+        jLabel18.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        listaComponentes3.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane3.setViewportView(listaComponentes3);
 
-        btnRemover3.setText("Remover Componente");
+        btnRemover3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover3ActionPerformed(evt);
             }
         });
 
-        btnValidar3.setText("Validar Parede");
+        btnValidar3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 3");
 
         jLabel47.setText("m");
 
@@ -584,7 +574,7 @@ public class WallPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel47)
                                     .addComponent(jLabel48)
                                     .addComponent(jLabel49))))
-                        .addGap(0, 133, Short.MAX_VALUE)))
+                        .addGap(0, 163, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         painelParede3Layout.setVerticalGroup(
@@ -636,42 +626,37 @@ public class WallPanel extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(painelParede3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 3", jPanel3);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 3", jPanel3);
 
         tipo4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
-        jLabel19.setText("Tipo:");
+        jLabel19.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel20.setText("Altura:");
+        jLabel20.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel21.setText("Largura:");
+        jLabel21.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel22.setText("Material:");
+        jLabel22.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        jLabel23.setText("Espessura:");
+        jLabel23.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        btnAdicionar4.setText("Adicionar");
+        btnAdicionar4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        jLabel24.setText("Lista de componentes:");
+        jLabel24.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        listaComponentes4.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane4.setViewportView(listaComponentes4);
 
-        btnRemover4.setText("Remover Componente");
+        btnRemover4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover4ActionPerformed(evt);
             }
         });
 
-        btnValidar4.setText("Validar Parede");
+        btnValidar4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 4");
 
         jLabel44.setText("m");
 
@@ -688,7 +673,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede4Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4)
@@ -753,40 +738,33 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 4", painelParede4);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 4", painelParede4);
 
-        jLabel26.setText("Altura:");
+        jLabel26.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel27.setText("Largura:");
+        jLabel27.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel28.setText("Material:");
+        jLabel28.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        altura5.setText("jTextField1");
+        jLabel29.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        jLabel29.setText("Espessura:");
+        btnAdicionar5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        btnAdicionar5.setText("Adicionar");
+        jLabel30.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        jLabel30.setText("Lista de componentes:");
-
-        listaComponentes5.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane5.setViewportView(listaComponentes5);
 
-        btnRemover5.setText("Remover Componente");
+        btnRemover5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover5ActionPerformed(evt);
             }
         });
 
-        btnValidar5.setText("Validar Parede");
+        btnValidar5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatefloor.text"));
 
         jLabel41.setText("m");
 
@@ -803,7 +781,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede5Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
@@ -862,38 +840,34 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Chão", painelParede5);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor.text"), painelParede5);
 
-        jLabel32.setText("Altura:");
+        jLabel32.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel33.setText("Largura:");
+        jLabel33.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel34.setText("Material:");
+        jLabel34.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        jLabel35.setText("Espessura:");
+        jLabel35.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        btnAdicionar6.setText("Adicionar");
+        btnAdicionar6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        jLabel36.setText("Lista de componentes:");
+        jLabel36.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        listaComponentes6.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane6.setViewportView(listaComponentes6);
 
-        btnRemover6.setText("Remover Componente");
+        btnRemover6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
+        btnRemover6.setActionCommand(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover6ActionPerformed(evt);
             }
         });
 
-        btnValidar6.setText("Validar Parede");
+        btnValidar6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateceiling.text"));
 
         jLabel50.setText("m");
 
@@ -910,7 +884,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede6Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover6, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane6)
@@ -969,10 +943,10 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Teto", painelParede6);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"), painelParede6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
