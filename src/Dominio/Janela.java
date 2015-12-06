@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 import java.io.Serializable;
 /**
  *
@@ -50,8 +51,9 @@ public class Janela implements Componente, Serializable{
         return espessura;
     }
     
+    @Override
     public String toString(){
-        return "Janela - "+nomeMaterial;
+        return Internacionalizacao.Idioma.BUNDLE.getString("Janela.window.text") + " - " + nomeMaterial + ": " + Materiais.getInstance().obterCondutividade(nomeMaterial) + " "+ Internacionalizacao.Idioma.BUNDLE.getString("Janela.height.text") +" "+altura+" "+ Internacionalizacao.Idioma.BUNDLE.getString("Janela.width.text") +" "+largura+" "+ Internacionalizacao.Idioma.BUNDLE.getString("Janela.thickness.text") +" "+espessura ;
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 import java.io.Serializable;
 /**
  *
@@ -56,7 +57,7 @@ public class Porta implements Componente, Serializable {
     
     @Override
     public String toString(){
-        return "Porta - "+ tipoMaterial;
+        return Internacionalizacao.Idioma.BUNDLE.getString("Porta.door.text") + " - " + tipoMaterial + ": " + Materiais.getInstance().obterCondutividade(tipoMaterial) + " "+ Internacionalizacao.Idioma.BUNDLE.getString("Porta.height.text") +" "+altura+" "+ Internacionalizacao.Idioma.BUNDLE.getString("Porta.width.text") +" "+largura+" "+ Internacionalizacao.Idioma.BUNDLE.getString("Porta.thickness.text") +" "+espessura ;
     }
 
     /**

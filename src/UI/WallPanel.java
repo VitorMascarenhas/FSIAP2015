@@ -1878,7 +1878,10 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes1.revalidate();
         listaComponentes1.repaint();
 
-        
+
+
+        altura2.setText(String.valueOf(c1.getAlt()));
+        largura2.setText(String.valueOf(c1.getCompr()));        
         Parede p2 = c1.getAllParedes().get(1);
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede2=0;
@@ -1907,7 +1910,8 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes2.repaint();
         
         
-
+        altura3.setText(String.valueOf(c1.getAlt()));
+        largura3.setText(String.valueOf(c1.getLar()));
         Parede p3 = c1.getAllParedes().get(2);
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede3=0;
@@ -1935,7 +1939,8 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes3.revalidate();
         listaComponentes3.repaint();
         
-        
+        altura4.setText(String.valueOf(c1.getAlt()));
+        largura4.setText(String.valueOf(c1.getCompr()));
         Parede p4 = c1.getAllParedes().get(3);
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede4=0;
@@ -1963,7 +1968,8 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes4.revalidate();
         listaComponentes4.repaint();
         
-        
+        altura5.setText(String.valueOf(c1.getCompr()));
+        largura5.setText(String.valueOf(c1.getLar()));
         Parede p5 = c1.getAllParedes().get(4);
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede5=0;
@@ -1991,6 +1997,9 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes5.revalidate();
         listaComponentes5.repaint();
         
+        
+        altura6.setText(String.valueOf(c1.getCompr()));
+        largura6.setText(String.valueOf(c1.getLar()));
         Parede p6 = c1.getAllParedes().get(5);
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede6=0;
