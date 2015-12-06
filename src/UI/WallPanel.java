@@ -1876,16 +1876,146 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes1.setVisible(true);
         listaComponentes1.revalidate();
         listaComponentes1.repaint();
+
+        
         Parede p2 = c1.getAllParedes().get(1);
-        listaComponentes2 = new JList(p2.getComponentes().toArray());
+        //listaComponentes1 = new JList(p1.getComponentes().toArray());
+        int nComponentesParede2=0;
+        cmpnente="";
+        //componentes1.copyInto(p1.getComponentes().toArray());
+        for(Componente c: p2.getComponentes()){
+            if(c instanceof Camada){
+                cmpnente="CAMADA";
+                Camada camada = (Camada) c;
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }else if(c instanceof Porta){
+                cmpnente="PORTA";
+                Porta camada = (Porta) c;
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+                
+            }else if(c instanceof Janela){
+                 cmpnente="JANELA";
+                 Janela camada = (Janela) c;
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }
+            
+            nComponentesParede2++;
+        }
+        listaComponentes2.setVisible(true);
+        listaComponentes2.revalidate();
+        listaComponentes2.repaint();
+        
+        
+
         Parede p3 = c1.getAllParedes().get(2);
-        listaComponentes3 = new JList(p3.getComponentes().toArray());
+        //listaComponentes1 = new JList(p1.getComponentes().toArray());
+        int nComponentesParede3=0;
+        cmpnente="";
+        //componentes1.copyInto(p1.getComponentes().toArray());
+        for(Componente c: p3.getComponentes()){
+            if(c instanceof Camada){
+                cmpnente="CAMADA";
+                Camada camada = (Camada) c;
+                componentes3.add(nComponentesParede3, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }else if(c instanceof Porta){
+                cmpnente="PORTA";
+                Porta camada = (Porta) c;
+                componentes3.add(nComponentesParede3, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+                
+            }else if(c instanceof Janela){
+                 cmpnente="JANELA";
+                 Janela camada = (Janela) c;
+                componentes3.add(nComponentesParede3, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }
+            
+            nComponentesParede3++;
+        }
+        listaComponentes3.setVisible(true);
+        listaComponentes3.revalidate();
+        listaComponentes3.repaint();
+        
+        
         Parede p4 = c1.getAllParedes().get(3);
-        listaComponentes4 = new JList(p4.getComponentes().toArray());
+        //listaComponentes1 = new JList(p1.getComponentes().toArray());
+        int nComponentesParede4=0;
+        cmpnente="";
+        //componentes1.copyInto(p1.getComponentes().toArray());
+        for(Componente c: p4.getComponentes()){
+            if(c instanceof Camada){
+                cmpnente="CAMADA";
+                Camada camada = (Camada) c;
+                componentes4.add(nComponentesParede4, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }else if(c instanceof Porta){
+                cmpnente="PORTA";
+                Porta camada = (Porta) c;
+                componentes4.add(nComponentesParede4, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+                
+            }else if(c instanceof Janela){
+                 cmpnente="JANELA";
+                 Janela camada = (Janela) c;
+                componentes4.add(nComponentesParede4, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }
+            
+            nComponentesParede4++;
+        }
+        listaComponentes4.setVisible(true);
+        listaComponentes4.revalidate();
+        listaComponentes4.repaint();
+        
+        
         Parede p5 = c1.getAllParedes().get(4);
-        listaComponentes5 = new JList(p5.getComponentes().toArray());
+        //listaComponentes1 = new JList(p1.getComponentes().toArray());
+        int nComponentesParede5=0;
+        cmpnente="";
+        //componentes1.copyInto(p1.getComponentes().toArray());
+        for(Componente c: p5.getComponentes()){
+            if(c instanceof Camada){
+                cmpnente="CAMADA";
+                Camada camada = (Camada) c;
+                componentes5.add(nComponentesParede5, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }else if(c instanceof Porta){
+                cmpnente="PORTA";
+                Porta camada = (Porta) c;
+                componentes5.add(nComponentesParede5, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+                
+            }else if(c instanceof Janela){
+                 cmpnente="JANELA";
+                 Janela camada = (Janela) c;
+                componentes5.add(nComponentesParede5, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }
+            
+            nComponentesParede5++;
+        }
+        listaComponentes5.setVisible(true);
+        listaComponentes5.revalidate();
+        listaComponentes5.repaint();
+        
         Parede p6 = c1.getAllParedes().get(5);
-        listaComponentes6 = new JList(p6.getComponentes().toArray());
+        //listaComponentes1 = new JList(p1.getComponentes().toArray());
+        int nComponentesParede6=0;
+        cmpnente="";
+        //componentes1.copyInto(p1.getComponentes().toArray());
+        for(Componente c: p6.getComponentes()){
+            if(c instanceof Camada){
+                cmpnente="CAMADA";
+                Camada camada = (Camada) c;
+                componentes6.add(nComponentesParede6, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }else if(c instanceof Porta){
+                cmpnente="PORTA";
+                Porta camada = (Porta) c;
+                componentes6.add(nComponentesParede6, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+                
+            }else if(c instanceof Janela){
+                 cmpnente="JANELA";
+                 Janela camada = (Janela) c;
+                componentes6.add(nComponentesParede6, ccc.criarComponente(cmpnente, String.valueOf(camada.getAltura()), String.valueOf(camada.getLargura()), String.valueOf(camada.getEspessura()), camada.getTipoMaterial()));
+            }
+            
+            nComponentesParede6++;
+        }
+        listaComponentes6.setVisible(true);
+        listaComponentes6.revalidate();
+        listaComponentes6.repaint();
     }
 
 }
