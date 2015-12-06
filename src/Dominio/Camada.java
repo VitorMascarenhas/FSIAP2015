@@ -5,6 +5,7 @@
  */
 package Dominio;
 
+import Repositorios.Materiais;
 import java.io.Serializable;
 /**
  *
@@ -63,7 +64,7 @@ public class Camada implements Componente, Serializable {
     }
     
     public String toString(){
-        return "Camada - " + tipoMaterial +" Altura - "+altura+" Lrrgura - "+largura+" Espessura - "+espessura ;
+        return "Camada - " + tipoMaterial + " - " + Materiais.getInstance().obterCondutividade(tipoMaterial) + " Altura - "+altura+" Largura - "+largura+" Espessura - "+espessura ;
     }
     
     public float getArea() {
