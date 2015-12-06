@@ -83,7 +83,7 @@ public class Parede implements Serializable {
         }
         return resistenciaTotal;*/
         
-        return Termodinamica.calculaResistenciaTermicaTotal(componentes);
+        return Termodinamica.CalculaResistenciaTermicaTotal(componentes);
     }
     
     private float calculaSomaAreasPortasJanelas() {

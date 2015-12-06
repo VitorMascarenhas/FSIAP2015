@@ -5,6 +5,7 @@
  */
 package UI;
 
+import Controlador.ExperienciaController;
 import Dominio.*;
 import Persistencia.BinaryFile;
 import Persistencia.ToHTML;
@@ -13,7 +14,6 @@ import controlador.CriarParedeControlador;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
 import Repositorios.Materiais;
 import java.awt.event.ItemEvent;
@@ -30,23 +30,9 @@ import javax.swing.plaf.basic.BasicComboBoxUI;
 public class StartSimulation extends JInternalFrame {
     
     
-    private JTextField altura1, largura1, espessura1, altura2, largura2, espessura2, altura3, largura3, espessura3, altura4, largura4, espessura4, altura5, largura5, espessura5, altura6, largura6, espessura6,
-            details1, details2, details3, details4, details5, details6, 
-            rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
+    public static JTextField rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JLabel lb_metrosaltura1, lb_metroslargura1, lb_metrosespessura1, lb_espessura1, lb_material1, lb_largura1, lb_altura1, lb_tipo1,
-            lb_metrosaltura2, lb_metroslargura2, lb_metrosespessura2, lb_espessura2, lb_material2, lb_largura2, lb_altura2, lb_tipo2,
-            lb_metrosaltura3, lb_metroslargura3, lb_metrosespessura3, lb_espessura3, lb_material3, lb_largura3, lb_altura3, lb_tipo3,
-            lb_metrosaltura4, lb_metroslargura4, lb_metrosespessura4, lb_espessura4, lb_material4, lb_largura4, lb_altura4, lb_tipo4,
-            lb_metrosaltura5, lb_metroslargura5, lb_metrosespessura5, lb_espessura5, lb_material5, lb_largura5, lb_altura5, lb_tipo5,
-            lb_metrosaltura6, lb_metroslargura6, lb_metrosespessura6, lb_espessura6, lb_material6, lb_largura6, lb_altura6, lb_tipo6,
-            lb_espaco10, lb_espaco11, lb_espaco12, lb_espaco13, lb_espaco14, lb_espaco15,
-            lb_espaco20, lb_espaco21, lb_espaco22, lb_espaco23, lb_espaco24, lb_espaco25,
-            lb_espaco30, lb_espaco31, lb_espaco32, lb_espaco33, lb_espaco34, lb_espaco35,
-            lb_espaco40, lb_espaco41, lb_espaco42, lb_espaco43, lb_espaco44, lb_espaco45,
-            lb_espaco50, lb_espaco51, lb_espaco52, lb_espaco53, lb_espaco54, lb_espaco55,
-            lb_espaco60, lb_espaco61, lb_espaco62, lb_espaco63, lb_espaco64, lb_espaco65,
-            lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo, lb_fluxo1, lb_fluxo2, lb_fluxo3, lb_fluxo4, lb_fluxo5, lb_fluxo6,
+    private JLabel lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo, lb_fluxo1, lb_fluxo2, lb_fluxo3, lb_fluxo4, lb_fluxo5, lb_fluxo6,
             lb_unid_rt1, lb_unid_rt2, lb_unid_rt3, lb_unid_rt4, lb_unid_rt5, lb_unid_rt6, lb_unid_rt7, lb_unid_rt8, lb_unid_fluxo1, lb_unid_fluxo2, lb_unid_fluxo3, lb_unid_fluxo4, lb_unid_fluxo5, lb_unid_fluxo6,
             lb_temp_ext_unid, lb_temp_int_unid, lb_temp_sol_unid, lb_comprimento_unid, lb_largura_unid, lb_altura_unid,
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
@@ -60,6 +46,11 @@ public class StartSimulation extends JInternalFrame {
             buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6,buttonSaveBinary ;
     private JList<Componente> listaComponentes1, listaComponentes2, listaComponentes3, listaComponentes4, listaComponentes5, listaComponentes6;
     private  final WallPanel panelWalls;
+    private JButton buttondefinir, buttonSaveBinary ;
+
+    public final WallPanel panelWalls;
+    
+    
     public StartSimulation() {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
                 true, //resizable
@@ -68,7 +59,6 @@ public class StartSimulation extends JInternalFrame {
                 true);//iconifiable
 
         Container contentPane = getContentPane();
-        //Use the content pane's default BorderLayout.
         contentPane.setLayout(new BorderLayout()); //unnecessary
         
          panelWalls = new WallPanel();
@@ -114,8 +104,40 @@ public class StartSimulation extends JInternalFrame {
         lb_buttondef14 = new JLabel("");
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
+            ExperienciaController ec = new ExperienciaController();
             
+            @Override
             public void actionPerformed(ActionEvent e) {
+                /*try {
+                    float numero = Float.parseFloat(temperaturaExterior.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero1 = Float.parseFloat(alturaCasa.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero2 = Float.parseFloat(larguraCasa.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero3 = Float.parseFloat(temperaturaInterior.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero4 = Float.parseFloat(temperaturaSolo.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }
+                try {
+                    float numero5 = Float.parseFloat(comprimentoCasa.getText());
+                } catch(NumberFormatException e2) {
+                    JOptionPane.showMessageDialog(null, "Existem campos com valores inválidos.\nAltere os campos e volte a tentar.");
+                }*/
                 if(comprimentoCasa.getText().isEmpty()
                         || alturaCasa.getText().isEmpty()
                         || larguraCasa.getText().isEmpty()
@@ -124,6 +146,7 @@ public class StartSimulation extends JInternalFrame {
                         || temperaturaSolo.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Existem campos por preencher.\nPreencha os campos e volte a tentar.");
                 } else {
+                    ec.criarExperiencia(temperaturaExterior.getText(), temperaturaInterior.getText(), temperaturaSolo.getText(), alturaCasa.getText(), larguraCasa.getText(), comprimentoCasa.getText());
                     panelWalls.getDim(comprimentoCasa.getText(), larguraCasa.getText(), alturaCasa.getText());
                     buttondefinir.setEnabled(false);
                 }
@@ -268,15 +291,28 @@ public class StartSimulation extends JInternalFrame {
                 BorderLayout.CENTER);
         contentPane.add(panelRight,
                 BorderLayout.EAST);
+        
+        rt_parede1.addActionListener(new ActionListener() {
 
-               
- 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Casa.getParede(0) != null) {
+                    float resistencia = Casa.getResistenciaTotalParede(0);
+                    rt_parede1.setText(resistencia + "");
+                }
+            }
+        });
+        
+        
+        
         //define o frame
         pack();
-        setSize(1480, 930);
-        setMinimumSize(new Dimension(800, 600));
-        Dimension paneSize = contentPane.getSize();
-        Dimension screenSize = contentPane.getToolkit().getScreenSize();
+        int inset = 50;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenMinus50 = new Dimension(screenSize.width - inset*2, screenSize.height - inset*2);
+        this.setPreferredSize(screenMinus50);
+        this.pack();
+        this.setSize(screenMinus50);
         setVisible(true);
     }
 

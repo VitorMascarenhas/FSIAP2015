@@ -45,17 +45,17 @@ public class ToHTML {
         "<html>\n" +
         "<head>\n" +
         "<title>"+nomeExperiencia+"</title>\n" +
+        "<meta charset=\"UTF-8\">\n" +
         "</head>\n" +
-        "<body>\n" +
-        "<img src=\"imgs\\isep.png\"/>";
+        "<body>\n";
         
         return prologo;
     }
     
     /*Método com o fim do html*/
     public static String epilogo(){
-        String epilogo = "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.developedby.text")+ "<h3>\n" +
-            "<h4>1060708 - Eduardo Silva | 1081320 Jo&atilde;o Sardon | 1100912 - Nuno Lemos | 1101153 - Andr&eacute; Teixeira | 111073 - Joel Alves | 1120035 - V&iacute;tor Mascarenhas<h4>\n" +
+        String epilogo = "<h3>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.developedby.text")+ "</h3>\n" +
+            "<h4>1060708 - Eduardo Silva | 1081320 Jo&atilde;o Sardon | 1100912 - Nuno Lemos | 1101153 - Andr&eacute; Teixeira | 111073 - Joel Alves | 1120035 - V&iacute;tor Mascarenhas</h4>\n" +
             "</body>\n" +
             "</html>";
         return epilogo;
@@ -298,7 +298,7 @@ public class ToHTML {
             html+="  <tr>\n" +
                 "    <td>"+cont+"</td>\n" +
                 "    <td>"+p.calculaResistenciaTermicaTotal()+"w<sup>-1</sup>&deg;c</td>\n" +
-                "    <td>"+Casa.getFluxoPorParede(cont)+"w</td>\n" +
+                "    <td>"+Casa.getFluxoPorParede(cont-1)+"w</td>\n" +
                 "  </tr>\n";
             cont++;
         }
@@ -325,6 +325,7 @@ public class ToHTML {
                         "<html>\n" +
                         "<head>\n" +
                         "<title>Lista Materiais</title>\n" +
+                        "<meta charset=\"UTF-8\">\n" +
                         "</head>\n" +
                         "<body>\n" +
                         "<h2>"+ Internacionalizacao.Idioma.BUNDLE.getString("ToHTML.materiallist.text") +"</h2>\n<br>\n" +

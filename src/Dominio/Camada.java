@@ -32,7 +32,7 @@ public class Camada implements Componente, Serializable {
     //claculo da resistencia termica
     @Override
     public float calculaResistenciaTermica() {
-        return Dominio.Termodinamica.calculaResistenciaTermica(this);
+        return Dominio.Termodinamica.CalculaResistenciaTermica(this);
     }
     
     @Override

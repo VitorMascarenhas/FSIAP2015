@@ -6,6 +6,7 @@
 package Dominio;
 
 import Factorys.FabricaComponentes;
+import static Internacionalizacao.Idioma.initBundle;
 import Persistencia.*;
 import Repositorios.Materiais;
 import UI.OpenExperience;
@@ -19,6 +20,8 @@ import java.io.FileNotFoundException;
 public class Console {
     
     public static void main(String[] args) throws FileNotFoundException {
+        initBundle();
+        
         
         // ADICIONAR MATERIAIS AO REPOSITORIO
         Materiais.getInstance().inserirMaterial("Tijolo", 0.4f);
@@ -123,13 +126,16 @@ public class Console {
         float fluxo = variacaoTemp/pchao;
         System.out.println("Fluxo do chão: " + fluxo);
         
-//        Casa c1 = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
-//        c1.adicionarParede(pA);
-//        c1.adicionarParede(pB);
-//        c1.adicionarParede(pC);
-//        c1.adicionarParede(pD);
-//        c1.adicionarParede(chao);
-//        c1.adicionarParede(teto);
+        Casa c1 = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
+        c1.adicionarParede(pA);
+        c1.adicionarParede(pB);
+        c1.adicionarParede(pC);
+        c1.adicionarParede(pD);
+        c1.adicionarParede(chao);
+        c1.adicionarParede(teto);
+        
+        //SaveToHTML save = new SaveToHTML();
+        OpenExperience op = new OpenExperience();
 //        
 //        ToHTML.exportExp("Experiencia1", c1);
 //        ToHTML.exportMat("Materiais");
@@ -146,6 +152,6 @@ public class Console {
 ////        ToHTML.exportExp("Experiencia3", c2);
 //        
 //        SaveToHTML save = new SaveToHTML(c2);
-        OpenExperience open = new OpenExperience();
+        //OpenExperience open = new OpenExperience();
     }
 }

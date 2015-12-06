@@ -10,9 +10,9 @@ import Dominio.Componente;
 import Dominio.Parede;
 import Repositorios.Materiais;
 import controlador.CriarComponenteControlador;
+import controlador.CriarParedeControlador;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -29,17 +29,10 @@ public class WallPanel extends javax.swing.JPanel {
     /**
      * Creates new form WallPanel
      */
-    private JTextField details1, details2, details3, details4, details5, details6,
-            rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
-            temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
-    private JComboBox material1, material2, material3, material4, material5, material6;
-    private JButton buttonadd1, buttonadd2, buttonadd3, buttonadd4, buttonadd5, buttonadd6,
-            buttondefinir,
-            button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
-            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6;
     private String altura, largura, comprimento;
-    final DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
-    final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
+    
+    static DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
+    static DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes4 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes5 = new DefaultListModel<>();
@@ -53,8 +46,13 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes4.setModel(componentes4);
         listaComponentes5.setModel(componentes5);
         listaComponentes6.setModel(componentes6);
-        Object[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
-        tipoMaterial1 = new JComboBox(materiaisArray);
+        preencheComboBoxMAteriais(tipoMaterial1);
+        preencheComboBoxMAteriais(tipoMaterial2);
+        preencheComboBoxMAteriais(tipoMaterial3);
+        preencheComboBoxMAteriais(tipoMaterial4);
+        preencheComboBoxMAteriais(tipoMaterial5);
+        preencheComboBoxMAteriais(tipoMaterial6);
+        preencheComboBoxTipo();
         disableTextField();
         
         tipo1.addItemListener(new ItemListener() {
@@ -119,8 +117,68 @@ public class WallPanel extends javax.swing.JPanel {
                 }
             }
         });
+                
+                
+        
+        btnAdicionar2.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionar2ActionPerformed(evt);
+            }
+        });
+        
+        
+        
+        btnValidar2.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar2ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar3ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar4ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar5ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar6ActionPerformed(evt);
+            }
+        });
     }
 
+    private void preencheComboBoxMAteriais(JComboBox comboBoxMateriais){
+        String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
+        for (String string : materiaisArray) {
+            comboBoxMateriais.addItem(string);
+        }
+        
+    }
+    
+    private void preencheComboBoxTipo(){
+        String[] tipoArray = {Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.window.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.door.text")};
+        for (String string : tipoArray) {
+            tipo1.addItem(string);
+            tipo2.addItem(string);
+            tipo3.addItem(string);
+            tipo4.addItem(string);           
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -250,49 +308,46 @@ public class WallPanel extends javax.swing.JPanel {
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
 
-        tipo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
         tipo1.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 tipo1ComponentShown(evt);
             }
         });
 
-        jLabel1.setText("Tipo:");
+        jLabel1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel2.setText("Altura:");
+        jLabel2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel3.setText("Largura:");
+        jLabel3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel4.setText("Material:");
+        jLabel4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        tipoMaterial1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        jLabel5.setText("Espessura:");
-
-        btnAdicionar1.setText("Adicionar");
+        btnAdicionar1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
         btnAdicionar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionar1ActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Lista de componentes:");
+        jLabel6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        listaComponentes1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listaComponentes1);
 
-        btnRemover1.setText("Remover Componente");
+        btnRemover1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover1ActionPerformed(evt);
             }
         });
 
-        btnValidar1.setText("Validar Parede");
+        btnValidar1.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 1");
+        btnValidar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar1ActionPerformed(evt);
+            }
+        });
 
         jLabel38.setText("m");
 
@@ -309,7 +364,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede1Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
@@ -374,20 +429,18 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 1", painelParede1);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 1", painelParede1);
 
-        tipo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
+        jLabel7.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel7.setText("Tipo:");
+        jLabel8.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel8.setText("Altura:");
+        jLabel9.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel9.setText("Largura:");
-
-        jLabel10.setText("Material:");
+        jLabel10.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
         largura2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,29 +448,22 @@ public class WallPanel extends javax.swing.JPanel {
             }
         });
 
-        tipoMaterial2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel11.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        jLabel11.setText("Espessura:");
+        btnAdicionar2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        btnAdicionar2.setText("Adicionar");
+        jLabel12.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        jLabel12.setText("Lista de componentes:");
-
-        listaComponentes2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(listaComponentes2);
 
-        btnRemover2.setText("Remover Componente");
+        btnRemover2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover2ActionPerformed(evt);
             }
         });
 
-        btnValidar2.setText("Validar Parede");
+        btnValidar2.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 2");
 
         jLabel25.setText("m");
 
@@ -509,44 +555,37 @@ public class WallPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(painelParede2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 2", jPanel2);
+        painelParede2.getAccessibleContext().setAccessibleName("");
 
-        tipo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 2", jPanel2);
 
-        jLabel13.setText("Tipo:");
+        jLabel13.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel14.setText("Altura:");
+        jLabel14.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel15.setText("Largura:");
+        jLabel15.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel16.setText("Material:");
+        jLabel16.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        tipoMaterial3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel17.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        jLabel17.setText("Espessura:");
+        btnAdicionar3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        btnAdicionar3.setText("Adicionar");
+        jLabel18.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        jLabel18.setText("Lista de componentes:");
-
-        listaComponentes3.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane3.setViewportView(listaComponentes3);
 
-        btnRemover3.setText("Remover Componente");
+        btnRemover3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover3ActionPerformed(evt);
             }
         });
 
-        btnValidar3.setText("Validar Parede");
+        btnValidar3.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 3");
 
         jLabel47.setText("m");
 
@@ -589,7 +628,7 @@ public class WallPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel47)
                                     .addComponent(jLabel48)
                                     .addComponent(jLabel49))))
-                        .addGap(0, 133, Short.MAX_VALUE)))
+                        .addGap(0, 163, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         painelParede3Layout.setVerticalGroup(
@@ -641,44 +680,35 @@ public class WallPanel extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(painelParede3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 3", jPanel3);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 3", jPanel3);
 
-        tipo4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
+        jLabel19.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
-        jLabel19.setText("Tipo:");
+        jLabel20.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel20.setText("Altura:");
+        jLabel21.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel21.setText("Largura:");
+        jLabel22.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        jLabel22.setText("Material:");
+        jLabel23.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        tipoMaterial4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnAdicionar4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        jLabel23.setText("Espessura:");
+        jLabel24.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        btnAdicionar4.setText("Adicionar");
-
-        jLabel24.setText("Lista de componentes:");
-
-        listaComponentes4.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane4.setViewportView(listaComponentes4);
 
-        btnRemover4.setText("Remover Componente");
+        btnRemover4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover4ActionPerformed(evt);
             }
         });
 
-        btnValidar4.setText("Validar Parede");
+        btnValidar4.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewall.text")+" 4");
 
         jLabel44.setText("m");
 
@@ -695,7 +725,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede4Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4)
@@ -760,42 +790,33 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Parede 4", painelParede4);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 4", painelParede4);
 
-        jLabel26.setText("Altura:");
+        jLabel26.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel27.setText("Largura:");
+        jLabel27.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel28.setText("Material:");
+        jLabel28.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        altura5.setText("jTextField1");
+        jLabel29.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        tipoMaterial5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnAdicionar5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        jLabel29.setText("Espessura:");
+        jLabel30.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        btnAdicionar5.setText("Adicionar");
-
-        jLabel30.setText("Lista de componentes:");
-
-        listaComponentes5.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane5.setViewportView(listaComponentes5);
 
-        btnRemover5.setText("Remover Componente");
+        btnRemover5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover5ActionPerformed(evt);
             }
         });
 
-        btnValidar5.setText("Validar Parede");
+        btnValidar5.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatefloor.text"));
 
         jLabel41.setText("m");
 
@@ -812,7 +833,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede5Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
@@ -871,40 +892,34 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Chão", painelParede5);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.floor.text"), painelParede5);
 
-        jLabel32.setText("Altura:");
+        jLabel32.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
 
-        jLabel33.setText("Largura:");
+        jLabel33.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.width.text")+":");
 
-        jLabel34.setText("Material:");
+        jLabel34.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.material.text")+":");
 
-        tipoMaterial6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel35.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.thickness.text")+":");
 
-        jLabel35.setText("Espessura:");
+        btnAdicionar6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.addcomp.text"));
 
-        btnAdicionar6.setText("Adicionar");
+        jLabel36.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.complist.text"));
 
-        jLabel36.setText("Lista de componentes:");
-
-        listaComponentes6.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane6.setViewportView(listaComponentes6);
 
-        btnRemover6.setText("Remover Componente");
+        btnRemover6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
+        btnRemover6.setActionCommand(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.removecomp.text"));
         btnRemover6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemover6ActionPerformed(evt);
             }
         });
 
-        btnValidar6.setText("Validar Parede");
+        btnValidar6.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateceiling.text"));
 
         jLabel50.setText("m");
 
@@ -921,7 +936,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede6Layout.createSequentialGroup()
-                        .addGap(0, 177, Short.MAX_VALUE)
+                        .addGap(0, 237, Short.MAX_VALUE)
                         .addComponent(btnRemover6, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane6)
@@ -980,10 +995,10 @@ public class WallPanel extends javax.swing.JPanel {
                 .addComponent(btnRemover6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnValidar6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Teto", painelParede6);
+        jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.ceiling.text"), painelParede6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1031,8 +1046,9 @@ public class WallPanel extends javax.swing.JPanel {
         int indice = tipo1.getSelectedIndex();
         String cmpnente = tipo1.getSelectedItem().toString().toUpperCase();
         CriarComponenteControlador ccc = new CriarComponenteControlador();
-        switch (indice) {
-            case 2: //Porta = 2
+        System.out.println(altura1.getText());
+        switch (cmpnente) {
+            case "PORTA": //Porta = 2
                 if (altura1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
                 }
@@ -1049,13 +1065,13 @@ public class WallPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                 }
 
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
                 nComponentesParede1++;
                 break;
-            case 1: //Janela = 1
+            case "JANELA": //Janela = 1
                 if (altura1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
                 }
@@ -1072,13 +1088,13 @@ public class WallPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
                 }
 
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
                 nComponentesParede1++;
                 break;
-            case 0: //Camada = 0
+            case "CAMADA": //Camada = 0
                 if (altura1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
                 }
@@ -1094,8 +1110,7 @@ public class WallPanel extends javax.swing.JPanel {
                 if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
                     JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                 }
-
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
@@ -1104,6 +1119,84 @@ public class WallPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAdicionar1ActionPerformed
 
+    private void btnAdicionar2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        int nComponentesParede2 = 0;
+        int indice = tipo2.getSelectedIndex();
+        String cmpnente = tipo2.getSelectedItem().toString().toUpperCase();
+        CriarComponenteControlador ccc = new CriarComponenteControlador();
+        System.out.println(altura2.getText());
+        switch (cmpnente) {
+            case "PORTA": //Porta = 2
+                if (altura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                }
+                if (largura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                }
+                if (espessura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                }
+                if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                }
+                if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
+                }
+
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial2.getSelectedItem().toString()));
+                listaComponentes2.setVisible(true);
+                listaComponentes2.revalidate();
+                listaComponentes2.repaint();
+                nComponentesParede2++;
+                break;
+            case "JANELA": //Janela = 1
+                if (altura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                }
+                if (largura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                }
+                if (espessura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                }
+                if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
+                }
+                if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
+                }
+
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial1.getSelectedItem().toString()));
+                listaComponentes2.setVisible(true);
+                listaComponentes2.revalidate();
+                listaComponentes2.repaint();
+                nComponentesParede2++;
+                break;
+            case "CAMADA": //Camada = 0
+                if (altura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                }
+                if (largura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                }
+                if (espessura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                }
+                if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
+                }
+                if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
+                }
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial2.getSelectedItem().toString()));
+                listaComponentes2.setVisible(true);
+                listaComponentes2.revalidate();
+                listaComponentes2.repaint();
+                nComponentesParede2++;
+                break;
+        }
+    }
+    
     private void largura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_largura2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_largura2ActionPerformed
@@ -1111,6 +1204,48 @@ public class WallPanel extends javax.swing.JPanel {
     private void tipo1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tipo1ComponentShown
         
     }//GEN-LAST:event_tipo1ComponentShown
+
+    private void btnValidar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidar1ActionPerformed
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura1.getText(), largura1.getText(), componentes1, 0);
+        StartSimulation.rt_parede1.setText(Casa.getResistenciaTotalParede(0)+"");
+        StartSimulation.fluxo1.setText(Casa.getFluxoPorParede(0)+"");
+    }//GEN-LAST:event_btnValidar1ActionPerformed
+
+    private void btnValidar2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura2.getText(), largura2.getText(), componentes2, 1);
+        StartSimulation.rt_parede2.setText(Casa.getResistenciaTotalParede(1)+"");
+        StartSimulation.fluxo2.setText(Casa.getFluxoPorParede(1)+"");
+    }
+    
+    private void btnValidar3ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura3.getText(), largura3.getText(), componentes3, 2);
+        StartSimulation.rt_parede3.setText(Casa.getResistenciaTotalParede(2)+"");
+        StartSimulation.fluxo3.setText(Casa.getFluxoPorParede(2)+"");
+    }
+    
+    private void btnValidar4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura4.getText(), largura4.getText(), componentes4, 3);
+        StartSimulation.rt_parede4.setText(Casa.getResistenciaTotalParede(3)+"");
+        StartSimulation.fluxo4.setText(Casa.getFluxoPorParede(3)+"");
+    }
+    
+    private void btnValidar5ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura5.getText(), largura5.getText(), componentes5, 4);
+        StartSimulation.rt_chao.setText(Casa.getResistenciaTotalParede(4)+"");
+        StartSimulation.fluxo5.setText(Casa.getFluxoPorParede(4)+"");
+    }
+    
+    private void btnValidar6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura6.getText(), largura6.getText(), componentes6, 5);
+        StartSimulation.rt_teto.setText(Casa.getResistenciaTotalParede(5)+"");
+        StartSimulation.fluxo6.setText(Casa.getFluxoPorParede(5)+"");
+    }
     
     private void tipo2ComponentShown(java.awt.event.ComponentEvent evt) {                                     
         if(tipo2.getSelectedItem().toString().equalsIgnoreCase("Camada")) {

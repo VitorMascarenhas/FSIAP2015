@@ -29,7 +29,7 @@ public class Porta implements Componente, Serializable {
 
     @Override
     public float calculaResistenciaTermica() {
-        return Dominio.Termodinamica.calculaResistenciaTermica(this);
+        return Dominio.Termodinamica.CalculaResistenciaTermica(this);
     }
     
     @Override
