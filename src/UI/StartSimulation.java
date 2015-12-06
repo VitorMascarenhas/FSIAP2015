@@ -38,11 +38,17 @@ public class StartSimulation extends JInternalFrame {
             lb_temperaturas, lb_dimensoes, lb_temperaturaExterior, lb_temperaturaInterior, lb_temperaturaSolo, lb_comprimentoCasa, lb_larguraCasa, lb_alturaCasa,
             lb_buttondef1, lb_buttondef2, lb_buttondef3, lb_buttondef4, lb_buttondef5, lb_buttondef6, lb_buttondef7, lb_buttondef8, lb_buttondef9, lb_buttondef10,
             lb_buttondef11, lb_buttondef12, lb_buttondef13, lb_buttondef14;
-    private JButton buttondefinir, buttonSaveBinary ;
+    private JComboBox material1, material2, material3, material4, material5, material6,
+            tipo1, tipo2, tipo3, tipo4, tipo5, tipo6;
+    private JButton buttonadd1, buttonadd2, buttonadd3, buttonadd4, buttonadd5, buttonadd6,
+            buttondefinir,
+            button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
+            buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6,buttonSaveBinary ;
+    private JList<Componente> listaComponentes1, listaComponentes2, listaComponentes3, listaComponentes4, listaComponentes5, listaComponentes6;
+    private  final WallPanel panelWalls;
+    
 
-    public final WallPanel panelWalls;
-    
-    
+
     public StartSimulation() {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
                 true, //resizable

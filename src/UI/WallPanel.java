@@ -1837,6 +1837,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     public void preencheSimulacao(Casa c1) {
         Parede p1 = c1.getAllParedes().get(0);
+        System.out.println(p1);
         listaComponentes1 = new JList(p1.getComponentes().toArray());
         Parede p2 = c1.getAllParedes().get(1);
         listaComponentes2 = new JList(p2.getComponentes().toArray());

@@ -9,12 +9,13 @@ import Dominio.Camada;
 import Dominio.Componente;
 import Dominio.Janela;
 import Dominio.Porta;
+import java.io.Serializable;
 
 /**
  *
  * @author 11011_000
  */
-public class FabricaComponentes {
+public class FabricaComponentes  implements Serializable{
 
     public Componente getComponente(String componente, float altura, float largura, float espessura, String nomeMaterial) {
 
