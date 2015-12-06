@@ -41,6 +41,11 @@ public class WallPanel extends javax.swing.JPanel {
 
     public WallPanel() {
         initComponents();
+        btnValidar2.setEnabled(false);
+        btnValidar3.setEnabled(false);
+        btnValidar4.setEnabled(false);
+        btnValidar5.setEnabled(false);
+        btnValidar6.setEnabled(false);
         listaComponentes1.setModel(componentes1);
         listaComponentes2.setModel(componentes2);
         listaComponentes3.setModel(componentes3);
@@ -1538,6 +1543,7 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnValidar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidar1ActionPerformed
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura1.getText(), largura1.getText(), componentes1, 0);
+        btnValidar2.setEnabled(true);
         StartSimulation.rt_parede1.setText(Casa.getResistenciaTotalParede(0) + "");
         StartSimulation.fluxo1.setText(Casa.getFluxoPorParede(0) + "");
     }//GEN-LAST:event_btnValidar1ActionPerformed
@@ -1545,6 +1551,7 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnValidar2ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura2.getText(), largura2.getText(), componentes2, 1);
+        btnValidar3.setEnabled(true);
         StartSimulation.rt_parede2.setText(Casa.getResistenciaTotalParede(1) + "");
         StartSimulation.fluxo2.setText(Casa.getFluxoPorParede(1) + "");
     }
@@ -1552,6 +1559,7 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnValidar3ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura3.getText(), largura3.getText(), componentes3, 2);
+        btnValidar4.setEnabled(true);
         StartSimulation.rt_parede3.setText(Casa.getResistenciaTotalParede(2) + "");
         StartSimulation.fluxo3.setText(Casa.getFluxoPorParede(2) + "");
     }
@@ -1559,6 +1567,7 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnValidar4ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura4.getText(), largura4.getText(), componentes4, 3);
+        btnValidar5.setEnabled(true);
         StartSimulation.rt_parede4.setText(Casa.getResistenciaTotalParede(3) + "");
         StartSimulation.fluxo4.setText(Casa.getFluxoPorParede(3) + "");
     }
@@ -1566,6 +1575,7 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnValidar5ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura5.getText(), largura5.getText(), componentes5, 4);
+        btnValidar6.setEnabled(true);
         StartSimulation.rt_chao.setText(Casa.getResistenciaTotalParede(4) + "");
         StartSimulation.fluxo5.setText(Casa.getFluxoPorParede(4) + "");
     }
