@@ -28,18 +28,27 @@ public class CriarParedeControlador {
         float areaPrd = altPrd*larPrd;
         
         ArrayList<Componente> compParede = new ArrayList<>();
-        
+                        
         // preenche o arraylist com os objetos do JList
         for(int i = 0;i<componentes.size();i++) {
             compParede.add(componentes.get(i));
         }
+        
+                for(Componente comp : compParede)
+            if(comp instanceof Porta || comp instanceof Janela)
+                areaPrd-=comp.calculaArea();
+        
+        for(Componente comp : compParede)
+            if(comp instanceof Camada)
+                comp.atualizarArea(areaPrd);        
+        
         System.out.println("Tamanho array " + compParede.size());
         // cria a parede com todos os componentes
         Parede parede = new Parede(altPrd, larPrd, compParede);
         
         float areaSomaPortasJanelas = 0f;
         float areaFinal = 0f;
-        
+        /*
         for(Componente comp : parede.getComponentes()) {
             if(comp instanceof Porta || comp instanceof Janela) {
                 areaSomaPortasJanelas+=comp.calculaArea();
@@ -56,7 +65,7 @@ public class CriarParedeControlador {
                 Camada camada = (Camada)parede.getComponente(i);
                 System.out.println("area: " + camada.getArea());
             }
-        }
+        }*/
         
         System.out.println("parede " + areaPrd);
         

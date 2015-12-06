@@ -20,4 +20,7 @@ public interface Componente {
     public float getEspessura();
     
     public String getTipoMaterial();
+    
+    public float getArea();
+    
 }

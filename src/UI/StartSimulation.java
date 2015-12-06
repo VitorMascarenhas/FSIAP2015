@@ -8,20 +8,12 @@ package UI;
 import Controlador.ExperienciaController;
 import Dominio.*;
 import Persistencia.BinaryFile;
-import Persistencia.ToHTML;
-import controlador.CriarComponenteControlador;
-import controlador.CriarParedeControlador;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import Repositorios.Materiais;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.io.File;
-import java.io.FileWriter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.plaf.basic.BasicComboBoxUI;
 
 /**
  *

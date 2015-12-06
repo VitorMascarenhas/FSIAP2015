@@ -1,13 +1,15 @@
-Alumínio;204
+﻿Alumínio;204
 Cobre;372
 Ferro\Aço;52
 Zinco;110
 Granito;3.5
 Mármore;2.5
-Tijolo;0.7
+Tijolo;0.81
+Espuma;0.023
+Fibrocimento;0.76
 Betão Leve;0.9
 Betão de Isolamento;0.23
-Vidro;0.8
+Vidro;0.79
 Esferovite;0.12
 Borracha;0.3
 Cortiça;0.0045

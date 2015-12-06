@@ -38,10 +38,13 @@ public class Camada implements Componente, Serializable {
     
     @Override
     public float calculaArea() {
+        if(this.area!=0)
+            return area;
+       
         this.area = this.getAltura()*this.getLargura();
         return this.area;
     }
-    
+        
     @Override
     public void atualizarArea(float area) {
         this.area = area;

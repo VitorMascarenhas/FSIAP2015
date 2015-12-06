@@ -13,7 +13,8 @@ public class Termodinamica {
     Resistencia térmica = Largura / (Condutividade material * Área)
     */
     public static float CalculaResistenciaTermica(Componente componente) {
-        return componente.getEspessura()/(componente.calculaArea()*Materiais.getInstance().obterCondutividade(componente.getTipoMaterial()));
+        System.out.println("O componente " + componente.toString() + " tem um área de "+ componente.getArea());
+        return componente.getEspessura()/(componente.getArea()*Materiais.getInstance().obterCondutividade(componente.getTipoMaterial()));
     }
     
     

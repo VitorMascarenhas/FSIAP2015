@@ -1139,7 +1139,7 @@ public class WallPanel extends javax.swing.JPanel {
         if (altura2.getText().isEmpty() || largura2.getText().isEmpty() || espessura2.getText().isEmpty() || Float.parseFloat(altura2.getText()) > Float.parseFloat(altura) || Float.parseFloat(largura2.getText()) > Float.parseFloat(comprimento)) {
             JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validate.text"));
         }else{
-            componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial1.getSelectedItem().toString()));
+            componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial2.getSelectedItem().toString()));
             listaComponentes2.setVisible(true);
             listaComponentes2.revalidate();
             listaComponentes2.repaint();
@@ -1222,7 +1222,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     private void btnValidar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidar1ActionPerformed
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura1.getText(), largura1.getText(), componentes1, 0);
+        cpc.criarParede(altura, largura, componentes1, 0);
         btnValidar2.setEnabled(true);
         StartSimulation.rt_parede1.setText(Casa.getResistenciaTotalParede(0) + "");
         StartSimulation.fluxo1.setText(Casa.getFluxoPorParede(0) + "");
@@ -1231,7 +1231,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     private void btnValidar2ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura2.getText(), largura2.getText(), componentes2, 1);
+        cpc.criarParede(altura, comprimento, componentes2, 1);
         btnValidar3.setEnabled(true);
         StartSimulation.rt_parede2.setText(Casa.getResistenciaTotalParede(1) + "");
         StartSimulation.fluxo2.setText(Casa.getFluxoPorParede(1) + "");
@@ -1240,7 +1240,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     private void btnValidar3ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura3.getText(), largura3.getText(), componentes3, 2);
+        cpc.criarParede(altura, largura, componentes3, 2);
         btnValidar4.setEnabled(true);
         StartSimulation.rt_parede3.setText(Casa.getResistenciaTotalParede(2) + "");
         StartSimulation.fluxo3.setText(Casa.getFluxoPorParede(2) + "");
@@ -1249,7 +1249,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     private void btnValidar4ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura4.getText(), largura4.getText(), componentes4, 3);
+        cpc.criarParede(altura, comprimento, componentes4, 3);
         btnValidar5.setEnabled(true);
         StartSimulation.rt_parede4.setText(Casa.getResistenciaTotalParede(3) + "");
         StartSimulation.fluxo4.setText(Casa.getFluxoPorParede(3) + "");
@@ -1258,7 +1258,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     private void btnValidar5ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura5.getText(), largura5.getText(), componentes5, 4);
+        cpc.criarParede(comprimento, largura, componentes5, 4);
         btnValidar6.setEnabled(true);
         StartSimulation.rt_chao.setText(Casa.getResistenciaTotalParede(4) + "");
         StartSimulation.fluxo5.setText(Casa.getFluxoPorParede(4) + "");
@@ -1267,7 +1267,7 @@ public class WallPanel extends javax.swing.JPanel {
 
     private void btnValidar6ActionPerformed(java.awt.event.ActionEvent evt) {
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura6.getText(), largura6.getText(), componentes6, 5);
+        cpc.criarParede(comprimento, largura, componentes6, 5);
         StartSimulation.rt_teto.setText(Casa.getResistenciaTotalParede(5) + "");
         StartSimulation.fluxo6.setText(Casa.getFluxoPorParede(5) + "");
         StartSimulation.fluxo.setText(Casa.calculaFluxoCalor()+"");

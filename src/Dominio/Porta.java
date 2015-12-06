@@ -17,6 +17,7 @@ public class Porta implements Componente, Serializable {
     private float altura;
     private float largura;
     private float espessura;
+    private float area;
 
     public Porta(float altura, float largura, float espessura, String material) {
         this.altura=altura;
@@ -72,5 +73,13 @@ public class Porta implements Componente, Serializable {
      */
     public float getLargura() {
         return largura;
+    }
+    
+    @Override
+    public float getArea() {
+        if(this.area!=0)
+            return this.area;
+        this.area=this.largura*this.altura;
+        return this.area;
     }
 }

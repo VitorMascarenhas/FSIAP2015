@@ -17,6 +17,7 @@ public class Janela implements Componente, Serializable{
     private float largura;
     private float espessura;
     private String nomeMaterial;
+    private float area;
     
     public Janela() {
     }
@@ -73,5 +74,13 @@ public class Janela implements Componente, Serializable{
     @Override
     public String getTipoMaterial() {
         return nomeMaterial;
+    }
+
+    @Override
+    public float getArea() {
+        if(this.area!=0)
+            return this.area;
+        this.area=this.largura*this.altura;
+        return this.area;
     }
 }
