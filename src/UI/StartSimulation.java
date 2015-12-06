@@ -5,6 +5,7 @@
  */
 package UI;
 
+import Controlador.ExperienciaController;
 import Dominio.*;
 import Persistencia.BinaryFile;
 import Persistencia.ToHTML;
@@ -29,7 +30,7 @@ import javax.swing.plaf.basic.BasicComboBoxUI;
 public class StartSimulation extends JInternalFrame {
     
     
-    private JTextField rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
+    public static JTextField rt_parede1, rt_parede2, rt_parede3, rt_parede4, rt_chao, rt_teto, rt_total, fluxo, fluxo1, fluxo2, fluxo3, fluxo4, fluxo5, fluxo6,
             temperaturaExterior, temperaturaInterior, temperaturaSolo, comprimentoCasa, larguraCasa, alturaCasa;
     private JLabel lb_rt_parede1, lb_rt_parede2, lb_rt_parede3, lb_rt_parede4, lb_rt_chao, lb_rt_teto, lb_rt_total, lb_fluxo, lb_fluxo1, lb_fluxo2, lb_fluxo3, lb_fluxo4, lb_fluxo5, lb_fluxo6,
             lb_unid_rt1, lb_unid_rt2, lb_unid_rt3, lb_unid_rt4, lb_unid_rt5, lb_unid_rt6, lb_unid_rt7, lb_unid_rt8, lb_unid_fluxo1, lb_unid_fluxo2, lb_unid_fluxo3, lb_unid_fluxo4, lb_unid_fluxo5, lb_unid_fluxo6,
@@ -95,6 +96,7 @@ public class StartSimulation extends JInternalFrame {
         lb_buttondef14 = new JLabel("");
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
+            ExperienciaController ec = new ExperienciaController();
             
             public void actionPerformed(ActionEvent e) {
                 if(comprimentoCasa.getText().isEmpty()
@@ -105,6 +107,7 @@ public class StartSimulation extends JInternalFrame {
                         || temperaturaSolo.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Existem campos por preencher.\nPreencha os campos e volte a tentar.");
                 } else {
+                    ec.criarExperiencia(temperaturaExterior.getText(), temperaturaInterior.getText(), temperaturaSolo.getText(), alturaCasa.getText(), larguraCasa.getText(), comprimentoCasa.getText());
                     panelWalls.getDim(comprimentoCasa.getText(), larguraCasa.getText(), alturaCasa.getText());
                     buttondefinir.setEnabled(false);
                 }

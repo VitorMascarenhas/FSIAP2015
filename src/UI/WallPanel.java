@@ -117,6 +117,36 @@ public class WallPanel extends javax.swing.JPanel {
                 }
             }
         });
+        
+        btnValidar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar2ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar3ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar4ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar5ActionPerformed(evt);
+            }
+        });
+        
+        btnValidar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidar6ActionPerformed(evt);
+            }
+        });
     }
 
     private void preencheComboBoxMAteriais(JComboBox comboBoxMateriais){
@@ -1113,8 +1143,44 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnValidar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidar1ActionPerformed
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura1.getText(), largura1.getText(), componentes1, 0);
-        Casa.getResistenciaTotalParede(0);
+        StartSimulation.rt_parede1.setText(Casa.getResistenciaTotalParede(0)+"");
+        StartSimulation.fluxo1.setText(Casa.getResistenciaTotalParede(0)+"");
     }//GEN-LAST:event_btnValidar1ActionPerformed
+
+    private void btnValidar2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura2.getText(), largura2.getText(), componentes2, 0);
+        StartSimulation.rt_parede2.setText(Casa.getResistenciaTotalParede(1)+"");
+        StartSimulation.fluxo2.setText(Casa.getResistenciaTotalParede(1)+"");
+    }
+    
+    private void btnValidar3ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura3.getText(), largura3.getText(), componentes3, 0);
+        StartSimulation.rt_parede3.setText(Casa.getResistenciaTotalParede(2)+"");
+        StartSimulation.fluxo3.setText(Casa.getResistenciaTotalParede(2)+"");
+    }
+    
+    private void btnValidar4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura4.getText(), largura4.getText(), componentes4, 0);
+        StartSimulation.rt_parede4.setText(Casa.getResistenciaTotalParede(3)+"");
+        StartSimulation.fluxo4.setText(Casa.getResistenciaTotalParede(3)+"");
+    }
+    
+    private void btnValidar5ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura5.getText(), largura5.getText(), componentes5, 0);
+        StartSimulation.rt_chao.setText(Casa.getResistenciaTotalParede(4)+"");
+        StartSimulation.fluxo5.setText(Casa.getResistenciaTotalParede(4)+"");
+    }
+    
+    private void btnValidar6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        CriarParedeControlador cpc = new CriarParedeControlador();
+        cpc.criarParede(altura6.getText(), largura6.getText(), componentes6, 0);
+        StartSimulation.rt_teto.setText(Casa.getResistenciaTotalParede(5)+"");
+        StartSimulation.fluxo6.setText(Casa.getResistenciaTotalParede(5)+"");
+    }
     
     private void tipo2ComponentShown(java.awt.event.ComponentEvent evt) {                                     
         if(tipo2.getSelectedItem().toString().equalsIgnoreCase("Camada")) {
