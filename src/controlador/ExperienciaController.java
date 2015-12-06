@@ -13,6 +13,8 @@ import Dominio.Casa;
  */
 public class ExperienciaController {
     
+    private Casa casa;
+    
     public ExperienciaController() {
     }
     
@@ -24,6 +26,9 @@ public class ExperienciaController {
         float tempExtCasa = Float.parseFloat(tempExt);
         float tempIntCasa = Float.parseFloat(tempInt);
         float tempTerraCasa = Float.parseFloat(tempTerra);
-        Casa casa = new Casa(tempExtCasa, tempIntCasa, tempTerraCasa, alturaCasa, larguraCasa, comprimentoCasa);
+         casa = new Casa(tempExtCasa, tempIntCasa, tempTerraCasa, alturaCasa, larguraCasa, comprimentoCasa);
+    }
+    public Casa getCasa(){
+        return casa;
     }
 }
