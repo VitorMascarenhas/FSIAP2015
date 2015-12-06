@@ -47,7 +47,7 @@ public class Casa implements Serializable {
         this.comprimento = casa.getCompr();
 
     }
-
+    
     /**
      * Adiciona Parede
      */

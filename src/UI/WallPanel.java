@@ -1946,6 +1946,8 @@ public class WallPanel extends javax.swing.JPanel {
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede2=0;
         cmpnente="";
+        altura2.setText(String.valueOf(c1.getAlt()));
+        largura2.setText(String.valueOf(c1.getLar()));
         //componentes1.copyInto(p1.getComponentes().toArray());
         for(Componente c: p2.getComponentes()){
             if(c instanceof Camada){
@@ -1975,6 +1977,8 @@ public class WallPanel extends javax.swing.JPanel {
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede3=0;
         cmpnente="";
+        altura3.setText(String.valueOf(c1.getAlt()));
+        largura3.setText(String.valueOf(c1.getLar()));
         //componentes1.copyInto(p1.getComponentes().toArray());
         for(Componente c: p3.getComponentes()){
             if(c instanceof Camada){
@@ -2003,6 +2007,8 @@ public class WallPanel extends javax.swing.JPanel {
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede4=0;
         cmpnente="";
+        altura4.setText(String.valueOf(c1.getAlt()));
+        largura4.setText(String.valueOf(c1.getLar()));
         //componentes1.copyInto(p1.getComponentes().toArray());
         for(Componente c: p4.getComponentes()){
             if(c instanceof Camada){
@@ -2031,6 +2037,8 @@ public class WallPanel extends javax.swing.JPanel {
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede5=0;
         cmpnente="";
+        altura5.setText(String.valueOf(c1.getAlt()));
+        largura5.setText(String.valueOf(c1.getLar()));
         //componentes1.copyInto(p1.getComponentes().toArray());
         for(Componente c: p5.getComponentes()){
             if(c instanceof Camada){
@@ -2058,6 +2066,8 @@ public class WallPanel extends javax.swing.JPanel {
         //listaComponentes1 = new JList(p1.getComponentes().toArray());
         int nComponentesParede6=0;
         cmpnente="";
+        altura6.setText(String.valueOf(c1.getAlt()));
+        largura6.setText(String.valueOf(c1.getLar()));
         //componentes1.copyInto(p1.getComponentes().toArray());
         for(Componente c: p6.getComponentes()){
             if(c instanceof Camada){

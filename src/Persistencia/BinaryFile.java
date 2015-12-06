@@ -24,7 +24,7 @@ public  class BinaryFile {
        public static void readFile(File file) throws IOException, ClassNotFoundException {
            try {
                //ObjectInputStream in = new ObjectInputStream (new FileInputStream("as.bin"));
-              FileInputStream fileInput =new FileInputStream(file);
+              FileInputStream fileInput =new FileInputStream(file.getPath());
                ObjectInputStream in = new ObjectInputStream(fileInput);
 
                System.out.println("I have read:");
@@ -74,8 +74,13 @@ public  class BinaryFile {
             out.writeObject(materiais);
             
             casa = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
+            System.out.println(casa.getAlt());
+            System.out.println(casa.getLar());
+            System.out.println(casa.getAllParedes().size());
             out.writeObject(casa);
+            out.flush();
             out.close();
+            fileout.flush();
             fileout.close();
 
         } catch (IOException io) {

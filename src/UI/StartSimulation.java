@@ -46,7 +46,7 @@ public class StartSimulation extends JInternalFrame {
             buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6,buttonSaveBinary ;
     private JList<Componente> listaComponentes1, listaComponentes2, listaComponentes3, listaComponentes4, listaComponentes5, listaComponentes6;
     private  final WallPanel panelWalls;
-    
+    private ExperienciaController ec;
 
 
     public StartSimulation() {
@@ -60,7 +60,7 @@ public class StartSimulation extends JInternalFrame {
         contentPane.setLayout(new BorderLayout()); //unnecessary
         
          panelWalls = new WallPanel();
-        
+        ec = new ExperienciaController();
         JPanel panelLeft = new JPanel();
 
         JPanel panelLeftNorth = new JPanel();
@@ -102,7 +102,7 @@ public class StartSimulation extends JInternalFrame {
         lb_buttondef14 = new JLabel("");
         buttondefinir = new JButton(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.define.text"));
         buttondefinir.addActionListener(new ActionListener() {
-            ExperienciaController ec = new ExperienciaController();
+             
             
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -250,7 +250,8 @@ public class StartSimulation extends JInternalFrame {
                     //chama o controlador para ir boscar o objecto casa
                     System.out.println(fi.getName());
                     try{
-                        BinaryFile.writeFile(null, fi);
+                        BinaryFile.writeFile(ec.getCasa(), fi);
+                        
                     }catch(Exception e2){
                         JOptionPane.showMessageDialog(null, e2.getMessage());
                     }
