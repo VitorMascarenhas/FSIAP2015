@@ -106,7 +106,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                     materiais.inserirMaterial(nome.getText(), cond);
                 }
                 catch(NumberFormatException ex) {
-                    throw new IllegalArgumentException("Valor de condutividade inválido");
+                    throw new IllegalArgumentException(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.invalid.text"));
                 }
             }
             
@@ -114,34 +114,32 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.fraseEmpety2.text"), Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"), JOptionPane.ERROR_MESSAGE);                    
             }
             
-            
-			// Get the text field value
-			String stringValue = nome.getText().trim().replace("-", " ");
-			nome.setText( "" );
-                        float condValue = Float.parseFloat(condutividade.getText().replace(",", "."));
+            // Get the text field value
+            String stringValue = nome.getText().trim().replace("-", " ");
+            nome.setText( "" );
+            float condValue = Float.parseFloat(condutividade.getText().replace(",", "."));
+            condutividade.setText("");
 
-			// Add this item to the list and refresh
-			if( stringValue != null )
-			{
-                             
-                                Materiais.getInstance().inserirMaterial(stringValue, condValue);
+            // Add this item to the list and refresh
+            if( stringValue != null ){
+                Materiais.getInstance().inserirMaterial(stringValue, condValue);
                                 
-                                try {
-                                Object[] list = Materiais.getInstance().getListMateriais().toArray();    
-                                listbox.setListData(list);
-                                listbox.setVisible(true);
-                            } catch (NullPointerException npe) {
-                                    System.out.println(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"));
-                            }
+                try {
+                    Object[] list = Materiais.getInstance().getListMateriais().toArray();    
+                    listbox.setListData(list);
+                    listbox.setVisible(true);
+                } catch (NullPointerException npe) {
+                    System.out.println(Internacionalizacao.Idioma.BUNDLE.getString("InsertMaterials.error.text"));
+                }
 				
-//                              listData.addElement( stringValue );
-//				listbox.setListData( listData );
-                                lista_materiais.revalidate();
-				lista_materiais.repaint();
-			}
+//                listData.addElement( stringValue );
+//		  listbox.setListData( listData );
+                lista_materiais.revalidate();
+		lista_materiais.repaint();
+            }
             
         }
+        
     }
-
    
 }
