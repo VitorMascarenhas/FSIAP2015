@@ -29,7 +29,6 @@ public class WallPanel extends javax.swing.JPanel {
     /**
      * Creates new form WallPanel
      */
-    private JComboBox material1;
     private String altura, largura, comprimento;
     
     static DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
@@ -53,6 +52,7 @@ public class WallPanel extends javax.swing.JPanel {
         preencheComboBoxMAteriais(tipoMaterial4);
         preencheComboBoxMAteriais(tipoMaterial5);
         preencheComboBoxMAteriais(tipoMaterial6);
+        preencheComboBoxTipo();
         disableTextField();
         
         tipo1.addItemListener(new ItemListener() {
@@ -117,10 +117,8 @@ public class WallPanel extends javax.swing.JPanel {
                 }
             }
         });
-        
-        
-        
-        
+                
+                
         
         btnAdicionar2.addActionListener(new java.awt.event.ActionListener() {
             @Override
@@ -128,10 +126,6 @@ public class WallPanel extends javax.swing.JPanel {
                 btnAdicionar2ActionPerformed(evt);
             }
         });
-        
-        
-        
-        
         
         
         
@@ -171,6 +165,17 @@ public class WallPanel extends javax.swing.JPanel {
         String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
         for (String string : materiaisArray) {
             comboBoxMateriais.addItem(string);
+        }
+        
+    }
+    
+    private void preencheComboBoxTipo(){
+        String[] tipoArray = {Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.window.text"), Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.door.text")};
+        for (String string : tipoArray) {
+            tipo1.addItem(string);
+            tipo2.addItem(string);
+            tipo3.addItem(string);
+            tipo4.addItem(string);           
         }
         
     }
@@ -429,8 +434,6 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 1", painelParede1);
 
-        tipo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
-
         jLabel7.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
         jLabel8.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
@@ -559,8 +562,6 @@ public class WallPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 2", jPanel2);
 
-        tipo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
-
         jLabel13.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
         jLabel14.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.height.text")+":");
@@ -683,8 +684,6 @@ public class WallPanel extends javax.swing.JPanel {
         );
 
         jTabbedPane1.addTab(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.wall.text")+" 3", jPanel3);
-
-        tipo4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Camada", "Janela", "Porta" }));
 
         jLabel19.setText(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.type.text")+":");
 
