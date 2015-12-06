@@ -6,11 +6,8 @@
 package UI;
 
 
-import Dominio.Casa;
-import Dominio.Parede;
-import Persistencia.BinaryFile;
-import Persistencia.ToHTML;
-import Repositorios.Materiais;
+import Persistencia.FromHTML;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -25,5 +22,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
        _gui = new Project();
        
+       FromHTML loadData = new FromHTML();
+       loadData.leMateriais(new File("ListaMateriais.txt"));
     }
 }   
