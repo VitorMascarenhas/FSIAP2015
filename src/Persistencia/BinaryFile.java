@@ -73,7 +73,7 @@ public  class BinaryFile {
             ArrayList<Material> materiais=Materiais.getInstance().getListMateriais();
             out.writeObject(materiais);
             
-            casa = new Casa(15.0f, 30.0f, 15.0f,12f,14f,23f);
+            
             System.out.println(casa.getAlt());
             System.out.println(casa.getLar());
             System.out.println(casa.getAllParedes().size());
