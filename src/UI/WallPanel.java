@@ -47,10 +47,12 @@ public class WallPanel extends javax.swing.JPanel {
         listaComponentes4.setModel(componentes4);
         listaComponentes5.setModel(componentes5);
         listaComponentes6.setModel(componentes6);
-        String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
-        for (String string : materiaisArray) {
-            tipoMaterial1.addItem(string);
-        }
+        preencheComboBoxMAteriais(tipoMaterial1);
+        preencheComboBoxMAteriais(tipoMaterial2);
+        preencheComboBoxMAteriais(tipoMaterial3);
+        preencheComboBoxMAteriais(tipoMaterial4);
+        preencheComboBoxMAteriais(tipoMaterial5);
+        preencheComboBoxMAteriais(tipoMaterial6);
         disableTextField();
         
         tipo1.addItemListener(new ItemListener() {
@@ -117,6 +119,13 @@ public class WallPanel extends javax.swing.JPanel {
         });
     }
 
+    private void preencheComboBoxMAteriais(JComboBox comboBoxMateriais){
+        String[] materiaisArray = Materiais.getInstance().getListaDeMateriais();
+        for (String string : materiaisArray) {
+            comboBoxMateriais.addItem(string);
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1020,8 +1029,9 @@ public class WallPanel extends javax.swing.JPanel {
         int indice = tipo1.getSelectedIndex();
         String cmpnente = tipo1.getSelectedItem().toString().toUpperCase();
         CriarComponenteControlador ccc = new CriarComponenteControlador();
-        switch (indice) {
-            case 2: //Porta = 2
+        System.out.println(altura1.getText());
+        switch (cmpnente) {
+            case "PORTA": //Porta = 2
                 if (altura1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
                 }
@@ -1038,13 +1048,13 @@ public class WallPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
                 }
 
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
                 nComponentesParede1++;
                 break;
-            case 1: //Janela = 1
+            case "JANELA": //Janela = 1
                 if (altura1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
                 }
@@ -1061,13 +1071,13 @@ public class WallPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
                 }
 
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
                 nComponentesParede1++;
                 break;
-            case 0: //Camada = 0
+            case "CAMADA": //Camada = 0
                 if (altura1.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
                 }
@@ -1083,8 +1093,7 @@ public class WallPanel extends javax.swing.JPanel {
                 if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
                     JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                 }
-
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), material1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura, largura, altura, tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
