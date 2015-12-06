@@ -33,7 +33,7 @@ public class WallPanel extends javax.swing.JPanel {
     private String altura, largura, comprimento;
     
     static DefaultListModel<Componente> componentes1 = new DefaultListModel<>();
-    final DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
+    static DefaultListModel<Componente> componentes2 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes3 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes4 = new DefaultListModel<>();
     final DefaultListModel<Componente> componentes5 = new DefaultListModel<>();
@@ -118,7 +118,25 @@ public class WallPanel extends javax.swing.JPanel {
             }
         });
         
+        
+        
+        
+        
+        btnAdicionar2.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionar2ActionPerformed(evt);
+            }
+        });
+        
+        
+        
+        
+        
+        
+        
         btnValidar2.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValidar2ActionPerformed(evt);
             }
@@ -1132,6 +1150,84 @@ public class WallPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAdicionar1ActionPerformed
 
+    private void btnAdicionar2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        int nComponentesParede2 = 0;
+        int indice = tipo2.getSelectedIndex();
+        String cmpnente = tipo2.getSelectedItem().toString().toUpperCase();
+        CriarComponenteControlador ccc = new CriarComponenteControlador();
+        System.out.println(altura2.getText());
+        switch (cmpnente) {
+            case "PORTA": //Porta = 2
+                if (altura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                }
+                if (largura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                }
+                if (espessura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                }
+                if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
+                }
+                if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a porta.");
+                }
+
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial2.getSelectedItem().toString()));
+                listaComponentes2.setVisible(true);
+                listaComponentes2.revalidate();
+                listaComponentes2.repaint();
+                nComponentesParede2++;
+                break;
+            case "JANELA": //Janela = 1
+                if (altura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                }
+                if (largura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                }
+                if (espessura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                }
+                if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
+                }
+                if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da janela não pode ser superior à largura da parede.\nInsira uma nova largura para a janela.");
+                }
+
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial1.getSelectedItem().toString()));
+                listaComponentes2.setVisible(true);
+                listaComponentes2.revalidate();
+                listaComponentes2.repaint();
+                nComponentesParede2++;
+                break;
+            case "CAMADA": //Camada = 0
+                if (altura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                }
+                if (largura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                }
+                if (espessura2.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                }
+                if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
+                }
+                if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
+                    JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
+                }
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura, largura, altura, tipoMaterial1.getSelectedItem().toString()));
+                listaComponentes2.setVisible(true);
+                listaComponentes2.revalidate();
+                listaComponentes2.repaint();
+                nComponentesParede2++;
+                break;
+        }
+    }
+    
     private void largura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_largura2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_largura2ActionPerformed
@@ -1144,42 +1240,42 @@ public class WallPanel extends javax.swing.JPanel {
         CriarParedeControlador cpc = new CriarParedeControlador();
         cpc.criarParede(altura1.getText(), largura1.getText(), componentes1, 0);
         StartSimulation.rt_parede1.setText(Casa.getResistenciaTotalParede(0)+"");
-        StartSimulation.fluxo1.setText(Casa.getResistenciaTotalParede(0)+"");
+        StartSimulation.fluxo1.setText(Casa.getFluxoPorParede(0)+"");
     }//GEN-LAST:event_btnValidar1ActionPerformed
 
     private void btnValidar2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura2.getText(), largura2.getText(), componentes2, 0);
+        cpc.criarParede(altura2.getText(), largura2.getText(), componentes2, 1);
         StartSimulation.rt_parede2.setText(Casa.getResistenciaTotalParede(1)+"");
-        StartSimulation.fluxo2.setText(Casa.getResistenciaTotalParede(1)+"");
+        StartSimulation.fluxo2.setText(Casa.getFluxoPorParede(1)+"");
     }
     
     private void btnValidar3ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura3.getText(), largura3.getText(), componentes3, 0);
+        cpc.criarParede(altura3.getText(), largura3.getText(), componentes3, 2);
         StartSimulation.rt_parede3.setText(Casa.getResistenciaTotalParede(2)+"");
-        StartSimulation.fluxo3.setText(Casa.getResistenciaTotalParede(2)+"");
+        StartSimulation.fluxo3.setText(Casa.getFluxoPorParede(2)+"");
     }
     
     private void btnValidar4ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura4.getText(), largura4.getText(), componentes4, 0);
+        cpc.criarParede(altura4.getText(), largura4.getText(), componentes4, 3);
         StartSimulation.rt_parede4.setText(Casa.getResistenciaTotalParede(3)+"");
-        StartSimulation.fluxo4.setText(Casa.getResistenciaTotalParede(3)+"");
+        StartSimulation.fluxo4.setText(Casa.getFluxoPorParede(3)+"");
     }
     
     private void btnValidar5ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura5.getText(), largura5.getText(), componentes5, 0);
+        cpc.criarParede(altura5.getText(), largura5.getText(), componentes5, 4);
         StartSimulation.rt_chao.setText(Casa.getResistenciaTotalParede(4)+"");
-        StartSimulation.fluxo5.setText(Casa.getResistenciaTotalParede(4)+"");
+        StartSimulation.fluxo5.setText(Casa.getFluxoPorParede(4)+"");
     }
     
     private void btnValidar6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         CriarParedeControlador cpc = new CriarParedeControlador();
-        cpc.criarParede(altura6.getText(), largura6.getText(), componentes6, 0);
+        cpc.criarParede(altura6.getText(), largura6.getText(), componentes6, 5);
         StartSimulation.rt_teto.setText(Casa.getResistenciaTotalParede(5)+"");
-        StartSimulation.fluxo6.setText(Casa.getResistenciaTotalParede(5)+"");
+        StartSimulation.fluxo6.setText(Casa.getFluxoPorParede(5)+"");
     }
     
     private void tipo2ComponentShown(java.awt.event.ComponentEvent evt) {                                     
