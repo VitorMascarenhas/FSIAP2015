@@ -64,7 +64,7 @@ public class WallPanel extends javax.swing.JPanel {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (tipo1.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                if (tipo1.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
                     disableTextField1();
                     getDimParede1(altura, largura);
                 } else {
@@ -79,7 +79,7 @@ public class WallPanel extends javax.swing.JPanel {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (tipo2.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                if (tipo2.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
                     disableTextField2();
                     getDimParede2(altura, comprimento);
                 } else {
@@ -95,7 +95,7 @@ public class WallPanel extends javax.swing.JPanel {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (tipo3.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                if (tipo3.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
                     disableTextField3();
                     getDimParede3(altura, largura);
                 } else {
@@ -111,7 +111,7 @@ public class WallPanel extends javax.swing.JPanel {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (tipo4.getSelectedItem().toString().equalsIgnoreCase("Camada") || tipo1.getSelectedItem().toString().equalsIgnoreCase("Layer")) {
+                if (tipo4.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
                     disableTextField4();
                     getDimParede4(altura, comprimento);
                 } else {
@@ -1123,13 +1123,13 @@ public class WallPanel extends javax.swing.JPanel {
         switch (indice) {
             case 2: //Porta = 2
                 if (altura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightdoor.text"));
                 }
                 if (largura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthdoor.text"));
                 }
                 if (espessura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknessdoor.text"));
                 }
                 if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
@@ -1146,13 +1146,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 1: //Janela = 1
                 if (altura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightwindow.text"));
                 }
                 if (largura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthwindow.text"));
                 }
                 if (espessura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesswindow.text"));
                 }
                 if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
@@ -1169,13 +1169,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 0: //Camada = 0
                 if (altura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightlayer.text"));
                 }
                 if (largura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthlayer.text"));
                 }
                 if (espessura1.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesslayer.text"));
                 }
                 if (Float.parseFloat(altura1.getText()) > Float.parseFloat(altura1.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
@@ -1200,13 +1200,13 @@ public class WallPanel extends javax.swing.JPanel {
         switch (indice) {
             case 2: //Porta = 2
                 if (altura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightdoor.text"));
                 }
                 if (largura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthdoor.text"));
                 }
                 if (espessura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknessdoor.text"));
                 }
                 if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
@@ -1223,13 +1223,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 1: //Janela = 1
                 if (altura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightwindow.text"));
                 }
                 if (largura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthwindow.text"));
                 }
                 if (espessura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesswindow.text"));
                 }
                 if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
@@ -1246,13 +1246,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 0: //Camada = 0
                 if (altura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightlayer.text"));
                 }
                 if (largura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthlayer.text"));
                 }
                 if (espessura2.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesslayer.text"));
                 }
                 if (Float.parseFloat(altura2.getText()) > Float.parseFloat(altura2.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
@@ -1277,13 +1277,13 @@ public class WallPanel extends javax.swing.JPanel {
         switch (indice) {
             case 2: //Porta = 2
                 if (altura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightdoor.text"));
                 }
                 if (largura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthdoor.text"));
                 }
                 if (espessura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknessdoor.text"));
                 }
                 if (Float.parseFloat(altura3.getText()) > Float.parseFloat(altura3.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
@@ -1300,13 +1300,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 1: //Janela = 1
                 if (altura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightwindow.text"));
                 }
                 if (largura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthwindow.text"));
                 }
                 if (espessura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesswindow.text"));
                 }
                 if (Float.parseFloat(altura3.getText()) > Float.parseFloat(altura3.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
@@ -1323,13 +1323,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 0: //Camada = 0
                 if (altura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightlayer.text"));
                 }
                 if (largura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthlayer.text"));
                 }
                 if (espessura3.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesslayer.text"));
                 }
                 if (Float.parseFloat(altura3.getText()) > Float.parseFloat(altura3.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
@@ -1354,13 +1354,13 @@ public class WallPanel extends javax.swing.JPanel {
         switch (indice) {
             case 2: //Porta = 2
                 if (altura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightdoor.text"));
                 }
                 if (largura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthdoor.text"));
                 }
                 if (espessura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknessdoor.text"));
                 }
                 if (Float.parseFloat(altura4.getText()) > Float.parseFloat(altura4.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
@@ -1377,13 +1377,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 1: //Janela = 1
                 if (altura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightwindow.text"));
                 }
                 if (largura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthwindow.text"));
                 }
                 if (espessura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesswindow.text"));
                 }
                 if (Float.parseFloat(altura4.getText()) > Float.parseFloat(altura4.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
@@ -1400,13 +1400,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 0: //Camada = 0
                 if (altura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightlayer.text"));
                 }
                 if (largura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthlayer.text"));
                 }
                 if (espessura4.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesslayer.text"));
                 }
                 if (Float.parseFloat(altura4.getText()) > Float.parseFloat(altura4.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
@@ -1426,18 +1426,18 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnAdicionar5ActionPerformed(java.awt.event.ActionEvent evt) {
         int nComponentesParede5 = 0;
         int indice = 0; //Chão é tratado apenas como camada (indice 0)
-        String cmpnente = "CAMADA";
+        String cmpnente = Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text");
         CriarComponenteControlador ccc = new CriarComponenteControlador();
         switch (indice) {
             case 2: //Porta = 2
                 if (altura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightdoor.text"));
                 }
                 if (largura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthdoor.text"));
                 }
                 if (espessura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknessdoor.text"));
                 }
                 if (Float.parseFloat(altura5.getText()) > Float.parseFloat(altura5.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
@@ -1454,13 +1454,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 1: //Janela = 1
                 if (altura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightwindow.text"));
                 }
                 if (largura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthwindow.text"));
                 }
                 if (espessura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesswindow.text"));
                 }
                 if (Float.parseFloat(altura5.getText()) > Float.parseFloat(altura5.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
@@ -1477,13 +1477,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 0: //Camada = 0
                 if (altura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightlayer.text"));
                 }
                 if (largura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthlayer.text"));
                 }
                 if (espessura5.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesslayer.text"));
                 }
                 if (Float.parseFloat(altura5.getText()) > Float.parseFloat(altura5.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
@@ -1503,18 +1503,18 @@ public class WallPanel extends javax.swing.JPanel {
     private void btnAdicionar6ActionPerformed(java.awt.event.ActionEvent evt) {
         int nComponentesParede6 = 0;
         int indice = 0; //Chão é tratado apenas como camada (indice 0)
-        String cmpnente = "CAMADA";
+        String cmpnente = Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text");
         CriarComponenteControlador ccc = new CriarComponenteControlador();
         switch (indice) {
             case 2: //Porta = 2
                 if (altura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightdoor.text"));
                 }
                 if (largura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthdoor.text"));
                 }
                 if (espessura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da porta.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknessdoor.text"));
                 }
                 if (Float.parseFloat(altura6.getText()) > Float.parseFloat(altura6.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a porta.");
@@ -1531,13 +1531,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 1: //Janela = 1
                 if (altura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightwindow.text"));
                 }
                 if (largura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthwindow.text"));
                 }
                 if (espessura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da janela.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesswindow.text"));
                 }
                 if (Float.parseFloat(altura6.getText()) > Float.parseFloat(altura6.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da janela não pode ser superior à altura da parede.\nInsira uma nova altura para a janela.");
@@ -1554,13 +1554,13 @@ public class WallPanel extends javax.swing.JPanel {
                 break;
             case 0: //Camada = 0
                 if (altura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo altura está vazio.\nInsira um valor para a altura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validateheightlayer.text"));
                 }
                 if (largura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo largura está vazio.\nInsira um valor para a largura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatewidthlayer.text"));
                 }
                 if (espessura6.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "O campo espessura está vazio.\nInsira um valor para a espessura da camada.");
+                    JOptionPane.showMessageDialog(null, Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.validatethicknesslayer.text"));
                 }
                 if (Float.parseFloat(altura6.getText()) > Float.parseFloat(altura6.getText())) {
                     JOptionPane.showMessageDialog(null, "A altura da porta não pode ser superior à altura da parede.\nInsira uma nova altura para a camada.");
@@ -1640,7 +1640,7 @@ public class WallPanel extends javax.swing.JPanel {
     }
 
     private void tipo2ComponentShown(java.awt.event.ComponentEvent evt) {
-        if (tipo2.getSelectedItem().toString().equalsIgnoreCase("Camada")) {
+        if (tipo2.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
             disableTextField2();
         } else {
             enableTextField2();
@@ -1648,7 +1648,7 @@ public class WallPanel extends javax.swing.JPanel {
     }
 
     private void tipo3ComponentShown(java.awt.event.ComponentEvent evt) {
-        if (tipo3.getSelectedItem().toString().equalsIgnoreCase("Camada")) {
+        if (tipo3.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
             disableTextField3();
         } else {
             enableTextField3();
@@ -1656,7 +1656,7 @@ public class WallPanel extends javax.swing.JPanel {
     }
 
     private void tipo4ComponentShown(java.awt.event.ComponentEvent evt) {
-        if (tipo4.getSelectedItem().toString().equalsIgnoreCase("Camada")) {
+        if (tipo4.getSelectedItem().toString().equalsIgnoreCase(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.layer.text"))) {
             disableTextField4();
         } else {
             enableTextField4();
