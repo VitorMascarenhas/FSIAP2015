@@ -122,6 +122,7 @@ public class Casa implements Serializable {
         float fluxoCalor = 0;
         for (int i = 0; i < paredes.size(); i++) {
             fluxoCalor += getFluxoPorParede(i);
+            System.out.println("fluxo" + i + "-" +fluxoCalor);
         }
         return fluxoCalor;
     }

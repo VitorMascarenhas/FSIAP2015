@@ -19,11 +19,11 @@ public class FabricaComponentes  implements Serializable{
 
     public Componente getComponente(String componente, float altura, float largura, float espessura, String nomeMaterial) {
 
-        if (componente.equalsIgnoreCase("Porta")) {
+        if (componente.equalsIgnoreCase("Porta") || componente.equalsIgnoreCase("Door")) {
             return new Porta(altura, largura, espessura, nomeMaterial);
-        } else if (componente.equalsIgnoreCase("Janela")) {
+        } else if (componente.equalsIgnoreCase("Janela") || componente.equalsIgnoreCase("Window")) {
             return new Janela(altura, largura, espessura, nomeMaterial);
-        } else if (componente.equalsIgnoreCase("Camada")) {
+        } else if (componente.equalsIgnoreCase("Camada") || componente.equalsIgnoreCase("Layer")) {
             return new Camada(altura, largura, espessura, nomeMaterial);
         } else {
             return null;
