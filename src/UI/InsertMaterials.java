@@ -101,7 +101,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
                 //Implementar gravação de dados
                 try{                
                     Materiais  materiais = Materiais.getInstance();
-                    String strCond = condutividade.getText().replace(",", ".");
+                    String strCond = condutividade.getText().trim().replace(",", ".");
                     float cond = Float.parseFloat(strCond);
                     materiais.inserirMaterial(nome.getText(), cond);
                 }
@@ -116,7 +116,7 @@ public class InsertMaterials extends JInternalFrame implements ActionListener {
             
             
 			// Get the text field value
-			String stringValue = nome.getText();
+			String stringValue = nome.getText().trim().replace("-", " ");
 			nome.setText( "" );
                         float condValue = Float.parseFloat(condutividade.getText().replace(",", "."));
 
