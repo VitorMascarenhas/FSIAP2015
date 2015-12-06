@@ -56,11 +56,12 @@ public class StartSimulation extends JInternalFrame {
                 true, //maximizable
                 true);//iconifiable
 
+        
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout()); //unnecessary
         
          panelWalls = new WallPanel();
-        
+         panelWalls.cleanLists();
         JPanel panelLeft = new JPanel();
 
         JPanel panelLeftNorth = new JPanel();
@@ -331,5 +332,6 @@ public class StartSimulation extends JInternalFrame {
         larguraCasa.setText(c1.getLar()+"");
         alturaCasa.setText(c1.getAlt()+"");
         panelWalls.preencheSimulacao(c1);
+        Casa.eliminarParedes();
     }
 }
