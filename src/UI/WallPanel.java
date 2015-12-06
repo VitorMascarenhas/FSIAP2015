@@ -1110,7 +1110,7 @@ public class WallPanel extends javax.swing.JPanel {
                 if (Float.parseFloat(largura1.getText()) > Float.parseFloat(largura1.getText())) {
                     JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                 }
-                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura, largura, altura, tipoMaterial1.getSelectedItem().toString()));
+                componentes1.add(nComponentesParede1, ccc.criarComponente(cmpnente, altura1.getText(), largura1.getText(), espessura1.getText(), tipoMaterial1.getSelectedItem().toString()));
                 listaComponentes1.setVisible(true);
                 listaComponentes1.revalidate();
                 listaComponentes1.repaint();
@@ -1188,7 +1188,7 @@ public class WallPanel extends javax.swing.JPanel {
                 if (Float.parseFloat(largura2.getText()) > Float.parseFloat(largura2.getText())) {
                     JOptionPane.showMessageDialog(null, "A largura da porta não pode ser superior à largura da parede.\nInsira uma nova largura para a camada.");
                 }
-                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura, largura, altura, tipoMaterial1.getSelectedItem().toString()));
+                componentes2.add(nComponentesParede2, ccc.criarComponente(cmpnente, altura2.getText(), largura2.getText(), espessura2.getText(), tipoMaterial2.getSelectedItem().toString()));
                 listaComponentes2.setVisible(true);
                 listaComponentes2.revalidate();
                 listaComponentes2.repaint();
