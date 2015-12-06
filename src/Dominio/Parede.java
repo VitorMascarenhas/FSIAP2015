@@ -163,4 +163,8 @@ public class Parede implements Serializable {
     public ArrayList<Componente> getComponentes() {
         return componentes;
     }
+    @Override
+    public String toString(){
+        return altura +" - " +largura + "-" +getComponente(0);
+    }
 }

@@ -59,7 +59,7 @@ public class StartSimulation extends JInternalFrame {
             button_remove1, button_remove2, button_remove3, button_remove4, button_remove5, button_remove6,
             buttonvalidarparede1, buttonvalidarparede2, buttonvalidarparede3, buttonvalidarparede4, buttonvalidarparede5, buttonvalidarparede6,buttonSaveBinary ;
     private JList<Componente> listaComponentes1, listaComponentes2, listaComponentes3, listaComponentes4, listaComponentes5, listaComponentes6;
-    public  final WallPanel panelWalls;
+    private  final WallPanel panelWalls;
     public StartSimulation() {
         super(Internacionalizacao.Idioma.BUNDLE.getString("StartSimulation.simulation.text"),
                 true, //resizable

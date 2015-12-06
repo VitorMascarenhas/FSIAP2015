@@ -7,6 +7,7 @@ package Persistencia;
 
 import Dominio.Camada;
 import Dominio.Casa;
+import Dominio.Material;
 import Dominio.Parede;
 import Repositorios.Materiais;
 import static UI.Main._gui;
@@ -22,31 +23,29 @@ import javax.swing.JDesktopPane;
 public  class BinaryFile {
        public static void readFile(File file) throws IOException, ClassNotFoundException {
            try {
-           //ObjectInputStream in = new ObjectInputStream (new FileInputStream("as.bin"));
-           ObjectInputStream in = new ObjectInputStream (new FileInputStream(file));
-           
-           System.out.println("I have read:");
-           Casa c1= (Casa) in.readObject();  
-           System.out.println("A  object: " + c1);
-               System.out.println(c1.getTemperaturaExterior()+"");
-               System.out.println(c1.getTemperaturaInterior()+"");
-               System.out.println(c1.getTemperaturaTerra()+"");
-               System.out.println(c1.getCompr()+"");
-               System.out.println(c1.getLar()+"");
-               System.out.println(c1.getAlt()+"");
-           StartSimulation start = new StartSimulation();
-           start.preencheSimulacao(c1);
-           JDesktopPane desktop = _gui.getJDesktopPane();
-           desktop.add(start);
-           desktop.moveToFront(start);
-           start.panelWalls.preencheSimulacao(c1);
+               //ObjectInputStream in = new ObjectInputStream (new FileInputStream("as.bin"));
+               ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
 
+               System.out.println("I have read:");
+               
+               ArrayList<Material> materiais = (ArrayList<Material>) in.readObject();
+               for (Material m : materiais) {
+                   Materiais.getInstance().inserirMaterial(m.getNomeMaterial(), m.obterCondutividade());
+               }
+               
+               Casa c1 = (Casa) in.readObject();
+
+               StartSimulation start = new StartSimulation();
+               start.preencheSimulacao(c1);
+               JDesktopPane desktop = _gui.getJDesktopPane();
+               desktop.add(start);
+               desktop.moveToFront(start);
+
+           } catch (IOException io) {
+               System.out.println("Error Open");
+           } catch (ClassNotFoundException Not) {
+               System.out.println("Error Not found file");
            }
-           catch (IOException io) {
-            System.out.println("Error Open");
-        }catch (ClassNotFoundException  Not) {
-            System.out.println("Error Not found file");
-        }
 
         
     }
@@ -56,15 +55,13 @@ public  class BinaryFile {
         try {
             //create a stream chain with object stream at the top.
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file.getPath()+".bin"));
+            
+            ArrayList<Material> materiais=Materiais.getInstance().getListMateriais();
+            out.writeObject(materiais);
+            
             casa =ExemploCasa();
-             System.out.println(casa.getTemperaturaExterior()+"");
-        System.out.println(casa.getTemperaturaInterior()+"");
-        System.out.println(casa.getTemperaturaTerra()+"");
-        System.out.println(casa.getCompr()+"");
-        System.out.println(casa.getLar()+"");
-        System.out.println(casa.getAlt()+"");
             out.writeObject(casa);
-            //escrever os materiais. 
+            
             out.close();
 
         } catch (IOException io) {
@@ -76,11 +73,11 @@ public  class BinaryFile {
     }
     public static Casa ExemploCasa(){
     // ADICIONAR MATERIAIS AO REPOSITORIO
-//        Materiais.getInstance().inserirMaterial("Tijolo", 0.4f);
-//        Materiais.getInstance().inserirMaterial("Fibra de vidro", 0.046f);
-//        Materiais.getInstance().inserirMaterial("Ar", 0.026f);
-//        Materiais.getInstance().inserirMaterial("Madeira", 0.11f);
-//        Materiais.getInstance().inserirMaterial("Alumínio", 237f);
+        Materiais.getInstance().inserirMaterial("Tijolo", 0.4f);
+        Materiais.getInstance().inserirMaterial("Fibra de vidro", 0.046f);
+        Materiais.getInstance().inserirMaterial("Ar", 0.026f);
+        Materiais.getInstance().inserirMaterial("Madeira", 0.11f);
+        Materiais.getInstance().inserirMaterial("Alumínio", 237f);
 //        
 //
 //        // Tamanho da casa

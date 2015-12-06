@@ -63,7 +63,7 @@ public class Camada implements Componente, Serializable {
     }
     
     public String toString(){
-        return "Camada - " + tipoMaterial;
+        return "Camada - " + tipoMaterial +" Altura - "+altura+" Lrrgura - "+largura+" Espessura - "+espessura ;
     }
     
     public float getArea() {
