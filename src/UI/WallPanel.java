@@ -24,6 +24,7 @@ import java.awt.Event.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Arrays;
+import java.util.*;
 /**
  *
  * @author suq-madik
@@ -395,7 +396,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede1Layout.createSequentialGroup()
-                        .addGap(0, 237, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnRemover1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
@@ -421,7 +422,7 @@ public class WallPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel38)
                                     .addComponent(jLabel39)
                                     .addComponent(jLabel40))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 209, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         painelParede1Layout.setVerticalGroup(
@@ -659,7 +660,7 @@ public class WallPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel47)
                                     .addComponent(jLabel48)
                                     .addComponent(jLabel49))))
-                        .addGap(0, 163, Short.MAX_VALUE)))
+                        .addGap(0, 209, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         painelParede3Layout.setVerticalGroup(
@@ -756,7 +757,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede4Layout.createSequentialGroup()
-                        .addGap(0, 237, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnRemover4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4)
@@ -782,7 +783,7 @@ public class WallPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel44)
                                     .addComponent(jLabel45)
                                     .addComponent(jLabel46))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 209, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         painelParede4Layout.setVerticalGroup(
@@ -864,7 +865,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede5Layout.createSequentialGroup()
-                        .addGap(0, 237, Short.MAX_VALUE)
+                        .addGap(0, 292, Short.MAX_VALUE)
                         .addComponent(btnRemover5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
@@ -967,7 +968,7 @@ public class WallPanel extends javax.swing.JPanel {
                 .addGroup(painelParede6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnValidar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelParede6Layout.createSequentialGroup()
-                        .addGap(0, 237, Short.MAX_VALUE)
+                        .addGap(0, 292, Short.MAX_VALUE)
                         .addComponent(btnRemover6, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdicionar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane6)
@@ -1049,27 +1050,69 @@ public class WallPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemover4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover4ActionPerformed
-        // TODO add your handling code here:
+        if(listaComponentes4.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(null, "Não existe nenhum elemento selecionado para ser eliminado.\nSelecione um elemento e volte a tentar.");
+        } else {
+            int index = listaComponentes4.getSelectedIndex();
+            removeElemento(componentes4, index);
+        }
+        listaComponentes4.revalidate();
+        listaComponentes4.repaint(); 
     }//GEN-LAST:event_btnRemover4ActionPerformed
 
     private void btnRemover3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover3ActionPerformed
-        // TODO add your handling code here:
+        if(listaComponentes3.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(null, "Não existe nenhum elemento selecionado para ser eliminado.\nSelecione um elemento e volte a tentar.");
+        } else {
+            int index = listaComponentes3.getSelectedIndex();
+            removeElemento(componentes3, index);
+        }
+        listaComponentes3.revalidate();
+        listaComponentes3.repaint(); 
     }//GEN-LAST:event_btnRemover3ActionPerformed
 
     private void btnRemover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover2ActionPerformed
-        // TODO add your handling code here:
+        if(listaComponentes2.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(null, "Não existe nenhum elemento selecionado para ser eliminado.\nSelecione um elemento e volte a tentar.");
+        } else {
+            int index = listaComponentes2.getSelectedIndex();
+            removeElemento(componentes2, index);
+        }
+        listaComponentes2.revalidate();
+        listaComponentes2.repaint(); 
     }//GEN-LAST:event_btnRemover2ActionPerformed
 
     private void btnRemover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover1ActionPerformed
-        // TODO add your handling code here:
+        if(listaComponentes1.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(null, "Não existe nenhum elemento selecionado para ser eliminado.\nSelecione um elemento e volte a tentar.");
+        } else {
+            int index = listaComponentes1.getSelectedIndex();
+            removeElemento(componentes1, index);
+        }
+        listaComponentes1.revalidate();
+        listaComponentes1.repaint(); 
     }//GEN-LAST:event_btnRemover1ActionPerformed
 
     private void btnRemover5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover5ActionPerformed
-        // TODO add your handling code here:
+        if(listaComponentes5.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(null, "Não existe nenhum elemento selecionado para ser eliminado.\nSelecione um elemento e volte a tentar.");
+        } else {
+            int index = listaComponentes5.getSelectedIndex();
+            removeElemento(componentes5, index);
+        }
+        listaComponentes5.revalidate();
+        listaComponentes5.repaint();   
     }//GEN-LAST:event_btnRemover5ActionPerformed
 
     private void btnRemover6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemover6ActionPerformed
-        // TODO add your handling code here:
+        if(listaComponentes6.getSelectedIndex() < 0) {
+            JOptionPane.showMessageDialog(null, "Não existe nenhum elemento selecionado para ser eliminado.\nSelecione um elemento e volte a tentar.");
+        } else {
+            int index = listaComponentes6.getSelectedIndex();
+            removeElemento(componentes6, index);
+        }
+        listaComponentes6.revalidate();
+        listaComponentes6.repaint();  
     }//GEN-LAST:event_btnRemover6ActionPerformed
 
     private void btnAdicionar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionar1ActionPerformed
@@ -1725,7 +1768,27 @@ public class WallPanel extends javax.swing.JPanel {
         largura4.setEnabled(true);
         altura4.setEnabled(true);
     }
-
+    
+    private void removeElemento(DefaultListModel<Componente> dlm, int index) {
+        
+        ArrayList<Componente> componentes = new ArrayList<>();
+        
+        for(int i = 0; i < dlm.size();i++) {
+            componentes.add(dlm.get(i));
+        }
+        
+        dlm.clear();
+        
+        componentes.remove(index);
+        
+        
+        int j = 0;
+        for(Componente c : componentes) {
+            dlm.add(j, c);
+            j++;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField altura1;
     private javax.swing.JTextField altura2;
